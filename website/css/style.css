@@ -1,15 +1,14 @@
-    @import url("https://fonts.googleapis.com/css?family=Gamja+Flower");
     html,
     body {
         width: 100%;
         height: 100%;
-        font-family: 'Gamja Flower';
+        font-family: Roboto-regular;
         font-size: 25px;
         color: #222;
     }
     
     .navbar {
-        background-color: rgba(82, 64, 120, 0.9) !important;
+        background-color: #ed1c24 !important;
     }
     
     .navbar li a {
@@ -150,12 +149,191 @@
     }
     
     @media (min-width: 1200px) {
+
+        html, body{
+            background-color: #f4f4f4;
+        }
+
         .main-container {
             width: 1200px;
             margin-right: auto;
             margin-left: auto;
+            
         }
+        #big .item { 
+            background: #ec6e46;
+            margin:2px; 
+            color: #FFF;
+            text-align: center; 
+        }
+
+        #thumbs .item {
+            background: #C9C9C9;
+            height: 70px;
+            line-height: 70px;
+            padding: 0px;
+            margin: 2px;
+            color: #FFF;
+            border-radius: 3px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        #thumbs .item h1 {
+            font-size: 18px;
+        }
+
+        #thumbs .current .item {
+            background: #FF5722;
+        }
+
+        .owl-theme .owl-nav [class*='owl-'] {
+            transition: all .3s ease;
+        }
+
+        .owl-theme .owl-nav [class*='owl-'].disabled:hover {
+            background-color: #D6D6D6;
+        }
+
+        #big.owl-theme {
+            position: relative;
+        }
+
+        #big.owl-theme .owl-next,
+        #big.owl-theme .owl-prev {
+            background: #333;
+            width: 22px;
+            line-height: 40px;
+            height: 40px;
+            margin-top: -20px;
+            position: absolute;
+            text-align: center;
+            top: 50%;
+        }
+        .fa-arrow-left:before {
+            content: "\f060";
+            color: #FFF;
+        }
+        .fa-arrow-right:before {
+            content: "\f061";
+            color: #FFF;
+        }
+
+        #big.owl-theme .owl-prev {
+            left: 10px;
+        }
+        
+        #big.owl-theme .owl-next {
+            right: 10px;
+        }
+        
+        #thumbs.owl-theme .owl-next,
+        #thumbs.owl-theme .owl-prev {
+            background: #333;
+        }
+        .indicator-thumbnail{
+            border: 1px solid #ddd;
+            background-color: #fff;
+            margin: 0 0 0px !important;
+            padding: 0 0 0 0px !important;
+        }
+        .indicator-thumbnail li
+        {
+            width: 100%;
+            height: 58px;
+            display: block;
+            border-radius: 0;
+            border: none;
+            margin-top: 0;
+            text-indent: initial;
+            text-align: left;
+            margin-bottom: 0;
+        }
+
+        .indicator-thumbnail li a {
+            color: #000;
+            text-decoration: none;
+            font-size: 12px;
+        }
+        
+        
+        .indicator-thumbnail li figure {
+            background-position: -58px -10px;
+            width: 83px;
+            height: 46px;
+            background-repeat: no-repeat;
+            float: left;
+            margin: 5px 10px 2px 0;
+            overflow: hidden;
+        }
+
+        .indicator-thumbnail li a p {
+            margin: 0;
+            font-size: 13px;
+            padding: 2px 2px 0 0;
+            text-align: justify;
+            height: 36px;
+            overflow: hidden;
+            -webkit-line-clamp: 2;
+        }
+
+        .indicator-thumbnail li a span {
+            font-size: 12px;
+            color: #676767;
+        }
+
         .pro-image img{
             width: 100%;
         }
+        .a-image img{
+            margin-bottom: 4px;
+        }
+
+        .col-no-padding{
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+
+        .owl-theme .owl-nav.disabled+.owl-dots{
+            margin-top: -20px;
+        }
+
+        .card {
+            margin: 0 -5px 10px;
+            cursor: pointer;
+        }
+        .card-content {
+            display: block;
+            position: relative;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+        .card-img {
+            width: 280px;
+            height: 168px;
+        }
+        .card .order-now .btn-order {
+            transform: translate(-50%,-50%) scale(0);
+            transition: all .2s;
+            z-index: 2;
+        }
+        .card-body {
+            font-size: 14px;
+            color: #252525;
+            -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+            padding: 0 15px;
+            border: 1px solid #ebebeb;
+            border-top: 0;
+            border-radius: 0 0 5px 5px;
+        }
+        .card-name {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            font-weight: 700;
+    padding: 6px 0;
+        }
+        
     }
+    

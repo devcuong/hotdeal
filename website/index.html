@@ -14,11 +14,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="./js/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="./css/owl.carousel.min.css">
+    <link rel="stylesheet" href="./css/owl.theme.default.min.css">
     <link rel="stylesheet" href="./css/style.css">
+    <script>
+        $(document).ready(function() {
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                margin: 10,
+                responsiveClass: true,
+                items: 1
+            })
+        });
+    </script>
 </head>
 
 <body>
@@ -52,211 +64,177 @@
             </div>
         </div>
     </nav>
-    <!-- Carousel -->
-    <div class="container-fluid">
-        <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="9000">
-            <div class="carousel-inner row w-10 mxauto" role="listbox">
-                <div class="carousel-item col-md-4 active">
-                    <img class="img-fluid mx-auto d-bloc" src="http://placehold.it/600x400/000/fff?text=1"
-                        alt="slide 1">
+    <div class="main-container" <!-- Carousel -->
+        <div class="container-fluid padding">
+            <div class="row padding">
+                <div class="col-md-3">0k</div>
+                <div class="col-md-6">
+                    <div class="owl-carousel owl-theme">
+                        <div class="item">
+                            <h4><img src="https://s3-hd.hotdeal.vn/original/2019/8/2/5d678bb44fa59-690x335-nen.png"></h4>
+                        </div>
+                        <div class="item">
+                            <h4><img src="https://s3-hd.hotdeal.vn/original/2019/8/2/5d5cbd9412d2b-background.png"></h4>
+                        </div>
+                        <div class="item">
+                            <h4><img src="https://s3-hd.hotdeal.vn/original/2019/8/2/5d5cbd9412d2b-background.png"></h4>
+                        </div>
+                    </div>
                 </div>
-                <div class="carousel-item col-md-4">
-                    <img class="img-fluid mx-auto d-block" src="http://placehold.it/600x400?text=2" alt="slide 2">
-                </div>
-                <div class="carousel-item col-md-4">
-                    <img class="img-fluid mx-auto d-block" src="http://placehold.it/600x400?text=3" alt="slide 3">
-                </div>
-                <div class="carousel-item col-md-4">
-                    <img class="img-fluid mx-auto d-block" src="http://placehold.it/600x400?text=4" alt="slide 4">
-                </div>
-                <div class="carousel-item col-md-4">
-                    <img class="img-fluid mx-auto d-block" src="http://placehold.it/600x400?text=5" alt="slide 5">
-                </div>
-                <div class="carousel-item col-md-4">
-                    <img class="img-fluid mx-auto d-block" src="http://placehold.it/600x400?text=6" alt="slide 6">
-                </div>
-                <div class="carousel-item col-md-4">
-                    <img class="img-fluid mx-auto d-block" src="http://placehold.it/600x400?text=7" alt="slide 7">
-                </div>
-                <div class="carousel-item col-md-4">
-                    <img class="img-fluid mx-auto d-block" src="http://placehold.it/600x400?text=8" alt="slide 7">
-                </div>
+                <div class="col-md-3">hi</div>
             </div>
-            <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
-                <i class="fa fa-chevron-left fa-lg text-muted"></i>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next text-faded" href="#carouselExample" role="button" data-slide="next">
-                <i class="fa fa-chevron-right fa-lg text-muted"></i>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-    </div>
-    <!-- Jumbotron -->
-    <div class="container-fluid">
-        <div class="jumbotron">
-            <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-2">
-                <a href="#">
-                    <button type="button" class="btn btn-outline-secondary">Buy a host</button>
-                </a>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid padding">
-        <div class="row welcome text-center">
-            <div class="col-12">
-                <h1 class="display-4">
-                    Build Your application
-                </h1>
-            </div>
-            <hr>
-            <div class="col-12">
-                <p>
-                    Build Your application
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid padding">
-        <div class="row text-center padding">
-            <div class="col-xs-12 col-sm-6 col-md-4">
-                <i class="fab fa-react"></i>
-                <h3>REACT</h3>
-                <p>BUILD YOUR APP WITH REACT</p>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4">
-                <i class="fab fa-css3"></i>
-                <h3>CSS3, HTML</h3>
-                <p>BUILD YOUR APP WITH CSS3, HTML</p>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4">
-                <i class="fab fa-angular"></i>
-                <h3>ANGULAR</h3>
-                <p>BUILD YOUR APP WITH ANGULAR</p>
-            </div>
-        </div>
-        <hr class="my-4">
-    </div>
-    <div class="container-fluid padding">
-        <div class="row padding">
-            <div class="col-md-12 col-lg-6">
-                <p>You can do it if you convert the folder to a git project and then by adding hooks it can do what
-                    ever you want on every commit and or push that was made. If its not a git repository you will
-                    need some other third party to handle it
-                    for you.</p>
-            </div>
-            <div class="col-lg-6">
-                <img src="./image/laptop.JPG" class="img-fluid">
-                <!-- img-fluid la responsive hinh anh phong to thu nho -->
-            </div>
-        </div>
 
-    </div>
-    <hr class="my-2">
-    <button class="fun" data-toggle="collapse" data-target="#emoji">
+        </div>
+        <div class="container-fluid padding">
+            <div class="row welcome text-center">
+                <div class="col-12">
+                    <h1 class="display-4">
+                        Build Your application
+                    </h1>
+                </div>
+                <hr>
+                <div class="col-12">
+                    <p>
+                        Build Your application
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid padding">
+            <div class="row text-center padding">
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <i class="fab fa-react"></i>
+                    <h3>REACT</h3>
+                    <p>BUILD YOUR APP WITH REACT</p>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <i class="fab fa-css3"></i>
+                    <h3>CSS3, HTML</h3>
+                    <p>BUILD YOUR APP WITH CSS3, HTML</p>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <i class="fab fa-angular"></i>
+                    <h3>ANGULAR</h3>
+                    <p>BUILD YOUR APP WITH ANGULAR</p>
+                </div>
+            </div>
+            <hr class="my-4">
+        </div>
+        <div class="container-fluid padding">
+            <div class="row padding">
+                <div class="col-md-12 col-lg-6">
+                    <p>You can do it if you convert the folder to a git project and then by adding hooks it can do what ever you want on every commit and or push that was made. If its not a git repository you will need some other third party to handle it
+                        for you.
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="./image/laptop.JPG" class="img-fluid">
+                    <!-- img-fluid la responsive hinh anh phong to thu nho -->
+                </div>
+            </div>
+
+        </div>
+        <hr class="my-2">
+        <button class="fun" data-toggle="collapse" data-target="#emoji">
         Click for fun
     </button>
-    <div id="emoji" class="collapse">
-        <div class="row text-center">
-            <div class="col-sm-6 col-md-3">
-                <img class="gif" src="./image/gif/blinkEyes.gif" width="100" height="100" />
-            </div>
-            <div class="col-sm-6 col-md-3">
-                <img class="gif" src="./image/gif/blinkGirl.gif" width="100" height="100" />
-            </div>
-            <div class="col-sm-6 col-md-3">
-                <img class="gif" src="./image/gif/faceHaha.gif" width="100" height="100" />
-            </div>
-            <div class="col-sm-6 col-md-3">
-                <img class="gif" src="./image/gif/haha.gif" width="100" height="100" />
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid padding">
-        <div class="row welcome text-center">
-            <div class="col-12">
-                <h1 class="display-4">
-                    Meet our team members
-                </h1>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid padding">
-        <div class="row padding">
-            <div class="col-md-4">
-                <div class="card">
-                    <img class="card-img-top" src="./image/nguyenduchoang.png">
-                    <div class="card-body">
-                        <h4 class="card-title">Nguyen duc hoang</h4>
-                        <p class="card-text">Nguyen duc hoang is fullstack developer with 12 years of experience</p>
-                        <a href="#" class="btn btn-outline-secondary">See profile</a>
-                    </div>
+        <div id="emoji" class="collapse">
+            <div class="row text-center">
+                <div class="col-sm-6 col-md-3">
+                    <img class="gif" src="./image/gif/blinkEyes.gif" width="100" height="100" />
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img class="card-img-top" src="./image/johndoe.png">
-                    <div class="card-body">
-                        <h4 class="card-title">johndoe</h4>
-                        <p class="card-text">johndoe is web developer with 12 years of experience</p>
-                        <a href="#" class="btn btn-outline-secondary">See profile</a>
-                    </div>
+                <div class="col-sm-6 col-md-3">
+                    <img class="gif" src="./image/gif/blinkGirl.gif" width="100" height="100" />
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img class="card-img-top" src="./image/Natasha.png">
-                    <div class="card-body">
-                        <h4 class="card-title">Natasha</h4>
-                        <p class="card-text">Natasha is web developer with 12 years of experience</p>
-                        <a href="#" class="btn btn-outline-secondary">See profile</a>
-                    </div>
+                <div class="col-sm-6 col-md-3">
+                    <img class="gif" src="./image/gif/faceHaha.gif" width="100" height="100" />
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <img class="gif" src="./image/gif/haha.gif" width="100" height="100" />
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container-fluid padding">
-        <div class="row padding">
-            <div class="col-md-12 col-lg-6">
-                <h2>Our vision</h2>
-                <p>All our work is for customer </p>
-                <p>All our work is for customer </p>
-                <br>
-            </div>
-            <div class="col-lg-6">
-                <img src="./image/mission.jpg" class="img-fluid" />
+        <div class="container-fluid padding">
+            <div class="row welcome text-center">
+                <div class="col-12">
+                    <h1 class="display-4">
+                        Meet our team members
+                    </h1>
+                </div>
             </div>
         </div>
-        <hr class="my-4">
-    </div>
-    <div class="container-fluid padding">
-        <div class="row text-center padding">
-            <div class="col-12">
-                <h2>
-                    Contact us
-                </h2>
+        <div class="container-fluid padding">
+            <div class="row padding">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img class="card-img-top" src="./image/nguyenduchoang.png">
+                        <div class="card-body">
+                            <h4 class="card-title">Nguyen duc hoang</h4>
+                            <p class="card-text">Nguyen duc hoang is fullstack developer with 12 years of experience</p>
+                            <a href="#" class="btn btn-outline-secondary">See profile</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img class="card-img-top" src="./image/johndoe.png">
+                        <div class="card-body">
+                            <h4 class="card-title">johndoe</h4>
+                            <p class="card-text">johndoe is web developer with 12 years of experience</p>
+                            <a href="#" class="btn btn-outline-secondary">See profile</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img class="card-img-top" src="./image/Natasha.png">
+                        <div class="card-body">
+                            <h4 class="card-title">Natasha</h4>
+                            <p class="card-text">Natasha is web developer with 12 years of experience</p>
+                            <a href="#" class="btn btn-outline-secondary">See profile</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-12 social padding">
-                <a href="#">
-                    <i class="fab fa-facebook"></i>
-                </a>
-                <a href="#">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="#">
-                    <i class="fab fa-google-plus-g"></i>
-                </a>
-                <a href="#">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="#">
-                    <i class="fab fa-youtube"></i>
-                </a>
+        </div>
+        <div class="container-fluid padding">
+            <div class="row padding">
+                <div class="col-md-12 col-lg-6">
+                    <h2>Our vision</h2>
+                    <p>All our work is for customer </p>
+                    <p>All our work is for customer </p>
+                    <br>
+                </div>
+                <div class="col-lg-6">
+                    <img src="./image/mission.jpg" class="img-fluid" />
+                </div>
+            </div>
+            <hr class="my-4">
+        </div>
+        <div class="container-fluid padding">
+            <div class="row text-center padding">
+                <div class="col-12">
+                    <h2>
+                        Contact us
+                    </h2>
+                </div>
+                <div class="col-12 social padding">
+                    <a href="#">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fab fa-google-plus-g"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -292,27 +270,6 @@
                 </div>
             </div>
     </footer>
-    <!-- script tạo slide carousel -->
-    <script>
-        $('#carouselExample').on('slide.bs.carousel', function (e) {
-            var $e = $(e.relatedTarget);
-            var idx = $e.index();
-            var itemsPerSlide = 3;
-            var totalItems = $('.carousel-item').length;
-            if (idx >= totalItems - (itemsPerSlide - 1)) {
-                var it = itemsPerSlide - (totalItems - idx);
-                for (var i = 0; i < it; i++) {
-                    // append slides to end
-                    if (e.direction == "left") {
-                        $('.carousel-item').eq(i).appendTo('.carousel-inner');
-                    }
-                    else {
-                        $('.carousel-item').eq(0).appendTo('.carousel-inner');
-                    }
-                }
-            }
-        });
-    </script>
 </body>
 
 </html>

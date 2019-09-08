@@ -18,112 +18,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="./js/owl.carousel.min.js"></script>
+    <script src="./js/main.js"></script>
     <link rel="stylesheet" href="./css/owl.carousel.min.css">
     <link rel="stylesheet" href="./css/owl.theme.default.min.css">
     <link rel="stylesheet" href="./css/style.css">
-    <script>
-        $(document).ready(function () {
-            var syncedSecondary = true;
-            $("#slide-product").owlCarousel({
-                loop: true,
-                nav: true,
-                responsive: {
-                    0: {
-                        items: 1
-                    },
-                    600: {
-                        items: 3
-                    },
-                    1000: {
-                        items: 5
-                    }
-                }
-            })
-            $("#big").owlCarousel({
-                loop: true,
-                margin: 10,
-                responsiveClass: true,
-                items: 1,
-                nav: true,
-                dots: false,
-                responsiveRefreshRate: 200,
-                navText: [
-                    '<i class="fa fa-arrow-left" aria-hidden="true"></i>',
-                    '<i class="fa fa-arrow-right" aria-hidden="true"></i>'
-                ]
-            }).on("changed.owl.carousel", syncPosition);
 
-            $('#thumbs').on("initialized.owl.carousel", function () {
-                $('#thumbs')
-                    .find(".owl-item")
-                    .eq(0)
-                    .addClass("current");
-            }).owlCarousel({
-                items: 3,
-                dots: true,
-                nav: true,
-                navText: [
-                    '<i class="fa fa-arrow-left" aria-hidden="true"></i>',
-                    '<i class="fa fa-arrow-right" aria-hidden="true"></i>'
-                ],
-                smartSpeed: 200,
-                slideSpeed: 500,
-                slideBy: 3,
-                responsiveRefreshRate: 100
-            })
-                .on("changed.owl.carousel", syncPosition2);
-
-            function syncPosition(el) {
-                //if loop is set to false, then you have to uncomment the next line
-                //var current = el.item.index;
-
-                //to disable loop, comment this block
-                var count = el.item.count - 1;
-                var current = Math.round(el.item.index - el.item.count / 2 - 0.5);
-
-                if (current < 0) {
-                    current = count;
-                }
-                if (current > count) {
-                    current = 0;
-                }
-                //to this
-                $('#thumbs')
-                    .find(".owl-item")
-                    .removeClass("current")
-                    .eq(current)
-                    .addClass("current");
-                var onscreen = $('#thumbs').find(".owl-item.active").length - 1;
-                var start = $('#thumbs')
-                    .find(".owl-item.active")
-                    .first()
-                    .index();
-                var end = $('#thumbs')
-                    .find(".owl-item.active")
-                    .last()
-                    .index();
-
-                if (current > end) {
-                    $('#thumbs').data("owl.carousel").to(current, 100, true);
-                }
-                if (current < start) {
-                    $('#thumbs').data("owl.carousel").to(current - onscreen, 100, true);
-                }
-            }
-
-            function syncPosition2(el) {
-                if (syncedSecondary) {
-                    var number = el.item.index;
-                    $("#big").data("owl.carousel").to(number, 100, true);
-                }
-            }
-            $('#thumbs').on("click", ".owl-item", function (e) {
-                e.preventDefault();
-                var number = $(this).index();
-                $("#big").data("owl.carousel").to(number, 300, true);
-            });
-        });
-    </script>
 </head>
 
 <body>
@@ -164,8 +63,7 @@
                     <ul class="indicator-thumbnail">
                         <li data-slide-to="0" class="">
                             <a href="https://pasgo.vn/nha-hang/ong-gia-cha-ca-ly-thuong-kiet-1951" target="_blank">
-                                <figure
-                                    style="background-image:url(https://pasgo.vn/Upload/anh-slide-show/ong-gia-cha-ca-cha-ca-ngon-dat-kinh-ki-200-11345668929.jpg);">
+                                <figure style="background-image:url(https://pasgo.vn/Upload/anh-slide-show/ong-gia-cha-ca-cha-ca-ngon-dat-kinh-ki-200-11345668929.jpg);">
                                 </figure>
                                 <p>Ông già chả cá - Chả cá ngon đất Kinh Kì </p>
 
@@ -173,8 +71,7 @@
                         </li>
                         <li data-slide-to="1" class="">
                             <a href="https://pasgo.vn/nha-hang/season-bbq-ba-trieu-917" target="_blank">
-                                <figure
-                                    style="background-image:url(https://pasgo.vn/Upload/anh-slide-show/season-bbq-ba-trieu-buffet-nuong-lau-ngon-chuan-vin-han-200-11561789930.jpg);">
+                                <figure style="background-image:url(https://pasgo.vn/Upload/anh-slide-show/season-bbq-ba-trieu-buffet-nuong-lau-ngon-chuan-vin-han-200-11561789930.jpg);">
                                 </figure>
                                 <p>Season BBQ Bà Triệu - Buffet nướng lẩu ngon chuẩn vịn Hàn </p>
 
@@ -182,18 +79,15 @@
                         </li>
                         <li data-slide-to="2" class="active">
                             <a href="https://pasgo.vn/chuoi-nha-hang/banh-trang-thit-heo-phu-cuong-812" target="_blank">
-                                <figure
-                                    style="background-image:url(https://pasgo.vn/Upload/anh-slide-show/banh-trang-thit-heo-phu-cuong-dac-san-banh-trang-thit-heo-and-mon-ngon-dan-da-khap-3-mien-200-11691748931.jpg);">
+                                <figure style="background-image:url(https://pasgo.vn/Upload/anh-slide-show/banh-trang-thit-heo-phu-cuong-dac-san-banh-trang-thit-heo-and-mon-ngon-dan-da-khap-3-mien-200-11691748931.jpg);">
                                 </figure>
-                                <p>Bánh tráng thịt heo Phú Cường - Đặc sản bánh tráng thịt heo &amp; món ngon dân dã
-                                    khắp 3 miền</p>
+                                <p>Bánh tráng thịt heo Phú Cường - Đặc sản bánh tráng thịt heo &amp; món ngon dân dã khắp 3 miền</p>
 
                             </a>
                         </li>
                         <li data-slide-to="3" class="">
                             <a href="https://pasgo.vn/nha-hang/cho-hai-san-kien-ghe-van-phuc-3511" target="_blank">
-                                <figure
-                                    style="background-image:url(https://pasgo.vn/Upload/anh-slide-show/cho-hai-san-kien-ghe-hai-san-tuoi-ngon-200-10509033927.jpg);">
+                                <figure style="background-image:url(https://pasgo.vn/Upload/anh-slide-show/cho-hai-san-kien-ghe-hai-san-tuoi-ngon-200-10509033927.jpg);">
                                 </figure>
                                 <p>Chợ Hải Sản Kiên Ghẹ - Hải sản tươi ngon </p>
 
@@ -201,8 +95,7 @@
                         </li>
                         <li data-slide-to="4" class="">
                             <a href="https://pasgo.vn/nha-hang/bo-to-quan-moc-nguyen-thi-dinh-1486" target="_blank">
-                                <figure
-                                    style="background-image:url(https://pasgo.vn/Upload/anh-slide-show/bo-to-quan-moc-chuyen-mon-ngon-bo-to-200-10682119928.jpg);">
+                                <figure style="background-image:url(https://pasgo.vn/Upload/anh-slide-show/bo-to-quan-moc-chuyen-mon-ngon-bo-to-200-10682119928.jpg);">
                                 </figure>
                                 <p>Bò Tơ Quán Mộc - Chuyên món ngon bò tơ</p>
 
@@ -236,19 +129,10 @@
                     </div>
                 </div>
                 <div class="col-md-2 pro-image col-no-padding">
-                    <a class="a-image" href="https://www.hotdeal.vn/ho-chi-minh/dealhot/an-uong/lau-nuong-ha-he/"><img
-                            src="https://s3-hd.hotdeal.vn/original/2019/8/2/5d5e49b0501f1-240x120.png" alt=""></a>
-                    <a class="a-image"
-                        href="https://www.hotdeal.vn/ho-chi-minh/dealhot/an-uong/buffet-lau-ufo-cao-cap/"><img
-                            src="https://s3-hd.hotdeal.vn/original/2019/9/0/5d6e1e2f62f10-5d26b3274f507-750x390-2.jpg"
-                            alt=""></a>
-                    <a class="a-image"
-                        href="https://www.hotdeal.vn/ho-chi-minh/dealhot/spa-lam-dep/thu-gian-xa-stress/"><img
-                            src="https://s3-hd.hotdeal.vn/original/2019/9/0/5d707e6e52940-untitled-1.png" alt=""></a>
-                    <a class="a-image"
-                        href="https://www.hotdeal.vn//ho-chi-minh/dealhot/du-lich/tour-1-ngay-vui-lam/"><img
-                            src="https://s3-hd.hotdeal.vn/original/2019/8/2/5d633ae726e03-5d5a6afe684ca-240x120.jpg"
-                            alt=""></a>
+                    <a class="a-image" href="https://www.hotdeal.vn/ho-chi-minh/dealhot/an-uong/lau-nuong-ha-he/"><img src="https://s3-hd.hotdeal.vn/original/2019/8/2/5d5e49b0501f1-240x120.png" alt=""></a>
+                    <a class="a-image" href="https://www.hotdeal.vn/ho-chi-minh/dealhot/an-uong/buffet-lau-ufo-cao-cap/"><img src="https://s3-hd.hotdeal.vn/original/2019/9/0/5d6e1e2f62f10-5d26b3274f507-750x390-2.jpg" alt=""></a>
+                    <a class="a-image" href="https://www.hotdeal.vn/ho-chi-minh/dealhot/spa-lam-dep/thu-gian-xa-stress/"><img src="https://s3-hd.hotdeal.vn/original/2019/9/0/5d707e6e52940-untitled-1.png" alt=""></a>
+                    <a class="a-image" href="https://www.hotdeal.vn//ho-chi-minh/dealhot/du-lich/tour-1-ngay-vui-lam/"><img src="https://s3-hd.hotdeal.vn/original/2019/8/2/5d633ae726e03-5d5a6afe684ca-240x120.jpg" alt=""></a>
                 </div>
             </div>
 
@@ -256,21 +140,17 @@
         <div class="container-fluid padding promo-row">
             <div class="row text-center padding">
                 <div class="col-xs-12 col-sm-6 col-md-3 promo-col">
-                    <a href="https://www.nhommua.com/san-pham-925.html" class="bg-img" target="_blank"
-                        style="background-image: url(https://resources.nhommua.com/CMBanner/637013725490906089.jpg);"></a>
+                    <a href="https://www.nhommua.com/san-pham-925.html" class="bg-img" target="_blank" style="background-image: url(https://resources.nhommua.com/CMBanner/637013725490906089.jpg);"></a>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-3 promo-col">
-                    <a href="https://www.nhommua.com/my-pham-nagano.html" class="bg-img" target="_blank"
-                        style="background-image: url(https://resources.nhommua.com/CMBanner/637013724276443956.jpg);"></a>
+                    <a href="https://www.nhommua.com/my-pham-nagano.html" class="bg-img" target="_blank" style="background-image: url(https://resources.nhommua.com/CMBanner/637013724276443956.jpg);"></a>
 
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-3 promo-col">
-                    <a href="https://www.nhommua.com/thuc-pham-sach.html" class="bg-img" target="_blank"
-                        style="background-image: url(https://resources.nhommua.com/CMBanner/637013726683996185.jpg);"></a>
+                    <a href="https://www.nhommua.com/thuc-pham-sach.html" class="bg-img" target="_blank" style="background-image: url(https://resources.nhommua.com/CMBanner/637013726683996185.jpg);"></a>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-3 promo-col">
-                    <a href="https://www.nhommua.com/thoi-trang-me-va-be.html" class="bg-img" target="_blank"
-                        style="background-image: url(https://resources.nhommua.com/CMBanner/637013727262601201.jpg);"></a>
+                    <a href="https://www.nhommua.com/thoi-trang-me-va-be.html" class="bg-img" target="_blank" style="background-image: url(https://resources.nhommua.com/CMBanner/637013727262601201.jpg);"></a>
                 </div>
             </div>
         </div>
@@ -285,12 +165,8 @@
                 <div class="row text-center padding">
                     <div class="col-xs-2dot4 col-sm-6 col-md-2dot4">
                         <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt ngay</span>
+                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                                <div class="card-img card-img-top order-now"><img src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt ngay</span>
                                 </div>
                                 <div class="card-body">
                                     <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
@@ -306,12 +182,8 @@
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-2dot4">
                         <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt ngay</span>
+                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                                <div class="card-img card-img-top order-now"><img src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt ngay</span>
                                 </div>
                                 <div class="card-body">
                                     <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
@@ -327,12 +199,8 @@
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-2dot4">
                         <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt ngay</span>
+                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                                <div class="card-img card-img-top order-now"><img src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt ngay</span>
                                 </div>
                                 <div class="card-body">
                                     <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
@@ -347,12 +215,8 @@
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-2dot4">
                         <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt ngay</span>
+                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                                <div class="card-img card-img-top order-now"><img src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt ngay</span>
                                 </div>
                                 <div class="card-body">
                                     <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
@@ -367,12 +231,8 @@
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-2dot4">
                         <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt
+                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                                <div class="card-img card-img-top order-now"><img src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt
                                         ngay</span>
                                 </div>
                                 <div class="card-body">
@@ -388,12 +248,8 @@
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-2dot4">
                         <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt
+                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                                <div class="card-img card-img-top order-now"><img src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt
                                         ngay</span>
                                 </div>
                                 <div class="card-body">
@@ -409,12 +265,8 @@
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-2dot4">
                         <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt
+                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                                <div class="card-img card-img-top order-now"><img src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt
                                         ngay</span>
                                 </div>
                                 <div class="card-body">
@@ -430,12 +282,8 @@
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-2dot4">
                         <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt
+                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                                <div class="card-img card-img-top order-now"><img src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt
                                         ngay</span>
                                 </div>
                                 <div class="card-body">
@@ -451,12 +299,8 @@
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-2dot4">
                         <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt
+                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                                <div class="card-img card-img-top order-now"><img src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt
                                         ngay</span>
                                 </div>
                                 <div class="card-body">
@@ -472,12 +316,8 @@
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-2dot4">
                         <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt
+                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                                <div class="card-img card-img-top order-now"><img src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt
                                         ngay</span>
                                 </div>
                                 <div class="card-body">
@@ -505,12 +345,8 @@
                 <div class="row text-center padding">
                     <div class="col-xs-12 col-sm-6 col-md-2dot4">
                         <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt ngay</span>
+                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                                <div class="card-img card-img-top order-now"><img src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt ngay</span>
                                 </div>
                                 <div class="card-body">
                                     <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
@@ -526,12 +362,8 @@
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-2dot4">
                         <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt ngay</span>
+                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                                <div class="card-img card-img-top order-now"><img src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt ngay</span>
                                 </div>
                                 <div class="card-body">
                                     <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
@@ -547,12 +379,8 @@
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-2dot4">
                         <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt ngay</span>
+                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                                <div class="card-img card-img-top order-now"><img src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt ngay</span>
                                 </div>
                                 <div class="card-body">
                                     <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
@@ -567,12 +395,8 @@
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-2dot4">
                         <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt ngay</span>
+                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                                <div class="card-img card-img-top order-now"><img src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt ngay</span>
                                 </div>
                                 <div class="card-body">
                                     <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
@@ -587,12 +411,8 @@
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-2dot4 col-product">
                         <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt
+                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                                <div class="card-img card-img-top order-now"><img src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt
                                         ngay</span>
                                 </div>
                                 <div class="card-body">
@@ -608,12 +428,8 @@
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-2dot4 col-product">
                         <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt
+                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                                <div class="card-img card-img-top order-now"><img src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt
                                         ngay</span>
                                 </div>
                                 <div class="card-body">
@@ -629,12 +445,8 @@
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-2dot4 col-product">
                         <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt
+                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                                <div class="card-img card-img-top order-now"><img src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt
                                         ngay</span>
                                 </div>
                                 <div class="card-body">
@@ -650,12 +462,8 @@
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-2dot4 col-product">
                         <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt
+                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                                <div class="card-img card-img-top order-now"><img src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt
                                         ngay</span>
                                 </div>
                                 <div class="card-body">
@@ -671,12 +479,8 @@
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-2dot4">
                         <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt
+                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                                <div class="card-img card-img-top order-now"><img src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt
                                         ngay</span>
                                 </div>
                                 <div class="card-body">
@@ -692,12 +496,8 @@
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-2dot4">
                         <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt
+                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                                <div class="card-img card-img-top order-now"><img src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt
                                         ngay</span>
                                 </div>
                                 <div class="card-body">
@@ -711,104 +511,60 @@
                             </a>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid padding">
-            <div class="row text-center padding">
-                <div class="col-12">
-                    <h2>
-                        Contact us
-                    </h2>
-                </div>
-                <div class="col-12 social padding">
-                    <a href="#">
-                        <i class="fab fa-facebook"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fab fa-google-plus-g"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fab fa-youtube"></i>
-                    </a>
                 </div>
             </div>
         </div>
         <div class="container-fluid padding">
             <div class="owl-carousel owl-theme" id="slide-product">
                 <div class="item">
-                    <div class="col-xs-12 col-sm-6 col-md-2dot4">
-                        <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt
+                    <div class="card item-slide">
+                        <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                            <div class="card-img card-img-top order-now"><img src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt
                                         ngay</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                    <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                    <div class="card-info">
-                                        <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
+                            </div>
+                            <div class="card-body">
+                                <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
+                                <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
+                                <div class="card-info">
+                                    <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
                                                 ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                    </div>
                                 </div>
-                            </a>
-                        </div>
+                            </div>
+                        </a>
                     </div>
                 </div>
                 <div class="item">
-                    <div class="col-xs-12 col-sm-6 col-md-2dot4">
-                        <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt
+                    <div class="card item-slide">
+                        <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                            <div class="card-img card-img-top order-now"><img src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt
                                         ngay</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                    <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                    <div class="card-info">
-                                        <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
+                            </div>
+                            <div class="card-body">
+                                <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
+                                <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
+                                <div class="card-info">
+                                    <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
                                                 ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                    </div>
                                 </div>
-                            </a>
-                        </div>
+                            </div>
+                        </a>
                     </div>
                 </div>
                 <div class="item">
-                    <div class="col-xs-12 col-sm-6 col-md-2dot4">
-                        <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt
+                    <div class="card item-slide">
+                        <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                            <div class="card-img card-img-top order-now"><img src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt
                                         ngay</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                    <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                    <div class="card-info">
-                                        <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
+                            </div>
+                            <div class="card-body">
+                                <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
+                                <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
+                                <div class="card-info">
+                                    <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
                                                 ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                    </div>
                                 </div>
-                            </a>
-                        </div>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -847,4 +603,5 @@
             </div>
     </footer>
 </body>
-< </html>
+
+</html>

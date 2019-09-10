@@ -2,11 +2,13 @@
             body {
                 width: 100%;
                 height: 100%;
-                font-family: Roboto-regular;
+                font-family: Arial, Helvetica, sans-serif;
                 font-size: 25px;
                 color: #222;
             }
-            
+            .row{
+                margin-left: -10px;
+            }
             .navbar {
                 background-color: #ed1c24 !important;
             }
@@ -395,12 +397,6 @@
                     transition: all .2s;
                     z-index: 2;
                 }
-                .tbnow-place {
-                    /* background-color: #fff; */
-                    /* border: 1px solid #d7d7d7; */
-                    padding: 0 0px 0px;
-                    margin-bottom: 50px;
-                }
                 .bg-img {
                     width: 100%;
                     padding-top: 185px;
@@ -434,8 +430,8 @@
                     padding-left: 0px;
                 }
                 div.title_home {
-                    position: relative;
                     margin: 33px 0px 5px 0px;
+
                 }
                 div.title_home:before {
                     content: "";
@@ -448,9 +444,6 @@
                 div.title_home.new-deal .title_home_text {
                     background-color: #d02128;
                 }
-                /* div.title_home.new-deal .title_home_text::before {
-            content: "\e915";
-        } */
                 div.title_home .title_home_text::after {
                     content: "";
                     position: absolute;
@@ -497,6 +490,11 @@
                     font-size: 17px;
                     line-height: 18px;
                     word-spacing: -1px;
+                    padding-left: 7px !important;
+                    padding-right: 7px !important;
+                    margin-top: 17px;
+                    font-family: Arial, Helvetica, sans-serif;
+                    font-weight: bold;
                 }
                 .text-overflow-2 {
                     overflow: hidden!important;
@@ -526,7 +524,6 @@
                     display: inline-block;
                     position: relative;
                     width: 100%;
-                    margin-bottom: 15px;
                 }
                 .wap-blogitem li a img {
                     max-width: 114px;
@@ -536,11 +533,29 @@
                 .wap-blogitem li a h4 {
                     margin: 0;
                     line-height: 18px;
+                    font-size: 14px;
+                    font-weight: bold;
                 }
                 .wap-blogitem li span {
                     padding: 5px 0;
                     font-size: 12px;
                     color: #a8a6a6;
+                    font-family: Arial, Helvetica, sans-serif;
+                }
+                .blog-col{
+                    padding-left: 10px;
+                    padding-right: 10px;
+                }
+                .h50 {
+                    height: 50px!important;
+                }
+                .wap-time{
+                    margin: 0px;
+                    padding: 0px;
+                }
+                p.wap-time.px-2{
+                    margin: 12px 0px;
+                    padding: 0px 7px;
                 }
             }
             

@@ -22,61 +22,33 @@
     <link rel="stylesheet" href="./css/owl.carousel.min.css">
     <link rel="stylesheet" href="./css/owl.theme.default.min.css">
     <link rel="stylesheet" href="./css/style.css">
-
+    <script type="text/javascript">
+        (function($) {          
+            $(document).ready(function(){                    
+                $(window).scroll(function(){                          
+                    if ($(this).scrollTop() > 50) {
+                        $('#menu').fadeIn(50);
+                    } else {
+                        $('#menu').fadeOut(50);
+                    }
+                });
+            });
+        })(jQuery);
+        </script>   
 </head>
 
 <body>
+    <div id="menu">ok</div>
     <header class="header">
-
-
-
-
-
-        <script>
-            $(function () {
-                $('.rootcategory-right').width($('.rootcategory-menu').width() - $('.nearby-button').width() - $('.dropdown1').width() - 630);
-
-
-                if ($("#pkeywords").val().length == 0) {
-                    $('#pkeywords').addClass('watermark');
-                } else {
-                    $('#pkeywords').removeClass('watermark');
-                }
-                $("#pkeywords").watermark('Địa điểm, món ăn, loại hình...', {
-                    useNative: true,
-                    className: 'watermark'
-                })
-                    .focus(function () {
-                        if ($(this).val().length == 0)
-                            $(this).addClass('watermark');
-                        else
-                            $(this).removeClass('watermark');
-                    })
-                    .keyup(function () {
-                        if ($(this).val().length == 0)
-                            $(this).addClass('watermark');
-                        else
-                            $(this).removeClass('watermark');
-                    })
-                    .blur(function () {
-                        if ($(this).val().length == 0)
-                            $(this).addClass('watermark');
-                        else
-                            $(this).removeClass('watermark');
-                    });
-            })
-        </script>
+        
         <div class="container-topbar">
             <div class="topbar">
-                <a href="https://www.foody.vn" class="current" rel="home">Khám Phá</a>
+                <a href="https://www.foody.vn" rel="home">Khám Phá</a>
                 <a href="https://www.now.vn/ho-chi-minh/table" target="_blank" rel="nofollow">Đặt Bàn</a>
                 <a href="https://www.now.vn?utm_source=FoodyWeb&amp;utm_medium=topbar_link_click&amp;utm_campaign=FoodyRef"
                     target="_blank" rel="nofollow">Đặt Giao Hàng</a>
                 <a href="https://www.sheis.vn?utm_source=FoodyWeb&amp;utm_medium=topbar_link_click&amp;utm_campaign=FoodyRef"
                     target="_blank" rel="nofollow">Làm Đẹp</a>
-
-                <a href="https://www.nowpos.vn?utm_source=FoodyWeb&amp;utm_medium=topbar_link_click&amp;utm_campaign=FoodyRef"
-                    target="_blank" rel="nofollow">NowPOS</a>
                 <a href="https://jamja.vn" target="_blank" rel="nofollow">Giảm Giá</a>
 
 

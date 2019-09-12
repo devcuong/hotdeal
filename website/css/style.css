@@ -447,14 +447,14 @@
                     margin: 33px 0px 5px 0px;
                     border-top: 3px solid #d02128;
                 }
-                div.title_home:before {
+                /*div.title_home:before {
                     content: "";
                     position: absolute;
                     left: 0;
                     top: 2px;
                     width: 100%;
                     border-top: 36px solid #e4e0db;
-                }
+                }*/
                 div.title_home.new-deal .title_home_text {
                     background-color: #d02128;
                     color: #fff;
@@ -629,6 +629,491 @@
                     font-size: 100%;
                     line-height: 1.5;
                     font-size: 20px;
+                }
+                /*menu*/
+                header.header {
+                    background: #333;
+                    padding: 0 0 50px;
+                    position: relative;
+                }
+                header {
+                    display: block;
+                    margin: 0;
+                    padding: 0;
+                }
+                .t_clear {
+                    height: 40px;
+                    clear: both;
+                }
+                .container-topbar {
+                    background: #333;
+                    color: #fff;
+                    overflow: hidden;
+                    margin: 0 auto;
+                }
+                .container-topbar .topbar {
+                    width: 1170px;
+                    margin: 0 auto;
+                }
+                .container-topbar {
+                    background: #333;
+                    color: #fff;
+                    overflow: hidden;
+                    margin: 0 auto;
+                }
+                .container-topbar .topbar a.current {
+                    background: #fff;
+                    color: #333;
+                }
+                .container-topbar .topbar a {
+                    padding: 8px 15px;
+                    display: block;
+                    color: #ddd;
+                    float: left;
+                }
+                header.header .header-toolbar {
+                    background: #fff;
+                    border-bottom: #ddd 1px solid;
+                    z-index: 51;
+                    position: absolute;
+                    height: 50px;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    font-size: 14px;
+                }
+                header.header .header-toolbar .foody-wapper {
+                    width: 1170px;
+                    padding: 10px 0;
+                    height: 32px;
+                    position: relative;
+                }
+                .foody-wapper {
+                    width: 1170px;
+                    margin: 0 auto;
+                }
+                header.header .header-toolbar .logo {
+                    float: left;
+                    position: relative;
+                    margin: 4px 20px 0 0;
+                }
+                header.header .header-toolbar .logo img {
+                    border: none;
+                    width: 85px;
+                }
+                .root-cate {
+                    border: 1px solid #eee;
+                    float: left;
+                    font-weight: 400;
+                    position: relative;
+                    cursor: pointer;
+                    color: #777;
+                    font-size: 14px;
+                    border-radius: 2px;
+                    margin: 0 5px 0 0;
+                    text-align: center;
+                    height: 31px;
+                    line-height: 31px;
+                }
+                .root-cate>.rn-nav-name {
+                    padding: 0 15px;
+                    display: inline-block;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    float: left;
+                }
+                .root-cate>.rn-nav-name span {
+                    float: left;
+                }
+                .root-cate>.rn-nav-name {
+                    padding: 0 15px;
+                    display: inline-block;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    float: left;
+                }
+                .root-cate>.rn-nav-name span.fa {
+                    padding: 5px 0 0 5px;
+                }
+                .root-cate>.rn-nav-name span {
+                    float: left;
+                }
+                .fa {
+                    display: inline-block;
+                    font: normal normal normal 14px/1 FontAwesome;
+                    font-size: inherit;
+                    text-rendering: auto;
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                }
+                .fa-sort-desc:before, .fa-sort-down:before {
+                    content: "\f0dd";
+                }
+                .foody-location {
+                    background: #fff;
+                    -webkit-border-radius: 2px;
+                    text-align: left;
+                    min-width: 280px;
+                    min-height: 220px;
+                    position: absolute;
+                    top: 40px;
+                    box-shadow: 1px 2px 6px rgba(0,0,0,.5);
+                }
+                .root-cate .arrow {
+                    background: url(https://www.foody.vn/Scripts/dropdown/arrow-top.png) no-repeat;
+                    width: 12px;
+                    height: 8px;
+                    position: absolute;
+                    top: -8px;
+                    z-index: 2;
+                    left: 45px;
+                }
+                .foody-location .fl-panel {
+                    color: #000;
+                    border-radius: 2px 2px 0 0;
+                    overflow: hidden;
+                }
+                .foody-location .fl-summary {
+                    display: block;
+                    width: 100%;
+                    float: left;
+                    box-sizing: border-box;
+                    background: #eee;
+                    border-radius: 0 0 2px 2px;
+                    white-space: nowrap;
+                    padding: 0 10px;
+                    font-size: 12px;
+                }
+                .foody-location .fl-summary a {
+                    color: #555;
+                    cursor: pointer;
+                    display: inline-block;
+                    box-sizing: border-box;
+                    padding: 0 15px 0 0;
+                    font-size: 12px;
+                    font-weight: 700;
+                    width: 25%;
+                }
+                .foody-location .fl-summary span {
+                    cursor: pointer;
+                    padding-left: 3px;
+                }
+                .root-cate {
+                    border: 1px solid #eee;
+                    float: left;
+                    font-weight: 400;
+                    position: relative;
+                    cursor: pointer;
+                    color: #777;
+                    font-size: 14px;
+                    border-radius: 2px;
+                    margin: 0 5px 0 0;
+                    text-align: center;
+                    height: 31px;
+                    line-height: 31px;
+                }
+                .root-cate>.rn-nav-name {
+                    padding: 0 15px;
+                    display: inline-block;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    float: left;
+                }
+                .root-cate>.rn-nav-name span {
+                    float: left;
+                }
+                .root-cate>.rn-nav-name span.fa {
+                    padding: 5px 0 0 5px;
+                }
+                .fa-sort-desc:before, .fa-sort-down:before {
+                    content: "\f0dd";
+                }
+                .header .search-bar-top {
+                    position: relative;
+                    float: left;
+                    width: 450px;
+                    box-sizing: border-box;
+                }
+                .header .search-bar-top #pkeywords {
+                    border: none;
+                    border-radius: 2px;
+                    color: #333;
+                    display: inline-block;
+                    font-size: 14px;
+                    height: 30px;
+                    float: left;
+                    padding: 7px 0 7px 7px;
+                    width: 320px;
+                    box-sizing: border-box;
+                }
+                .watermark {
+                    font-weight: 400!important;
+                    color: #000!important;
+                }
+                .header .search-bar-top .ico-nofilter, .header .search-bar-top .ico-search {
+                    position: relative;
+                    display: block;
+                    float: right;
+                }
+                .search-bar-top .suggestion-box {
+                    display: none;
+                    position: absolute;
+                    top: 30px;
+                    left: -51px;
+                    width: 550px;
+                    background-color: #fff;
+                    border: 1px solid #ddd;
+                    box-sizing: border-box;
+                    border-top: none;
+                }
+                .search-bar-top .suggestion-box ul li.advertising a {
+                    background: #faffad;
+                    border-bottom: #f0f0f0 1px solid;
+                }
+                .search-bar-top .suggestion-box-item {
+                    padding: 8px 9px;
+                    border-bottom: #f8f8f8 1px solid;
+                    display: block;
+                    color: #111;
+                }
+                .search-bar-top .suggestion-box-item-left {
+                    float: left;
+                    margin-right: 10px;
+                    width: 50px;
+                }
+                .search-bar-top .suggestion-box-item-left img {
+                    width: 50px;
+                    height: 31px;
+                }
+                .search-bar-top .suggestion-box-item-right {
+                    float: left;
+                    width: 360px;
+                }
+                .search-bar-top .suggestion-box-item-right-res-name {
+                    font-weight: 700;
+                }
+                .search-bar-top .suggestion-box-item-right-res-descr {
+                    font-weight: 400;
+                    color: #999;
+                    font-size: 11px;
+                    white-space: normal;
+                }
+                .clear {
+                    clear: both;
+                    font-size: 0;
+                }
+                .search-bar-top .ico-search {
+                    border: 1px solid #eee;
+                    width: 35px;
+                    height: 32px;
+                    box-sizing: border-box;
+                    background: #eee;
+                    -webkit-border-top-right-radius: 2px;
+                    -webkit-border-bottom-right-radius: 2px;
+                    -moz-border-radius-topright: 2px;
+                    -moz-border-radius-bottomright: 2px;
+                    border-top-right-radius: 2px;
+                    border-bottom-right-radius: 2px;
+                    overflow: hidden;
+                    display: block;
+                }
+                .menu-frame {
+                    position: relative;
+                }
+                .menu-frame {
+                    top: -30px;
+                    display: none;
+                    left: -85px;
+                }
+                .menu-frame .arrow {
+                    background: url(https://www.foody.vn/Scripts/dropdown/arrow-top.png) no-repeat;
+                    width: 12px;
+                    height: 8px;
+                    position: absolute;
+                    top: 29px;
+                    left: 97px;
+                    z-index: 2;
+                }
+                .menu-frame .menu-box {
+                    float: left;
+                    border: 1px solid #ccc;
+                    color: #222;
+                    list-style: none;
+                    padding: 0;
+                    position: absolute;
+                    text-align: left;
+                    top: 36px;
+                    left: 84px;
+                    display: none;
+                    background: #fff;
+                    z-index: 1;
+                    width: 200px;
+                    box-shadow: 1px 2px 6px rgba(0,0,0,.5);
+                    border-radius: 2px;
+                }
+                .menu-frame .menu-box li {
+                    position: relative;
+                    float: left;
+                    width: 100%;
+                }
+                .menu-frame .menu-box li a {
+                    white-space: nowrap;
+                    display: block;
+                    clear: both;
+                    padding: 0 10px;
+                    border-bottom: #f5f5f5 1px solid;
+                    float: left;
+                    width: 100%;
+                    box-sizing: border-box;
+                }
+                .header-apps {
+                    float: left;
+                }
+                .header-apps a {
+                    padding: 0 15px;
+                    border: 1px solid #eee;
+                    border-radius: 2px;
+                    margin: 0 5px;
+                    line-height: 31px;
+                    height: 31px;
+                    display: block;
+                }
+                .nav-place {
+                    float: right;
+                    font-size: 14px;
+                }
+                .account-manage {
+                    float: left;
+                    z-index: 6;
+                    text-align: right;
+                    display: block;
+                    margin-right: 5px;
+                }
+                .fd-btn-login-new {
+                    line-height: 30px;
+                    padding: 0 5px;
+                }
+                .notificationBox {
+                    float: left;
+                    position: relative;
+                    font-size: 12px;
+                }
+                .notification-new-none {
+                    border: 1px solid #eee;
+                    border-radius: 30px;
+                    text-align: center;
+                    font-weight: 700;
+                    cursor: pointer;
+                    margin-right: 5px;
+                    overflow: hidden;
+                    height: 28px;
+                    width: 28px;
+                    background: #eee url(https://www.foody.vn/style/images/icons/ico_not.png) 2px -41px no-repeat;
+                }
+                .ng-hide:not(.ng-hide-animate) {
+                    display: none !important;
+                }
+                .notificationsFlyout {
+                    display: block;
+                    width: 464px;
+                    background: #fff;
+                    border: 1px solid #aaa;
+                    border-radius: 2px;
+                    color: #222;
+                    list-style: none;
+                    font-weight: 700;
+                    position: absolute;
+                    top: 40px;
+                    right: -73px;
+                }
+                .notificationBox .arrow {
+                    background: url(https://www.foody.vn/style/css/ico/arrow-top.png) no-repeat scroll 0 0 transparent;
+                    height: 8px;
+                    right: 86px;
+                    position: absolute;
+                    z-index: 99;
+                    top: -8px;
+                    width: 12px;
+                }
+                .notificationsFlyout .notify-header {
+                    text-align: left;
+                    background: #eee;
+                    overflow: hidden;
+                }
+                .notificationsFlyout ul {
+                    border: 1px solid #bbb;
+                    overflow: hidden;
+                    border-radius: 2px;
+                    margin: 8px;
+                }
+                .notificationsFlyout ul.tabs li {
+                    float: left;
+                    width: 50%;
+                }
+                .notificationsFlyout ul.tabs li a {
+                    display: block;
+                    cursor: pointer;
+                    padding: 10px 0;
+                    font-weight: 100;
+                    color: #888;
+                    font-size: 14px;
+                    text-align: center;
+                    text-shadow: 0 0 1px #fff;
+                    background-color: #f3f3f3;
+                }
+                .notificationsFlyout .notifications-box {
+                    max-height: 370px;
+                    overflow: auto;
+                }
+                .ng-hide:not(.ng-hide-animate) {
+                    display: none !important;
+                }
+                .notificationsFlyout .notification-message-item.item-msg {
+                    padding: 40px 0;
+                    text-align: center;
+                    color: #888;
+                    font-weight: 400;
+                }
+                .notificationsFlyout .notification-message-item {
+                    border-bottom: #eee 1px solid;
+                    padding: 5px 8px;
+                }
+                .nav-add-buttons {
+                    float: left;
+                    margin: 0;
+                    line-height: 20px;
+                    position: relative;
+                }
+                #add-buttons {
+                    display: none;
+                    width: 320px;
+                    text-align: left;
+                    float: right;
+                    background: none repeat scroll 0 0 #f6f6f6;
+                    border: 1px solid #AAA;
+                    border-radius: 2px;
+                    color: #222;
+                    list-style: none;
+                    font-weight: 700;
+                    padding: 0;
+                    position: absolute;
+                    right: -33px;
+                    top: 40px;
+                }
+                .nav-add-buttons .arrow {
+                    background: url(https://www.foody.vn/Scripts/dropdown/arrow-top.png) no-repeat;
+                    width: 12px;
+                    height: 8px;
+                    position: absolute;
+                    top: -8px;
+                    right: 63px;
+                }
+                .language-dropdown-container {
+                    position: relative;
+                    float: left;
                 }
             }
             

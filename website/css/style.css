@@ -649,6 +649,10 @@
                     height: 40px;
                     clear: both;
                 }
+                .container-topbar-appear {
+                    background: #d02128 !important;
+                    color: #fff !important;
+                }
                 .container-topbar {
                     background: #333;
                     color: #fff;
@@ -657,12 +661,6 @@
                 }
                 .container-topbar .topbar {
                     width: 1170px;
-                    margin: 0 auto;
-                }
-                .container-topbar {
-                    background: #333;
-                    color: #fff;
-                    overflow: hidden;
                     margin: 0 auto;
                 }
                 .container-topbar .topbar a.current {
@@ -1124,8 +1122,6 @@
                     top:0px;
                     width:100%; 
                     height: 50px; 
-                    background-color:#d02128;
-                    color: #FFFFFF;
                     z-index:9999;
                     display: none;
                 }

@@ -3,3 +3,6 @@
 3.git config user.email "someone@someplace.com"
 4.git add *
 5.git commit -m "some init msg"
+http://denuidoi.com/
+thegioiamthuc.com
+botoquanmoc.com

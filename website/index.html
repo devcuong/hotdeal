@@ -168,39 +168,6 @@
                                 Bộ lọc
                             </a>
                             <input type="hidden" name="ss" value="header_search_form" autocomplete="off">
-
-
-
-                            <script type="text/javascript">
-                                var searchBoxDropdown = new DropDownCategoryHelper3();
-
-                                $(function () {
-                                    searchBoxDropdown.Init({
-                                        btnCategory: $("#pkeywords")[0],
-                                        category: $(".search-bar-top .suggestion-box")[0],
-                                        clickBtnToClose: false
-                                    });
-                                    var keywords = $.cookie('fd.sk');
-                                    if (keywords) {
-                                        var buff = keywords.split('#');
-
-                                        for (var i = 0; i < 2; i++) {
-                                            if (buff[i]) {
-                                                var ele = '<li><a href="/ho-chi-minh/dia-diem?q=' + buff[i].replace('<s', '< s').replace('<S', '< S') + '" class="suggestion-box-item"><span style="float:left;padding-right:5px;color:#666" class="fa fa-search"></span>' +
-                                                    buff[i].replace('<s', '< s').replace('<S', '< S') + '<span class="fa fa-angle-right" style="font-size: 14px;"></span>' +
-                                                    '</a></li>'
-                                                $('.sb-list-items').append($(ele));
-                                            }
-
-                                        }
-
-                                    }
-                                    //$("#pkeywords").on("input", function () {
-                                    //    //$(".search-bar-top .suggestion-box").hide();
-                                    //});
-
-                                });
-                            </script>
                             <div class="suggestion-box" style="display: none;">
 
 
@@ -465,63 +432,7 @@
                         </div>
 
                     </div>
-
-
-
-                    <div class="nav-add-buttons">
-                        <a>+</a>
-                        <div id="add-buttons" style="display: none;">
-                            <span class="arrow" style="left: 257px; display: none;"></span>
-                            <ul>
-                                <li style="padding: 8px 15px 6px 15px; border-bottom: #ddd 1px solid;">Bạn có thể</li>
-
-                                <li>
-                                    <a href="javascript:void(0)" target="_blank" ng-click="ActionUrl('/them-dia-diem')">
-                                        <span class="fa fa-map-marker icons" style="font-size: 26px;"></span>
-                                        <span class="add-buttons-text">
-                                            <span class="text-main">Tạo địa điểm</span><br>
-                                            <span class="text-desc">Sẽ được duyệt trong vòng 48 tiếng</span>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)" class="add-new-reviews">
-                                        <span class="fa fa-comment icons"></span>
-                                        <span class="add-buttons-text">
-                                            <span class="text-main">Viết bình luận</span><br>
-                                            <span class="text-desc">Để chia sẻ trải nghiệm cho cộng đồng</span>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)" class="add-new-list">
-                                        <span class="fa fa-bars icons"></span>
-                                        <span class="add-buttons-text">
-                                            <span class="text-main">Tạo bộ sưu tập</span><br>
-                                            <span class="text-desc">Để lưu trữ địa điểm của bạn</span>
-                                        </span>
-
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="javascript:void(0)" ng-click="ActionUrl('/gop-y')" class="add-feedback">
-                                        <span class="fa fa-thumbs-down icons"></span>
-                                        <span class="add-buttons-text">
-                                            <span class="text-main">Góp ý</span><br>
-                                            <span class="text-desc">Để phục vụ bạn tốt hơn</span>
-                                        </span>
-
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
                     <div class="language-dropdown-container">
-                        <a href="javascript:void(0);" class="language-dropdown-btn">
-                            <img src="/style/images/icons/lang/vn.png" style="float:left;">
-                        </a>
-
                         <div class="language-dropdown-list" style="display: none;">
 
                             <a onclick="return changeLanguage('en')" rel="nofollow"

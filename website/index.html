@@ -3,7 +3,7 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html class="no-js">
+<html>
 <!--<![endif]-->
 
 <head>
@@ -23,9 +23,9 @@
     <link rel="stylesheet" href="./css/owl.theme.default.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <script type="text/javascript">
-        (function($) {          
-            $(document).ready(function(){                    
-                $(window).scroll(function(){                          
+        (function($) {
+            $(document).ready(function() {
+                $(window).scroll(function() {
                     if ($(this).scrollTop() > 50) {
                         $('#menu').fadeIn(50);
                     } else {
@@ -34,1759 +34,578 @@
                 });
             });
         })(jQuery);
-        </script>   
+    </script>
 </head>
 
 <body>
-    <div id="menu">
-        <div class="container-topbar container-topbar-appear">
-            <div class="topbar">
-                <a href="https://www.foody.vn" rel="home">Khám Phá</a>
-                <a href="https://www.now.vn/ho-chi-minh/table" target="_blank" rel="nofollow">Đặt Bàn</a>
-                <a href="https://www.now.vn?utm_source=FoodyWeb&amp;utm_medium=topbar_link_click&amp;utm_campaign=FoodyRef"
-                    target="_blank" rel="nofollow">Đặt Giao Hàng</a>
-                <a href="https://www.sheis.vn?utm_source=FoodyWeb&amp;utm_medium=topbar_link_click&amp;utm_campaign=FoodyRef"
-                    target="_blank" rel="nofollow">Làm Đẹp</a>
-                <a href="https://jamja.vn" target="_blank" rel="nofollow">Giảm Giá</a>
-            </div>
-        </div>
+    <!-- container chứa top menu-->
+    <div id="top-menu" class="top-menu container-fluid">
+        ok
     </div>
-    <header class="header">
-        
-        <div class="container-topbar">
-            <div class="topbar">
-                <a href="https://www.foody.vn" rel="home">Khám Phá</a>
-                <a href="https://www.now.vn/ho-chi-minh/table" target="_blank" rel="nofollow">Đặt Bàn</a>
-                <a href="https://www.now.vn?utm_source=FoodyWeb&amp;utm_medium=topbar_link_click&amp;utm_campaign=FoodyRef"
-                    target="_blank" rel="nofollow">Đặt Giao Hàng</a>
-                <a href="https://www.sheis.vn?utm_source=FoodyWeb&amp;utm_medium=topbar_link_click&amp;utm_campaign=FoodyRef"
-                    target="_blank" rel="nofollow">Làm Đẹp</a>
-                <a href="https://jamja.vn" target="_blank" rel="nofollow">Giảm Giá</a>
-
-
-
-            </div>
-        </div>
-        <div class="header-toolbar">
-            <div class="foody-wapper">
-                <a href="/" class="logo foody-logo" rel="home" alt="foody-logo">
-                    <img src="/style/images/logo/foody-vn.png" alt="Foody.vn">
-                </a>
-                <div class="root-cate ng-scope" id="head-province" ng-controller="LocationCtrl"
-                    ng-init="Init({Name:'TP. HCM',Id:'217'})" ng-class="{'fl-show':IsShow}">
-                    <div class="rn-nav-name" ng-click="Show()">
-                        <span style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 85px;">TP.
-                            HCM</span> <span class="fa fa-sort-desc"></span>
+    <!-- container chứa main menu-->
+    <div id="main-menu" class="main-menu container-fluid">
+        ok
+    </div>
+    <!-- container chứa slider-->
+    <div class="container-fluid">
+        <div class="row row-padding">
+            <div class="col-md-12 col-no-padding">
+                <div class="owl-carousel owl-theme" id="big">
+                    <div class="item">
+                        <h4><img src="https://cdn.dailyxe.com.vn/image/-80338j.jpg">
+                        </h4>
                     </div>
-                    <div id="popupLocation" class="foody-location" ng-class="{'fl-loading':IsLoading}"
-                        style="display:none;">
-                        <div class="arrow"></div>
-                        <ul class="fl-panel">
-                            <!-- ngIf: Model.TopCities.length>0 || Model.OtherCities.length>0 -->
-                        </ul>
-                        <div class="fl-summary ng-hide"
-                            ng-show="Model.TopCities.length>0 || Model.OtherCities.length>0">
-
-                            <a href="/ho-chi-minh/o-dau" title="">
-                                <i class="fa fa-map-marker"></i>
-                                <span class="ng-binding"></span>
-                            </a>
-
-                            <a href="/ho-chi-minh/binh-luan" title="">
-                                <i class="fa fa-comment"></i>
-                                <span class="ng-binding"></span>
-                            </a>
-
-                            <a href="/ho-chi-minh/hinh-anh" title="">
-                                <i class="fa fa-camera"></i>
-                                <span class="ng-binding"></span>
-                            </a>
-                            <a href="/ho-chi-minh/bo-suu-tap" title="">
-                                <i class="fa fa-bookmark"></i>
-                                <span class="ng-binding"></span>
-                            </a>
-                        </div>
+                    <div class="item">
+                        <h4><img src="https://cdn.dailyxe.com.vn/image/-80338j.jpg">
+                        </h4>
                     </div>
-
-
-                </div>
-                <div class="root-cate" id="head-navigation">
-
-                    <div class="rn-nav-name">
-                        <span data-value="1">Ăn uống</span> <span class="fa fa-sort-desc"></span>
-                    </div>
-
-                    <script>
-                        $('#head-navigation').on('click', function () {
-                            if ($('#head-navigation .menu-frame-category').length == 0) {
-                                $('#head-navigation').load('/common/_TopCategoryGroupMenu?isUseForSearch=false', function () {
-                                    $('#head-navigation .menu-frame-category').show();
-                                });
-                                return;
-                            }
-                            $('#head-navigation .menu-frame-category').toggle();
-                        });
-                    </script>
-                </div>
-
-                <div class="search-bar-top ng-scope" id="FoodySearchApp" ng-controller="DlgSearchFilterCtrl"
-                    ng-init="Init({CityId:'217',Url:'/ho-chi-minh/dia-diem'})">
-                    <form id="searchFormTop" action="/ho-chi-minh/dia-diem" method="get" novalidate="novalidate"
-                        class="ng-pristine ng-valid">
-                        <div
-                            style="float: left;position: relative;border: 1px solid #eee;border-right:none; width: 415px;box-sizing: border-box;">
-                            <input ng-model="Filter.Keyword" ng-change="LoadCategory()" style="vertical-align: middle"
-                                name="q" type="text" id="pkeywords" data-autocomplete-type="keywords"
-                                data-autocomplete-url="/__get/AutoComplete/Keywords?provinceId=217"
-                                data-autocomplete-minlength="2"
-                                class="ng-pristine ng-untouched ng-valid ng-empty watermark"
-                                placeholder="Địa điểm, món ăn, loại hình..." autocomplete="off">
-
-
-                            <a href="javascript:void(0)" class="ico-nofilter" ng-click="Show()"
-                                ng-class="{'ico-filter':FilterCount>0}" style="padding: 6px 10px 0 0;">
-                                <div ng-class="{'fa-sliders':!IsLoading &amp;&amp; FilterCount==0,'filtercount':FilterCount>0,'fa-spinner fa-spin':IsLoading}"
-                                    class="fa fa-sliders">
-                                    <!-- ngIf: FilterCount>0 -->
-                                </div>
-                                Bộ lọc
-                            </a>
-                            <input type="hidden" name="ss" value="header_search_form" autocomplete="off">
-                            <div class="suggestion-box" style="display: none;">
-
-
-                                <!-- res ads -->
-                                <div
-                                    style="padding: 5px 10px; font-size: 11px; color: #aaa; background: #FCFCFC; border-bottom: #eee 1px solid; border-top: #eee 1px solid;">
-                                    Gợi ý tìm kiếm</div>
-                                <ul>
-                                    <li class="advertising" data-name="Brewlliant Craft Beer &amp; Gastropub">
-                                        <a href="https://www.foody.vn/ho-chi-minh/drewlliant-craft-beer-gastropub"
-                                            onclick="ga('ads.send', 'event', 'Suggestion Box', 'Click', 'Brewlliant Craft Beer &amp; Gastropub');"
-                                            target="_blank" class="suggestion-box-item"
-                                            title="Brewlliant Craft Beer &amp; Gastropub">
-                                            <div class="suggestion-box-item-left">
-                                                <img src="https://images.foody.vn/res/g76/750505/prof/s128x80/foody-upload-api-foody-mobile-28-190625113700.jpg"
-                                                    alt="Brewlliant Craft Beer &amp; Gastropub"
-                                                    title="Brewlliant Craft Beer &amp; Gastropub">
-                                            </div>
-                                            <div class="suggestion-box-item-right">
-                                                <div class="suggestion-box-item-right-res-name">Brewlliant Craft Beer
-                                                    &amp; Gastropub</div>
-                                                <div class="suggestion-box-item-right-res-descr"
-                                                    style="white-space: normal;">Beer O’clock buy 1 get 1
-                                                </div>
-                                            </div>
-                                            <div class="clear"></div>
-                                        </a>
-                                    </li>
-                                    <li class="advertising" data-name="Emoji Pizza - Pizza Lò Củi">
-                                        <a href="https://www.foody.vn/ho-chi-minh/emoji-pizza"
-                                            onclick="ga('ads.send', 'event', 'Suggestion Box', 'Click', 'Emoji Pizza - Pizza Lò Củi');"
-                                            target="_blank" class="suggestion-box-item"
-                                            title="Emoji Pizza - Pizza Lò Củi">
-                                            <div class="suggestion-box-item-left">
-                                                <img src="https://images.foody.vn/res/g94/938779/prof/s128x80/foody-upload-api-foody-mobile-trrrrr-190813163337.jpg"
-                                                    alt="Emoji Pizza - Pizza Lò Củi" title="Emoji Pizza - Pizza Lò Củi">
-                                            </div>
-                                            <div class="suggestion-box-item-right">
-                                                <div class="suggestion-box-item-right-res-name">Emoji Pizza - Pizza Lò
-                                                    Củi</div>
-                                                <div class="suggestion-box-item-right-res-descr"
-                                                    style="white-space: normal;">Giảm 20% khi đặt bàn qua Tablenow
-                                                </div>
-                                            </div>
-                                            <div class="clear"></div>
-                                        </a>
-                                    </li>
-                                    <li class="advertising" data-name="Buffet Atrium Cafe - Lotte Legend Saigon Hotel">
-                                        <a href="https://www.foody.vn/ho-chi-minh/legend-hotel-sai-gon-buffet-tu-chon-quoc-te"
-                                            onclick="ga('ads.send', 'event', 'Suggestion Box', 'Click', 'Buffet Atrium Cafe - Lotte Legend Saigon Hotel');"
-                                            target="_blank" class="suggestion-box-item"
-                                            title="Buffet Atrium Cafe - Lotte Legend Saigon Hotel">
-                                            <div class="suggestion-box-item-left">
-                                                <img src="https://images.foody.vn/res/g1/643/prof/s128x80/2019625143430-businesslunch_1440x810px_1206201.jpg"
-                                                    alt="Buffet Atrium Cafe - Lotte Legend Saigon Hotel"
-                                                    title="Buffet Atrium Cafe - Lotte Legend Saigon Hotel">
-                                            </div>
-                                            <div class="suggestion-box-item-right">
-                                                <div class="suggestion-box-item-right-res-name">Buffet Atrium Cafe -
-                                                    Lotte Legend Saigon Hotel</div>
-                                                <div class="suggestion-box-item-right-res-descr"
-                                                    style="white-space: normal;">Món ăn đa dạng,&nbsp;dịch vụ đẳng cấp,
-                                                    chất lượng 5 sao&nbsp;
-                                                </div>
-                                            </div>
-                                            <div class="clear"></div>
-                                        </a>
-                                    </li>
-                                    <li class="advertising" data-name="Vườn Chim Restaurant">
-                                        <a href="https://www.foody.vn/ho-chi-minh/vuon-chim-restaurant"
-                                            onclick="ga('ads.send', 'event', 'Suggestion Box', 'Click', 'Vườn Chim Restaurant');"
-                                            target="_blank" class="suggestion-box-item" title="Vườn Chim Restaurant">
-                                            <div class="suggestion-box-item-left">
-                                                <img src="https://images.foody.vn/res/g94/932050/prof/s128x80/foody-upload-api-foody-mobile-6-190815093750.jpg"
-                                                    alt="Vườn Chim Restaurant" title="Vườn Chim Restaurant">
-                                            </div>
-                                            <div class="suggestion-box-item-right">
-                                                <div class="suggestion-box-item-right-res-name">Vườn Chim Restaurant
-                                                </div>
-                                                <div class="suggestion-box-item-right-res-descr"
-                                                    style="white-space: normal;">Giảm 10% hoá đơn đến hết tháng 9
-                                                </div>
-                                            </div>
-                                            <div class="clear"></div>
-                                        </a>
-                                    </li>
-                                </ul>
-
-                                <!-- banner -->
-
-                                <div
-                                    style="padding: 5px 10px;font-size: 11px; color: #aaa;background: #FCFCFC;border-bottom: #eee 1px solid;">
-                                    Từ khoá đã tìm</div>
-
-                                <ul class="sb-list-items">
-
-
-                                    <!-- normal -->
-
-                                </ul>
-                            </div>
-
-                        </div>
-                    </form>
-
-                    <a class="ico-search" onclick="$('#searchFormTop').submit()">
-                        <span class="fa fa-search"></span>
-                    </a>
-                    <div bind-unsafe-html="Html"></div>
-                </div>
-                <div class="nav-place ng-scope" ng-controller="MenuLoginCtrl">
-                    <div class="account-manage" id="accountmanager">
-                        <a class="fd-btn-login-new" ng-click="Login()" ng-class="{'loading':IsLoading}">
-                            <span>Đăng nhập</span>
-                        </a>
-
-
-
-
-                        <div id="update-profile-popup" style="display: none">
-                        </div>
-                        <div id="update-profile-popup-loading" style="display: none">
-                            Loading...
-                        </div>
-                        <div id="loginPopup" style="display: none">
-                            <div id="loginPopupPH" style="text-align:center; line-height:30px;">
-                                <img style="display:inline" src="/style/images/icons/ajax-loader.gif">
-                            </div>
-                        </div>
-                        <div id="loginFacebookPopup" style="display: none">Loading...</div>
-
-                        <input type="hidden" id="encryptedlogin" autocomplete="off">
-
-
-                    </div>
-                    <div id="NotificationCtrl" style="position: relative; float: left;" ng-controller="NotificationCtrl"
-                        ng-init="Init('')" class="ng-scope">
-                        <div class="" style="float: right;">
-                            <div class="notificationBox">
-                                <div ng-click="Show()"
-                                    ng-class="SummaryTotalUnread()>0?'notification-new-none notification-new-have':'notification-new-none'"
-                                    class="ng-binding notification-new-none">
-
-                                </div>
-                                <div class="notificationsFlyout ng-hide" ng-show="IsShow">
-                                    <span class="arrow"></span>
-                                    <div style="display: block">
-                                        <div>
-                                            <div class="notify-header">
-                                                <ul class="tabs">
-                                                    <li ng-class="{'show-news':IsShowNews}">
-                                                        <a style="border-radius: 3px 0px 0px 3px;"
-                                                            href="javascript:void(0)" ng-click="TabClick(1)"
-                                                            ng-class="{'active':ActiveTab==1}">
-                                                            Dịch vụ
-                                                            <span
-                                                                style="color: #fff;background: #cc0000;border-radius: 10px;font-size:11px;padding: 2px 6px;text-align: center;"
-                                                                ng-show="SummaryOrder>0"
-                                                                class="ng-binding ng-hide">0</span>
-                                                        </a>
-                                                    </li>
-                                                    <li ng-class="{'show-news':IsShowNews}">
-                                                        <a style="border-radius: 0px 3px 3px 0px; border-left: #ccc 1px solid;"
-                                                            href="javascript:void(0)" ng-click="TabClick(2)"
-                                                            ng-class="{'active':ActiveTab==2}" class="active">
-                                                            Của tôi
-                                                            <span
-                                                                style="color: #fff;background: #cc0000;border-radius: 10px;font-size:11px;padding: 2px 6px;text-align: center;"
-                                                                ng-show="SummarySocial>0"
-                                                                class="ng-binding ng-hide">0</span>
-                                                        </a>
-                                                    </li>
-                                                    <li ng-show="IsShowNews" ng-class="{'show-news':IsShowNews}"
-                                                        class="ng-hide">
-                                                        <a style="border-radius: 0px 3px 3px 0px; border-left: #ccc 1px solid;"
-                                                            href="javascript:void(0)" ng-click="TabClick(3)"
-                                                            ng-class="{'active':ActiveTab==3}">
-                                                            Tin mới
-                                                            <span
-                                                                style="color: #fff;background: #cc0000;border-radius: 10px;font-size:11px;padding: 2px 6px;text-align: center;"
-                                                                ng-show="SummaryNews>0"
-                                                                class="ng-binding ng-hide">0</span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="clear"></div>
-                                            <div class="notifications-box tab-idx-1 ng-hide" id="tab-order"
-                                                ng-show="ActiveTab==1">
-                                                <div ng-show="!IsLoginRequire" class="ng-hide">
-                                                    <!-- ngRepeat: item in ListOrder.Items  -->
-                                                </div>
-                                                <div class="notification-message-item item-msg ng-hide"
-                                                    ng-show="ListOrder.Items.length==0 &amp;&amp; IsInit &amp;&amp; !IsLoginRequire">
-                                                    Chưa có thông báo!
-                                                </div>
-                                                <div class="notification-message-item item-msg" ng-show="IsLoginRequire"
-                                                    ng-click="Login()">
-                                                    <span class="fa fa-lock"></span>
-                                                    Đăng nhập để xem
-                                                </div>
-                                                <div style="text-align: center"
-                                                    class="notification-message-item ng-hide"
-                                                    ng-show="ListOrder.Total - ListOrder.Items.length>0">
-                                                    <img class="loading ng-hide"
-                                                        src="/style/images/icons/ajax-loader.gif"
-                                                        ng-show="ListOrder.IsLoading">
-                                                    Xem thêm
-                                                </div>
-                                            </div>
-                                            <div class="notifications-box tab-idx-2" id="tab-social"
-                                                ng-show="ActiveTab==2">
-                                                <div ng-show="!IsLoginRequire" class="ng-hide">
-                                                    <!-- ngRepeat: item in ListSocial.Items -->
-                                                </div>
-
-                                                <div class="notification-message-item item-msg ng-hide"
-                                                    ng-show="ListSocial.Items.length==0 &amp;&amp; IsInit &amp;&amp; !IsLoginRequire">
-                                                    Chưa có thông báo!
-                                                </div>
-                                                <div class="notification-message-item item-msg" ng-show="IsLoginRequire"
-                                                    ng-click="Login()">
-                                                    <span class="fa fa-lock"></span>
-                                                    Đăng nhập để xem
-                                                </div>
-                                                <div style="text-align: center"
-                                                    class="notification-message-item ng-hide"
-                                                    ng-show="ListSocial.Total>ListSocial.Items.length">
-                                                    <img class="loading ng-hide"
-                                                        src="/style/images/icons/ajax-loader.gif" ng-show="IsInit">
-                                                    Xem thêm
-                                                </div>
-                                            </div>
-                                            <div class="notifications-box tab-idx-3 ng-hide" id="tab-news"
-                                                ng-show="ActiveTab==3">
-
-                                                <!-- ngRepeat: item in ListNews.Items  -->
-                                                <div class="notification-message-item item-msg ng-hide"
-                                                    ng-show="ListNews.Items.length==0 &amp;&amp; IsInit &amp;&amp; !IsLoginRequire">
-                                                    Chưa có thông báo!
-                                                </div>
-                                                <div style="text-align: center"
-                                                    class="notification-message-item ng-hide"
-                                                    ng-show="ListNews.Total - ListNews.Items.length>0">
-                                                    <img class="loading ng-hide"
-                                                        src="/style/images/icons/ajax-loader.gif"
-                                                        ng-show="ListNews.IsLoading">
-                                                    Xem thêm
-                                                </div>
-                                            </div>
-                                            <div class="notification-message-item item-msg" ng-show="!IsInit">
-                                                <img class="loading" src="/style/images/icons/ajax-loader.gif">
-                                                Đang tải
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-
-                    </div>
-                    <div class="language-dropdown-container">
-                        <div class="language-dropdown-list" style="display: none;">
-
-                            <a onclick="return changeLanguage('en')" rel="nofollow"
-                                href="/__get/common/changelanguage?code=en&amp;returnUrl=http%3A%2F%2Fwww.foody.vn%2Fbai-viet%2Fhcm-top-10-quan-com-tam-an-hoai-ma-chang-muon-dung-o-sai-gon-274"
-                                title="en">
-                                <img src="/style/images/icons/lang/us.png" alt="en" title="en" style="float:left;">
-                                <span
-                                    style="float:left; line-height:21px; padding-left:4px;font-size:12px; font-weight:normal; text-transform:uppercase;">en</span>
-                            </a>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <script type="text/javascript">
-                        function changeLanguage(code) {
-                            var languageUrl = '/__get/common/changelanguage';
-                            languageUrl = languageUrl + '?code=' + code + '&returnUrl' + location.href;
-                            location.href = languageUrl;
-
-                            return false;
-                        }
-
-                        var languageDropdown = new DropDownCategoryHelper3();
-
-                        $(function () {
-                            languageDropdown.Init({
-                                btnCategory: $(".language-dropdown-container .language-dropdown-btn")[0],
-                                category: $(".language-dropdown-container .language-dropdown-list")[0]
-                            });
-                        });
-                    </script>
-
-                </div>
-
-            </div>
-        </div>
-    </header>
-    <div class="t_clear" style="display: none"></div>
-    <div class="main-container">
-        <div class="padding">
-            <div class="row padding">
-                <div class="col-md-9 col-no-padding">
-                    <div class="owl-carousel owl-theme" id="big">
-                        <div class="item">
-                            <h4><img src="https://s3-hd.hotdeal.vn/original/2019/8/2/5d678bb44fa59-690x335-nen.png">
-                            </h4>
-                        </div>
-                        <div class="item">
-                            <h4><img src="https://s3-hd.hotdeal.vn/original/2019/8/2/5d5cbd9412d2b-background.png"></h4>
-                        </div>
-                        <div class="item">
-                            <h4><img src="https://s3-hd.hotdeal.vn/original/2019/8/2/5d5cbd9412d2b-background.png"></h4>
-                        </div>
-                    </div>
-                    <!-- <div id="thumbs" class="owl-carousel owl-theme">
-                        <div class="item">
-                            <a href="https://pasgo.vn/nha-hang/season-bbq-ba-trieu-917" target="_blank">
-                                <figure style="background-image:url(https://pasgo.vn/Upload/anh-slide-show/season-bbq-ba-trieu-buffet-nuong-lau-ngon-chuan-vin-han-200-11561789930.jpg);">
-                                </figure>
-                                <p>Season BBQ Bà Triệu - Buffet nướng lẩu ngon chuẩn vịn Hàn </p>
-
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="https://pasgo.vn/nha-hang/season-bbq-ba-trieu-917" target="_blank">
-                                <figure style="background-image:url(https://pasgo.vn/Upload/anh-slide-show/season-bbq-ba-trieu-buffet-nuong-lau-ngon-chuan-vin-han-200-11561789930.jpg);">
-                                </figure>
-                                <p>Season BBQ Bà Triệu - Buffet nướng lẩu ngon chuẩn vịn Hàn </p>
-
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="https://pasgo.vn/nha-hang/season-bbq-ba-trieu-917" target="_blank">
-                                <figure style="background-image:url(https://pasgo.vn/Upload/anh-slide-show/season-bbq-ba-trieu-buffet-nuong-lau-ngon-chuan-vin-han-200-11561789930.jpg);">
-                                </figure>
-                                <p>Season BBQ Bà Triệu - Buffet nướng lẩu ngon chuẩn vịn Hàn </p>
-
-                            </a>
-                        </div>
-                    </div> -->
-                </div>
-                <div class="col-md-3 pro-image col-no-padding">
-                    <a class="a-image" href="https://www.hotdeal.vn/ho-chi-minh/dealhot/an-uong/lau-nuong-ha-he/"><img
-                            src="https://s3-hd.hotdeal.vn/original/2019/8/2/5d5e49b0501f1-240x120.png" alt=""></a>
-                    <a class="a-image"
-                        href="https://www.hotdeal.vn/ho-chi-minh/dealhot/an-uong/buffet-lau-ufo-cao-cap/"><img
-                            src="https://s3-hd.hotdeal.vn/original/2019/9/0/5d6e1e2f62f10-5d26b3274f507-750x390-2.jpg"
-                            alt=""></a>
-                    <a class="a-image"
-                        href="https://www.hotdeal.vn/ho-chi-minh/dealhot/spa-lam-dep/thu-gian-xa-stress/"><img
-                            src="https://s3-hd.hotdeal.vn/original/2019/9/0/5d707e6e52940-untitled-1.png" alt=""></a>
-                </div>
-            </div>
-
-        </div>
-        <div>
-            <div class="title_home new-deal">
-                <a href="/ho-chi-minh/san-pham-moi">
-                    <span class="title_home_text">BLOG ORDER</span>
-                </a>
-            </div>
-            <div class="row wapblog">
-                <div class="col-md-4 blog-col">
-                    <div class="col-md-12 border p-0">
-                        <a href="https://pasgo.vn/blog/thien-duong-an-sang-trong-long-thanh-pho-bien-da-nang-3826"
-                            target="_blank">
-                            <img data-src="https://pasgo.vn/Upload/anh-blog/thien-duong-an-sang-trong-long-thanh-pho-bien-da-nang-400-43902103826.jpg"
-                                src="https://pasgo.vn/Upload/anh-blog/thien-duong-an-sang-trong-long-thanh-pho-bien-da-nang-400-43902103826.jpg"
-                                class="img-responsive lazyloaded"
-                                alt="Thiên đường ăn sáng trong lòng thành phố biển Đà Nẵng">
-                            <h3 class="text-overflow-2 h50 mb-0 px-2">Thiên đường ăn sáng trong lòng thành phố biển Đà
-                                Nẵng
-                            </h3>
-                        </a>
-                        <div class="wap-description text-overflow-2 px-2"> Một câu hỏi được du khách và người dân bản
-                            địa đặt ra khá thường xuyên là ăn sáng Đà Nẵng “có gì ngon” và “ăn ở đâu”. Bài viết dưới đây
-                            sẽ giải đáp cho bạn!
-                        </div>
-                        <p class="wap-time px-2">08/03/2018</p>
-                    </div>
-                </div>
-                <div class="col-md-4 blog-col">
-                    <div class="col-md-12 border p-0">
-                        <a href="https://pasgo.vn/blog/tong-hop-3-cach-lam-banh-trung-thu-don-mua-trang-1546"
-                            target="_blank">
-                            <img data-src="https://pasgo.vn/Upload/anh-blog/3-cach-lam-banh-trung-thu-de-lam-an-tai-nha-hay-lam-qua-deu-duoc-400-43590171546.jpg"
-                                src="https://pasgo.vn/Upload/anh-blog/3-cach-lam-banh-trung-thu-de-lam-an-tai-nha-hay-lam-qua-deu-duoc-400-43590171546.jpg"
-                                class="img-responsive lazyloaded"
-                                alt="3 cách làm bánh trung thu dễ làm, ăn tại nhà hay làm quà đều được">
-                            <h3 class="text-overflow-2 h50 mb-0 px-2">3 cách làm bánh trung thu dễ làm, ăn tại nhà hay
-                                làm quà đều được</h3>
-                        </a>
-                        <div class="wap-description text-overflow-2 px-2"> 3 cách làm bánh trung thu không cần lò nướng,
-                            chỉ cần một số dụng cụ nhà bếp thông thường như xoong, chảo, tô, máy xay… Cách làm bánh
-                            trung thu đơn giản, dễ làm tại nhà. Click làm ngay!</div>
-                        <p class="wap-time px-2">02/08/2019</p>
-                    </div>
-                </div>
-                <div class="col-md-4 promo-col">
-                    <ul class="wap-blogitem">
-                        <li>
-                            <a href="https://pasgo.vn/blog/day-la-danh-sach-dac-san-ha-noi-noi-tieng-nhat-may-chuc-nam-qua-3942"
-                                target="_blank">
-                                <img data-src="https://pasgo.vn/Upload/anh-blog/day-la-cac-mon-dac-san-ha-noi-noi-tieng-nhat-may-chuc-nam-qua-400-152694113942.jpg"
-                                    src="https://pasgo.vn/Upload/anh-blog/day-la-cac-mon-dac-san-ha-noi-noi-tieng-nhat-may-chuc-nam-qua-400-152694113942.jpg"
-                                    class="img-responsive lazyloaded"
-                                    alt="Đây là các món đặc sản Hà Nội nổi tiếng nhất MẤY CHỤC NĂM qua">
-                            </a>
-                            <a href="https://pasgo.vn/blog/day-la-danh-sach-dac-san-ha-noi-noi-tieng-nhat-may-chuc-nam-qua-3942"
-                                target="_blank">
-                                <h4>Đây là các món đặc sản Hà Nội nổi tiếng nhất MẤY CHỤC NĂM qua</h4>
-                            </a>
-                            <span>24/04/2019</span>
-                        </li>
-                        <li>
-                            <a href="https://pasgo.vn/blog/7-mau-trang-tri-sinh-nhat-cho-be-tai-nha-voi-xe-o-to-cool-ngau-4025"
-                                target="_blank">
-                                <img data-src="https://pasgo.vn/Upload/anh-blog/7-mau-trang-tri-sinh-nhat-cho-be-trai-tai-nha-voi-xe-o-to-cool-ngau-400-204127014025.jpg"
-                                    src="https://pasgo.vn/Upload/anh-blog/7-mau-trang-tri-sinh-nhat-cho-be-trai-tai-nha-voi-xe-o-to-cool-ngau-400-204127014025.jpg"
-                                    class="img-responsive lazyloaded"
-                                    alt="7 Mẫu trang trí sinh nhật cho bé trai tại nhà với xe ô tô Cool Ngầu">
-                            </a>
-                            <a href="https://pasgo.vn/blog/7-mau-trang-tri-sinh-nhat-cho-be-tai-nha-voi-xe-o-to-cool-ngau-4025"
-                                target="_blank">
-                                <h4>7 Mẫu trang trí sinh nhật cho bé trai tại nhà với xe ô tô Cool Ngầu</h4>
-                            </a>
-                            <span>08/04/2019</span>
-                        </li>
-                        <li>
-                            <a href="https://pasgo.vn/blog/an-gi-o-sai-gon-ngon-re-top-20-noi-tieng-ngay-la-cau-tra-loi-4114"
-                                target="_blank">
-                                <img data-src="https://pasgo.vn/Upload/anh-blog/an-gi-o-sai-gon-ngon-re-top-20-noi-tieng-nay-la-cau-tra-loi-400-182525014114.jpg"
-                                    src="https://pasgo.vn/Upload/anh-blog/an-gi-o-sai-gon-ngon-re-top-20-noi-tieng-nay-la-cau-tra-loi-400-182525014114.jpg"
-                                    class="img-responsive lazyloaded"
-                                    alt="Ăn gì ở Sài Gòn ngon, rẻ? TOP 20 nổi tiếng này là câu trả lời. ">
-                            </a>
-                            <a href="https://pasgo.vn/blog/an-gi-o-sai-gon-ngon-re-top-20-noi-tieng-ngay-la-cau-tra-loi-4114"
-                                target="_blank">
-                                <h4>Ăn gì ở Sài Gòn ngon, rẻ? TOP 20 nổi tiếng này là câu trả lời. </h4>
-                            </a>
-                            <span>13/05/2019</span>
-                        </li>
-                        <li>
-                            <a href="https://pasgo.vn/blog/cach-nau-chao-ca-hoi-thom-ngon-bo-duong-khong-bi-tanh-cho-be-yeu-4216"
-                                target="_blank">
-                                <img data-src="https://pasgo.vn/Upload/anh-blog/cach-nau-chao-ca-hoi-thom-ngon-bo-duong-khong-tanh-cho-be-yeu-400-94577824216.jpg"
-                                    src="https://pasgo.vn/Upload/anh-blog/cach-nau-chao-ca-hoi-thom-ngon-bo-duong-khong-tanh-cho-be-yeu-400-94577824216.jpg"
-                                    class="img-responsive lazyloaded"
-                                    alt="Cách nấu cháo cá hồi THƠM NGON, BỔ DƯỠNG, KHÔNG TANH cho bé yêu">
-                            </a>
-                            <a href="https://pasgo.vn/blog/cach-nau-chao-ca-hoi-thom-ngon-bo-duong-khong-bi-tanh-cho-be-yeu-4216"
-                                target="_blank">
-                                <h4>Cách nấu cháo cá hồi THƠM NGON, BỔ DƯỠNG, KHÔNG TANH cho bé yêu</h4>
-                            </a>
-                            <span>03/07/2019</span>
-                        </li>
-                        <li>
-                            <a href="https://pasgo.vn/blog/cach-lam-ga-hap-muoi-sa-sieu-ngon-bang-noi-com-dien-tai-nha-4220"
-                                target="_blank">
-                                <img data-src="https://pasgo.vn/Upload/anh-blog/cach-lam-ga-hap-muoi-sa-sieu-ngon-bang-noi-com-dien-tai-nha-400-180053344220.jpg"
-                                    src="https://pasgo.vn/Upload/anh-blog/cach-lam-ga-hap-muoi-sa-sieu-ngon-bang-noi-com-dien-tai-nha-400-180053344220.jpg"
-                                    class="img-responsive lazyloaded"
-                                    alt="Cách làm gà hấp muối sả siêu ngon bằng nồi cơm điện tại nhà">
-                            </a>
-                            <a href="https://pasgo.vn/blog/cach-lam-ga-hap-muoi-sa-sieu-ngon-bang-noi-com-dien-tai-nha-4220"
-                                target="_blank">
-                                <h4>Cách làm gà hấp muối sả siêu ngon bằng nồi cơm điện tại nhà</h4>
-                            </a>
-                            <span>04/07/2019</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div>
-            <div class="title_home new-deal">
-                <a href="/ho-chi-minh/san-pham-moi">
-                    <span class="title_home_text">NHÀ HÀNG UY TÍN</span>
-                </a>
-            </div>
-            <div class="owl-carousel owl-theme" id="product-uytin">
-                <div class="item">
-                    <div class="card item-slide">
-                        <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                            title="Amun Garden Restaurant &amp; Lounge">
-                            <div class="card-img card-img-top order-now"><img
-                                    src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                    alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                    class="btn btn-order">Đặt
-                                    ngay</span>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                <div class="card-info">
-                                    <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                            ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card item-slide">
-                        <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                            title="Amun Garden Restaurant &amp; Lounge">
-                            <div class="card-img card-img-top order-now"><img
-                                    src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                    alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                    class="btn btn-order">Đặt
-                                    ngay</span>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                <div class="card-info">
-                                    <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                            ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card item-slide">
-                        <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                            title="Amun Garden Restaurant &amp; Lounge">
-                            <div class="card-img card-img-top order-now"><img
-                                    src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                    alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                    class="btn btn-order">Đặt
-                                    ngay</span>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                <div class="card-info">
-                                    <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                            ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card item-slide">
-                        <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                            title="Amun Garden Restaurant &amp; Lounge">
-                            <div class="card-img card-img-top order-now"><img
-                                    src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                    alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                    class="btn btn-order">Đặt
-                                    ngay</span>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                <div class="card-info">
-                                    <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                            ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card item-slide">
-                        <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                            title="Amun Garden Restaurant &amp; Lounge">
-                            <div class="card-img card-img-top order-now"><img
-                                    src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                    alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                    class="btn btn-order">Đặt
-                                    ngay</span>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                <div class="card-info">
-                                    <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                            ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card item-slide">
-                        <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                            title="Amun Garden Restaurant &amp; Lounge">
-                            <div class="card-img card-img-top order-now"><img
-                                    src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                    alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                    class="btn btn-order">Đặt
-                                    ngay</span>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                <div class="card-info">
-                                    <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                            ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="padding tbnow-place">
-            <div class="title_home new-deal">
-                <a href="/ho-chi-minh/san-pham-moi">
-                    <span class="title_home_text">NHÀ HÀNG</span>
-                </a>
-            </div>
-            <div>
-                <div class="row text-center padding">
-                    <div class="col-xs-12 col-sm-6 col-md-2dot4">
-                        <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt ngay</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                    <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                    <div class="card-info">
-                                        <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                    </div>
-                                </div>
-                            </a>
-
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-2dot4">
-                        <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt ngay</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                    <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                    <div class="card-info">
-                                        <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                    </div>
-                                </div>
-                            </a>
-
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-2dot4">
-                        <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt ngay</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                    <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                    <div class="card-info">
-                                        <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-2dot4">
-                        <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt ngay</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                    <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                    <div class="card-info">
-                                        <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-2dot4">
-                        <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt
-                                        ngay</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                    <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                    <div class="card-info">
-                                        <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-2dot4">
-                        <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt
-                                        ngay</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                    <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                    <div class="card-info">
-                                        <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-2dot4">
-                        <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt
-                                        ngay</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                    <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                    <div class="card-info">
-                                        <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-2dot4">
-                        <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt
-                                        ngay</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                    <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                    <div class="card-info">
-                                        <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-2dot4">
-                        <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt
-                                        ngay</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                    <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                    <div class="card-info">
-                                        <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-2dot4">
-                        <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt
-                                        ngay</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                    <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                    <div class="card-info">
-                                        <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="padding tbnow-place">
-            <div class="title_home new-deal">
-                <a href="/ho-chi-minh/san-pham-moi">
-                    <span class="title_home_text">QUÁN ĂN - QUÁN NHẬU</span>
-                </a>
-            </div>
-            <div>
-                <div class="row text-center padding">
-                    <div class="col-xs-12 col-sm-6 col-md-2dot4">
-                        <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt ngay</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                    <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                    <div class="card-info">
-                                        <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                    </div>
-                                </div>
-                            </a>
-
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-2dot4">
-                        <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt ngay</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                    <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                    <div class="card-info">
-                                        <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                    </div>
-                                </div>
-                            </a>
-
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-2dot4">
-                        <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt ngay</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                    <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                    <div class="card-info">
-                                        <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-2dot4">
-                        <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt ngay</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                    <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                    <div class="card-info">
-                                        <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-2dot4 col-product">
-                        <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt
-                                        ngay</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                    <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                    <div class="card-info">
-                                        <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-2dot4 col-product">
-                        <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt
-                                        ngay</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                    <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                    <div class="card-info">
-                                        <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-2dot4 col-product">
-                        <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt
-                                        ngay</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                    <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                    <div class="card-info">
-                                        <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-2dot4 col-product">
-                        <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt
-                                        ngay</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                    <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                    <div class="card-info">
-                                        <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-2dot4">
-                        <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt
-                                        ngay</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                    <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                    <div class="card-info">
-                                        <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-2dot4">
-                        <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt
-                                        ngay</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                    <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                    <div class="card-info">
-                                        <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div>
-            <div class="title_home new-deal">
-                <a href="/ho-chi-minh/san-pham-moi">
-                    <span class="title_home_text">CAFE - KEM -TRÁNG MIỆNG</span>
-                </a>
-            </div>
-            <div class="owl-carousel owl-theme" id="slide-product">
-                <div class="item">
-                    <div class="card item-slide">
-                        <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                            title="Amun Garden Restaurant &amp; Lounge">
-                            <div class="card-img card-img-top order-now"><img
-                                    src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                    alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                    class="btn btn-order">Đặt
-                                    ngay</span>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                <div class="card-info">
-                                    <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                            ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card item-slide">
-                        <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                            title="Amun Garden Restaurant &amp; Lounge">
-                            <div class="card-img card-img-top order-now"><img
-                                    src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                    alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                    class="btn btn-order">Đặt
-                                    ngay</span>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                <div class="card-info">
-                                    <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                            ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card item-slide">
-                        <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                            title="Amun Garden Restaurant &amp; Lounge">
-                            <div class="card-img card-img-top order-now"><img
-                                    src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                    alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                    class="btn btn-order">Đặt
-                                    ngay</span>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                <div class="card-info">
-                                    <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                            ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card item-slide">
-                        <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                            title="Amun Garden Restaurant &amp; Lounge">
-                            <div class="card-img card-img-top order-now"><img
-                                    src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                    alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                    class="btn btn-order">Đặt
-                                    ngay</span>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                <div class="card-info">
-                                    <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                            ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card item-slide">
-                        <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                            title="Amun Garden Restaurant &amp; Lounge">
-                            <div class="card-img card-img-top order-now"><img
-                                    src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                    alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                    class="btn btn-order">Đặt
-                                    ngay</span>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                <div class="card-info">
-                                    <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                            ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card item-slide">
-                        <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                            title="Amun Garden Restaurant &amp; Lounge">
-                            <div class="card-img card-img-top order-now"><img
-                                    src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                    alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                    class="btn btn-order">Đặt
-                                    ngay</span>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                <div class="card-info">
-                                    <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                            ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="padding tbnow-place">
-            <div class="title_home new-deal">
-                <a href="/ho-chi-minh/san-pham-moi">
-                    <span class="title_home_text">BAR - PUB</span>
-                </a>
-            </div>
-            <div>
-                <div class="row text-center padding">
-                    <div class="col-xs-12 col-sm-6 col-md-2dot4">
-                        <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt ngay</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                    <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                    <div class="card-info">
-                                        <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                    </div>
-                                </div>
-                            </a>
-
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-2dot4">
-                        <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt ngay</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                    <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                    <div class="card-info">
-                                        <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                    </div>
-                                </div>
-                            </a>
-
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-2dot4">
-                        <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt ngay</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                    <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                    <div class="card-info">
-                                        <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-2dot4">
-                        <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt ngay</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                    <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                    <div class="card-info">
-                                        <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-2dot4 col-product">
-                        <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt
-                                        ngay</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                    <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                    <div class="card-info">
-                                        <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-2dot4 col-product">
-                        <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt
-                                        ngay</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                    <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                    <div class="card-info">
-                                        <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-2dot4 col-product">
-                        <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt
-                                        ngay</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                    <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                    <div class="card-info">
-                                        <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-2dot4 col-product">
-                        <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt
-                                        ngay</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                    <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                    <div class="card-info">
-                                        <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-2dot4">
-                        <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt
-                                        ngay</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                    <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                    <div class="card-info">
-                                        <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-2dot4">
-                        <div class="card">
-                            <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content"
-                                title="Amun Garden Restaurant &amp; Lounge">
-                                <div class="card-img card-img-top order-now"><img
-                                        src="https://images.foody.vn/res/g75/749572/prof/s280x168/foody-upload-api-foody-mobile-8-190820144032.jpg"
-                                        alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span
-                                        class="btn btn-order">Đặt
-                                        ngay</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
-                                    <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
-                                    <div class="card-info">
-                                        <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
-                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+                    <div class="item">
+                        <h4><img src="https://cdn.dailyxe.com.vn/image/-80338j.jpg">
+                        </h4>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
-    <div class="container">
-        <section class="logo-brand-section home-section">
-            <div class="section-header">
-                <h2 class="title" title="Tìm hiểu thương hiệu">thương hiệu chuỗi</h2>
-            </div>
-            <div class="container">
-                <div class="grid-group mb-2">
-
-                    <a class="grid-item  grid-link" href="https://dailyxe.com.vn/thuong-hieu/vinfast-viet-nam-85b.html"
-                        title="VinFast">
-                        <img class="grid-img lazy-loading-image loaded" style="width:100%"
-                            src="https://pasgo.vn/Upload/anh-kham-pha/chuoi-nha-hang-the-pizza-company-chuyen-pizza-va-mon-y-400-17837959782.jpg"
-                            alt="Logo VinFast" title="Logo VinFast">
-                        <noscript>
-                            <img class="grid-img "
-                                src="https://pasgo.vn/Upload/anh-kham-pha/chuoi-nha-hang-the-pizza-company-chuyen-pizza-va-mon-y-400-17837959782.jpg"
-                                alt="Logo The Pizza" title="Logo The Pizza" />
-                        </noscript>
-                        <h4 class="grid-title">The Pizza</h4>
+    <div class="container-fluid">
+        <div class="title_home new-deal">
+            <a href="/ho-chi-minh/san-pham-moi">
+                <span class="title_home_text">BLOG ORDER</span>
+            </a>
+        </div>
+        <div class="row wapblog">
+            <div class="col-md-4 blog-col">
+                <div class="col-md-12 border p-0">
+                    <a href="https://pasgo.vn/blog/thien-duong-an-sang-trong-long-thanh-pho-bien-da-nang-3826" target="_blank">
+                        <img data-src="https://pasgo.vn/Upload/anh-blog/thien-duong-an-sang-trong-long-thanh-pho-bien-da-nang-400-43902103826.jpg" src="https://pasgo.vn/Upload/anh-blog/thien-duong-an-sang-trong-long-thanh-pho-bien-da-nang-400-43902103826.jpg" class="img-responsive lazyloaded"
+                            alt="Thiên đường ăn sáng trong lòng thành phố biển Đà Nẵng">
+                        <h3 class="text-overflow-2 h50 mb-0 px-2">Thiên đường ăn sáng trong lòng thành phố biển Đà Nẵng
+                        </h3>
                     </a>
-                    <a class="grid-item  grid-link"
-                        href="https://dailyxe.com.vn/thuong-hieu/chevrolet-viet-nam-45b.html" title="King BBQ">
-                        <img class="grid-img lazy-loading-image loaded" style="width:100%"
-                            src="https://pasgo.vn/Upload/anh-kham-pha/chuoi-nha-hang-king-bbq-buffet-tp-hcm-vua-nuong-han-quoc-400-17678983233.jpg"
-                            alt="Logo King BBQ" title="Logo King BBQ">
-                        <noscript>
-                            <img class="grid-img "
-                                src="https://pasgo.vn/Upload/anh-kham-pha/chuoi-nha-hang-king-bbq-buffet-tp-hcm-vua-nuong-han-quoc-400-17678983233.jpg"
-                                alt="Logo King BBQ" title="Logo King BBQ" />
-                        </noscript>
-                        <h4 class="grid-title">King BBQ</h4>
-                    </a>
-                    <a class="grid-item  grid-link" href="https://dailyxe.com.vn/thuong-hieu/mazda-viet-nam-39b.html"
-                        title="Gogi house">
-                        <img class="grid-img lazy-loading-image loaded" style="width:100%"
-                            src="https://pasgo.vn/Upload/anh-kham-pha/chuoi-nha-hang-gogi-house-quan-thit-nuong-han-quoc-ngon-tai-sai-gon-400-18539908811.jpg"
-                            alt="Logo Gogi house" title="Logo Gogi house">
-                        <noscript>
-                            <img class="grid-img "
-                                src="https://pasgo.vn/Upload/anh-kham-pha/chuoi-nha-hang-gogi-house-quan-thit-nuong-han-quoc-ngon-tai-sai-gon-400-18539908811.jpg"
-                                alt="Logo Gogi house" title="Logo Gogi house" />
-                        </noscript>
-                        <h4 class="grid-title">Gogi house</h4>
-                    </a>
-                    <a class="grid-item  grid-link" href="https://dailyxe.com.vn/thuong-hieu/kia-viet-nam-41b.html"
-                        title="Sushi Tei">
-                        <img class="grid-img lazy-loading-image loaded" style="width:100%"
-                            src="https://pasgo.vn/Upload/anh-kham-pha/nha-hang-sushi-tei-chat-luong-tao-dung-thuong-hieu-400-13062392885.jpg"
-                            alt="Logo Sushi Tei" title="Logo Sushi Tei">
-                        <noscript>
-                            <img class="grid-img "
-                                src="https://pasgo.vn/Upload/anh-kham-pha/nha-hang-sushi-tei-chat-luong-tao-dung-thuong-hieu-400-13062392885.jpg"
-                                alt="Logo Sushi Tei" title="Logo Sushi Tei" />
-                        </noscript>
-                        <h4 class="grid-title">Sushi Tei</h4>
-                    </a>
-                    <a class="grid-item  grid-link" href="https://dailyxe.com.vn/thuong-hieu/toyota-viet-nam-28b.html"
-                        title="Gyu Shige">
-                        <img class="grid-img lazy-loading-image loaded" style="width:100%"
-                            src="https://pasgo.vn/Upload/anh-kham-pha/chuoi-nha-hang-gyu-shige-nguu-phon-danh-tieng-goi-mon-nuong-lau-nhat-ban-400-18400183884.jpg"
-                            alt="Logo Gyu Shige" title="Logo Gyu Shige">
-                        <noscript>
-                            <img class="grid-img "
-                                src="https://pasgo.vn/Upload/anh-kham-pha/chuoi-nha-hang-gyu-shige-nguu-phon-danh-tieng-goi-mon-nuong-lau-nhat-ban-400-18400183884.jpg"
-                                alt="Logo Gyu Shige" title="Logo Gyu Shige" />
-                        </noscript>
-                        <h4 class="grid-title">Gyu Shige</h4>
-                    </a>
-                    <a class="grid-item  grid-link" href="https://dailyxe.com.vn/thuong-hieu/ford-viet-nam-52b.html"
-                        title="Khao Lao">
-                        <img class="grid-img lazy-loading-image loaded" style="width:100%"
-                            src="https://pasgo.vn/Upload/anh-kham-pha/nha-hang-khao-lao-hcm-kham-pha-am-thuc-lao-400-18019347845.jpg"
-                            alt="Logo Khao Lao" title="Logo Khao Lao">
-                        <noscript>
-                            <img class="grid-img "
-                                src="https://pasgo.vn/Upload/anh-kham-pha/nha-hang-khao-lao-hcm-kham-pha-am-thuc-lao-400-18019347845.jpg"
-                                alt="Logo Khao Lao" title="Logo Khao Lao" />
-                        </noscript>
-                        <h4 class="grid-title">Khao Lao</h4>
-                    </a>
-                    <a class="grid-item  grid-link" href="https://dailyxe.com.vn/thuong-hieu/hyundai-viet-nam-40b.html"
-                        title="Kichi Kichi">
-                        <img class="grid-img lazy-loading-image loaded" style="width:100%"
-                            src="https://pasgo.vn/Upload/anh-kham-pha/chuoi-lau-bang-chuyen-kichi-kichi-tphcm-an-lau-theo-kieu-nhat-400-17903498812.jpg"
-                            alt="Logo Kichi Kichi" title="Logo Kichi Kichi">
-                        <noscript>
-                            <img class="grid-img "
-                                src="https://pasgo.vn/Upload/anh-kham-pha/chuoi-lau-bang-chuyen-kichi-kichi-tphcm-an-lau-theo-kieu-nhat-400-17903498812.jpg"
-                                alt="Logo Kichi Kichi" title="Logo Kichi Kichi" />
-                        </noscript>
-                        <h4 class="grid-title">Kichi Kichi</h4>
-                    </a>
-                    <a class="grid-item  grid-link" href="https://dailyxe.com.vn/thuong-hieu/hyundai-viet-nam-40b.html"
-                        title="Kichi Kichi">
-                        <img class="grid-img lazy-loading-image loaded" style="width:100%"
-                            src="https://pasgo.vn/Upload/anh-kham-pha/chuoi-lau-bang-chuyen-kichi-kichi-tphcm-an-lau-theo-kieu-nhat-400-17903498812.jpg"
-                            alt="Logo Kichi Kichi" title="Logo Kichi Kichi">
-                        <noscript>
-                            <img class="grid-img "
-                                src="https://pasgo.vn/Upload/anh-kham-pha/chuoi-lau-bang-chuyen-kichi-kichi-tphcm-an-lau-theo-kieu-nhat-400-17903498812.jpg"
-                                alt="Logo Kichi Kichi" title="Logo Kichi Kichi" />
-                        </noscript>
-                        <h4 class="grid-title">Kichi Kichi</h4>
-                    </a>
-                    <a class="grid-item  grid-link" href="https://dailyxe.com.vn/thuong-hieu/hyundai-viet-nam-40b.html"
-                        title="Kichi Kichi">
-                        <img class="grid-img lazy-loading-image loaded" style="width:100%"
-                            src="https://pasgo.vn/Upload/anh-kham-pha/chuoi-lau-bang-chuyen-kichi-kichi-tphcm-an-lau-theo-kieu-nhat-400-17903498812.jpg"
-                            alt="Logo Kichi Kichi" title="Logo Kichi Kichi">
-                        <noscript>
-                            <img class="grid-img "
-                                src="https://pasgo.vn/Upload/anh-kham-pha/chuoi-lau-bang-chuyen-kichi-kichi-tphcm-an-lau-theo-kieu-nhat-400-17903498812.jpg"
-                                alt="Logo Kichi Kichi" title="Logo Kichi Kichi" />
-                        </noscript>
-                        <h4 class="grid-title">Kichi Kichi</h4>
-                    </a>
-                    <a class="grid-item  grid-link" href="https://dailyxe.com.vn/thuong-hieu/hyundai-viet-nam-40b.html"
-                        title="Kichi Kichi">
-                        <img class="grid-img lazy-loading-image loaded" style="width:100%"
-                            src="https://pasgo.vn/Upload/anh-kham-pha/chuoi-lau-bang-chuyen-kichi-kichi-tphcm-an-lau-theo-kieu-nhat-400-17903498812.jpg"
-                            alt="Logo Kichi Kichi" title="Logo Kichi Kichi">
-                        <noscript>
-                            <img class="grid-img "
-                                src="https://pasgo.vn/Upload/anh-kham-pha/chuoi-lau-bang-chuyen-kichi-kichi-tphcm-an-lau-theo-kieu-nhat-400-17903498812.jpg"
-                                alt="Logo Kichi Kichi" title="Logo Kichi Kichi" />
-                        </noscript>
-                        <h4 class="grid-title">Kichi Kichi</h4>
-                    </a>
-                    <a class="grid-item  grid-link" href="https://dailyxe.com.vn/thuong-hieu/hyundai-viet-nam-40b.html"
-                        title="Kichi Kichi">
-                        <img class="grid-img lazy-loading-image loaded" style="width:100%"
-                            src="https://pasgo.vn/Upload/anh-kham-pha/chuoi-lau-bang-chuyen-kichi-kichi-tphcm-an-lau-theo-kieu-nhat-400-17903498812.jpg"
-                            alt="Logo Kichi Kichi" title="Logo Kichi Kichi">
-                        <noscript>
-                            <img class="grid-img "
-                                src="https://pasgo.vn/Upload/anh-kham-pha/chuoi-lau-bang-chuyen-kichi-kichi-tphcm-an-lau-theo-kieu-nhat-400-17903498812.jpg"
-                                alt="Logo Kichi Kichi" title="Logo Kichi Kichi" />
-                        </noscript>
-                        <h4 class="grid-title">Kichi Kichi</h4>
-                    </a>
-                    <a class="grid-item  grid-link" href="https://dailyxe.com.vn/thuong-hieu/hyundai-viet-nam-40b.html"
-                        title="Kichi Kichi">
-                        <img class="grid-img lazy-loading-image loaded" style="width:100%"
-                            src="https://pasgo.vn/Upload/anh-kham-pha/chuoi-lau-bang-chuyen-kichi-kichi-tphcm-an-lau-theo-kieu-nhat-400-17903498812.jpg"
-                            alt="Logo Kichi Kichi" title="Logo Kichi Kichi">
-                        <noscript>
-                            <img class="grid-img "
-                                src="https://pasgo.vn/Upload/anh-kham-pha/chuoi-lau-bang-chuyen-kichi-kichi-tphcm-an-lau-theo-kieu-nhat-400-17903498812.jpg"
-                                alt="Logo Kichi Kichi" title="Logo Kichi Kichi" />
-                        </noscript>
-                        <h4 class="grid-title">Kichi Kichi</h4>
-                    </a>
-                    <a class="grid-item  grid-link" href="https://dailyxe.com.vn/thuong-hieu/hyundai-viet-nam-40b.html"
-                        title="Kichi Kichi">
-                        <img class="grid-img lazy-loading-image loaded" style="width:100%"
-                            src="https://pasgo.vn/Upload/anh-kham-pha/chuoi-lau-bang-chuyen-kichi-kichi-tphcm-an-lau-theo-kieu-nhat-400-17903498812.jpg"
-                            alt="Logo Kichi Kichi" title="Logo Kichi Kichi">
-                        <noscript>
-                            <img class="grid-img "
-                                src="https://pasgo.vn/Upload/anh-kham-pha/chuoi-lau-bang-chuyen-kichi-kichi-tphcm-an-lau-theo-kieu-nhat-400-17903498812.jpg"
-                                alt="Logo Kichi Kichi" title="Logo Kichi Kichi" />
-                        </noscript>
-                        <h4 class="grid-title">Kichi Kichi</h4>
-                    </a>
-                    <a class="grid-item  grid-link" href="https://dailyxe.com.vn/thuong-hieu/hyundai-viet-nam-40b.html"
-                        title="Kichi Kichi">
-                        <img class="grid-img lazy-loading-image loaded" style="width:100%"
-                            src="https://pasgo.vn/Upload/anh-kham-pha/chuoi-lau-bang-chuyen-kichi-kichi-tphcm-an-lau-theo-kieu-nhat-400-17903498812.jpg"
-                            alt="Logo Kichi Kichi" title="Logo Kichi Kichi">
-                        <noscript>
-                            <img class="grid-img "
-                                src="https://pasgo.vn/Upload/anh-kham-pha/chuoi-lau-bang-chuyen-kichi-kichi-tphcm-an-lau-theo-kieu-nhat-400-17903498812.jpg"
-                                alt="Logo Kichi Kichi" title="Logo Kichi Kichi" />
-                        </noscript>
-                        <h4 class="grid-title">Kichi Kichi</h4>
-                    </a>
-                    <a class="grid-item  grid-link" href="https://dailyxe.com.vn/thuong-hieu/hyundai-viet-nam-40b.html"
-                        title="Kichi Kichi">
-                        <img class="grid-img lazy-loading-image loaded" style="width:100%"
-                            src="https://pasgo.vn/Upload/anh-kham-pha/chuoi-lau-bang-chuyen-kichi-kichi-tphcm-an-lau-theo-kieu-nhat-400-17903498812.jpg"
-                            alt="Logo Kichi Kichi" title="Logo Kichi Kichi">
-                        <noscript>
-                            <img class="grid-img "
-                                src="https://pasgo.vn/Upload/anh-kham-pha/chuoi-lau-bang-chuyen-kichi-kichi-tphcm-an-lau-theo-kieu-nhat-400-17903498812.jpg"
-                                alt="Logo Kichi Kichi" title="Logo Kichi Kichi" />
-                        </noscript>
-                        <h4 class="grid-title">Kichi Kichi</h4>
-                    </a>
-                    <a class="grid-item  grid-link" href="https://dailyxe.com.vn/thuong-hieu/hyundai-viet-nam-40b.html"
-                        title="Kichi Kichi">
-                        <img class="grid-img lazy-loading-image loaded" style="width:100%"
-                            src="https://pasgo.vn/Upload/anh-kham-pha/chuoi-lau-bang-chuyen-kichi-kichi-tphcm-an-lau-theo-kieu-nhat-400-17903498812.jpg"
-                            alt="Logo Kichi Kichi" title="Logo Kichi Kichi">
-                        <noscript>
-                            <img class="grid-img "
-                                src="https://pasgo.vn/Upload/anh-kham-pha/chuoi-lau-bang-chuyen-kichi-kichi-tphcm-an-lau-theo-kieu-nhat-400-17903498812.jpg"
-                                alt="Logo Kichi Kichi" title="Logo Kichi Kichi" />
-                        </noscript>
-                        <h4 class="grid-title">Kichi Kichi</h4>
-                    </a>
-                    <a class="grid-item  grid-link" href="https://dailyxe.com.vn/thuong-hieu/hyundai-viet-nam-40b.html"
-                        title="Kichi Kichi">
-                        <img class="grid-img lazy-loading-image loaded" style="width:100%"
-                            src="https://pasgo.vn/Upload/anh-kham-pha/chuoi-lau-bang-chuyen-kichi-kichi-tphcm-an-lau-theo-kieu-nhat-400-17903498812.jpg"
-                            alt="Logo Kichi Kichi" title="Logo Kichi Kichi">
-                        <noscript>
-                            <img class="grid-img "
-                                src="https://pasgo.vn/Upload/anh-kham-pha/chuoi-lau-bang-chuyen-kichi-kichi-tphcm-an-lau-theo-kieu-nhat-400-17903498812.jpg"
-                                alt="Logo Kichi Kichi" title="Logo Kichi Kichi" />
-                        </noscript>
-                        <h4 class="grid-title">Kichi Kichi</h4>
-                    </a>
-                    <a class="grid-item  grid-link" href="https://dailyxe.com.vn/thuong-hieu/hyundai-viet-nam-40b.html"
-                        title="Kichi Kichi">
-                        <img class="grid-img lazy-loading-image loaded" style="width:100%"
-                            src="https://pasgo.vn/Upload/anh-kham-pha/chuoi-lau-bang-chuyen-kichi-kichi-tphcm-an-lau-theo-kieu-nhat-400-17903498812.jpg"
-                            alt="Logo Kichi Kichi" title="Logo Kichi Kichi">
-                        <noscript>
-                            <img class="grid-img "
-                                src="https://pasgo.vn/Upload/anh-kham-pha/chuoi-lau-bang-chuyen-kichi-kichi-tphcm-an-lau-theo-kieu-nhat-400-17903498812.jpg"
-                                alt="Logo Kichi Kichi" title="Logo Kichi Kichi" />
-                        </noscript>
-                        <h4 class="grid-title">Kichi Kichi</h4>
-                    </a>
-
+                    <div class="wap-description text-overflow-2 px-2"> Một câu hỏi được du khách và người dân bản địa đặt ra khá thường xuyên là ăn sáng Đà Nẵng “có gì ngon” và “ăn ở đâu”. Bài viết dưới đây sẽ giải đáp cho bạn!
+                    </div>
+                    <p class="wap-time px-2">08/03/2018</p>
                 </div>
             </div>
-        </section>
+            <div class="col-md-4 blog-col">
+                <div class="col-md-12 border p-0">
+                    <a href="https://pasgo.vn/blog/tong-hop-3-cach-lam-banh-trung-thu-don-mua-trang-1546" target="_blank">
+                        <img data-src="https://pasgo.vn/Upload/anh-blog/3-cach-lam-banh-trung-thu-de-lam-an-tai-nha-hay-lam-qua-deu-duoc-400-43590171546.jpg" src="https://pasgo.vn/Upload/anh-blog/3-cach-lam-banh-trung-thu-de-lam-an-tai-nha-hay-lam-qua-deu-duoc-400-43590171546.jpg"
+                            class="img-responsive lazyloaded" alt="3 cách làm bánh trung thu dễ làm, ăn tại nhà hay làm quà đều được">
+                        <h3 class="text-overflow-2 h50 mb-0 px-2">3 cách làm bánh trung thu dễ làm, ăn tại nhà hay làm quà đều được</h3>
+                    </a>
+                    <div class="wap-description text-overflow-2 px-2"> 3 cách làm bánh trung thu không cần lò nướng, chỉ cần một số dụng cụ nhà bếp thông thường như xoong, chảo, tô, máy xay… Cách làm bánh trung thu đơn giản, dễ làm tại nhà. Click làm ngay!</div>
+                    <p class="wap-time px-2">02/08/2019</p>
+                </div>
+            </div>
+            <div class="col-md-4 promo-col">
+                <ul class="wap-blogitem">
+                    <li>
+                        <a href="https://pasgo.vn/blog/day-la-danh-sach-dac-san-ha-noi-noi-tieng-nhat-may-chuc-nam-qua-3942" target="_blank">
+                            <img data-src="https://pasgo.vn/Upload/anh-blog/day-la-cac-mon-dac-san-ha-noi-noi-tieng-nhat-may-chuc-nam-qua-400-152694113942.jpg" src="https://pasgo.vn/Upload/anh-blog/day-la-cac-mon-dac-san-ha-noi-noi-tieng-nhat-may-chuc-nam-qua-400-152694113942.jpg"
+                                class="img-responsive lazyloaded" alt="Đây là các món đặc sản Hà Nội nổi tiếng nhất MẤY CHỤC NĂM qua">
+                        </a>
+                        <a href="https://pasgo.vn/blog/day-la-danh-sach-dac-san-ha-noi-noi-tieng-nhat-may-chuc-nam-qua-3942" target="_blank">
+                            <h4>Đây là các món đặc sản Hà Nội nổi tiếng nhất MẤY CHỤC NĂM qua</h4>
+                        </a>
+                        <span>24/04/2019</span>
+                    </li>
+                    <li>
+                        <a href="https://pasgo.vn/blog/7-mau-trang-tri-sinh-nhat-cho-be-tai-nha-voi-xe-o-to-cool-ngau-4025" target="_blank">
+                            <img data-src="https://pasgo.vn/Upload/anh-blog/7-mau-trang-tri-sinh-nhat-cho-be-trai-tai-nha-voi-xe-o-to-cool-ngau-400-204127014025.jpg" src="https://pasgo.vn/Upload/anh-blog/7-mau-trang-tri-sinh-nhat-cho-be-trai-tai-nha-voi-xe-o-to-cool-ngau-400-204127014025.jpg"
+                                class="img-responsive lazyloaded" alt="7 Mẫu trang trí sinh nhật cho bé trai tại nhà với xe ô tô Cool Ngầu">
+                        </a>
+                        <a href="https://pasgo.vn/blog/7-mau-trang-tri-sinh-nhat-cho-be-tai-nha-voi-xe-o-to-cool-ngau-4025" target="_blank">
+                            <h4>7 Mẫu trang trí sinh nhật cho bé trai tại nhà với xe ô tô Cool Ngầu</h4>
+                        </a>
+                        <span>08/04/2019</span>
+                    </li>
+                    <li>
+                        <a href="https://pasgo.vn/blog/an-gi-o-sai-gon-ngon-re-top-20-noi-tieng-ngay-la-cau-tra-loi-4114" target="_blank">
+                            <img data-src="https://pasgo.vn/Upload/anh-blog/an-gi-o-sai-gon-ngon-re-top-20-noi-tieng-nay-la-cau-tra-loi-400-182525014114.jpg" src="https://pasgo.vn/Upload/anh-blog/an-gi-o-sai-gon-ngon-re-top-20-noi-tieng-nay-la-cau-tra-loi-400-182525014114.jpg" class="img-responsive lazyloaded"
+                                alt="Ăn gì ở Sài Gòn ngon, rẻ? TOP 20 nổi tiếng này là câu trả lời. ">
+                        </a>
+                        <a href="https://pasgo.vn/blog/an-gi-o-sai-gon-ngon-re-top-20-noi-tieng-ngay-la-cau-tra-loi-4114" target="_blank">
+                            <h4>Ăn gì ở Sài Gòn ngon, rẻ? TOP 20 nổi tiếng này là câu trả lời. </h4>
+                        </a>
+                        <span>13/05/2019</span>
+                    </li>
+                    <li>
+                        <a href="https://pasgo.vn/blog/cach-nau-chao-ca-hoi-thom-ngon-bo-duong-khong-bi-tanh-cho-be-yeu-4216" target="_blank">
+                            <img data-src="https://pasgo.vn/Upload/anh-blog/cach-nau-chao-ca-hoi-thom-ngon-bo-duong-khong-tanh-cho-be-yeu-400-94577824216.jpg" src="https://pasgo.vn/Upload/anh-blog/cach-nau-chao-ca-hoi-thom-ngon-bo-duong-khong-tanh-cho-be-yeu-400-94577824216.jpg"
+                                class="img-responsive lazyloaded" alt="Cách nấu cháo cá hồi THƠM NGON, BỔ DƯỠNG, KHÔNG TANH cho bé yêu">
+                        </a>
+                        <a href="https://pasgo.vn/blog/cach-nau-chao-ca-hoi-thom-ngon-bo-duong-khong-bi-tanh-cho-be-yeu-4216" target="_blank">
+                            <h4>Cách nấu cháo cá hồi THƠM NGON, BỔ DƯỠNG, KHÔNG TANH cho bé yêu</h4>
+                        </a>
+                        <span>03/07/2019</span>
+                    </li>
+                    <li>
+                        <a href="https://pasgo.vn/blog/cach-lam-ga-hap-muoi-sa-sieu-ngon-bang-noi-com-dien-tai-nha-4220" target="_blank">
+                            <img data-src="https://pasgo.vn/Upload/anh-blog/cach-lam-ga-hap-muoi-sa-sieu-ngon-bang-noi-com-dien-tai-nha-400-180053344220.jpg" src="https://pasgo.vn/Upload/anh-blog/cach-lam-ga-hap-muoi-sa-sieu-ngon-bang-noi-com-dien-tai-nha-400-180053344220.jpg" class="img-responsive lazyloaded"
+                                alt="Cách làm gà hấp muối sả siêu ngon bằng nồi cơm điện tại nhà">
+                        </a>
+                        <a href="https://pasgo.vn/blog/cach-lam-ga-hap-muoi-sa-sieu-ngon-bang-noi-com-dien-tai-nha-4220" target="_blank">
+                            <h4>Cách làm gà hấp muối sả siêu ngon bằng nồi cơm điện tại nhà</h4>
+                        </a>
+                        <span>04/07/2019</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="title_home new-deal">
+            <a href="/ho-chi-minh/san-pham-moi">
+                <span class="title_home_text">NHÀ HÀNG UY TÍN</span>
+            </a>
+        </div>
+        <div class="owl-carousel owl-theme" id="product-uytin">
+            <div class="item">
+                <div class="card item-slide">
+                    <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                        <div class="card-img card-img-top order-now"><img src="https://cdn.dailyxe.com.vn/image/chevrolet-trailblazer-25l-4x2-at-lt-44537j3.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt
+                                    ngay</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
+                            <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
+                            <div class="card-info">
+                                <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
+                                            ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="card item-slide">
+                    <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                        <div class="card-img card-img-top order-now"><img src="https://cdn.dailyxe.com.vn/image/chevrolet-trailblazer-25l-4x2-at-lt-44537j3.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt
+                                    ngay</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
+                            <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
+                            <div class="card-info">
+                                <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
+                                            ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="card item-slide">
+                    <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                        <div class="card-img card-img-top order-now"><img src="https://cdn.dailyxe.com.vn/image/chevrolet-trailblazer-25l-4x2-at-lt-44537j3.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt
+                                    ngay</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
+                            <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
+                            <div class="card-info">
+                                <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
+                                            ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="card item-slide">
+                    <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                        <div class="card-img card-img-top order-now"><img src="https://cdn.dailyxe.com.vn/image/chevrolet-trailblazer-25l-4x2-at-lt-44537j3.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt
+                                    ngay</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
+                            <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
+                            <div class="card-info">
+                                <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
+                                            ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="card item-slide">
+                    <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                        <div class="card-img card-img-top order-now"><img src="https://cdn.dailyxe.com.vn/image/chevrolet-trailblazer-25l-4x2-at-lt-44537j3.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt
+                                    ngay</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
+                            <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
+                            <div class="card-info">
+                                <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
+                                            ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="card item-slide">
+                    <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                        <div class="card-img card-img-top order-now"><img src="https://cdn.dailyxe.com.vn/image/chevrolet-trailblazer-25l-4x2-at-lt-44537j3.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt
+                                    ngay</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
+                            <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
+                            <div class="card-info">
+                                <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
+                                            ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="title_home new-deal">
+            <a href="/ho-chi-minh/san-pham-moi">
+                <span class="title_home_text">NHÀ HÀNG</span>
+            </a>
+        </div>
+        <div>
+            <div class="row text-center padding">
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="card">
+                        <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                            <div class="card-img card-img-top order-now"><img src="https://cdn.dailyxe.com.vn/image/chevrolet-trailblazer-25l-4x2-at-lt-44537j3.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt ngay</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
+                                <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
+                                <div class="card-info">
+                                    <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
+                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="card">
+                        <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                            <div class="card-img card-img-top order-now"><img src="https://cdn.dailyxe.com.vn/image/chevrolet-trailblazer-25l-4x2-at-lt-44537j3.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt ngay</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
+                                <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
+                                <div class="card-info">
+                                    <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
+                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="card">
+                        <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                            <div class="card-img card-img-top order-now"><img src="https://cdn.dailyxe.com.vn/image/chevrolet-trailblazer-25l-4x2-at-lt-44537j3.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt ngay</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
+                                <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
+                                <div class="card-info">
+                                    <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
+                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="card">
+                        <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                            <div class="card-img card-img-top order-now"><img src="https://cdn.dailyxe.com.vn/image/chevrolet-trailblazer-25l-4x2-at-lt-44537j3.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt ngay</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
+                                <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
+                                <div class="card-info">
+                                    <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
+                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="title_home new-deal">
+            <a href="/ho-chi-minh/san-pham-moi">
+                <span class="title_home_text">QUÁN ĂN - QUÁN NHẬU</span>
+            </a>
+        </div>
+        <div>
+            <div class="row text-center padding">
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="card">
+                        <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                            <div class="card-img card-img-top order-now"><img src="https://cdn.dailyxe.com.vn/image/chevrolet-trailblazer-25l-4x2-at-lt-44537j3.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt ngay</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
+                                <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
+                                <div class="card-info">
+                                    <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
+                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="card">
+                        <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                            <div class="card-img card-img-top order-now"><img src="https://cdn.dailyxe.com.vn/image/chevrolet-trailblazer-25l-4x2-at-lt-44537j3.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt ngay</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
+                                <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
+                                <div class="card-info">
+                                    <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
+                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="card">
+                        <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                            <div class="card-img card-img-top order-now"><img src="https://cdn.dailyxe.com.vn/image/chevrolet-trailblazer-25l-4x2-at-lt-44537j3.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt ngay</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
+                                <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
+                                <div class="card-info">
+                                    <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
+                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="card">
+                        <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                            <div class="card-img card-img-top order-now"><img src="https://cdn.dailyxe.com.vn/image/chevrolet-trailblazer-25l-4x2-at-lt-44537j3.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt ngay</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
+                                <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
+                                <div class="card-info">
+                                    <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
+                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="title_home new-deal">
+            <a href="/ho-chi-minh/san-pham-moi">
+                <span class="title_home_text">CAFE - KEM -TRÁNG MIỆNG</span>
+            </a>
+        </div>
+        <div class="owl-carousel owl-theme" id="slide-product">
+            <div class="item">
+                <div class="card item-slide">
+                    <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                        <div class="card-img card-img-top order-now"><img src="https://cdn.dailyxe.com.vn/image/chevrolet-trailblazer-25l-4x2-at-lt-44537j3.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt
+                                    ngay</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
+                            <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
+                            <div class="card-info">
+                                <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
+                                            ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="card item-slide">
+                    <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                        <div class="card-img card-img-top order-now"><img src="https://cdn.dailyxe.com.vn/image/chevrolet-trailblazer-25l-4x2-at-lt-44537j3.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt
+                                    ngay</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
+                            <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
+                            <div class="card-info">
+                                <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
+                                            ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="card item-slide">
+                    <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                        <div class="card-img card-img-top order-now"><img src="https://cdn.dailyxe.com.vn/image/chevrolet-trailblazer-25l-4x2-at-lt-44537j3.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt
+                                    ngay</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
+                            <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
+                            <div class="card-info">
+                                <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
+                                            ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="card item-slide">
+                    <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                        <div class="card-img card-img-top order-now"><img src="https://cdn.dailyxe.com.vn/image/chevrolet-trailblazer-25l-4x2-at-lt-44537j3.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt
+                                    ngay</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
+                            <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
+                            <div class="card-info">
+                                <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
+                                            ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="card item-slide">
+                    <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                        <div class="card-img card-img-top order-now"><img src="https://cdn.dailyxe.com.vn/image/chevrolet-trailblazer-25l-4x2-at-lt-44537j3.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt
+                                    ngay</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
+                            <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
+                            <div class="card-info">
+                                <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
+                                            ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="card item-slide">
+                    <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                        <div class="card-img card-img-top order-now"><img src="https://cdn.dailyxe.com.vn/image/chevrolet-trailblazer-25l-4x2-at-lt-44537j3.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt
+                                    ngay</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
+                            <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
+                            <div class="card-info">
+                                <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
+                                            ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="title_home new-deal">
+            <a href="/ho-chi-minh/san-pham-moi">
+                <span class="title_home_text">BAR - PUB</span>
+            </a>
+        </div>
+        <div>
+            <div class="row text-center padding">
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="card">
+                        <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                            <div class="card-img card-img-top order-now"><img src="https://cdn.dailyxe.com.vn/image/chevrolet-trailblazer-25l-4x2-at-lt-44537j3.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt ngay</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
+                                <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
+                                <div class="card-info">
+                                    <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
+                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="card">
+                        <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                            <div class="card-img card-img-top order-now"><img src="https://cdn.dailyxe.com.vn/image/chevrolet-trailblazer-25l-4x2-at-lt-44537j3.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt ngay</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
+                                <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
+                                <div class="card-info">
+                                    <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
+                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="card">
+                        <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                            <div class="card-img card-img-top order-now"><img src="https://cdn.dailyxe.com.vn/image/chevrolet-trailblazer-25l-4x2-at-lt-44537j3.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt ngay</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
+                                <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
+                                <div class="card-info">
+                                    <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
+                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="card">
+                        <a href="/ho-chi-minh/table/amun-garden-restaurant-lounge" class="card-content" title="Amun Garden Restaurant &amp; Lounge">
+                            <div class="card-img card-img-top order-now"><img src="https://cdn.dailyxe.com.vn/image/chevrolet-trailblazer-25l-4x2-at-lt-44537j3.jpg" alt="Amun Garden Restaurant &amp; Lounge" class="card-img"><span class="btn btn-order">Đặt ngay</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-name">Amun Garden Restaurant &amp; Lounge</div>
+                                <div class="card-address">23A Ngô Thời Nhiệm, P. 6, Quận 3, TP. HCM</div>
+                                <div class="card-info">
+                                    <div class="card-promo"><span class="mr-1" style="color:#ed1c24;">Cả
+                                                ngày</span>-<span class="txt-orangen ml-1">Giảm 10%</span></div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <footer>
         <div class="padding">
@@ -1820,5 +639,3 @@
             </div>
     </footer>
 </body>
-
-Kichi Kichi

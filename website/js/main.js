@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
     var syncedSecondary = true;
     $("#product-uytin").owlCarousel({
         loop: true,
@@ -44,7 +44,6 @@ $(document).ready(function () {
     });
     $("#big").owlCarousel({
         loop: true,
-        margin: 10,
         responsiveClass: true,
         items: 1,
         nav: true,

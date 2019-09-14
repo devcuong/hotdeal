@@ -1,70 +1,100 @@
             html,
             body {
                 height: 100%;
-                font-size: 25px;
+                font-size: 16px;
                 color: #222;
             }
             
             .container-fluid {
-                padding-right: 0px;
-                padding-left: 0px;
+                padding-right: 20px;
+                padding-left: 20px;
             }
             
             .row {
                 margin-right: 0px !important;
                 margin-left: 0px !important;
             }
-            
-            .navbar {
-                background-color: #ed1c24 !important;
+            /* nav */
+            .navbar{
+                margin-bottom: 0;
+                border: none;
             }
-            
-            .navbar li a {
-                color: white !important;
+            .nav-default{
+                background-color: red;
+                display: flex;
+                flex-direction: row;
+                align-items:flex-start;
             }
-            
-            .navbar li a:hover {
-                color: black !important;
+            /* navbar-navigation inside navbar
+               and style for elements inside navbar-navigation
+            */
+            .navbar-navigation{
+                background-color: black;
+                overflow: hidden;
             }
-            
-            .btn-primary {
-                background-color: rgb(62, 44, 120);
-                border: 1px solid white;
+            .navbar-navigation a{
+                float: left;
+                display: block;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
             }
-            
-            .btn-primary:hover {
-                background-color: rgb(62, 44, 100);
-                border: 1px solid white;
+            .active{
+                background-color: aqua;
+                color: white;
             }
-            
-            .fa-react {
-                color: #81d8f7;
+
+            .nav .icon{
+                display:none;
             }
-            
-            .fa-angular {
-                color: rgb(177, 43, 55);
+            .dropdown{
+                float: left;
+                overflow: hidden;
             }
-            
-            .fa-css3 {
-                color: #d76537;
+            .dropdown .dropbtn{
+                font-size: 17px;
+                border: none;
+                outline: none;
+                color: white;
+                padding: 14px 16px;
+                background-color: inherit;
+                font-family: inherit;
+                margin:  0;
             }
-            
-            .fa-react,
-            .fa-angular,
-            .fa-css3 {
-                font-size: 4em;
-                margin: 1rem;
+            .dropdown-content{
+                display: none;
+                position: absolute;
+                background-color: #ed1c24;
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
             }
-            
-            .fun {
-                width: 100%;
+            .dropdown-content a{
+                float: none;
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                text-align: left;
             }
-            
-            .social a {
-                font-size: 3em;
-                padding: 3rem;
+            .navbar-navigation a:hover, .dropdown:hover .dropbtn{
+                background-color: #555;
+                color:white;
             }
-            
+
+            .dropdown-content a:hover{
+                background-color: #ec6e46;
+                color: black;
+            }
+
+            .dropdown:hover .dropdown-content{
+                display: block;
+            }
+
+            /* endnav */
+           
             footer {
                 background-color: #3f3f3f;
                 color: #d5d5d5;
@@ -607,25 +637,15 @@
                 }
                 /*menu*/
                 .top-menu {
-                    padding-left: 10px;
-                    padding-right: 10px;
                     background-color: #d02128;
+                    min-height: 25px;   
                 }
                 .main-menu {
-                    padding-left: 10px;
-                    padding-right: 10px;
+                   
                 }
                 .t_clear {
                     height: 40px;
                     clear: both;
-                }
-                .fa {
-                    display: inline-block;
-                    font: normal normal normal 14px/1 FontAwesome;
-                    font-size: inherit;
-                    text-rendering: auto;
-                    -webkit-font-smoothing: antialiased;
-                    -moz-osx-font-smoothing: grayscale;
                 }
                 .fa-sort-desc:before,
                 .fa-sort-down:before {

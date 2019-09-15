@@ -30,7 +30,6 @@ a {
 
 
 /* usemanytime */
-
 .container {
     max-width: 100%;
     padding-left: 10px;
@@ -80,7 +79,6 @@ a {
 
 
 /* topnav */
-
 .page-link-out {
     margin-bottom: 0px;
     padding: 0px;
@@ -122,8 +120,26 @@ a {
 
 
 /* mainnav */
-
-
+#main-menu{
+    text-align: center;
+}
+.nav-container{
+    background-color: #44dd1d;
+    text-align: center;
+}
+.dropdown-item{
+    overflow:hidden;
+}
+.dropdown-item-content{
+    background-color: #fff;
+    display: block;
+    position: absolute;
+    z-index: 1000;
+    border: 3px solid #d02128;
+}
+.dropdown-item:hover .dropdown-item-content{
+    display: block !important;
+}
 /* endmainnav */
 
 

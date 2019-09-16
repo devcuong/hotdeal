@@ -76,13 +76,13 @@ a {
 
 /* endusemanytime */
 
-
 /* nav */
 
 /* mainnav */
 
 #main-menu {
     text-align: center;
+    z-index: 10000;
 }
 
 .nav-container {
@@ -133,22 +133,22 @@ a {
 
 .banner {
     position: relative;
+    top: 0;
 }
 
 .banner .banner-search {
-    padding: 20px;
     width: 800px;
     background: rgba(255, 0, 0, 0.3);
     position: absolute;
-    bottom: 20px;
+    bottom: 150px;
     left: calc((100vw - 800px)/2);
     z-index: 1000;
-    box-shadow: 2px 2px 2px #000;
 }
 
 .banner-search-box .form-control {
     padding: 12px 20px;
     font-size: 120%;
+    height: 60px;
 }
 
 .input-group>.form-control {
@@ -163,13 +163,8 @@ a {
 .form-control {
     display: block;
     background-color: #fff;
-    background-clip: padding-box;
-    border-radius: 0.25rem;
-    -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-    transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-    -o-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+    border: medium none;
+        border-radius: 0;
 }
 
 

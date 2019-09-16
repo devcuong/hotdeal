@@ -76,7 +76,9 @@ a {
 
 /* endusemanytime */
 
+
 /* nav */
+
 
 /* mainnav */
 
@@ -146,13 +148,15 @@ a {
     display: flex;
 }
 
-.banner-search-box{
+.banner-search-box {
     width: 85%;
 }
-.input-group-append{
+
+.input-group-append {
     width: 15%;
 }
-.btn-theme{
+
+.btn-theme {
     width: 100%;
     color: #fff;
     background-color: #E52D27;
@@ -177,7 +181,7 @@ a {
     display: block;
     background-color: #fff;
     border: medium none;
-        border-radius: 0;
+    border-radius: 0;
 }
 
 
@@ -401,7 +405,8 @@ hr.light-100 {
     .owl-theme .owl-nav.disabled+.owl-dots {
         margin-top: -20px;
     }
-    .card {
+    /*product*/
+    .product {
         margin: 0 -5px 10px;
         cursor: pointer;
         border-radius: 0px;
@@ -417,12 +422,12 @@ hr.light-100 {
             width: 280px;
             height: 168px;
         }*/
-    .card .order-now .btn-order {
+    .product .order-now .btn-order {
         transform: translate(-50%, -50%) scale(0);
         transition: all .2s;
         z-index: 2;
     }
-    .card-body {
+    .product-body {
         font-size: 14px;
         color: #252525;
         -ms-flex: 1 1 auto;
@@ -432,46 +437,49 @@ hr.light-100 {
         border-top: 0;
         border-radius: 0 0 5px 5px;
     }
-    .card-name {
+    .product-name {
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
         font-weight: 700;
         padding: 6px 0;
     }
-    .card-address {
+    .product-address {
         font-size: 12px;
         padding-bottom: 6px;
     }
-    .card-address,
-    .card-name {
+    .product-address,
+    .product-name {
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
     }
-    .card-info {
+    .product-info {
         position: relative;
         height: 62px;
         border-top: 1px solid #ebebeb;
     }
-    .card-promo,
     .card-view-more {
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
         text-align: center;
     }
-    .card-promo {
-        font-size: 16px;
-        font-weight: 700;
-        padding: 9px 0 4px;
-    }
     .card-img {
         width: 100%;
         border-radius: 0px;
+        position: relative;
     }
-    .txt-orangen {
-        color: #f37934!important;
+    .pcd-pricing {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background: #E52D27;
+        color: #fff;
+        padding: 8px 15px;
+    }
+    .price-sale {
+        text-decoration: line-through;
     }
     .card-content:hover {
         text-decoration: none;
@@ -494,7 +502,7 @@ hr.light-100 {
      :before {
         box-sizing: border-box;
     }
-    .card .order-now:after {
+    .product .order-now:after {
         content: "";
         position: absolute;
         top: 0;
@@ -505,7 +513,7 @@ hr.light-100 {
         opacity: 0;
         transition: all .1s;
     }
-    .card .order-now:hover .btn-order {
+    .product .order-now:hover .btn-order {
         transform: translate(-50%, -50%) scale(1);
         transition: all .2s;
         z-index: 2;
@@ -542,9 +550,10 @@ hr.light-100 {
         padding-right: 0px;
         padding-left: 0px;
     }
+    /*endproduct*/
     div.title_home {
         margin: 33px 0px 5px 0px;
-        border-bottom: 3px solid #d02128;
+        /*border-bottom: 3px solid #d02128;*/
         text-align: center;
     }
     /*div.title_home:before {
@@ -562,7 +571,7 @@ hr.light-100 {
     }
     div.title_home .title_home_text {
         color: #fff;
-        padding-left: 20px;
+        padding-left: 30px;
         display: inline-block;
         padding-right: 30px;
         font-size: 20px;
@@ -571,6 +580,28 @@ hr.light-100 {
         margin: 0;
         text-transform: uppercase;
         letter-spacing: -0.8px;
+    }
+    .title_home_text::before {
+        background-color: #b62831;
+        bottom: 6px;
+        content: "";
+        height: 1px;
+        left: 0;
+        margin: -3px auto;
+        position: absolute;
+        right: 0;
+        width: 99px;
+    }
+    .title_home_text::after {
+        background-color: #b62831;
+        bottom: 0;
+        content: "";
+        height: 1px;
+        left: 0;
+        margin: -3px auto;
+        position: absolute;
+        right: 0;
+        width: 59px;
     }
     .col-product {
         padding-right: 20px;

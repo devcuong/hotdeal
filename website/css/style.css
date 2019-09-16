@@ -143,6 +143,19 @@ a {
     bottom: 150px;
     left: calc((100vw - 800px)/2);
     z-index: 1000;
+    display: flex;
+}
+
+.banner-search-box{
+    width: 85%;
+}
+.input-group-append{
+    width: 15%;
+}
+.btn-theme{
+    width: 100%;
+    color: #fff;
+    background-color: #E52D27;
 }
 
 .banner-search-box .form-control {
@@ -546,17 +559,6 @@ hr.light-100 {
         color: #000;
         font-weight: 500;
         font-size: 150%;
-    }
-    div.title_home .title_home_text::after {
-        background-color: #242424;
-        bottom: 0;
-        content: "";
-        height: 1px;
-        left: 0;
-        margin: 0 auto;
-        position: absolute;
-        right: 0;
-        width: 59px;
     }
     div.title_home .title_home_text {
         color: #fff;

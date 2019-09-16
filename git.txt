@@ -1,4 +1,4 @@
-1.git init
+https://codepen.io/manab_27/pen/KqzbB1.git init
 2.git config user.name "someone"
 3.git config user.email "someone@someplace.com"
 4.git add *

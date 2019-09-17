@@ -2,7 +2,7 @@ $(document).ready(function() {
     var syncedSecondary = true;
     $("#product-uytin").owlCarousel({
         loop: true,
-        margin: 20,
+        margin: 30,
         nav: true,
         dots: false,
         navText: [

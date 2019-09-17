@@ -558,17 +558,29 @@ hr.light-100 {
         padding: 0px;
     }
     /*ribbonproduct*/
-    .ribbon-product {
-        background: rgba(255, 255, 255, 0.8);
+    .all-ribbon{
         position: absolute;
         top: 0;
         left: 10px;
-        min-height: 100px;
-        box-shadow: 1px 1px 2px #222;
+    }
+    .ribbon-product {
+        background: rgba(255, 255, 255, 0.8);
+        min-height: 50px;
+        box-shadow: 0px 1px 0px #222;
     }
     .ribbon-product img {
-        margin-top: 20px;
+        margin-top: 10px;
         max-width: 100px;
+    }
+    .ribbon-end{
+        /* width: 100%;
+        background-color: #E52D27; */
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 20px 100px 0 0;
+    border-color:  rgba(255, 255, 255, 0.8) transparent transparent transparent;
+    box-shadow: 0px 1px 0px #222;
     }
     /*endribbonproduct*/
     /*endproduct*/

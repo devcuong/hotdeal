@@ -397,8 +397,8 @@ hr.light-100 {
         margin-bottom: 4px;
     }
     .col-no-padding {
-        padding-right: 5px;
-        padding-left: 5px;
+        padding-right: 0px;
+        padding-left: 0px;
     }
     .owl-theme .owl-nav.disabled+.owl-dots {
         margin-top: -20px;
@@ -468,7 +468,6 @@ hr.light-100 {
         margin-right: 5px;
         margin-bottom: 5px;
         font-size: 16px;
-        font-weight:
     }
     .card-view-more {
         text-overflow: ellipsis;
@@ -558,29 +557,28 @@ hr.light-100 {
         padding: 0px;
     }
     /*ribbonproduct*/
-    .all-ribbon{
+    .all-ribbon {
         position: absolute;
         top: 0;
         left: 10px;
+        filter: drop-shadow(2px 0px 1px rgba(0, 0, 0, 0.5));
     }
     .ribbon-product {
-        background: rgba(255, 255, 255, 0.8);
+        background: rgba(255, 255, 255, 1);
         min-height: 50px;
-        box-shadow: 0px 1px 0px #222;
     }
     .ribbon-product img {
         margin-top: 10px;
         max-width: 100px;
     }
-    .ribbon-end{
+    .ribbon-end {
         /* width: 100%;
         background-color: #E52D27; */
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 20px 100px 0 0;
-    border-color:  rgba(255, 255, 255, 0.8) transparent transparent transparent;
-    box-shadow: 0px 1px 0px #222;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 20px 100px 0 0;
+        border-color: rgba(255, 255, 255, 1) transparent transparent transparent;
     }
     /*endribbonproduct*/
     /*endproduct*/
@@ -642,6 +640,23 @@ hr.light-100 {
     }
     .news {
         margin-bottom: .625rem;
+    }
+    .news .news-title {
+        font-family: 'Anton', sans-serif;
+        font-size: 125%;
+        font-weight: 400;
+        display: block;
+        margin-bottom: .25rem;
+    }
+    .news .news-title a:hover,
+    .news .news-title a:active {
+        color: #b62831;
+        text-decoration: none;
+    }
+    .news .news-desc {
+        color: #555;
+        margin-bottom: 0;
+        font-weight: 400;
     }
     .first-news>a {
         display: block;

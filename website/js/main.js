@@ -17,7 +17,7 @@ $(document).ready(function() {
                 items: 2.5
             },
             1000: {
-                items: 4
+                items: 3.5
             }
         }
     });
@@ -38,7 +38,7 @@ $(document).ready(function() {
                 items: 2.5
             },
             1000: {
-                items: 4
+                items: 3.5
             }
         }
     });

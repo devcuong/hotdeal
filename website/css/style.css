@@ -427,10 +427,6 @@ hr.light-100 {
         background-color: #fff;
         transition: box-shadow .3s;
     }
-    /* .card-img {
-            width: 280px;
-            height: 168px;
-        }*/
     .product .order-now .btn-order {
         transform: translate(-50%, -50%) scale(0);
         transition: all .2s;

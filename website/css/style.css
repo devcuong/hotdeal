@@ -13,10 +13,17 @@ body {
     font-size: 16px;
     color: #222;
 }
-h1, h2, h3, h4, h5, h6 {
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-size: 100%;
     line-height: 1.5;
 }
+
 *,
 *::before,
 *::after {
@@ -216,6 +223,7 @@ hr.light-100 {
 
 
 /*Media query*/
+
 @media(max-width: 992px) {
     .carousel-caption {
         top: 20%;
@@ -633,7 +641,7 @@ hr.light-100 {
         padding-left: 20px;
     }
     /*news*/
-    .wrap-news{
+    .wrap-news {
         background-color: #fff;
         border: 1px solid rgba(255, 255, 255, 0.2);
         box-shadow: 1px 1px 1px #D6D6D6;
@@ -718,15 +726,14 @@ hr.light-100 {
         transition: filter .2s, -webkit-filter .2s;
     }
     .first-news .card-block {
-    padding: .625rem;
-}
+        padding: .625rem;
+    }
     .has-menu-dots {
         position: relative;
         padding-right: 10px !important;
     }
     .col-top-right .news-right .news-right-title {
         font-weight: 600;
-
     }
     .news-right .news-right-title {
         display: block;
@@ -735,25 +742,26 @@ hr.light-100 {
         line-height: 1.5;
         overflow: hidden;
     }
-    .news-right .news-right-title a:hover, .news-right .news-right-title a:active {
-    color: #b62831;
-    text-decoration: none;
+    .news-right .news-right-title a:hover,
+    .news-right .news-right-title a:active {
+        color: #b62831;
+        text-decoration: none;
     }
-    .news-right-title a{
+    .news-right-title a {
         font-size: 1rem;
     }
     .news-right .news-posted {
-    margin-bottom: 0px;
-    line-height: 1;
+        margin-bottom: 0px;
+        line-height: 1;
     }
     .news-right .news-posted span {
-    color: #888;
-    font-size: 80%;
-    margin-right: 0px;
-}
+        color: #888;
+        font-size: 80%;
+        margin-right: 0px;
+    }
     span.origin a {
-    color: #888;
-}
+        color: #888;
+    }
     .blog-col {
         padding-left: 10px;
         padding-right: 10px;
@@ -814,68 +822,18 @@ hr.light-100 {
         border-top: 4px solid #d02128;
     }
     /*carinfo*/
-    .home-car-brand-info {
-        padding: 30px 10px 25px 10px;
+    .car-brand-title {
         background-color: #fff;
+        display: flex;
+        padding: 20px;
     }
-    .home-car-brand-title {
-    width: 110px;
-    height: 104px;
-    float: left;
-    font-size: 16px;
-    text-align: center;
-    position: relative;
-    margin-right: 10px;
+    .brand-name {
+        font-weight: bold;
+        color: #215e9c;
+        text-transform: uppercase;
     }
-    .home-car-brand-title-inner {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    }
-    .home-car-brand-title a {
-    font-weight: bold;
-    color: #215e9c;
-    text-transform: uppercase;
-    }
-    .fade.show {
-    opacity: 1;
-    }
-    .home-car-brand-title img {
-    max-width: 100%;
-    max-height: 35px;
-    margin-bottom: 10px;
-    }
-    .home-car-brand-title span {
-    display: block;
-    }
-    .home-car-brand-menu ul {
-    margin: 0;
-    list-style: none;
-    }
-    .home-car-brand-menu ul li{
-        margin-bottom: 8px;
-    }
-    .home-car-brand-menu ul li a {
-    color: #424242;
-    position: relative;
-    padding-left: 20px;
-    }
-    .home-car-brand-menu ul li a:before {
-    content: "\f00a";
-    font-family: Font Awesome\ 5 Free;
-    font-weight: 900;
-    color: #555;
-    position: absolute;
-    top: 9px;
-    left: 0;
-    font-size: 6px;
-    line-height: 0;
+    .car-brand-item {
+        width: 50%;
     }
     /*endcarinfo*/
 }

@@ -13,7 +13,10 @@ body {
     font-size: 16px;
     color: #222;
 }
-
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    line-height: 1.5;
+}
 *,
 *::before,
 *::after {
@@ -630,10 +633,12 @@ hr.light-100 {
         padding-right: 20px;
         padding-left: 20px;
     }
-    .border {
-        border: 1px solid #d6d6d6;
-    }
     /*news*/
+    .wrap-news{
+        background-color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 1px 1px 1px #D6D6D6;
+    }
     .news.first-news {
         margin-top: 0;
         border: none;
@@ -713,21 +718,43 @@ hr.light-100 {
         transition: filter .2s;
         transition: filter .2s, -webkit-filter .2s;
     }
+    .first-news .card-block {
+    padding: .625rem;
+}
     .has-menu-dots {
         position: relative;
         padding-right: 10px !important;
     }
     .col-top-right .news-right .news-right-title {
         font-weight: 600;
+
     }
     .news-right .news-right-title {
         display: block;
-        font-weight: 400;
         margin-bottom: 0.25rem;
-        /* max-height: 2.75rem; */
+        max-height: 2.75rem;
+        line-height: 1.5;
         overflow: hidden;
-        line-height: 1.5em;
     }
+    .news-right .news-right-title a:hover, .news-right .news-right-title a:active {
+    color: #b62831;
+    text-decoration: none;
+    }
+    .news-right-title a{
+        font-size: 1rem;
+    }
+    .news-right .news-posted {
+    margin-bottom: 0px;
+    line-height: 1;
+    }
+    .news-right .news-posted span {
+    color: #888;
+    font-size: 80%;
+    margin-right: 0px;
+}
+    span.origin a {
+    color: #888;
+}
     .blog-col {
         padding-left: 10px;
         padding-right: 10px;

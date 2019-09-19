@@ -36,15 +36,26 @@ a {
     text-decoration: none;
     background-color: transparent;
 }
-a:hover, a:focus, a:active {
-    color: #E52D27;
+
+a:hover,
+a:focus,
+a:active {
+    color: #c8102e;
 }
+
 .section-tin-tuc-xe-daily {
     background-color: #fff;
 }
-.index-section{
+
+.section-dai-ly-noi-bat {
+    background-color: #fff;
+}
+
+.index-section {
     padding: 30px 0px 30px 0px;
 }
+
+
 /* end declare */
 
 
@@ -157,6 +168,7 @@ a:hover, a:focus, a:active {
 /*bannersearch*/
 
 .banner {
+    background-color: #fff;
     position: relative;
     top: 0;
 }
@@ -182,7 +194,7 @@ a:hover, a:focus, a:active {
 .btn-theme {
     width: 100%;
     color: #fff;
-    background-color: #E52D27;
+    background-color: #c8102e;
 }
 
 .banner-search-box .form-control {
@@ -467,7 +479,7 @@ hr.light-100 {
         white-space: nowrap;
         overflow: hidden;
     }
-    .product-address .fa-map-marker{
+    .product-address .fa-map-marker {
         margin-right: 5px;
     }
     .product-info {
@@ -475,7 +487,7 @@ hr.light-100 {
         border-top: 1px solid #ebebeb;
     }
     .product-info .label .sale {
-        color: #E52D27;
+        color: #c8102e;
         font-size: 16px;
     }
     .product-info .label span {
@@ -501,7 +513,7 @@ hr.light-100 {
         position: absolute;
         left: 0;
         bottom: 0;
-        background: #E52D27;
+        background: #c8102e;
         color: #fff;
         padding: 8px 15px;
     }
@@ -598,30 +610,88 @@ hr.light-100 {
     /*endribbonproduct*/
     /*endproduct*/
     /*showroom*/
-    .showroom-body{
+    .showroom-body {
         text-align: left;
     }
-    .showroom-name{
-        margin-bottom: 0px;;
+    .showroom-name {
+        margin-bottom: 0px;
+        ;
     }
-    .showroom-name a{
-        color: #E52D27;
+    .showroom-name a {
+        color: #c8102e;
         font-weight: bold;
     }
-    .showroom-province{
+    .showroom-province {
         color: #00aced;
     }
-    .showroom-address{
+    .showroom-address {
         color: #666;
     }
     /*endshowroom*/
+    /*viewmore*/
+    .section-tin-tuc-xe-daily .view-more {
+        width: 100%;
+        height: 1px;
+        background-color: #333;
+        position: relative;
+        display: inline-block;
+        margin-top: 1.5em;
+        margin-bottom: 2.5em;
+    }
+    .section-tin-tuc-xe-daily .view-more::before {
+        left: 0;
+        background: -webkit-gradient(linear, right top, left top, from(#ccc), to(#F3F3F3));
+        background: -webkit-linear-gradient(right, #ccc, #F3F3F3);
+        background: -o-linear-gradient(right, #ccc, #F3F3F3);
+        background: linear-gradient(to left, #ccc, #F3F3F3);
+    }
+    .section-tin-tuc-xe-daily .view-more::after {
+        right: 0;
+        background: -webkit-gradient(linear, left top, right top, from(#ccc), color-stop(#ccc), to(#fff));
+        background: -webkit-linear-gradient(left, #ccc, #ccc, #fff);
+        background: -o-linear-gradient(left, #ccc, #ccc, #fff);
+        background: linear-gradient(to right, #ccc, #ccc, #fff);
+    }
+    .section-tin-tuc-xe-daily .view-more::after,
+    .section-tin-tuc-xe-daily .view-more::before {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        display: inline-block;
+        z-index: 1;
+        width: 50%;
+        content: '';
+    }
+    .section-tin-tuc-xe-daily .view-more>span {
+        position: absolute;
+        left: 50%;
+        margin-left: -50px;
+        min-width: 100px;
+        background-repeat: no-repeat;
+        background-position: 95% center;
+        background-color: #fff;
+        border-radius: 20px;
+        top: 50%;
+        padding: 10px 15px;
+        padding-left: 15px;
+        text-align: center;
+        margin-top: -18px;
+        z-index: 2;
+        cursor: pointer;
+        border: 1px solid #c8102e;
+        color: #c8102e;
+    }
+    .view-more:hover span {
+        background-color: #c8102e;
+        color: #fff;
+    }
+    /* endviewmore */
     div.title_home {
-        margin: 33px 0px 20px 0px;
-        /*border-bottom: 3px solid #d02128;*/
+        margin: 0px 0px 20px 0px;
         text-align: center;
     }
     div.title_home.new-deal .title_home_text {
-        color: #000;
+        color: #333;
         font-weight: 500;
         font-size: 150%;
     }
@@ -667,7 +737,6 @@ hr.light-100 {
     .wrap-news {
         background-color: #fff;
         border: 1px solid rgba(255, 255, 255, 0.2);
-        box-shadow: 1px 1px 1px #D6D6D6;
     }
     .news.first-news {
         margin-top: 0;
@@ -858,26 +927,26 @@ hr.light-100 {
     .car-brand-item {
         width: 30%;
         margin-right: 30px;
-        margin-left:20px;
+        margin-left: 20px;
     }
-    .brand-menu{
+    .brand-menu {
         width: 70%;
         text-align: left;
     }
-    .brand-menu ul{
+    .brand-menu ul {
         list-style-type: none;
         margin: 0;
     }
-    .brand-menu ul{
+    .brand-menu ul {
         list-style-type: none;
         margin: 0;
     }
-    .brand-menu ul li a{
+    .brand-menu ul li a {
         text-decoration: none;
         line-height: 1.5;
         font-family: "Roboto", sans-serif;
     }
-    .brand-menu ul li a:before{
+    .brand-menu ul li a:before {
         content: "\2713\0020";
         font-weight: 12px;
         color: #555;

@@ -39,7 +39,12 @@ a {
 a:hover, a:focus, a:active {
     color: #E52D27;
 }
-
+.section-tin-tuc-xe-daily {
+    background-color: #fff;
+}
+.index-section{
+    padding: 30px 0px 30px 0px;
+}
 /* end declare */
 
 

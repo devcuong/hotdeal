@@ -47,7 +47,11 @@ a:active {
     background-color: #fff;
 }
 
-.section-dai-ly-noi-bat {
+.section-quan-tam-nhieu-nhat {
+    background-color: #fff;
+}
+
+.section-uu-dai-gia {
     background-color: #fff;
 }
 
@@ -498,12 +502,6 @@ hr.light-100 {
         margin-bottom: 5px;
         font-size: 16px;
     }
-    .card-view-more {
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-        text-align: center;
-    }
     .card-img {
         width: 100%;
         border-radius: 0px;
@@ -634,7 +632,9 @@ hr.light-100 {
         -o-transition: all 0.2s;
         transition: all 0.2s;
     }
-    .section-tin-tuc-xe-daily .view-more, .section-uu-dai-gia .view-more, .section-video-xe-daily .view-more {
+    .section-tin-tuc-xe-daily .view-more,
+    .section-uu-dai-gia .view-more,
+    .section-video-xe-daily .view-more {
         width: 100%;
         height: 1px;
         background-color: #333;
@@ -643,22 +643,30 @@ hr.light-100 {
         margin-top: 1.5em;
         margin-bottom: 2.5em;
     }
-    .section-tin-tuc-xe-daily .view-more::before, .section-uu-dai-gia .view-more::before, .section-video-xe-daily .view-more::before {
+    .section-tin-tuc-xe-daily .view-more::before,
+    .section-uu-dai-gia .view-more::before,
+    .section-video-xe-daily .view-more::before {
         left: 0;
         background: -webkit-gradient(linear, right top, left top, from(#ccc), to(#F3F3F3));
         background: -webkit-linear-gradient(right, #ccc, #F3F3F3);
         background: -o-linear-gradient(right, #ccc, #F3F3F3);
         background: linear-gradient(to left, #ccc, #F3F3F3);
     }
-    .section-tin-tuc-xe-daily .view-more::after, .section-uu-dai-gia .view-more::after, .section-video-xe-daily .view-more::after {
+    .section-tin-tuc-xe-daily .view-more::after,
+    .section-uu-dai-gia .view-more::after,
+    .section-video-xe-daily .view-more::after {
         right: 0;
         background: -webkit-gradient(linear, left top, right top, from(#ccc), color-stop(#ccc), to(#fff));
         background: -webkit-linear-gradient(left, #ccc, #ccc, #fff);
         background: -o-linear-gradient(left, #ccc, #ccc, #fff);
         background: linear-gradient(to right, #ccc, #ccc, #fff);
     }
-    .section-tin-tuc-xe-daily .view-more::after, .section-uu-dai-gia .view-more::after, .section-video-xe-daily .view-more::after
-    .section-tin-tuc-xe-daily .view-more::before, .section-uu-dai-gia .view-more::before, .section-video-xe-daily .view-more::before {
+    .section-tin-tuc-xe-daily .view-more::after,
+    .section-uu-dai-gia .view-more::after,
+    .section-video-xe-daily .view-more::after,
+    .section-tin-tuc-xe-daily .view-more::before,
+    .section-uu-dai-gia .view-more::before,
+    .section-video-xe-daily .view-more::before {
         position: absolute;
         top: 0;
         height: 100%;
@@ -667,8 +675,9 @@ hr.light-100 {
         width: 50%;
         content: '';
     }
-    .section-tin-tuc-xe-daily .view-more>span, .section-uu-dai-gia
-     .view-more>span, .section-video-xe-daily .view-more>span {
+    .section-tin-tuc-xe-daily .view-more>span,
+    .section-uu-dai-gia .view-more>span,
+    .section-video-xe-daily .view-more>span {
         position: absolute;
         left: 50%;
         margin-left: -50px;
@@ -696,7 +705,7 @@ hr.light-100 {
     .video-item {
         overflow: hidden;
     }
-    .img-video{
+    .img-video {
         position: relative;
     }
     .img-video:before {
@@ -736,279 +745,354 @@ hr.light-100 {
     .img-video:hover:before {
         background-image: url(https://www.toyota.com.vn/Content/images/icon-play-video.png);
     }
-    /* endvideo */
-    div.title_home {
-        margin: 0px 0px 20px 0px;
-        text-align: center;
-    }
-    div.title_home.new-deal .title_home_text {
+    .modal-header .close {
+        padding: 1rem 1rem;
+        margin: -1rem -1rem -1rem auto;
+        background: #c8102e;
         color: #333;
-        font-weight: 500;
-        font-size: 150%;
     }
-    div.title_home .title_home_text {
-        color: #fff;
-        padding-left: 30px;
-        display: inline-block;
-        padding-right: 30px;
-        font-size: 20px;
-        line-height: 40px;
-        position: relative;
-        margin: 0;
-        text-transform: uppercase;
-        letter-spacing: -0.8px;
-    }
-    .title_home_text::before {
-        background-color: #b62831;
-        bottom: 6px;
-        content: "";
-        height: 2px;
-        left: 0;
-        margin: -3px auto;
-        position: absolute;
-        right: 0;
-        width: 99px;
-    }
-    .title_home_text::after {
-        background-color: #b62831;
-        bottom: 0;
-        content: "";
-        height: 2px;
-        left: 0;
-        margin: -3px auto;
-        position: absolute;
-        right: 0;
-        width: 59px;
-    }
-    .col-product {
-        padding-right: 20px;
-        padding-left: 20px;
-    }
-    /*news*/
-    .wrap-news {
-        background-color: #fff;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-    .news.first-news {
-        margin-top: 0;
-        border: none;
-    }
-    .news {
-        margin-bottom: .625rem;
-    }
-    .news .news-title {
-        font-family: 'Anton', sans-serif;
-        font-size: 125%;
-        font-weight: 400;
-        display: block;
-        margin-bottom: .25rem;
-    }
-    .news .news-title a:hover,
-    .news .news-title a:active {
-        color: #b62831;
-        text-decoration: none;
-    }
-    .news .news-desc {
-        color: #555;
-        margin-bottom: 0;
-        font-weight: 400;
-    }
-    .first-news>a {
-        display: block;
-    }
-    .lazy-loading-image.loaded {
-        -webkit-filter: blur(0px);
-        filter: blur(0px);
-    }
-    .first-news .card-img-top {
-        max-width: 100%;
-        border-top-right-radius: 0;
-    }
-    .col-top-right {
-        padding: .625rem !important;
-        border-left: 1px solid #ddd;
-    }
-    .col-top-right .news-right:not(:last-child) {
-        border-bottom: 1px dashed #ddd;
-    }
-    .col-top-right .news-right:first-child {
-        margin-top: 0;
-    }
-    .news-right:not(:last-child) {
-        margin-bottom: 10px;
-    }
-    .col-top-right .news-right {
-        padding-bottom: .75rem;
-    }
-    .media {
-        display: -ms-flexbox;
-        display: -webkit-box;
-        display: flex;
-        -ms-flex-align: start;
-        -webkit-box-align: start;
-        align-items: flex-start;
-    }
-    .news-right .news-right-img {
-        width: 100px;
-        margin-right: 0.625rem;
-    }
-    .news-right .news-right-img img {
-        max-width: 100%;
-    }
-    .lazy-loading-image.loaded {
-        -webkit-filter: blur(0px);
-        filter: blur(0px);
-    }
-    .lazy-loading-image {
-        -webkit-filter: blur(5px);
-        filter: blur(5px);
-        -webkit-transition: -webkit-filter .2s;
-        transition: -webkit-filter .2s;
-        -o-transition: filter .2s;
-        transition: filter .2s;
-        transition: filter .2s, -webkit-filter .2s;
-    }
-    .first-news .card-block {
-        padding: .625rem;
-    }
-    .has-menu-dots {
-        position: relative;
-        padding-right: 10px !important;
-    }
-    .col-top-right .news-right .news-right-title {
-        font-weight: 600;
-    }
-    .news-right .news-right-title {
-        display: block;
-        margin-bottom: 0.25rem;
-        max-height: 2.75rem;
-        line-height: 1.5;
-        overflow: hidden;
-    }
-    .news-right .news-right-title a:hover,
-    .news-right .news-right-title a:active {
-        color: #b62831;
-        text-decoration: none;
-    }
-    .news-right-title a {
-        font-size: 1rem;
-    }
-    .news-right .news-posted {
-        margin-bottom: 0px;
-        line-height: 1;
-    }
-    .news-right .news-posted span {
-        color: #888;
-        font-size: 80%;
-        margin-right: 0px;
-    }
-    span.origin a {
-        color: #888;
-    }
-    .blog-col {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-    .h50 {
-        height: 50px!important;
-    }
-    .wap-time {
-        margin: 0px;
-        padding: 0px;
-    }
-    p.wap-time.px-2 {
-        margin: 12px 0px;
-        padding: 0px 7px;
-    }
-    /*endnews*/
-    .home-section {
-        padding-top: 30px;
-        padding-bottom: 30px;
-    }
-    .section-header {
-        width: 100%;
-        text-align: center;
-        margin-bottom: 30px;
-    }
-    .section-header .title {
-        color: #333;
-        font-size: 150%;
-        text-transform: uppercase;
-        position: relative;
-    }
-    .grid-item:hover {
-        text-decoration: none;
-        box-shadow: 0 0 rgba(0, 0, 0, .2), 0 0 20px 0 rgba(0, 0, 0, 0.3)
-    }
-    /*menu*/
-    .t_clear {
-        height: 40px;
-        clear: both;
-    }
-    .fa-sort-desc:before,
-    .fa-sort-down:before {
-        content: "\f0dd";
-    }
-    .clear {
-        clear: both;
-        font-size: 0;
-    }
-    #menu {
-        position: fixed;
-        top: 0px;
-        width: 100%;
-        height: 50px;
-        z-index: 9999;
-        display: none;
-    }
-    .row-padding {
-        border-top: 4px solid #d02128;
-    }
-    /*carbrandmenu*/
-    .car-brand-title {
-        background-color: #fff;
-        display: flex;
-        padding: 10px 10px;
-    }
-    .brand-name {
-        font-weight: bold;
-        color: #215e9c;
-        text-transform: uppercase;
-    }
-    .car-brand-item {
-        width: 30%;
-        margin-right: 30px;
-        margin-left: 20px;
-    }
-    .brand-menu {
-        width: 70%;
-        text-align: left;
-    }
-    .brand-menu ul {
-        list-style-type: none;
-        margin: 0;
-    }
-    .brand-menu ul {
-        list-style-type: none;
-        margin: 0;
-    }
-    .brand-menu ul li a {
-        text-decoration: none;
-        line-height: 1.5;
-        font-family: "Roboto", sans-serif;
-    }
-    .brand-menu ul li a:before {
-        content: "\2713\0020";
-        font-weight: 12px;
-        color: #555;
-        top: 9px;
-        left: 0px;
-        font-size: 1rem;
-        line-height: 0;
-    }
-    /*carbrandmenu*/
 }
 
+
+/* endvideo */
+
+div.title_home {
+    margin: 0px 0px 20px 0px;
+    text-align: center;
+}
+
+div.title_home.new-deal .title_home_text {
+    color: #333;
+    font-weight: 500;
+    font-size: 150%;
+}
+
+div.title_home .title_home_text {
+    color: #fff;
+    padding-left: 30px;
+    display: inline-block;
+    padding-right: 30px;
+    font-size: 20px;
+    line-height: 40px;
+    position: relative;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: -0.8px;
+}
+
+.title_home_text::before {
+    background-color: #b62831;
+    bottom: 6px;
+    content: "";
+    height: 2px;
+    left: 0;
+    margin: -3px auto;
+    position: absolute;
+    right: 0;
+    width: 99px;
+}
+
+.title_home_text::after {
+    background-color: #b62831;
+    bottom: 0;
+    content: "";
+    height: 2px;
+    left: 0;
+    margin: -3px auto;
+    position: absolute;
+    right: 0;
+    width: 59px;
+}
+
+.col-product {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+
+/*news*/
+
+.wrap-news {
+    background-color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.news.first-news {
+    margin-top: 0;
+    border: none;
+}
+
+.news {
+    margin-bottom: .625rem;
+}
+
+.news .news-title {
+    font-family: 'Anton', sans-serif;
+    font-size: 125%;
+    font-weight: 400;
+    display: block;
+    margin-bottom: .25rem;
+}
+
+.news .news-title a:hover,
+.news .news-title a:active {
+    color: #b62831;
+    text-decoration: none;
+}
+
+.news .news-desc {
+    color: #555;
+    margin-bottom: 0;
+    font-weight: 400;
+}
+
+.first-news>a {
+    display: block;
+}
+
+.lazy-loading-image.loaded {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+}
+
+.first-news .card-img-top {
+    max-width: 100%;
+    border-top-right-radius: 0;
+}
+
+.col-top-right {
+    padding: .625rem !important;
+    border-left: 1px solid #ddd;
+}
+
+.col-top-right .news-right:not(:last-child) {
+    border-bottom: 1px dashed #ddd;
+}
+
+.col-top-right .news-right:first-child {
+    margin-top: 0;
+}
+
+.news-right:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.col-top-right .news-right {
+    padding-bottom: .75rem;
+}
+
+.media {
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    -ms-flex-align: start;
+    -webkit-box-align: start;
+    align-items: flex-start;
+}
+
+.news-right .news-right-img {
+    width: 100px;
+    margin-right: 0.625rem;
+}
+
+.news-right .news-right-img img {
+    max-width: 100%;
+}
+
+.lazy-loading-image.loaded {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+}
+
+.lazy-loading-image {
+    -webkit-filter: blur(5px);
+    filter: blur(5px);
+    -webkit-transition: -webkit-filter .2s;
+    transition: -webkit-filter .2s;
+    -o-transition: filter .2s;
+    transition: filter .2s;
+    transition: filter .2s, -webkit-filter .2s;
+}
+
+.first-news .card-block {
+    padding: .625rem;
+}
+
+.has-menu-dots {
+    position: relative;
+    padding-right: 10px !important;
+}
+
+.col-top-right .news-right .news-right-title {
+    font-weight: 600;
+}
+
+.news-right .news-right-title {
+    display: block;
+    margin-bottom: 0.25rem;
+    max-height: 2.75rem;
+    line-height: 1.5;
+    overflow: hidden;
+}
+
+.news-right .news-right-title a:hover,
+.news-right .news-right-title a:active {
+    color: #b62831;
+    text-decoration: none;
+}
+
+.news-right-title a {
+    font-size: 1rem;
+}
+
+.news-right .news-posted {
+    margin-bottom: 0px;
+    line-height: 1;
+}
+
+.news-right .news-posted span {
+    color: #888;
+    font-size: 80%;
+    margin-right: 0px;
+}
+
+span.origin a {
+    color: #888;
+}
+
+.blog-col {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.h50 {
+    height: 50px!important;
+}
+
+.wap-time {
+    margin: 0px;
+    padding: 0px;
+}
+
+p.wap-time.px-2 {
+    margin: 12px 0px;
+    padding: 0px 7px;
+}
+
+
+/*endnews*/
+
+.home-section {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.section-header {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-header .title {
+    color: #333;
+    font-size: 150%;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.grid-item:hover {
+    text-decoration: none;
+    box-shadow: 0 0 rgba(0, 0, 0, .2), 0 0 20px 0 rgba(0, 0, 0, 0.3)
+}
+
+
+/*menu*/
+
+.t_clear {
+    height: 40px;
+    clear: both;
+}
+
+.fa-sort-desc:before,
+.fa-sort-down:before {
+    content: "\f0dd";
+}
+
+.clear {
+    clear: both;
+    font-size: 0;
+}
+
+#menu {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    height: 50px;
+    z-index: 9999;
+    display: none;
+}
+
+.row-padding {
+    border-top: 4px solid #d02128;
+}
+
+
+/*carbrandmenu*/
+
+.car-brand-title {
+    background-color: #fff;
+    display: flex;
+    padding: 10px 10px;
+}
+
+.brand-name {
+    font-weight: bold;
+    color: #215e9c;
+    text-transform: uppercase;
+}
+
+.car-brand-item {
+    width: 30%;
+    margin-right: 30px;
+    margin-left: 20px;
+}
+
+.brand-menu {
+    width: 70%;
+    text-align: left;
+}
+
+.brand-menu ul {
+    list-style-type: none;
+    margin: 0;
+}
+
+.brand-menu ul {
+    list-style-type: none;
+    margin: 0;
+}
+
+.brand-menu ul li a {
+    text-decoration: none;
+    line-height: 1.5;
+    font-family: "Roboto", sans-serif;
+}
+
+.brand-menu ul li a:before {
+    content: "\2713\0020";
+    font-weight: 12px;
+    color: #555;
+    top: 9px;
+    left: 0px;
+    font-size: 1rem;
+    line-height: 0;
+}
+
+
+/*carbrandmenu*/
+
+
+}
 .col-2dot4,
 .col-sm-2dot4,
 .col-md-2dot4,
@@ -1020,14 +1104,12 @@ hr.light-100 {
     padding-right: 15px;
     padding-left: 15px;
 }
-
 .col-2dot4 {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 20%;
     flex: 0 0 20%;
     max-width: 20%;
 }
-
 @media (min-width: 540px) {
     .col-sm-2dot4 {
         -webkit-box-flex: 0;
@@ -1036,7 +1118,6 @@ hr.light-100 {
         max-width: 20%;
     }
 }
-
 @media (min-width: 720px) {
     .col-md-2dot4 {
         -webkit-box-flex: 0;
@@ -1045,7 +1126,6 @@ hr.light-100 {
         max-width: 20%;
     }
 }
-
 @media (min-width: 960px) {
     .col-lg-2dot4 {
         -webkit-box-flex: 0;
@@ -1054,7 +1134,6 @@ hr.light-100 {
         max-width: 20%;
     }
 }
-
 @media (min-width: 1140px) {
     .col-xl-2dot4 {
         -webkit-box-flex: 0;

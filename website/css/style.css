@@ -629,7 +629,12 @@ hr.light-100 {
     }
     /*endshowroom*/
     /*viewmore*/
-    .section-tin-tuc-xe-daily .view-more {
+    .view-more {
+        -webkit-transition: all 0.2s;
+        -o-transition: all 0.2s;
+        transition: all 0.2s;
+    }
+    .section-tin-tuc-xe-daily .view-more, .section-uu-dai-gia .view-more, .section-video-xe-daily .view-more {
         width: 100%;
         height: 1px;
         background-color: #333;
@@ -638,22 +643,22 @@ hr.light-100 {
         margin-top: 1.5em;
         margin-bottom: 2.5em;
     }
-    .section-tin-tuc-xe-daily .view-more::before {
+    .section-tin-tuc-xe-daily .view-more::before, .section-uu-dai-gia .view-more::before, .section-video-xe-daily .view-more::before {
         left: 0;
         background: -webkit-gradient(linear, right top, left top, from(#ccc), to(#F3F3F3));
         background: -webkit-linear-gradient(right, #ccc, #F3F3F3);
         background: -o-linear-gradient(right, #ccc, #F3F3F3);
         background: linear-gradient(to left, #ccc, #F3F3F3);
     }
-    .section-tin-tuc-xe-daily .view-more::after {
+    .section-tin-tuc-xe-daily .view-more::after, .section-uu-dai-gia .view-more::after, .section-video-xe-daily .view-more::after {
         right: 0;
         background: -webkit-gradient(linear, left top, right top, from(#ccc), color-stop(#ccc), to(#fff));
         background: -webkit-linear-gradient(left, #ccc, #ccc, #fff);
         background: -o-linear-gradient(left, #ccc, #ccc, #fff);
         background: linear-gradient(to right, #ccc, #ccc, #fff);
     }
-    .section-tin-tuc-xe-daily .view-more::after,
-    .section-tin-tuc-xe-daily .view-more::before {
+    .section-tin-tuc-xe-daily .view-more::after, .section-uu-dai-gia .view-more::after, .section-video-xe-daily .view-more::after
+    .section-tin-tuc-xe-daily .view-more::before, .section-uu-dai-gia .view-more::before, .section-video-xe-daily .view-more::before {
         position: absolute;
         top: 0;
         height: 100%;
@@ -662,7 +667,8 @@ hr.light-100 {
         width: 50%;
         content: '';
     }
-    .section-tin-tuc-xe-daily .view-more>span {
+    .section-tin-tuc-xe-daily .view-more>span, .section-uu-dai-gia
+     .view-more>span, .section-video-xe-daily .view-more>span {
         position: absolute;
         left: 50%;
         margin-left: -50px;
@@ -686,6 +692,51 @@ hr.light-100 {
         color: #fff;
     }
     /* endviewmore */
+    /*video*/
+    .video-item {
+        overflow: hidden;
+    }
+    .img-video{
+        position: relative;
+    }
+    .img-video:before {
+        content: "";
+        -webkit-transition: all 0.3s;
+        -o-transition: all 0.3s;
+        transition: all 0.3s;
+        position: absolute;
+        height: 64px;
+        width: 64px;
+        display: inline-block;
+        top: 50%;
+        left: 50%;
+        margin-top: -32px;
+        margin-left: -32px;
+        background-image: url(https://www.toyota.com.vn/Content/images/icon-play-video-1.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        pointer-events: none;
+        opacity: 0.8;
+    }
+    .video-button {
+        background-image: url(https://www.toyota.com.vn/Content/images/play-button.png)!important;
+        background-repeat: no-repeat!important;
+        background-position: center!important;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        float: left;
+        -webkit-transition: 0.3s all;
+        -o-transition: 0.3s all;
+        transition: 0.3s all;
+    }
+    .img-video:hover:before {
+        background-image: url(https://www.toyota.com.vn/Content/images/icon-play-video.png);
+    }
+    /* endvideo */
     div.title_home {
         margin: 0px 0px 20px 0px;
         text-align: center;

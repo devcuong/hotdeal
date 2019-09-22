@@ -876,16 +876,28 @@ hr.light-100 {
     .img-video:hover:before {
         background-image: url(https://www.toyota.com.vn/Content/images/icon-play-video.png);
     }
-    .modal-header .close {
-        padding: 1rem 1rem;
-        margin: -1rem -1rem -1rem auto;
-        background: #c8102e;
-        color: #333;
+    /* modal */
+    .modal-dialog {
+        max-width: 800px;
+        margin: 30px auto;
     }
+    .modal-body {
+        position:relative;
+        padding:0px;
+    }
+    .close {
+        position:absolute;
+        right:-30px;
+        top:0;
+        z-index:999;
+        font-size:2rem;
+        font-weight: normal;
+        color:#fff;
+        opacity:1;
+      }
+    /* endmodal */
+    /* endvideo */
 }
-
-
-/* endvideo */
 
 div.title_home {
     margin: 0px 0px 20px 0px;

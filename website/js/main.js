@@ -47,7 +47,7 @@ $(document).ready(function() {
         responsiveClass: true,
         items: 1,
         nav: true,
-        dots: false,
+        dots: true,
         responsiveRefreshRate: 200,
         navText: [
             '<i class="fa fa-arrow-left" aria-hidden="true"></i>',

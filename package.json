@@ -1,0 +1,12 @@
+{
+    "name": "xedaily",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "express": "*",
+        "express-handlebars": "^3.1.0",
+        "nodemon": "^1.19.2",
+        "path": "^0.12.7"
+    }
+}

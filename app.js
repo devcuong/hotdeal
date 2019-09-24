@@ -4,7 +4,7 @@ const express = require("express");
 const path = require("path");
 const exphbs = require("express-handlebars");
 const bodyparser = require("body-parser");
-// const truyenController = require("./controllers/truyenController");
+const tintucController = require("./controllers/tintucController");
 // const trangChuController = require("./controllers/trangChuController.js");
 // const trangConController = require("./controllers/trangConController.js");
 //require('dotenv').config()
@@ -54,5 +54,5 @@ app.listen(3000, () => {
     console.log("Express server started at port : 3000");
 });
 // app.use("/noi-dung", trangConController);
-// app.use("/truyen", truyenController);
+app.use("/admin/tin-tuc", tintucController);
 // app.use("/", trangChuController);

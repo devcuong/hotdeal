@@ -20,8 +20,6 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 // load image va upload image
 router.get("/files", function(req, res) {
-    console.log("dang o files");
-
     const images = fs.readdirSync("public/upload")
     var sorted = []
     for (let item of images) {
@@ -39,7 +37,7 @@ router.get("/files", function(req, res) {
     res.send(sorted);
 });
 
-router.post("/upload", upload.array("f1FileUpload", 12), function(req, res, next) {
+router.post("/upload", upload.array("flFileUpload", 12), function(req, res, next) {
     res.redirect("back");
 });
 

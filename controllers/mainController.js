@@ -43,7 +43,6 @@ router.post("/upload", upload.array("flFileUpload", 12), function(req, res, next
 
 router.post("/delete_file", function(req, res, next) {
     var url_del = "public" + req.body.url_del
-    console.log(url_del);
     if (fs.existsSync(url_del)) {
         fs.unlinkSync(url_del)
     }

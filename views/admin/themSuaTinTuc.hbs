@@ -31,12 +31,12 @@
         <div class="position-relative row form-group"><label for="noiDungNgan" class="col-sm-2 col-form-label">Nội dung
                 ngắn</label>
             <div class="col-sm-10"><textarea name="noiDungNgan" class="form-control"
-                    value="{{tintuc.noi_dung_ngan}}"></textarea>
+                   >{{tintuc.noi_dung_ngan}}</textarea>
             </div>
         </div>
         <div class="position-relative row form-group"><label for="noiDung" class="col-sm-2 col-form-label">Nội
                 dung</label>
-            <div class="col-sm-10"><textarea name="noiDung" id="noiDung" class="form-control" value="{{tintuc.noi_dung}}"></textarea>
+            <div class="col-sm-10"><textarea name="noiDung" id="noiDung" class="form-control">{{tintuc.noi_dung}}</textarea>
                 <script type="text/javascript">
                     CKEDITOR.replace('noiDung', {
                         "extraPlugins": 'imagebrowser',
@@ -45,8 +45,9 @@
                 </script>
             </div>
         </div>
-        <div class="position-relative row form-group"><label for="exampleFile" class="col-sm-2">Thumbnail tin tức</label><input name="hinhBao"
-                id="hinhBao" type="file" class="form-control-file col-sm-8">
+        <div class="position-relative row form-group"><label for="exampleFile" class="col-sm-2">Thumbnail tin tức</label>
+        <input name="hinhBao" id="hinhBao" type="file" class="form-control-file col-sm-8">
+        <input type="hidden" name="">
         </div>
         <div class="position-relative row form-check">
             <div class="col-sm-10 offset-sm-2">

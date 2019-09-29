@@ -54,6 +54,23 @@ router.post("/add", upload.single("hinhBao"), (req, res) => {
     insertRecord(req, res);
 });
 
+// sửa tin tức
+router.get("/edit/:id", (req, res) => {
+    var tt = new Date().getTime();
+    TinTuc.findById(req.params.id, (err, doc) => {
+        if (!err) {
+            res.render("admin/themSuaTinTuc", {
+                viewTitle: "Update Tin tức",
+                tintuc: doc
+            });
+        }
+    });
+});
+// action sửa tin tức
+// sửa tin tức
+router.post("/edit", upload.single("hinhBao"), (req, res) => {
+    insertRecord(req, res);
+});
 
 function insertRecord(req, res) {
     var tinTuc = new TinTuc();

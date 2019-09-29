@@ -59,6 +59,7 @@ router.post("/add", upload.single("hinhBao"), (req, res) => {
 function insertRecord(req, res) {
     var tinTuc = new TinTuc();
     tinTuc.tieu_de = req.body.tieuDe;
+    tinTuc.nguon_dang = req.body.nguonDang;
     tinTuc.nguoi_dang = req.body.nguoiDang;
     tinTuc.noi_dung_ngan = req.body.noiDungNgan;
     tinTuc.noi_dung = req.body.noiDung;

@@ -9,14 +9,11 @@ const dateFormat = require('dateformat');
 
 // cấu hình multer
 var storage = multer.diskStorage({
-
-    // folder up file
-    destination: 'public/upload',
+    destination: function(req, file, cb) {
+        cb(null, 'public/upload')
+    },
     filename: function(req, file, cb) {
-        crypto.pseudoRandomBytes(16, function(err, raw) {
-            if (err) return cb(err)
-            cb(null, Math.floor(Math.random() * 9000000000) + 1000000000 + path.extname(file.originalname))
-        })
+        cb(null, file.originalname)
     }
 });
 
@@ -65,12 +62,13 @@ function insertRecord(req, res) {
     tinTuc.nguoi_dang = req.body.nguoiDang;
     tinTuc.noi_dung_ngan = req.body.noiDungNgan;
     tinTuc.noi_dung = req.body.noiDung;
-    tinTuc.hinh_bao = req.body.hinhBao;
+    tinTuc.hinh_bao = req.file.originalname;
     tinTuc.ngay_dang = dateFormat(new Date(), "dd/mm/yyyy");
     tinTuc.save((err, doc) => {
-        if (!err)
+        if (!err) {
+            console.log(doc);
             res.redirect("/admin/tin-tuc");
-        else {
+        } else {
             if (err.name == "ValidationError") {
                 handleValidationError(err, req.body);
                 res.render("admin/themSuaTinTuc", {

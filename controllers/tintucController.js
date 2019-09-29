@@ -5,6 +5,8 @@ const TinTuc = mongoose.model("TinTuc");
 var multer = require("multer");
 var crypto = require("crypto");
 var path = require("path");
+const dateFormat = require('dateformat');
+
 // cấu hình multer
 var storage = multer.diskStorage({
 
@@ -64,7 +66,7 @@ function insertRecord(req, res) {
     tinTuc.noi_dung_ngan = req.body.noiDungNgan;
     tinTuc.noi_dung = req.body.noiDung;
     tinTuc.hinh_bao = req.body.hinhBao;
-    tinTuc.ngay_dang = new Date();
+    tinTuc.ngay_dang = dateFormat(new Date(), "dd/mm/yyyy");
     tinTuc.save((err, doc) => {
         if (!err)
             res.redirect("/admin/tin-tuc");

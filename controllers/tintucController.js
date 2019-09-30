@@ -14,7 +14,18 @@ var storage = multer.diskStorage({
     },
     filename: function(req, file, cb) {
         cb(null, file.originalname)
+    },
+    fileFilter: function(req, file, cb) {
+        if (path.extname(file.originalname) !== '.jpg' ||
+            path.extname(file.originalname) !== '.png' ||
+            path.extname(file.originalname) !== '.gif' ||
+            path.extname(file.originalname) !== '.jpeg') {
+            return cb(new Error('Only image are allowed'))
+        }
+
+        cb(null, true)
     }
+
 });
 
 var upload = multer({ storage: storage });
@@ -83,7 +94,6 @@ function insertRecord(req, res) {
     tinTuc.ngay_dang = dateFormat(new Date(), "dd/mm/yyyy");
     tinTuc.save((err, doc) => {
         if (!err) {
-            console.log(doc);
             res.redirect("/admin/tin-tuc");
         } else {
             if (err.name == "ValidationError") {
@@ -102,6 +112,9 @@ function handleValidationError(err, body) {
         switch (err.errors[field].path) {
             case "tieu_de":
                 body["tieuDeError"] = err.errors[field].message;
+                break;
+            case "hinh_bao":
+                body["hinhBaoError"] = err.errors[field].message;
                 break;
             default:
                 break;

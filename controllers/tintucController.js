@@ -59,11 +59,6 @@ router.get("/add", (req, res) => {
         viewTitle: "Thêm tin tức",
     });
 });
-// action thêm tin tức
-// thêm tin tức
-router.post("/add", upload.single("hinhBao"), (req, res) => {
-    insertRecord(req, res);
-});
 
 // sửa tin tức
 router.get("/edit/:id", (req, res) => {
@@ -77,12 +72,17 @@ router.get("/edit/:id", (req, res) => {
         }
     });
 });
-// action sửa tin tức
-// sửa tin tức
-router.post("/edit", upload.single("hinhBao"), (req, res) => {
-    insertRecord(req, res);
+
+// action thêm/sửa tin tức
+// thêm/sửa tin tức
+router.post("/add", upload.single("hinhBao"), (req, res) => {
+    if (req.body._id == "")
+        insertRecord(req, res);
+    else
+        updateRecord(req, res);
 });
 
+// hàm thêm mới
 function insertRecord(req, res) {
     var tinTuc = new TinTuc();
     tinTuc.tieu_de = req.body.tieuDe;
@@ -106,6 +106,53 @@ function insertRecord(req, res) {
         }
     })
 }
+
+// hàm cập nhật
+function updateRecord(req, res) {
+    var foundTinTuc = new TinTuc();
+    if (req.body._id) {
+        foundTinTuc._id = req.body._id;
+    }
+    if (req.body.tieuDe) {
+        foundTinTuc.tieu_de = req.body.tieuDe;
+    }
+
+    if (req.body.nguonDang) {
+        foundTinTuc.url_truyen = req.body.urlTruyen;
+    }
+
+    if (req.body.nguoiDang) {
+        foundTinTuc.nguoi_dang = req.body.nguoiDang;
+    }
+
+    if (req.body.noiDungNgan) {
+        foundTinTuc.noi_dung_ngan = req.body.noiDungNgan;
+    }
+
+    if (req.body.noiDung) {
+        foundTinTuc.noi_dung = req.body.noiDung;
+    }
+
+    if (req.body.hinhBao) {
+        foundTinTuc.hinh_bao = req.body.hinhBao;
+    }
+    foundTinTuc.ngayDang = dateFormat(new Date(), "dd/mm/yyyy");
+    TinTuc.findOneAndUpdate({ _id: req.body._id }, foundTinTuc, { new: true, strict: false, setDefaultsOnInsert: true }, function(err, doc) {
+        if (!err) {
+            res.redirect("/admin/tin-tuc");
+        } else {
+            if (err.name == "ValidationError") {
+                handleValidationError(err, req.body);
+                res.render("admin/themSuaTinTuc", {
+                    viewTitle: "Cập nhật tin tức",
+                    truyen: req.body
+                });
+            } else
+                console.log("Error during record update: " + err);
+        }
+    });
+}
+
 // quản lý validation
 function handleValidationError(err, body) {
     for (field in err.errors) {

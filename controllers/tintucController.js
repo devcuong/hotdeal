@@ -96,5 +96,16 @@ function insertRecord(req, res) {
         }
     })
 }
-
+// quản lý validation
+function handleValidationError(err, body) {
+    for (field in err.errors) {
+        switch (err.errors[field].path) {
+            case "tieu_de":
+                body["tieuDeError"] = err.errors[field].message;
+                break;
+            default:
+                break;
+        }
+    }
+}
 module.exports = router;

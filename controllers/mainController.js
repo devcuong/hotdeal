@@ -5,6 +5,14 @@ var multer = require("multer");
 var fs = require("fs");
 var path = require("path");
 var crypto = require("crypto");
+
+// trang chu
+router.get("/", (req, res) => {
+    res.render("home/noiDungTrangChu", {
+        layout: 'homeLayout.hbs'
+    });
+});
+
 // cấu hình multer
 var storage = multer.diskStorage({
 
@@ -18,13 +26,6 @@ var storage = multer.diskStorage({
     }
 });
 var upload = multer({ storage: storage });
-
-// thêm tin tức
-router.get("/", (req, res) => {
-    res.render("admin/themSuaTinTuc", {
-        layout: 'homeLayout.hbs'
-    });
-});
 
 // load image va upload image
 router.get("/files", function(req, res) {

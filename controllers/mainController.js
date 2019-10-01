@@ -18,6 +18,14 @@ var storage = multer.diskStorage({
     }
 });
 var upload = multer({ storage: storage });
+
+// thêm tin tức
+router.get("/", (req, res) => {
+    res.render("admin/themSuaTinTuc", {
+        layout: 'homeLayout.hbs'
+    });
+});
+
 // load image va upload image
 router.get("/files", function(req, res) {
     const images = fs.readdirSync("public/upload")

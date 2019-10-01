@@ -133,8 +133,8 @@ function updateRecord(req, res) {
         foundTinTuc.noi_dung = req.body.noiDung;
     }
 
-    if (req.body.hinhBao) {
-        foundTinTuc.hinh_bao = req.body.hinhBao;
+    if (req.file.originalname) {
+        foundTinTuc.hinh_bao = req.file.originalname;
     }
     foundTinTuc.ngayDang = dateFormat(new Date(), "dd/mm/yyyy");
     TinTuc.findOneAndUpdate({ _id: req.body._id }, foundTinTuc, { new: true, strict: false, setDefaultsOnInsert: true }, function(err, doc) {

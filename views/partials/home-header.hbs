@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html>
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="./public/js/owl.carousel.min.js"></script>
+    <script src="./public/js/main.js"></script>
+    <link rel="stylesheet" href="./public/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="./public/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="./public/css/style.css">
+    <script>a
+        $(document).ready(function () {
+
+            // Gets the video src from the data-src on each button
+
+            var $videoSrc;
+            $('.video-btn').click(function () {
+                $videoSrc = $(this).data("src");
+            });
+            console.log($videoSrc);
+
+
+
+            // when the modal is opened autoplay it  
+            $('#myModal').on('shown.bs.modal', function (e) {
+
+                // set the video src to autoplay and not to show related video. Youtube related video is like a box of chocolates... you never know what you're gonna get
+                $("#video").attr('src', $videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0");
+            })
+
+
+
+            // stop playing the youtube video when I close the modal
+            $('#myModal').on('hide.bs.modal', function (e) {
+                // a poor man's stop video
+                $("#video").attr('src', $videoSrc);
+            })
+
+
+
+
+
+
+            // document ready  
+        });
+    </script>
+</head>
+
+<body>
+    <!-- container chứa main menu-->
+    <div class="top-menu">
+        <div class="container">
+            <i class="fas fa-envelope"></i>
+            <span class="contact-mail">viettxt@gmail.com</span>
+        </div>
+    </div>
+    <div id="main-menu">
+        <div class="container index-menu">
+            <a href="#home" class="nav-item">Trang chủ</a>
+            <a href="#" class="news-menu nav-item">Tin tức</a>
+            <a href="#" class="logo logo-item"><img src="https://dailyxe.com.vn/Resources/Images/logo-dailyxe.png"
+                    alt="Logo DailyXe" title="DailyXe"></a>
+            <a href="#" class="news-menu nav-item">Giá xe</a>
+            <div class="dropdown-item nav-item">
+                <h3 class="dropdown-item-title"> <a href="#" class="dropdown-toggle">Thương hiệu</a></h3>
+                <div class="dropdown-item-content">
+                    <div class="container dropdown-menu-content">
+                        <a class="dropdown-item" title="VinFast"
+                            href="https://dailyxe.com.vn/danh-sach-xe-oto-vinfast/"><img
+                                src="https://cdn.dailyxe.com.vn/image/vinfast-viet-nam-51307j1.jpg" alt="VinFast">
+                            <h4 class="nav-title">VinFast</h4>
+                        </a>
+                        <a class="dropdown-item" title="VinFast"
+                            href="https://dailyxe.com.vn/danh-sach-xe-oto-vinfast/"><img
+                                src="https://cdn.dailyxe.com.vn/image/vinfast-viet-nam-51307j1.jpg" alt="VinFast">
+                            <h4 class="nav-title">VinFast</h4>
+                        </a>
+                        <a class="dropdown-item" title="VinFast"
+                            href="https://dailyxe.com.vn/danh-sach-xe-oto-vinfast/"><img
+                                src="https://cdn.dailyxe.com.vn/image/vinfast-viet-nam-51307j1.jpg" alt="VinFast">
+                            <h4 class="nav-title">VinFast</h4>
+                        </a>
+                        <a class="dropdown-item" title="VinFast"
+                            href="https://dailyxe.com.vn/danh-sach-xe-oto-vinfast/"><img
+                                src="https://cdn.dailyxe.com.vn/image/vinfast-viet-nam-51307j1.jpg" alt="VinFast">
+                            <h4 class="nav-title">VinFast</h4>
+                        </a>
+                        <a class="dropdown-item" title="VinFast"
+                            href="https://dailyxe.com.vn/danh-sach-xe-oto-vinfast/"><img
+                                src="https://cdn.dailyxe.com.vn/image/vinfast-viet-nam-51307j1.jpg" alt="VinFast">
+                            <h4 class="nav-title">VinFast</h4>
+                        </a>
+                        <a class="dropdown-item" title="VinFast"
+                            href="https://dailyxe.com.vn/danh-sach-xe-oto-vinfast/"><img
+                                src="https://cdn.dailyxe.com.vn/image/vinfast-viet-nam-51307j1.jpg" alt="VinFast">
+                            <h4 class="nav-title">VinFast</h4>
+                        </a>
+                        <a class="dropdown-item" title="VinFast"
+                            href="https://dailyxe.com.vn/danh-sach-xe-oto-vinfast/"><img
+                                src="https://cdn.dailyxe.com.vn/image/vinfast-viet-nam-51307j1.jpg" alt="VinFast">
+                            <h4 class="nav-title">VinFast</h4>
+                        </a>
+                        <a class="dropdown-item" title="VinFast"
+                            href="https://dailyxe.com.vn/danh-sach-xe-oto-vinfast/"><img
+                                src="https://cdn.dailyxe.com.vn/image/vinfast-viet-nam-51307j1.jpg" alt="VinFast">
+                            <h4 class="nav-title">VinFast</h4>
+                        </a>
+                        <a class="dropdown-item" title="VinFast"
+                            href="https://dailyxe.com.vn/danh-sach-xe-oto-vinfast/"><img
+                                src="https://cdn.dailyxe.com.vn/image/vinfast-viet-nam-51307j1.jpg" alt="VinFast">
+                            <h4 class="nav-title">VinFast</h4>
+                        </a>
+                        <a class="dropdown-item" title="VinFast"
+                            href="https://dailyxe.com.vn/danh-sach-xe-oto-vinfast/"><img
+                                src="https://cdn.dailyxe.com.vn/image/vinfast-viet-nam-51307j1.jpg" alt="VinFast">
+                            <h4 class="nav-title">VinFast</h4>
+                        </a>
+                        <a class="dropdown-item" title="VinFast"
+                            href="https://dailyxe.com.vn/danh-sach-xe-oto-vinfast/"><img
+                                src="https://cdn.dailyxe.com.vn/image/vinfast-viet-nam-51307j1.jpg" alt="VinFast">
+                            <h4 class="nav-title">VinFast</h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- container chứa slider-->
+    <div class="banner">
+        <div class="owl-banner">
+            <div class="row row-padding">
+                <div class="col-md-12 col-no-padding">
+                    <div class="owl-carousel owl-theme" id="big">
+                        <div class="item">
+                            <img src="https://www.toyota.com.vn/data/aditems/901/Homepage-banner-t9-2019.jpg"
+                                style="width:100%;">
+
+                        </div>
+                        <div class="item">
+                            <img src="https://www.toyota.com.vn/data/aditems/836/Home-Banner-5.png" style="width:100%;">
+
+                        </div>
+                        <div class="item">
+                            <img src="https://www.toyota.com.vn/data/aditems/901/Homepage-banner-t9-2019.jpg"
+                                style="width:100%;">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="banner-search">
+            <div class="banner-search-box">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="search-result-id">
+                </div>
+            </div>
+            <div class="input-group-append">
+                <button class="btn btn-theme">
+                    <span class="fa fa-search"></span>
+                </button>
+            </div>
+        </div>
+    </div>

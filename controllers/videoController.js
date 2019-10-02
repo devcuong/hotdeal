@@ -10,7 +10,7 @@ const dateFormat = require('dateformat');
 // cấu hình multer
 var storage = multer.diskStorage({
     destination: function(req, file, cb) {
-        cb(null, 'public/upload')
+        cb(null, 'public/upload/video')
     },
     filename: function(req, file, cb) {
         cb(null, file.originalname)
@@ -67,7 +67,7 @@ router.get("/edit/:id", (req, res) => {
         if (!err) {
             res.render("admin/themSuaVideo", {
                 viewTitle: "Update video",
-                tintuc: doc
+                video: doc
             });
         }
     });
@@ -75,11 +75,12 @@ router.get("/edit/:id", (req, res) => {
 
 // action thêm/sửa video
 // thêm/sửa video
-router.post("/add", upload.single("hinhBao"), (req, res) => {
-    if (req.body._id == "")
+router.post("/add", upload.any(), (req, res) => {
+    if (req.body._id == "") {
         insertRecord(req, res);
-    else
+    } else {
         updateRecord(req, res);
+    }
 });
 
 // hàm thêm mới
@@ -125,7 +126,7 @@ function updateRecord(req, res) {
     }
 
     if (req.body.soLuotXem) {
-        foundTinTuc.so_luot_xem = req.body.soLuotXem;
+        foundVideo.so_luot_xem = req.body.soLuotXem;
     }
 
     if (req.body.nguonDang) {
@@ -136,13 +137,13 @@ function updateRecord(req, res) {
         foundVideo.hinh_thumbnail = req.file.originalname;
     }
     foundVideo.thoi_gian_dang = dateFormat(new Date(), "dd/mm/yyyy");
-    TinTuc.findOneAndUpdate({ _id: req.body._id }, foundTinTuc, { new: true, strict: false, setDefaultsOnInsert: true }, function(err, doc) {
+    Video.findOneAndUpdate({ _id: req.body._id }, foundVideo, { new: true, strict: false, setDefaultsOnInsert: true }, function(err, doc) {
         if (!err) {
-            res.redirect("/admin/tin-tuc");
+            res.redirect("/admin/video");
         } else {
             if (err.name == "ValidationError") {
                 handleValidationError(err, req.body);
-                res.render("admin/themSuaTinTuc", {
+                res.render("admin/themSuaVideo", {
                     viewTitle: "Cập nhật video",
                     truyen: req.body
                 });

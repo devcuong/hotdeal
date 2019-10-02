@@ -54,23 +54,20 @@
                 </div>
             </div>
             <div class="col-md-4 col-top-right">
-
                 {{#each allNews}}
                 <div class="news-right">
                     <div class="media">
-                        <a class="news-right-img" target="_self"
-                            title="{{this.tieu_de}}"
+                        <a class="news-right-img" target="_self" title="{{this.tieu_de}}"
                             href="https://dailyxe.com.vn/tin-tuc/trien-lam-oto-frankfurt-motor-show-bi-lo-chet-yeu-neu-khong-doi-moi-8473d.html">
                             <img class="lazy-loading-image loaded" style="width:100%"
-                                src="https://cdn.dailyxe.com.vn/image/trien-lam-oto-frankfurt-motor-show-bi-lo-chet-yeu-neu-khong-doi-moi-81786j1.jpg"
-                                alt="{{this.tieu_de}}"
-                                data-pin-nopin="true">
+                                src="/upload/{{this.hinh_bao}}"
+                                alt="{{this.tieu_de}}" data-pin-nopin="true">
 
                         </a>
                         <div class="media-body has-menu-dots">
-                            <h3 class="news-right-title"><a target="_self"
-                                    title="{{this.tieu_de}}"
-                                    href="https://dailyxe.com.vn/tin-tuc/trien-lam-oto-frankfurt-motor-show-bi-lo-chet-yeu-neu-khong-doi-moi-8473d.html">{{this.tieu_de}}</a></h3>
+                            <h3 class="news-right-title"><a target="_self" title="{{this.tieu_de}}"
+                                    href="https://dailyxe.com.vn/tin-tuc/trien-lam-oto-frankfurt-motor-show-bi-lo-chet-yeu-neu-khong-doi-moi-8473d.html">{{this.tieu_de}}</a>
+                            </h3>
                             <h5 class="news-posted">
                                 <span class="origin"><a title="Zing.vn"
                                         href="https://dailyxe.com.vn/zing.vn-tin-tuc-hinh-anh-moi-nhat-ve-cac-loai-xe-oto-9w.html">{{this.nguon_dang}}</a></span>
@@ -95,15 +92,15 @@
             </a>
         </div>
         <div class="row text-center padding">
+            {{#each allVideos}}
             <div class="col-xs-12 col-sm-6 col-md-3">
                 <div class="video-item">
                     <div class="img-video">
                         <a class="open-popup video-btn" role="button" class="btn" data-toggle="modal"
-                            data-src="https://www.youtube.com/embed/NNs8Kbvpt5o" data-target="#myModal">
-                            <p class="video-button"></p><img class="lazy"
-                                src="https://www.toyota.com.vn/data/news/3571/_1/lzot5d.PNG"
-                                data-original="https://www.toyota.com.vn/data/news/3571/_1/lzot5d.PNG" height="168"
-                                alt="" style="display: inline;">
+                            data-src="{{this.url_nhung}}" data-target="#myModal">
+                            <p class="video-button"></p><img class="lazy" src="/upload/video/{{this.hinh_thumbnail}}"
+                                data-original="/upload/video/{{this.hinh_thumbnail}}" height="168" alt=""
+                                style="display: inline;">
                         </a>
                         <!-- modalvideo -->
                         <div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel"
@@ -127,45 +124,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-3">
-                <div class="video-item">
-                    <div class="img-video">
-                        <a class="open-popup" data-href="#popup_pc_gallery_1" data-index="0"
-                            onclick="getLinktech(3571)">
-                            <p class="video-button"></p><img class="lazy"
-                                src="https://www.toyota.com.vn/data/news/3571/_1/lzot5d.PNG"
-                                data-original="https://www.toyota.com.vn/data/news/3571/_1/lzot5d.PNG" height="168"
-                                alt="" style="display: inline;">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-3">
-                <div class="video-item">
-                    <div class="img-video">
-                        <a class="open-popup" data-href="#popup_pc_gallery_1" data-index="0"
-                            onclick="getLinktech(3571)">
-                            <p class="video-button"></p><img class="lazy"
-                                src="https://www.toyota.com.vn/data/news/3571/_1/lzot5d.PNG"
-                                data-original="https://www.toyota.com.vn/data/news/3571/_1/lzot5d.PNG" height="168"
-                                alt="" style="display: inline;">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-3">
-                <div class="video-item">
-                    <div class="img-video">
-                        <a class="open-popup" data-href="#popup_pc_gallery_1" data-index="0"
-                            onclick="getLinktech(3571)">
-                            <p class="video-button"></p><img class="lazy"
-                                src="https://www.toyota.com.vn/data/news/3571/_1/lzot5d.PNG"
-                                data-original="https://www.toyota.com.vn/data/news/3571/_1/lzot5d.PNG" height="168"
-                                alt="" style="display: inline;">
-                        </a>
-                    </div>
-                </div>
-            </div>
+            {{/each}}
         </div>
         <p> <a class="view-more" href="#"><span>Xem thêm...</span></a> </p>
     </div>

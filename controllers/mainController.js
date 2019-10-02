@@ -7,20 +7,25 @@ var path = require("path");
 var crypto = require("crypto");
 const mongoose = require("mongoose");
 const TinTuc = mongoose.model("TinTuc");
+const Video = mongoose.model("Video");
 
 // trang chu
 router.get("/", (req, res) => {
     var q = TinTuc.find().limit(2);
-    q.exec(function (err, docs) {
+    q.exec(function(err, docs) {
         if (!err) {
             var q2 = TinTuc.find().limit(6).skip(2);
-            q2.exec(function(err2, moreNews){
-                if(!err2){
-                    res.render("home/noiDungTrangChu", {
-                        layout: 'homeLayout.hbs',
-                        firstNews: docs[0],
-                        secondNews: docs[1],
-                        allNews : moreNews
+            q2.exec(function(err2, getMoreNews) {
+                if (!err2) {
+                    var q3 = Video.find().limit(4);
+                    q3.exec(function(err3, getVideos) {
+                        res.render("home/noiDungTrangChu", {
+                            layout: 'homeLayout.hbs',
+                            firstNews: docs[0],
+                            secondNews: docs[1],
+                            allNews: getMoreNews,
+                            allVideos: getVideos
+                        });
                     });
                 }
             })

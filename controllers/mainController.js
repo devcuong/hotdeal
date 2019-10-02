@@ -5,13 +5,33 @@ var multer = require("multer");
 var fs = require("fs");
 var path = require("path");
 var crypto = require("crypto");
+const mongoose = require("mongoose");
+const TinTuc = mongoose.model("TinTuc");
 
 // trang chu
 router.get("/", (req, res) => {
-    res.render("home/noiDungTrangChu", {
-        layout: 'homeLayout.hbs'
+    var q = TinTuc.find().limit(2);
+    q.exec(function (err, docs) {
+        if (!err) {
+            var q2 = TinTuc.find().limit(6).skip(2);
+            q2.exec(function(err2, moreNews){
+                if(!err2){
+                    res.render("home/noiDungTrangChu", {
+                        layout: 'homeLayout.hbs',
+                        firstNews: docs[0],
+                        secondNews: docs[1],
+                        allNews : moreNews
+                    });
+                }
+            })
+        } else {
+            console.log(err);
+        }
+
     });
 });
+
+
 
 // cấu hình multer
 var storage = multer.diskStorage({

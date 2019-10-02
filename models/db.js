@@ -8,3 +8,4 @@ mongoose.connect("mongodb://localhost:27017/xedaily", { useNewUrlParser: true, u
 });
 
 require("./tintuc.model");
+require("./video.model");

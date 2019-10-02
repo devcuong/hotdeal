@@ -1,7 +1,7 @@
 const express = require("express");
 var router = express.Router();
 const mongoose = require("mongoose");
-const TinTuc = mongoose.model("TinTuc");
+const Video = mongoose.model("Video");
 var multer = require("multer");
 var crypto = require("crypto");
 var path = require("path");
@@ -30,15 +30,15 @@ var storage = multer.diskStorage({
 
 var upload = multer({ storage: storage });
 
-/*lấy tin tức*/
+/*lấy video*/
 router.get("/", (req, res) => {
-    TinTuc.find((err, docs) => {
+    Video.find((err, docs) => {
         if (!err) {
-            res.render("admin/quanLyTinTuc", {
+            res.render("admin/quanLyVideo", {
                 list: docs
             });
         } else {
-            console.log("Error in retrieving tin tuc list: " + err);
+            console.log("Error in retrieving video list: " + err);
         }
     });
 });

@@ -42,39 +42,39 @@ router.get("/", (req, res) => {
         }
     });
 });
-// xóa tin tức
+// xóa video
 router.get("/delete/:id", (req, res) => {
-    TinTuc.findByIdAndRemove(req.params.id, (err, doc) => {
+    Video.findByIdAndRemove(req.params.id, (err, doc) => {
         if (!err) {
-            res.redirect("/admin/tin-tuc");
+            res.redirect("/admin/video");
         } else {
-            console.log("Error in tin tức delete: " + err);
+            console.log("Error in video delete: " + err);
         }
     });
 });
 
-// thêm tin tức
+// thêm video
 router.get("/add", (req, res) => {
-    res.render("admin/themSuaTinTuc", {
-        viewTitle: "Thêm tin tức",
+    res.render("admin/themSuaVideo", {
+        viewTitle: "Thêm video",
     });
 });
 
-// sửa tin tức
+// sửa video
 router.get("/edit/:id", (req, res) => {
     var tt = new Date().getTime();
-    TinTuc.findById(req.params.id, (err, doc) => {
+    Video.findById(req.params.id, (err, doc) => {
         if (!err) {
-            res.render("admin/themSuaTinTuc", {
-                viewTitle: "Update Tin tức",
+            res.render("admin/themSuaVideo", {
+                viewTitle: "Update video",
                 tintuc: doc
             });
         }
     });
 });
 
-// action thêm/sửa tin tức
-// thêm/sửa tin tức
+// action thêm/sửa video
+// thêm/sửa video
 router.post("/add", upload.single("hinhBao"), (req, res) => {
     if (req.body._id == "")
         insertRecord(req, res);
@@ -84,22 +84,21 @@ router.post("/add", upload.single("hinhBao"), (req, res) => {
 
 // hàm thêm mới
 function insertRecord(req, res) {
-    var tinTuc = new TinTuc();
-    tinTuc.tieu_de = req.body.tieuDe;
-    tinTuc.nguon_dang = req.body.nguonDang;
-    tinTuc.nguoi_dang = req.body.nguoiDang;
-    tinTuc.noi_dung_ngan = req.body.noiDungNgan;
-    tinTuc.noi_dung = req.body.noiDung;
-    tinTuc.hinh_bao = req.file.originalname;
-    tinTuc.ngay_dang = dateFormat(new Date(), "dd/mm/yyyy");
-    tinTuc.save((err, doc) => {
+    var video = new Video();
+    video.tieu_de = req.body.tieuDe;
+    video.url_nhung = req.body.nguonDang;
+    video.thoi_luong = req.body.thoiLuong;
+    video.so_luot_xem = req.body.soLuotXem;
+    video.nguon_dang = req.body.nguonDang;
+    video.thoi_gian_dang = dateFormat(new Date(), "dd/mm/yyyy");
+    video.save((err, doc) => {
         if (!err) {
-            res.redirect("/admin/tin-tuc");
+            res.redirect("/admin/video");
         } else {
             if (err.name == "ValidationError") {
                 handleValidationError(err, req.body);
-                res.render("admin/themSuaTinTuc", {
-                    viewTitle: "Thêm tin tức"
+                res.render("admin/themSuaVideo", {
+                    viewTitle: "Thêm video"
                 });
             } else
                 console.log("Error during record insertion: ", err);
@@ -109,34 +108,34 @@ function insertRecord(req, res) {
 
 // hàm cập nhật
 function updateRecord(req, res) {
-    var foundTinTuc = new TinTuc();
+    var foundVideo = new Video();
     if (req.body._id) {
-        foundTinTuc._id = req.body._id;
+        foundVideo._id = req.body._id;
     }
     if (req.body.tieuDe) {
-        foundTinTuc.tieu_de = req.body.tieuDe;
+        foundVideo.tieu_de = req.body.tieuDe;
+    }
+
+    if (req.body.urlNhung) {
+        foundVideo.url_nhung = req.body.urlNhung;
+    }
+
+    if (req.body.thoiLuong) {
+        foundVideo.thoi_luong = req.body.thoiLuong;
+    }
+
+    if (req.body.soLuotXem) {
+        foundTinTuc.so_luot_xem = req.body.soLuotXem;
     }
 
     if (req.body.nguonDang) {
-        foundTinTuc.url_truyen = req.body.urlTruyen;
-    }
-
-    if (req.body.nguoiDang) {
-        foundTinTuc.nguoi_dang = req.body.nguoiDang;
-    }
-
-    if (req.body.noiDungNgan) {
-        foundTinTuc.noi_dung_ngan = req.body.noiDungNgan;
-    }
-
-    if (req.body.noiDung) {
-        foundTinTuc.noi_dung = req.body.noiDung;
+        foundVideo.nguon_dang = req.body.nguonDang;
     }
 
     if (req.file.originalname) {
-        foundTinTuc.hinh_bao = req.file.originalname;
+        foundVideo.hinh_thumbnail = req.file.originalname;
     }
-    foundTinTuc.ngayDang = dateFormat(new Date(), "dd/mm/yyyy");
+    foundVideo.thoi_gian_dang = dateFormat(new Date(), "dd/mm/yyyy");
     TinTuc.findOneAndUpdate({ _id: req.body._id }, foundTinTuc, { new: true, strict: false, setDefaultsOnInsert: true }, function(err, doc) {
         if (!err) {
             res.redirect("/admin/tin-tuc");
@@ -144,7 +143,7 @@ function updateRecord(req, res) {
             if (err.name == "ValidationError") {
                 handleValidationError(err, req.body);
                 res.render("admin/themSuaTinTuc", {
-                    viewTitle: "Cập nhật tin tức",
+                    viewTitle: "Cập nhật video",
                     truyen: req.body
                 });
             } else

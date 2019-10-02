@@ -17,6 +17,9 @@ var videoSchema = new mongoose.Schema({
     },
     thoi_gian_dang: {
         type: String
+    },
+    hinh_thumbnail:{
+        type: String
     }
 }, {
     versionKey: false // You should be aware of the outcome after set to false

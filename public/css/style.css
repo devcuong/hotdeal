@@ -1257,7 +1257,135 @@ p.wap-time.px-2 {
 }
 
 /* itemtruyen */
+.col-truyen{
+    text-align: left;
+}
 .item-truyen{
-    width: 25%;
+    /* width: 22%; */
+}
+.img_a{
+    /* width: 100%; */
+}
+.lazy{
+    width: 200px;
+}
+.image{
+    position: relative;
+}
+.image .view{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: rgb(0, 0, 0, 0.5);
+    color: #fff;
+    width: 200px;
+    font-size: 0.8em;
+}
+.item-truyen ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.chapter a {
+    font-size: 1em;
+}
+.chapter a:hover {
+    font-size: 1em;
+    color: #03f;
+    text-decoration: none;
+}
+.chapter .time {
+    color: silver;
+    font-size: 0.7em;
+    line-height: 20px;
+    font-style: italic;
+    float: right;
+    overflow: hidden;
+    white-space: nowrap;
 }
 /* enditemtruyen */
+/* lichsudoctruyen */
+.darkBox {
+    border: 1px solid #ddd;
+    color: #333;
+    padding: 10px;
+    clear: right;
+    margin-bottom: 15px;
+}
+.darkBox h2 {
+    font-size: 16px;
+    margin: 0;
+    margin-bottom: 10px;
+    font-weight: 400;
+    color: #2980b9;
+}
+.darkBox h2 .view-all {
+    float: right;
+    font-size: 13px;
+    line-height: 22px;
+    font-style: italic;
+}
+.darkBox ul {
+    padding-left: 0;
+    margin: 0;
+}
+.darkBox ul li {
+    list-style: none;
+    margin: 0;
+    padding: 10px 0;
+    border-top: 1px solid #dedede;
+}
+.darkBox ul li .thumb {
+    overflow: hidden;
+    width: 80px;
+    height: 70px;
+    float: left;
+}
+.darkBox ul li .thumb img {
+    width: 100%;
+    left: 0;
+}
+.darkBox ul li h3 {
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.darkBox ul li p {
+    margin: 0;
+}
+.chapter a:focus, .chapter a:visited, a.visited {
+    text-decoration: none;
+    color: silver;
+}
+.fa-angle-double-right:before {
+    content: "\f101";
+}
+.darkBox ul li .chapter .view {
+    display: block;
+    font-style: italic;
+    font-size: 1rem;
+    color: #666;
+}
+.fa-angle-double-right:before {
+    content: "\f101";
+}
+.fa-remove:before, .fa-close:before, .fa-times:before {
+    content: "\f00d";
+}
+.visited-remove{
+    color: #c8102e;
+}
+.t-title a{
+    color: #c8102e;
+    font-weight: bold;
+    text-decoration: none;
+}
+a.jtip{
+    color: #03f;
+    text-decoration: none;
+    font-weight: bold;
+}
+/* endlichsudoctruyen */

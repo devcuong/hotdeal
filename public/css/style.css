@@ -139,6 +139,7 @@ a:active {
     text-align: center;
     z-index: 10000;
     text-transform: uppercase;
+    background: #FFF;
 }
 
 .index-menu {
@@ -419,9 +420,9 @@ hr.light-100 {
     }
     /*slider*/
     #big .item {
-        background: #ec6e46;
         color: #FFF;
         text-align: center;
+        height: 220px;
     }
     .owl-theme .owl-nav [class*='owl-'] {
         transition: all .3s ease;
@@ -604,11 +605,6 @@ hr.light-100 {
         font-weight: 700;
         padding: 6px 0;
     }
-    .product-address {
-        font-size: 14px;
-        padding-bottom: 6px;
-        text-align: left;
-    }
     .product-name {
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -634,7 +630,7 @@ hr.light-100 {
         font-size: 16px;
     }
     .card-img {
-        width: 100%;
+        height: 358px;
         border-radius: 0px;
         position: relative;
     }
@@ -642,7 +638,7 @@ hr.light-100 {
         position: absolute;
         left: 0;
         bottom: 0;
-        background: #c8102e;
+        background: rgb(0, 0, 0, 0.5);
         color: #fff;
         padding: 8px 15px;
     }
@@ -882,26 +878,26 @@ hr.light-100 {
         margin: 30px auto;
     }
     .modal-body {
-        position:relative;
-        padding:0px;
+        position: relative;
+        padding: 0px;
     }
     .close {
-        position:absolute;
-        right:-30px;
-        top:0;
-        z-index:999;
-        font-size:2rem;
+        position: absolute;
+        right: -30px;
+        top: 0;
+        z-index: 999;
+        font-size: 2rem;
         font-weight: normal;
-        color:#fff;
-        opacity:1;
-      }
+        color: #fff;
+        opacity: 1;
+    }
     /* endmodal */
     /* endvideo */
 }
 
 div.title_home {
     margin: 0px 0px 20px 0px;
-    text-align: center;
+    border-bottom: 3px solid #03f;
 }
 
 div.title_home.new-deal .title_home_text {
@@ -912,7 +908,6 @@ div.title_home.new-deal .title_home_text {
 
 div.title_home .title_home_text {
     color: #fff;
-    padding-left: 30px;
     display: inline-block;
     padding-right: 30px;
     font-size: 20px;
@@ -921,30 +916,6 @@ div.title_home .title_home_text {
     margin: 0;
     text-transform: uppercase;
     letter-spacing: -0.8px;
-}
-
-.title_home_text::before {
-    background-color: #b62831;
-    bottom: 6px;
-    content: "";
-    height: 2px;
-    left: 0;
-    margin: -3px auto;
-    position: absolute;
-    right: 0;
-    width: 99px;
-}
-
-.title_home_text::after {
-    background-color: #b62831;
-    bottom: 0;
-    content: "";
-    height: 2px;
-    left: 0;
-    margin: -3px auto;
-    position: absolute;
-    right: 0;
-    width: 59px;
 }
 
 .col-product {

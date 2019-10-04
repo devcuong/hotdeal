@@ -900,14 +900,13 @@ div.title_home {
     border-bottom: 3px solid #03f;
 }
 
-div.title_home.new-deal .title_home_text {
+.title_home_text {
     color: #333;
     font-weight: 500;
     font-size: 150%;
 }
 
-div.title_home .title_home_text {
-    color: #fff;
+.title_home_text {
     display: inline-block;
     padding-right: 30px;
     font-size: 20px;

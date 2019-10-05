@@ -35,7 +35,7 @@ router.get("/", (req, res) => {
     //     }
 
     // });
-    var q = TheLoai.find().limit(50);
+    var q = TheLoai.find();
     q.exec(function (err, docs) {
         if (!err) {
             console.log(docs.length);

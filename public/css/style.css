@@ -1327,6 +1327,9 @@ a.jtip {
 .list.list-truyen {
     margin: 10px 0;
 }
+.list.list-truyen a{
+    text-decoration: none;
+}
 .title-list {
     text-align: left;
     height: 40px;

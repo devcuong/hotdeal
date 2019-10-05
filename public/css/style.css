@@ -43,15 +43,7 @@ a:active {
     color: #c8102e;
 }
 
-.section-tin-tuc-xe-daily {
-    background-color: #fff;
-}
-
-.section-quan-tam-nhieu-nhat {
-    background-color: #fff;
-}
-
-.section-uu-dai-gia {
+.section-de-cu {
     background-color: #fff;
 }
 
@@ -139,7 +131,7 @@ a:active {
     text-align: center;
     z-index: 10000;
     text-transform: uppercase;
-    background: #FFF;
+    background: #e4e4e4;
 }
 
 .index-menu {
@@ -753,81 +745,6 @@ hr.light-100 {
         color: #666;
     }
     /*endshowroom*/
-    /*viewmore*/
-    .view-more {
-        -webkit-transition: all 0.2s;
-        -o-transition: all 0.2s;
-        transition: all 0.2s;
-    }
-    .section-tin-tuc-xe-daily .view-more,
-    .section-uu-dai-gia .view-more,
-    .section-video-xe-daily .view-more {
-        width: 100%;
-        height: 1px;
-        background-color: #333;
-        position: relative;
-        display: inline-block;
-        margin-top: 1.5em;
-        margin-bottom: 2.5em;
-    }
-    .section-tin-tuc-xe-daily .view-more::before,
-    .section-uu-dai-gia .view-more::before,
-    .section-video-xe-daily .view-more::before {
-        left: 0;
-        background: -webkit-gradient(linear, right top, left top, from(#ccc), to(#F3F3F3));
-        background: -webkit-linear-gradient(right, #ccc, #F3F3F3);
-        background: -o-linear-gradient(right, #ccc, #F3F3F3);
-        background: linear-gradient(to left, #ccc, #F3F3F3);
-    }
-    .section-tin-tuc-xe-daily .view-more::after,
-    .section-uu-dai-gia .view-more::after,
-    .section-video-xe-daily .view-more::after {
-        right: 0;
-        background: -webkit-gradient(linear, left top, right top, from(#ccc), color-stop(#ccc), to(#fff));
-        background: -webkit-linear-gradient(left, #ccc, #ccc, #fff);
-        background: -o-linear-gradient(left, #ccc, #ccc, #fff);
-        background: linear-gradient(to right, #ccc, #ccc, #fff);
-    }
-    .section-tin-tuc-xe-daily .view-more::after,
-    .section-uu-dai-gia .view-more::after,
-    .section-video-xe-daily .view-more::after,
-    .section-tin-tuc-xe-daily .view-more::before,
-    .section-uu-dai-gia .view-more::before,
-    .section-video-xe-daily .view-more::before {
-        position: absolute;
-        top: 0;
-        height: 100%;
-        display: inline-block;
-        z-index: 1;
-        width: 50%;
-        content: '';
-    }
-    .section-tin-tuc-xe-daily .view-more>span,
-    .section-uu-dai-gia .view-more>span,
-    .section-video-xe-daily .view-more>span {
-        position: absolute;
-        left: 50%;
-        margin-left: -50px;
-        min-width: 100px;
-        background-repeat: no-repeat;
-        background-position: 95% center;
-        background-color: #fff;
-        border-radius: 20px;
-        top: 50%;
-        padding: 10px 15px;
-        padding-left: 15px;
-        text-align: center;
-        margin-top: -18px;
-        z-index: 2;
-        cursor: pointer;
-        border: 1px solid #c8102e;
-        color: #c8102e;
-    }
-    .view-more:hover span {
-        background-color: #c8102e;
-        color: #fff;
-    }
-    /* endviewmore */
     /*video*/
     .video-item {
         overflow: hidden;
@@ -1257,22 +1174,22 @@ p.wap-time.px-2 {
 }
 
 /* itemtruyen */
-.col-truyen{
+.col-truyen {
     text-align: left;
 }
-.item-truyen{
+.item-truyen {
     /* width: 22%; */
 }
-.img_a{
+.img_a {
     /* width: 100%; */
 }
-.lazy{
+.lazy {
     width: 200px;
 }
-.image{
+.image {
     position: relative;
 }
-.image .view{
+.image .view {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -1288,6 +1205,7 @@ p.wap-time.px-2 {
 }
 .chapter a {
     font-size: 1em;
+    color: #d35400;
 }
 .chapter a:hover {
     font-size: 1em;
@@ -1295,7 +1213,7 @@ p.wap-time.px-2 {
     text-decoration: none;
 }
 .chapter .time {
-    color: silver;
+    color: #4cae4c;
     font-size: 0.7em;
     line-height: 20px;
     font-style: italic;
@@ -1303,7 +1221,9 @@ p.wap-time.px-2 {
     overflow: hidden;
     white-space: nowrap;
 }
+
 /* enditemtruyen */
+
 /* lichsudoctruyen */
 .darkBox {
     border: 1px solid #ddd;
@@ -1316,7 +1236,7 @@ p.wap-time.px-2 {
     font-size: 16px;
     margin: 0;
     margin-bottom: 10px;
-    font-weight: 400;
+    font-weight: bold;
     color: #2980b9;
 }
 .darkBox h2 .view-all {
@@ -1356,7 +1276,9 @@ p.wap-time.px-2 {
 .darkBox ul li p {
     margin: 0;
 }
-.chapter a:focus, .chapter a:visited, a.visited {
+.chapter a:focus,
+.chapter a:visited,
+a.visited {
     text-decoration: none;
     color: silver;
 }
@@ -1372,20 +1294,26 @@ p.wap-time.px-2 {
 .fa-angle-double-right:before {
     content: "\f101";
 }
-.fa-remove:before, .fa-close:before, .fa-times:before {
+.fa-remove:before,
+.fa-close:before,
+.fa-times:before {
     content: "\f00d";
 }
-.visited-remove{
+.visited-remove {
     color: #c8102e;
 }
-.t-title a{
+.visited-remove:visited {
+    color: #c8102e !important;
+}
+.t-title a {
     color: #c8102e;
     font-weight: bold;
     text-decoration: none;
 }
-a.jtip{
+a.jtip {
     color: #03f;
     text-decoration: none;
     font-weight: bold;
 }
+
 /* endlichsudoctruyen */

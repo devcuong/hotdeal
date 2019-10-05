@@ -1,0 +1,52 @@
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cd7c" }, "ten_the_loai" : "Tất cả", "slug_the_loai" : "tat-ca" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cd7d" }, "ten_the_loai" : "Action", "slug_the_loai" : "action" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cd7e" }, "ten_the_loai" : "Adult", "slug_the_loai" : "adult" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cd7f" }, "ten_the_loai" : "Adventure", "slug_the_loai" : "adventure" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cd80" }, "ten_the_loai" : "Anime", "slug_the_loai" : "anime" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cd81" }, "ten_the_loai" : "Chuyển Sinh", "slug_the_loai" : "chuyen-sinh" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cd82" }, "ten_the_loai" : "Comedy", "slug_the_loai" : "comedy" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cd83" }, "ten_the_loai" : "Comic", "slug_the_loai" : "comic" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cd84" }, "ten_the_loai" : "Cooking", "slug_the_loai" : "cooking" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cd85" }, "ten_the_loai" : "Cổ Đại", "slug_the_loai" : "co-dai" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cd86" }, "ten_the_loai" : "Doujinshi", "slug_the_loai" : "doujinshi" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cd87" }, "ten_the_loai" : "Drama", "slug_the_loai" : "drama" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cd88" }, "ten_the_loai" : "Đam Mỹ", "slug_the_loai" : "dam-my" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cd89" }, "ten_the_loai" : "Ecchi", "slug_the_loai" : "ecchi" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cd8a" }, "ten_the_loai" : "Fantasy", "slug_the_loai" : "fantasy" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cd8b" }, "ten_the_loai" : "Gender", "slug_the_loai" : "gender-bender" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cd8c" }, "ten_the_loai" : "Harem", "slug_the_loai" : "harem" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cd8d" }, "ten_the_loai" : "Historical", "slug_the_loai" : "historical" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cd8e" }, "ten_the_loai" : "Horror", "slug_the_loai" : "horror" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cd8f" }, "ten_the_loai" : "Josei", "slug_the_loai" : "josei" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cd90" }, "ten_the_loai" : "Live action", "slug_the_loai" : "live-action" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cd91" }, "ten_the_loai" : "Manga", "slug_the_loai" : "manga" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cd92" }, "ten_the_loai" : "Manhua", "slug_the_loai" : "manhua" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cd93" }, "ten_the_loai" : "Manhwa", "slug_the_loai" : "manhwa" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cd94" }, "ten_the_loai" : "Martial Arts", "slug_the_loai" : "martial-arts" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cd95" }, "ten_the_loai" : "Mature", "slug_the_loai" : "mature" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cd96" }, "ten_the_loai" : "Mecha", "slug_the_loai" : "mecha" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cd97" }, "ten_the_loai" : "Mystery", "slug_the_loai" : "mystery" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cd98" }, "ten_the_loai" : "Ngôn Tình", "slug_the_loai" : "ngon-tinh" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cd99" }, "ten_the_loai" : "One shot", "slug_the_loai" : "one-shot" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cd9a" }, "ten_the_loai" : "Psychological", "slug_the_loai" : "psychological" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cd9b" }, "ten_the_loai" : "Romance", "slug_the_loai" : "romance" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cd9c" }, "ten_the_loai" : "School Life", "slug_the_loai" : "school-life" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cd9d" }, "ten_the_loai" : "Sci-fi", "slug_the_loai" : "sci-fi" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cd9e" }, "ten_the_loai" : "Seinen", "slug_the_loai" : "seinen" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cd9f" }, "ten_the_loai" : "Shoujo", "slug_the_loai" : "shoujo" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cda0" }, "ten_the_loai" : "Shoujo Ai", "slug_the_loai" : "shoujo-ai" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cda1" }, "ten_the_loai" : "Shounen", "slug_the_loai" : "shounen" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cda2" }, "ten_the_loai" : "Shounen Ai", "slug_the_loai" : "shounen-ai" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cda3" }, "ten_the_loai" : "Slice of Life", "slug_the_loai" : "slice-of-life" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cda4" }, "ten_the_loai" : "Smut", "slug_the_loai" : "smut" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cda5" }, "ten_the_loai" : "Soft Yaoi", "slug_the_loai" : "soft-yaoi" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cda6" }, "ten_the_loai" : "Soft Yuri", "slug_the_loai" : "soft-yuri" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cda7" }, "ten_the_loai" : "Sports", "slug_the_loai" : "sports" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cda8" }, "ten_the_loai" : "Supernatural", "slug_the_loai" : "supernatural" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cda9" }, "ten_the_loai" : "Thiếu Nhi", "slug_the_loai" : "thieu-nhi" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cdaa" }, "ten_the_loai" : "Tragedy", "slug_the_loai" : "tragedy" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cdab" }, "ten_the_loai" : "Trinh Thám", "slug_the_loai" : "trinh-tham" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cdac" }, "ten_the_loai" : "Truyện scan", "slug_the_loai" : "truyen-scan" }
+{ "_id" : { "$oid" : "5d9804030faf69aff5f8cdad" }, "ten_the_loai" : "Truyện Màu", "slug_the_loai" : "truyen-mau" }
+{ "_id" : { "$oid" : "5d9848e90faf69aff5f8cdef" }, "ten_the_loai" : "webtoon", "slug_the_loai" : "webtoon" }
+{ "_id" : { "$oid" : "5d9849250faf69aff5f8cdf0" }, "ten_the_loai" : "Xuyên Không", "slug_the_loai" : "xuyen-khong" }

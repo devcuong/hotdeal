@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect("mongodb://localhost:27017/xedaily", { useNewUrlParser: true, useFindAndModify: false }, (err) => {
+mongoose.connect("mongodb://localhost:27017/truyentranh", { useNewUrlParser: true, useFindAndModify: false }, (err) => {
     if (!err) {
         console.log("MongoDB Connection Succeeded")
     } else {
@@ -9,3 +9,4 @@ mongoose.connect("mongodb://localhost:27017/xedaily", { useNewUrlParser: true, u
 
 require("./tintuc.model");
 require("./video.model");
+require("./theloai.model");

@@ -634,9 +634,6 @@ hr.light-100 {
         color: #fff;
         padding: 8px 15px;
     }
-    .price-sale {
-        text-decoration: line-through;
-    }
     .card-content:hover {
         text-decoration: none;
         box-shadow: 0 0 rgba(0, 0, 0, .2), 0 0 10px 0 rgba(0, 0, 0, .19)
@@ -815,6 +812,7 @@ hr.light-100 {
 div.title_home {
     margin: 0px 0px 20px 0px;
     border-bottom: 3px solid #03f;
+    text-align: left;
 }
 
 .title_home_text {
@@ -1315,5 +1313,41 @@ a.jtip {
     text-decoration: none;
     font-weight: bold;
 }
-
 /* endlichsudoctruyen */
+/* truyendecu */
+.pcd-pricing{
+    font-size: 0.8em;
+    color: #fff;
+}
+.pcd-pricing a{
+    color: #fff;
+}
+/* endtruyendecu */
+/* theloaitruyen */
+.list.list-truyen {
+    margin: 10px 0;
+}
+.title-list {
+    text-align: left;
+    height: 40px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+}
+.list>.row {
+    background-color: #ecf0f1;
+}
+.list.list-cat>.row>div:nth-child(odd) {
+    padding-left: 20px!important;
+}
+.list.list-cat>.row>div {
+    height: 30px!important;
+    line-height: 35px!important;
+    border: 0!important;
+    padding-left: 20px!important;
+}
+.col-truyen-side .list>.row>div {
+    max-width: 140px;
+    padding: 0;
+}
+/* endtheloaitruyen */

@@ -8,34 +8,49 @@ var crypto = require("crypto");
 const mongoose = require("mongoose");
 const TinTuc = mongoose.model("TinTuc");
 const Video = mongoose.model("Video");
+const TheLoai = mongoose.model("TheLoai");
 
 // trang chu
 router.get("/", (req, res) => {
-    var q = TinTuc.find().limit(2);
-    q.exec(function(err, docs) {
+    // var q = TinTuc.find().limit(2);
+    // q.exec(function(err, docs) {
+    //     if (!err) {
+    //         var q2 = TinTuc.find().limit(6).skip(2);
+    //         q2.exec(function(err2, getMoreNews) {
+    //             if (!err2) {
+    //                 var q3 = Video.find().limit(4);
+    //                 q3.exec(function(err3, getVideos) {
+    //                     res.render("home/noiDungTrangChu", {
+    //                         layout: 'homeLayout.hbs',
+    //                         firstNews: docs[0],
+    //                         secondNews: docs[1],
+    //                         allNews: getMoreNews,
+    //                         allVideos: getVideos
+    //                     });
+    //                 });
+    //             }
+    //         })
+    //     } else {
+    //         console.log(err);
+    //     }
+
+    // });
+    var q = TheLoai.find().limit(50);
+    q.exec(function (err, docs) {
         if (!err) {
-            var q2 = TinTuc.find().limit(6).skip(2);
-            q2.exec(function(err2, getMoreNews) {
-                if (!err2) {
-                    var q3 = Video.find().limit(4);
-                    q3.exec(function(err3, getVideos) {
-                        res.render("home/noiDungTrangChu", {
-                            layout: 'homeLayout.hbs',
-                            firstNews: docs[0],
-                            secondNews: docs[1],
-                            allNews: getMoreNews,
-                            allVideos: getVideos
-                        });
-                    });
-                }
-            })
-        } else {
+            console.log(docs.length);
+            
+            res.render("home/noiDungTrangChu", {
+                layout: 'homeLayout.hbs',
+                lstTheLoai : docs
+            });
+        }
+        else {
             console.log(err);
         }
 
     });
 });
-
 
 
 // cấu hình multer

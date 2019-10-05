@@ -36,16 +36,13 @@ router.get("/", (req, res) => {
 
     // });
     var q = TheLoai.find();
-    q.exec(function (err, docs) {
+    q.exec(function(err, docs) {
         if (!err) {
-            console.log(docs.length);
-            
             res.render("home/noiDungTrangChu", {
                 layout: 'homeLayout.hbs',
-                lstTheLoai : docs
+                lstTheLoai: docs
             });
-        }
-        else {
+        } else {
             console.log(err);
         }
 

@@ -10,7 +10,8 @@ var truyenSchema = new mongoose.Schema({
         type: String
     },
     thoi_gian_tao: {
-        type: String
+        type: Date,
+        default: Date.now
     },
     server_1: {
         type: String
@@ -24,12 +25,11 @@ var truyenSchema = new mongoose.Schema({
     server_4: {
         type: String
     },
-
     server_5: {
-        type: Number
+        type: String
     }
 
 }, {
     versionKey: false // You should be aware of the outcome after set to false
 });
-mongoose.model("Truyen", truyenSchema, "truyen");
+mongoose.model("Chapter", truyenSchema, "chapter");

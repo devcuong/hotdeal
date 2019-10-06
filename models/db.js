@@ -10,3 +10,4 @@ mongoose.connect("mongodb://localhost:27017/truyentranh", { useNewUrlParser: tru
 require("./tintuc.model");
 require("./video.model");
 require("./theloai.model");
+require("./truyen.model");

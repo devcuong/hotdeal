@@ -9,6 +9,7 @@ const mongoose = require("mongoose");
 const TinTuc = mongoose.model("TinTuc");
 const Video = mongoose.model("Video");
 const TheLoai = mongoose.model("TheLoai");
+const Truyen = mongoose.model("Truyen");
 
 // trang chu
 router.get("/", (req, res) => {
@@ -36,12 +37,20 @@ router.get("/", (req, res) => {
 
     // });
     var q = TheLoai.find();
-    q.exec(function(err, docs) {
+    q.exec(function(err, theLoais) {
         if (!err) {
-            res.render("home/noiDungTrangChu", {
-                layout: 'homeLayout.hbs',
-                lstTheLoai: docs
-            });
+            var q2 = Truyen.find().limit(10);
+            q2.exec(function(err2, truyens) {
+                if (!err2) {
+                    res.render("home/noiDungTrangChu", {
+                        layout: 'homeLayout.hbs',
+                        lstTheLoai: theLoais,
+                        lstTruyenDeCu: truyens
+                    });
+                } else {
+                    console.log(err2);
+                }
+            })
         } else {
             console.log(err);
         }

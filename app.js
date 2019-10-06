@@ -6,6 +6,7 @@ const exphbs = require("express-handlebars");
 const bodyparser = require("body-parser");
 const tintucController = require("./controllers/tintucController");
 const videoController = require("./controllers/videoController");
+const truyenController = require("./controllers/truyenController");
 const mainController = require("./controllers/mainController");
 var bodyParser = require("body-parser");
 var multer = require("multer");
@@ -60,4 +61,5 @@ app.listen(3000, () => {
 // app.use("/noi-dung", trangConController);
 app.use("/admin/tin-tuc", tintucController);
 app.use("/admin/video", videoController);
+app.use("/admin/truyen", truyenController);
 app.use("/", mainController);

@@ -1,0 +1,48 @@
+<div class="row">
+    <div class="col-md-9">
+        <h5 class="card-title">QUẢN LÝ TIN TỨC</h5>
+    </div>
+    <div class="col-md-3">
+        <button class="mb-2 mr-2 btn-transition btn btn-outline-primary" onclick="themTinTuc()">
+            THÊM CHAPTER THEO TRUYỆN</button>
+    </div>
+</div>
+
+<script>
+    function themChapter() {
+        location.href = "chapter/add";
+    } 
+</script>
+<table class="mb-0 table">
+    <thead>
+        <tr>
+            <th>Tên chương</th>
+            <th>Mã truyện</th>
+            <th>Thời gian tạo</th>
+            <th>Server 1</th>
+            <th>Server 2</th>
+            <th>Server 3</th>
+            <th>Server 4</th>
+            <th>Server 5</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.ten_chuong}}</td>
+            <td>{{this.ma_truyen}}</td>
+            <td>{{this.thoi_gian_tao}}</td>
+            <td>{{this.server_1}}</td>
+            <td>{{this.server_2}}</td>
+            <td>{{this.server_3}}</td>
+            <td>{{this.server_4}}</td>
+            <td>{{this.server_5}}</td>
+            <td>
+                <a href="chapter/edit?cid={{this._id}}&tid={{this.ma_truyen}}"><i class="fas fa-edit"></i></a>
+                <a href="chapter/delete/{{this._id}}" onclick="return confirm('Are you sure to delete this record ?');">
+                    <i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

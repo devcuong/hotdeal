@@ -3,7 +3,6 @@
     "version": "0.0.1",
     "private": true,
     "dependencies": {
-        "@coolgk/mongo": "^1.0.15",
         "body-parser": "^1.19.0",
         "dateformat": "^3.0.3",
         "express": "*",

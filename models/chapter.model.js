@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-var truyenSchema = new mongoose.Schema({
+var chapterSchema = new mongoose.Schema({
 
     ten_chuong: {
         type: String,
@@ -9,8 +9,8 @@ var truyenSchema = new mongoose.Schema({
         type: String
     },
     thoi_gian_tao: {
-        type: Date,
-        default: Date.now
+        type: String,
+        default: Date.now()
     },
     server_1: {
         type: String
@@ -31,4 +31,4 @@ var truyenSchema = new mongoose.Schema({
 }, {
     versionKey: false // You should be aware of the outcome after set to false
 });
-mongoose.model("Chapter", truyenSchema, "chapter");
+mongoose.model("Chapter", chapterSchema, "chapter");

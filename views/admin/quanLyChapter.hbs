@@ -3,14 +3,14 @@
         <h5 class="card-title">QUẢN LÝ TIN TỨC</h5>
     </div>
     <div class="col-md-3">
-        <button class="mb-2 mr-2 btn-transition btn btn-outline-primary" onclick="themTinTuc()">
-            THÊM CHAPTER THEO TRUYỆN</button>
+        <button class="mb-2 mr-2 btn-transition btn btn-outline-primary" onclick="themChapter()">
+            THÊM MỚI CHAPTER THEO TRUYỆN</button>
     </div>
 </div>
 
 <script>
     function themChapter() {
-        location.href = "chapter/add";
+        location.href = "../chapter/add/{{idT}}";
     } 
 </script>
 <table class="mb-0 table">
@@ -39,7 +39,7 @@
             <td>{{this.server_5}}</td>
             <td>
                 <a href="/admin/chapter/edit/{{this._id}}/{{this.ma_truyen}}"><i class="fas fa-edit"></i></a>
-                <a href="/admin/chapter/delete/{{this._id}}" onclick="return confirm('Are you sure to delete this record ?');">
+                <a href="/admin/chapter/delete/{{this._id}}/{{this.ma_truyen}}" onclick="return confirm('Are you sure to delete this record ?');">
                     <i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
             </td>
         </tr>

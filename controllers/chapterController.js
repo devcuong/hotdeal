@@ -3,6 +3,8 @@ var router = express.Router();
 const mongoose = require("mongoose");
 const Chapter = mongoose.model("Chapter");
 
+var timeHandle = require('../utils/timeHandle.js')
+
 // quản lý chapter trong truyện
 router.get("/:idTruyen", (req, res) => {
         var idTruyen = req.params.idTruyen;
@@ -11,7 +13,8 @@ router.get("/:idTruyen", (req, res) => {
             if (!err) {
                 res.render("admin/quanLyChapter", {
                     layout: 'adminLayout.hbs',
-                    list: docs
+                    list: docs,
+                    idT: idTruyen
                 });
             }
         });
@@ -43,7 +46,7 @@ router.get("/add/:idTruyen", (req, res) => {
 
 // Add thông tin chapter
 router.post("/add", (req, res) => {
-    if (req.body._id == "")
+    if (req.body.chapId == "")
         insertRecord(req, res);
     else
         updateRecord(req, res);
@@ -77,7 +80,6 @@ function insertRecord(req, res) {
 // hàm update
 // hàm cập nhật
 function updateRecord(req, res) {
-    console.log(req.body);
     var foundChapter = new Chapter();
 
     if (req.body.chapId) {
@@ -112,7 +114,6 @@ function updateRecord(req, res) {
     }
     Chapter.findOneAndUpdate({ _id: req.body.chapId }, foundChapter, { new: true, strict: false, setDefaultsOnInsert: true }, function(err, doc) {
         if (!err) {
-
             res.redirect("/admin/chapter/" + req.body.idTruyen);
         } else {
             if (err.name == "ValidationError") {
@@ -123,4 +124,15 @@ function updateRecord(req, res) {
         }
     });
 }
+
+// xóa chapter
+router.get("/delete/:id/:idTruyen", (req, res) => {
+    Chapter.findByIdAndRemove(req.params.id, (err, doc) => {
+        if (!err) {
+            res.redirect("/admin/chapter/" + req.params.idTruyen);
+        } else {
+            console.log("Error in chapter delete: " + err);
+        }
+    });
+});
 module.exports = router;

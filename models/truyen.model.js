@@ -6,26 +6,26 @@ var truyenSchema = new mongoose.Schema({
         type: String,
         required: "this file is required"
     },
-    slug_truyen: {
+    tac_gia: {
         type: String
     },
-    url_truyen: {
+    hinh_truyen: {
         type: String
     },
-    trang_thai: {
-        type: String
-    },
-    url_hinh: {
+    noi_dung: {
         type: String
     },
     so_chuong: {
         type: String
     },
-    views: {
+    luot_xem: {
+        type: String
+    },
+    luot_danh_gia: {
         type: String
     },
 
-    danh_gia: {
+    xep_hang: {
         type: Number
     },
 
@@ -33,7 +33,7 @@ var truyenSchema = new mongoose.Schema({
         type: String
     },
 
-    tac_gia: {
+    luot_theo_doi: {
         type: String
     }
 

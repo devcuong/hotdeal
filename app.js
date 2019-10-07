@@ -7,11 +7,8 @@ const bodyparser = require("body-parser");
 const tintucController = require("./controllers/tintucController");
 const videoController = require("./controllers/videoController");
 const truyenController = require("./controllers/truyenController");
+const chapterController = require("./controllers/chapterController");
 const mainController = require("./controllers/mainController");
-var bodyParser = require("body-parser");
-var multer = require("multer");
-var fs = require("fs");
-var crypto = require("crypto");
 
 
 app.use(bodyparser.urlencoded({
@@ -22,7 +19,6 @@ app.use(bodyparser.json());
 app.set("views", path.join(__dirname, "/views/"));
 app.use(express.static(path.join(__dirname, "/public")));
 app.use('/images', express.static(__dirname + "/public/images"));
-app.use(bodyParser.urlencoded({ extended: false }));
 
 app.engine("hbs", exphbs({
     extname: "hbs",
@@ -62,4 +58,5 @@ app.listen(3000, () => {
 app.use("/admin/tin-tuc", tintucController);
 app.use("/admin/video", videoController);
 app.use("/admin/truyen", truyenController);
+app.use("/admin/chapter", chapterController);
 app.use("/", mainController);

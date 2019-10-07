@@ -38,8 +38,8 @@
             <td>{{this.server_4}}</td>
             <td>{{this.server_5}}</td>
             <td>
-                <a href="chapter/edit?cid={{this._id}}&tid={{this.ma_truyen}}"><i class="fas fa-edit"></i></a>
-                <a href="chapter/delete/{{this._id}}" onclick="return confirm('Are you sure to delete this record ?');">
+                <a href="/admin/chapter/edit/{{this._id}}/{{this.ma_truyen}}"><i class="fas fa-edit"></i></a>
+                <a href="/admin/chapter/delete/{{this._id}}" onclick="return confirm('Are you sure to delete this record ?');">
                     <i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
             </td>
         </tr>

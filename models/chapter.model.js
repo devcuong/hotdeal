@@ -6,7 +6,7 @@ var chapterSchema = new mongoose.Schema({
         required: "this file is required"
     },
     ma_truyen: {
-        type: String
+        type: Object
     },
     thoi_gian_tao: {
         type: String,

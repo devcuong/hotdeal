@@ -36,12 +36,40 @@ router.get("/", (req, res) => {
     //     }
 
     // });
+    /* var q = TheLoai.find();
+     q.exec(function(err, theLoais) {
+         if (!err) {
+             var q2 = Truyen.find().limit(10);
+             q2.exec(function(err2, truyens) {
+                 if (!err2) {
+                     res.render("home/noiDungTrangChu", {
+                         layout: 'homeLayout.hbs',
+                         lstTheLoai: theLoais,
+                         lstTruyenDeCu: truyens
+                     });
+                 } else {
+                     console.log(err2);
+                 }
+             })
+         } else {
+             console.log(err);
+         }
+
+     });*/
     var q = TheLoai.find();
     q.exec(function(err, theLoais) {
         if (!err) {
-            var q2 = Truyen.find().limit(10);
-            q2.exec(function(err2, truyens) {
+            var q2 = Truyen.aggregate([{
+                    $lookup: { from: "chapter", localField: "_id", foreignField: "ma_truyen", as: "truyenmoira" }
+                },
+                {
+                    "$addFields": {
+                        "truyenmoira": { "$slice": ["$truyenmoira", -2] }
+                    }
+                }
+            ]).exec(function(err2, truyens) {
                 if (!err2) {
+                    console.log(truyens[0]);
                     res.render("home/noiDungTrangChu", {
                         layout: 'homeLayout.hbs',
                         lstTheLoai: theLoais,
@@ -51,13 +79,9 @@ router.get("/", (req, res) => {
                     console.log(err2);
                 }
             })
-        } else {
-            console.log(err);
         }
-
-    });
-});
-
+    })
+})
 
 // cấu hình multer
 var storage = multer.diskStorage({

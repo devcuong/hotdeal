@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 var truyenSchema = new mongoose.Schema({
 
-
+    _id: {
+        type: Object
+    },
     ten_truyen: {
         type: String,
         required: "this file is required"

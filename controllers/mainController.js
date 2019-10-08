@@ -60,21 +60,21 @@ router.get("/", (req, res) => {
     q.exec(function(err, theLoais) {
         if (!err) {
             var q2 = Truyen.aggregate([{
-                    $lookup: { from: "chapter", localField: "_id", foreignField: "ma_truyen", as: "truyenmoira" }
+                    $lookup: { from: "chapter", localField: "_id", foreignField: "ma_truyen", as: "chapmoira" }
                 },
                 {
                     "$addFields": {
-                        "truyenmoira": { "$slice": ["$truyenmoira", -1] }
+                        "chapmoira": { "$slice": ["$chapmoira", -1] }
                     }
                 }
             ]).limit(10).exec(function(err2, truyens) {
                 if (!err2) {
-                    console.log(truyens);
-                    res.render("home/noiDungTrangChu", {
-                        layout: 'homeLayout.hbs',
-                        lstTheLoai: theLoais,
-                        lstTruyenDeCu: truyens
-                    });
+                    console.log(truyens[0].chapmoira[0].ten_chuong);
+                     res.render("home/noiDungTrangChu", {
+                         layout: 'homeLayout.hbs',
+                         lstTheLoai: theLoais,
+                         lstTruyenDeCu: truyens
+                     });
                 } else {
                     console.log(err2);
                 }

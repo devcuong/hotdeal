@@ -2,15 +2,18 @@ const express = require("express");
 var router = express.Router();
 const mongoose = require("mongoose");
 const Chapter = mongoose.model("Chapter");
+var ObjectId = require('mongoose').Types.ObjectId; 
+
 
 var timeHandle = require('../utils/timeHandle.js')
 
 // quản lý chapter trong truyện
 router.get("/:idTruyen", (req, res) => {
         var idTruyen = req.params.idTruyen;
-        var q = Chapter.find({ ma_truyen: idTruyen });
+        var q = Chapter.find({"ma_truyen":new ObjectId(idTruyen)});
         q.exec(function(err, docs) {
             if (!err) {
+                console.log(docs);
                 res.render("admin/quanLyChapter", {
                     layout: 'adminLayout.hbs',
                     list: docs,
@@ -23,7 +26,7 @@ router.get("/:idTruyen", (req, res) => {
 router.get("/edit/:cid/:tid", (req, res) => {
     var chapId = req.params.cid;
     var truyenId = req.params.tid;
-    Chapter.findById(chapId, (err, chapterFounded) => {
+    Chapter.findById(new ObjectId(chapId), (err, chapterFounded) => {
         if (!err) {
             res.render("admin/themSuaChapter", {
                 layout: 'adminLayout.hbs',
@@ -56,7 +59,7 @@ router.post("/add", (req, res) => {
 function insertRecord(req, res) {
     var chapter = new Chapter();
     chapter.ten_chuong = req.body.tenChuong;
-    chapter.ma_truyen = req.body.idTruyen;
+    chapter.ma_truyen = new ObjectId(req.body.idTruyen);
     chapter.server_1 = req.body.server1;
     chapter.server_2 = req.body.server2;
     chapter.server_3 = req.body.server3;
@@ -83,8 +86,9 @@ function updateRecord(req, res) {
     var foundChapter = new Chapter();
 
     if (req.body.chapId) {
-        foundChapter._id = req.body.chapId;
+        foundChapter._id = new ObjectId(req.body.chapId);
     }
+
     if (req.body.tenChuong) {
         foundChapter.ten_chuong = req.body.tenChuong;
     }
@@ -112,7 +116,7 @@ function updateRecord(req, res) {
     if (req.body.server5) {
         foundChapter.server_5 = req.body.server5;
     }
-    Chapter.findOneAndUpdate({ _id: req.body.chapId }, foundChapter, { new: true, strict: false, setDefaultsOnInsert: true }, function(err, doc) {
+    Chapter.findByIdAndUpdate(new ObjectId(req.body.chapId), foundChapter, { new: true, strict: false, setDefaultsOnInsert: true }, function(err, doc) {
         if (!err) {
             res.redirect("/admin/chapter/" + req.body.idTruyen);
         } else {

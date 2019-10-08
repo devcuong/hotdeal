@@ -64,12 +64,12 @@ router.get("/", (req, res) => {
                 },
                 {
                     "$addFields": {
-                        "truyenmoira": { "$slice": ["$truyenmoira", -2] }
+                        "truyenmoira": { "$slice": ["$truyenmoira", -1] }
                     }
                 }
-            ]).exec(function(err2, truyens) {
+            ]).limit(10).exec(function(err2, truyens) {
                 if (!err2) {
-                    console.log(truyens[0]);
+                    console.log(truyens);
                     res.render("home/noiDungTrangChu", {
                         layout: 'homeLayout.hbs',
                         lstTheLoai: theLoais,

@@ -6,7 +6,7 @@
                 <span class="title_home_text">TRUYỆN ĐỀ CỬ</span>
             </a>
         </div>
-        <div class="owl-carousel owl-theme" id="product-uytin">
+        <div class="owl-carousel owl-theme" id="truyen-de-cu">
                {{#each lstTruyenDeCu}}
                <div class="item">
                 <div class="product">
@@ -15,13 +15,10 @@
                                 src="{{this.hinh_truyen}}"
                                 alt="{{this.ten_truyen}}" class="card-img">
                             <p class="pcd-pricing">
-                                <span class="pcd-price"><a href="#" title="Chapter 270">Chapter {{this.chapmoira.0.ten_chuong}}</a>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="time"><i class="fas fa-clock"></i>16 giờ
-                                        trước</span></span>
+                                <span class="pcd-price"><a href="#" title="Chapter {{this.chap_moi_ra.0.ten_chuong}}">Chapter {{this.chap_moi_ra.0.ten_chuong}}</a>
+                                <span class="time"><i class="fas fa-clock"></i><span id="s-{{this._id}}"></span> trước</span></span>
+                                <input type="hidden" id="t-{{this._id}}" class="type" value="{{this.chap_moi_ra.0.thoi_gian_tao}}">
                             </p>
-                            <script>
-                                
-                            </script>
                         </div>
                         <div class="product-body">
                             <div class="product-name">{{this.ten_truyen}}

@@ -1,6 +1,6 @@
 $(document).ready(function() {
     var syncedSecondary = true;
-    $("#product-uytin").owlCarousel({
+    $("#truyen-de-cu").owlCarousel({
         loop: true,
         margin: 30,
         nav: true,

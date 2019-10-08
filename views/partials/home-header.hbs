@@ -25,38 +25,50 @@
     <script>
         $(document).ready(function () {
 
-            // Gets the video src from the data-src on each button
+            $('#truyen-de-cu').find('input').each(function () {
 
-            var $videoSrc;
-            $('.video-btn').click(function () {
-                $videoSrc = $(this).data("src");
-            });
-            console.log($videoSrc);
+                var timeHienTai = new Date().getTime();
 
-
-
-            // when the modal is opened autoplay it  
-            $('#myModal').on('shown.bs.modal', function (e) {
-
-                // set the video src to autoplay and not to show related video. Youtube related video is like a box of chocolates... you never know what you're gonna get
-                $("#video").attr('src', $videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0");
+                var idTimePostTruyen = $(this).attr('id');
+                var timePostTruyen = document.getElementById(idTimePostTruyen).value;
+                var idTruyen = idTimePostTruyen.trim().split("-");
+                var khoangThoiGian = Duration(timeHienTai, timePostTruyen);
+                document.getElementById("s-" + idTruyen[1]).innerHTML = khoangThoiGian;
             })
 
-
-
-            // stop playing the youtube video when I close the modal
-            $('#myModal').on('hide.bs.modal', function (e) {
-                // a poor man's stop video
-                $("#video").attr('src', $videoSrc);
-            })
-
-
-
-
-
-
-            // document ready  
         });
+
+        function Duration(Current, Target) {
+            var CalcTime = Current - Target; // Current - Initiallized
+
+            var Years = Math.floor(CalcTime / 1000 / 60 / 60 / 24 / 7 / 4 / 12);
+            CalcTime -= Years * (1000 * 60 * 60 * 24 * 7 * 4 * 12);
+            var Months = Math.floor(CalcTime / 1000 / 60 / 60 / 24 / 7 / 4);
+            CalcTime -= Months * (1000 * 60 * 60 * 24 * 7 * 4);
+            var Weeks = Math.floor(CalcTime / 1000 / 60 / 60 / 24 / 7);
+            CalcTime -= Weeks * (1000 * 60 * 60 * 24 * 7);
+            // The calculation seconds to days works properly & The calculation of weeks to years may be off slightly
+            var Days = Math.floor(CalcTime / 1000 / 60 / 60 / 24);
+            CalcTime -= Days * (1000 * 60 * 60 * 24);
+            var Hours = Math.floor(CalcTime / 1000 / 60 / 60);
+            CalcTime -= Hours * (1000 * 60 * 60);
+            var Minutes = Math.floor(CalcTime / 1000 / 60);
+            CalcTime -= Minutes * (1000 * 60);
+            var Seconds = Math.floor(CalcTime / 1000 / 60);
+            var outString = "";
+            if(Months > 1)
+            {
+                var date = new Date(Target); // Date 2011-05-09T06:08:45.178Z
+                var year = date.getFullYear();
+                var month = ("0" + (date.getMonth() + 1)).slice(-2);
+                var day = ("0" + date.getDate()).slice(-2);
+                outString = day + "-" + month + "-"+year;
+
+            }
+            if()
+            return outString;
+        }
+
     </script>
 </head>
 

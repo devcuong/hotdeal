@@ -429,8 +429,8 @@ hr.light-100 {
     #big.owl-theme .owl-prev,
     #slide-product.owl-theme .owl-next,
     #slide-product.owl-theme .owl-prev,
-    #product-uytin.owl-theme .owl-next,
-    #product-uytin.owl-theme .owl-prev {
+    #truyen-de-cu.owl-theme .owl-next,
+    #truyen-de-cu.owl-theme .owl-prev {
         background: rgba(255, 255, 255, 0.5);
         width: 30px;
         line-height: 40px;
@@ -473,12 +473,12 @@ hr.light-100 {
     }
     #slide-product .owl-prev,
     #big.owl-theme .owl-prev,
-    #product-uytin .owl-prev {
+    #truyen-de-cu .owl-prev {
         left: -5px;
     }
     #slide-product .owl-next,
     #big.owl-theme .owl-next,
-    #product-uytin .owl-next {
+    #truyen-de-cu .owl-next {
         right: -5px;
     }
     #thumbs.owl-theme .owl-next,
@@ -1313,21 +1313,25 @@ a.jtip {
     text-decoration: none;
     font-weight: bold;
 }
+
 /* endlichsudoctruyen */
+
 /* truyendecu */
-.pcd-pricing{
+.pcd-pricing {
     font-size: 0.8em;
     color: #fff;
 }
-.pcd-pricing a{
+.pcd-pricing a {
     color: #fff;
 }
+
 /* endtruyendecu */
+
 /* theloaitruyen */
 .list.list-truyen {
     margin: 10px 0;
 }
-.list.list-truyen a{
+.list.list-truyen a {
     text-decoration: none;
 }
 .title-list {
@@ -1353,4 +1357,5 @@ a.jtip {
     max-width: 140px;
     padding: 0;
 }
+
 /* endtheloaitruyen */

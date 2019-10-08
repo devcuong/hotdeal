@@ -1,17 +1,19 @@
 const mongoose = require('mongoose');
 var chapterSchema = new mongoose.Schema({
 
-    
+
     _id: {
-        type: Object,
-        default: new Object
+        type: mongoose.Schema.Types.ObjectId,
+        index: true,
+        required: true,
+        auto: true
     },
     ten_chuong: {
         type: String,
         required: "this file is required"
     },
     ma_truyen: {
-        type: Object
+        type: mongoose.Schema.Types.ObjectId
     },
     thoi_gian_tao: {
         type: String,

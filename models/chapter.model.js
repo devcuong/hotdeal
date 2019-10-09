@@ -16,8 +16,8 @@ var chapterSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId
     },
     thoi_gian_tao: {
-        type: String,
-        default: Date.now()
+        type: Date,
+        default: Date.now
     },
     server_1: {
         type: String

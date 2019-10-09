@@ -2,7 +2,10 @@ const mongoose = require('mongoose');
 var truyenSchema = new mongoose.Schema({
 
     _id: {
-        type: Object
+        type: mongoose.Schema.Types.ObjectId,
+        index: true,
+        required: true,
+        auto: true
     },
     ten_truyen: {
         type: String,

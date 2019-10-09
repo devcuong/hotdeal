@@ -1,9 +1,17 @@
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-9">
         <h5 class="card-title">QUẢN LÝ TRUYỆN</h5>
     </div>
+      <div class="col-md-3">
+        <button class="mb-2 mr-2 btn-transition btn btn-outline-primary" onclick="themTruyen()">
+            THÊM TRUYỆN</button>
+    </div>
 </div>
-
+<script>
+    function themTruyen() {
+        location.href = "/admin/truyen/add/";
+    } 
+</script>
 <table class="mb-0 table">
     <thead>
         <tr>

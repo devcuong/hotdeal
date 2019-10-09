@@ -2,7 +2,7 @@ const express = require("express");
 var router = express.Router();
 const mongoose = require("mongoose");
 const Chapter = mongoose.model("Chapter");
-var ObjectId = require('mongoose').Types.ObjectId; 
+var ObjectId = require('mongoose').Types.ObjectId;
 
 
 var timeHandle = require('../utils/timeHandle.js')
@@ -10,7 +10,7 @@ var timeHandle = require('../utils/timeHandle.js')
 // quản lý chapter trong truyện
 router.get("/:idTruyen", (req, res) => {
         var idTruyen = req.params.idTruyen;
-        var q = Chapter.find({"ma_truyen":new ObjectId(idTruyen)});
+        var q = Chapter.find({ "ma_truyen": new ObjectId(idTruyen) });
         q.exec(function(err, docs) {
             if (!err) {
                 console.log(docs);
@@ -71,7 +71,7 @@ function insertRecord(req, res) {
         } else {
             if (err.name == "ValidationError") {
                 handleValidationError(err, req.body);
-                res.render("admin/chapter/add/", {
+                res.render("admin/themSuaChapter", {
                     viewTitle: "THÊM SỬA CHAPTER"
                 });
             } else
@@ -80,7 +80,7 @@ function insertRecord(req, res) {
     })
 }
 
-// hàm update
+
 // hàm cập nhật
 function updateRecord(req, res) {
     var foundChapter = new Chapter();

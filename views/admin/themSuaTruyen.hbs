@@ -1,0 +1,27 @@
+<div class="card-body">
+    <h5 class="card-title">{{viewTitle}}</h5>
+    <form class="" action="http://localhost:3000/admin/truyen/add" method="POST" enctype="text/html">
+        <input type="hidden" name="truyenId" value="{{truyen._id}}">
+        <div class="position-relative row form-group"><label for="tenTruyen" class="col-sm-2 col-form-label">Tên Chương</label>
+            <div class="col-sm-10"><input name="tenTruyen" placeholder="Tên Truyện" value="{{truyen.ten_truyen}}" type="text"
+                    class="form-control" ></div>
+        </div>
+          <div class="position-relative row form-group"><label for="tacGia" class="col-sm-2 col-form-label">Tác giả</label>
+            <div class="col-sm-10"><input name="tacGia" placeholder="Tác Giả" value="{{truyen.tac_gia}}" type="text"
+                    class="form-control" ></div>
+        </div>
+        <div class="position-relative row form-group"><label for="hinhTruyen" class="col-sm-2 col-form-label">Hình Truyện</label>
+            <div class="col-sm-10"><input name="hinhTruyen" placeholder="Hình Truyện" value="{{truyen.hinh_truyen}}" type="text"
+                    class="form-control" ></div>
+        </div>
+           <div class="position-relative row form-group"><label for="noiDung" class="col-sm-2 col-form-label">Nội Dung</label>
+            <div class="col-sm-10"><input name="noiDung" placeholder="Nội Dung" value="{{truyen.noi_dung}}" type="text"
+                    class="form-control" ></div>
+        </div>
+        <div class="position-relative row form-check">
+            <div class="col-sm-10 offset-sm-2">
+                <button class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>

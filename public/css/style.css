@@ -630,7 +630,7 @@ hr.light-100 {
         position: absolute;
         left: 0;
         bottom: 0;
-        background: rgb(0, 0, 0, 0.5);
+        background: rgb(0, 0, 0, 0.8);
         color: #fff;
         padding: 8px 15px;
     }
@@ -1191,7 +1191,7 @@ p.wap-time.px-2 {
     position: absolute;
     left: 0;
     bottom: 0;
-    background: rgb(0, 0, 0, 0.5);
+    background: rgb(0, 0, 0, 0.8);
     color: #fff;
     width: 200px;
     font-size: 0.8em;

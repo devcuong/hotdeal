@@ -18,46 +18,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="/js/owl.carousel.min.js"></script>
+    <script src="/js/timeago.min.js" type="text/javascript"></script>
+    <script src="/js/timeago.locales.min.js" type="text/javascript"></script>
     <script src="/js/main.js"></script>
     <link rel="stylesheet" href="/css/owl.carousel.min.css">
     <link rel="stylesheet" href="/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="/css/style.css">
-    <script>
-        $(document).ready(function () {
-
-            $('#truyen-de-cu').find('input').each(function () {
-
-                var timeHienTai = new Date().getTime();
-
-                var idTimePostTruyen = $(this).attr('id');
-                var timePostTruyen = document.getElementById(idTimePostTruyen).value;
-                var idTruyen = idTimePostTruyen.trim().split("-");
-                var khoangThoiGian = Duration(timeHienTai, timePostTruyen);
-                console.log(khoangThoiGian);
-                document.getElementById("s-" + idTruyen[1]).innerHTML = khoangThoiGian;
-            })
-
-        });
-
-        function Duration(Current, Target) {
-            var CalcTime = Current - Target; // Current - Initiallized
-            var Years = Math.floor(CalcTime / 1000 / 60 / 60 / 24 / 7 / 4 / 12);
-            CalcTime -= Years * (1000 * 60 * 60 * 24 * 7 * 4 * 12);
-            var Months = Math.floor(CalcTime / 1000 / 60 / 60 / 24 / 7 / 4);
-            CalcTime -= Months * (1000 * 60 * 60 * 24 * 7 * 4);
-            var Weeks = Math.floor(CalcTime / 1000 / 60 / 60 / 24 / 7);
-            CalcTime -= Weeks * (1000 * 60 * 60 * 24 * 7);
-            // The calculation seconds to days works properly & The calculation of weeks to years may be off slightly
-            var Days = Math.floor(CalcTime / 1000 / 60 / 60 / 24);
-            CalcTime -= Days * (1000 * 60 * 60 * 24);
-            var Hours = Math.floor(CalcTime / 1000 / 60 / 60);
-            CalcTime -= Hours * (1000 * 60 * 60);
-            var Minutes = Math.floor(CalcTime / 1000 / 60);
-            CalcTime -= Minutes * (1000 * 60);
-            var Seconds = Math.floor(CalcTime / 1000 / 60);
-            return (Years != 0 ? Years + ((Years == 1) ? 'năm ' : 'năm ') : '') + (Months != 0 ? Months + ((Months == 1) ? 'tháng ' : 'tháng ') : '') + (Weeks != 0 ? Weeks + ((Weeks == 1) ? 'tuần ' : 'tuần ') : '') + (Days != 0 ? Days + ((Days == 1) ? 'ngày ' : 'ngày ') : '') + (Hours != 0 ? ((Hours <= 9) ? '0' + Hours : Hours) + ((Hours == 1) ? 'giờ ' : 'giờ ') : '') + (Minutes != 0 ? ((Minutes <= 9) ? '0' + Minutes : Minutes) + ((Minutes == 1) ? 'phút ' : 'phút ') : '') + (Seconds != 0 ? ((Seconds <= 9) ? '0' + Seconds : Seconds) + ((Seconds == 1) ? 'giây ' : 'giây ') : '');
-        }
-    </script>
 </head>
 
 <body>

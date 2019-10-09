@@ -33,6 +33,7 @@
                 var timePostTruyen = document.getElementById(idTimePostTruyen).value;
                 var idTruyen = idTimePostTruyen.trim().split("-");
                 var khoangThoiGian = Duration(timeHienTai, timePostTruyen);
+                console.log(khoangThoiGian);
                 document.getElementById("s-" + idTruyen[1]).innerHTML = khoangThoiGian;
             })
 
@@ -40,7 +41,6 @@
 
         function Duration(Current, Target) {
             var CalcTime = Current - Target; // Current - Initiallized
-
             var Years = Math.floor(CalcTime / 1000 / 60 / 60 / 24 / 7 / 4 / 12);
             CalcTime -= Years * (1000 * 60 * 60 * 24 * 7 * 4 * 12);
             var Months = Math.floor(CalcTime / 1000 / 60 / 60 / 24 / 7 / 4);
@@ -55,20 +55,8 @@
             var Minutes = Math.floor(CalcTime / 1000 / 60);
             CalcTime -= Minutes * (1000 * 60);
             var Seconds = Math.floor(CalcTime / 1000 / 60);
-            var outString = "";
-            if(Months > 1)
-            {
-                var date = new Date(Target); // Date 2011-05-09T06:08:45.178Z
-                var year = date.getFullYear();
-                var month = ("0" + (date.getMonth() + 1)).slice(-2);
-                var day = ("0" + date.getDate()).slice(-2);
-                outString = day + "-" + month + "-"+year;
-
-            }
-            if()
-            return outString;
+            return (Years != 0 ? Years + ((Years == 1) ? 'năm ' : 'năm ') : '') + (Months != 0 ? Months + ((Months == 1) ? 'tháng ' : 'tháng ') : '') + (Weeks != 0 ? Weeks + ((Weeks == 1) ? 'tuần ' : 'tuần ') : '') + (Days != 0 ? Days + ((Days == 1) ? 'ngày ' : 'ngày ') : '') + (Hours != 0 ? ((Hours <= 9) ? '0' + Hours : Hours) + ((Hours == 1) ? 'giờ ' : 'giờ ') : '') + (Minutes != 0 ? ((Minutes <= 9) ? '0' + Minutes : Minutes) + ((Minutes == 1) ? 'phút ' : 'phút ') : '') + (Seconds != 0 ? ((Seconds <= 9) ? '0' + Seconds : Seconds) + ((Seconds == 1) ? 'giây ' : 'giây ') : '');
         }
-
     </script>
 </head>
 

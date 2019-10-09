@@ -69,6 +69,7 @@ router.get("/", (req, res) => {
                 }
             ]).limit(10).exec(function(err2, truyens) {
                 if (!err2) {
+                    console.log(truyens);
                     res.render("home/noiDungTrangChu", {
                         layout: 'homeLayout.hbs',
                         lstTheLoai: theLoais,

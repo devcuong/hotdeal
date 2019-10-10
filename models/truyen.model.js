@@ -8,8 +8,7 @@ var truyenSchema = new mongoose.Schema({
         auto: true
     },
     ten_truyen: {
-        type: String,
-        required: "this file is required"
+        type: String
     },
     tac_gia: {
         type: String

@@ -2,6 +2,7 @@ const express = require("express");
 var router = express.Router();
 const mongoose = require("mongoose");
 const Truyen = mongoose.model("Truyen");
+var ObjectId = require('mongoose').Types.ObjectId;
 router.get("/", (req, res) => {
     var q = Truyen.find();
     q.exec(function(err, docs) {
@@ -23,8 +24,8 @@ router.get("/add", (req, res) => {
 
 // Add thông tin truyện
 router.post("/add", (req, res) => {
+
     if (req.body.truyenId == "") {
-        console.log(req.body.truyenId);
         insertRecord(req, res);
     } else
         updateRecord(req, res);
@@ -37,10 +38,15 @@ function insertRecord(req, res) {
     truyen.tac_gia = req.body.tacGia;
     truyen.hinh_truyen = req.body.hinhTruyen;
     truyen.noi_dung = req.body.noiDung;
+    truyen.so_chuong = "0";
+    truyen.luot_xem = "0";
+    truyen.luot_danh_gia = "0";
+    truyen.xep_hang = "0";
     truyen.save((err, doc) => {
         if (!err) {
             res.redirect("/admin/truyen/");
         } else {
+            console.log(err);
             if (err.name == "ValidationError") {
                 res.render("admin/themSuaTruyen", {
                     viewTitle: "THÊM SỬA TRUYỆN"
@@ -87,5 +93,14 @@ function updateRecord(req, res) {
         }
     });
 }
-
+// xóa truyện
+router.get("/delete/:id", (req, res) => {
+    Truyen.findByIdAndRemove(new ObjectId(req.params.id), (err, doc) => {
+        if (!err) {
+            res.redirect("/admin/chapter/" + req.params.idTruyen);
+        } else {
+            console.log("Error in chapter delete: " + err);
+        }
+    });
+});
 module.exports = router;

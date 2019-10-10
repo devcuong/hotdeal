@@ -3,7 +3,7 @@
         <h5 class="card-title">QUẢN LÝ TRUYỆN</h5>
     </div>
       <div class="col-md-3">
-        <button class="mb-2 mr-2 btn-transition btn btn-outline-primary" onclick="themTruyen()">
+        <button class="mb-2 btn-transition btn btn-success" onclick="themTruyen()">
             THÊM TRUYỆN</button>
     </div>
 </div>
@@ -40,9 +40,9 @@
             <td>{{this.luot_theo_doi}}</td>
             <td>
                 <a href="truyen/edit/{{this._id}}"><i class="fas fa-edit"></i></a>
-                <a href="truyen/delete/{{this._id}}" onclick="return confirm('Are you sure to delete this record ?');">
+                <a href="/admin/truyen/delete/{{this._id}}" onclick="return confirm('Are you sure to delete this record ?');">
                     <i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
-                <a href="chapter/{{this._id}}">
+                <a href="/admin/chapter/{{this._id}}">
                     <i class="fa fa-tasks fa-lg" aria-hidden="true"></i></a>
             </td>
         </tr>

@@ -1,16 +1,23 @@
 <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-8">
         <h5 class="card-title">QUẢN LÝ TIN TỨC</h5>
     </div>
-    <div class="col-md-3">
-        <button class="mb-2 mr-2 btn-transition btn btn-outline-primary" onclick="themChapter()">
-            THÊM MỚI CHAPTER THEO TRUYỆN</button>
+    <div class="col-md-2">
+        <button class="mb-2 btn-transition btn btn-success" onclick="themChapter()">
+            THÊM MỚI CHAPTER</button>
+    </div>
+     <div class="col-md-2">
+        <button class="mb-2 btn-transition btn btn-success" onclick="quanLyTruyen()">
+            TRANG QUẢN LÝ TRUYỆN</button>
     </div>
 </div>
 
 <script>
     function themChapter() {
         location.href = "../chapter/add/{{idT}}";
+    } 
+     function quanLyTruyen() {
+        location.href = "../truyen";
     } 
 </script>
 <table class="mb-0 table">

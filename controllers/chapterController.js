@@ -144,12 +144,23 @@ function updateRecord(req, res) {
 
 // xóa chapter
 router.get("/delete/:id/:idTruyen", (req, res) => {
-    Chapter.findByIdAndRemove(new ObjectId(req.params.id), (err, doc) => {
+    var truyenId = req.params.idTruyen;
+    var q = Truyen.findOne({ "_id": new ObjectId(truyenId) });
+    q.exec(function(err, doc) {
+        console.log(doc);
+
         if (!err) {
-            res.redirect("/admin/chapter/" + req.params.idTruyen);
-        } else {
-            console.log("Error in chapter delete: " + err);
+            doc.so_chuong = Number(doc.so_chuong) - 1;
+            doc.save(function(errUpdate) {
+                Chapter.findByIdAndRemove(new ObjectId(req.params.id), (err, doc) => {
+                    if (!errUpdate) {
+                        res.redirect("/admin/chapter/" + req.params.idTruyen);
+                    } else {
+                        console.log("Error in chapter delete: " + err);
+                    }
+                })
+            })
         }
     });
-});
+})
 module.exports = router;

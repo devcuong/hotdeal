@@ -24,17 +24,30 @@ router.get("/add", (req, res) => {
 
 // Add thông tin truyện
 router.post("/add", (req, res) => {
-
     if (req.body.truyenId == "") {
         insertRecord(req, res);
     } else
         updateRecord(req, res);
 });
 
+// update thông tin truyện
+router.get("/edit/:id", (req, res) => {
+    var idTruyen = req.params.id;
+    var q = Truyen.findOne({ _id: new ObjectId(idTruyen) });
+    q.exec(function(err, doc) {
+        if (!err) {
+            res.render("admin/themSuaTruyen", {
+                layout: 'adminLayout.hbs',
+                truyen: doc
+            });
+        }
+    });
+});
+
 // hàm thêm mới
 function insertRecord(req, res) {
     var truyen = new Truyen();
-    truyen.ten_chuong = req.body.tenChuong;
+    truyen.ten_truyen = req.body.tenTruyen;
     truyen.tac_gia = req.body.tacGia;
     truyen.hinh_truyen = req.body.hinhTruyen;
     truyen.noi_dung = req.body.noiDung;
@@ -42,11 +55,11 @@ function insertRecord(req, res) {
     truyen.luot_xem = "0";
     truyen.luot_danh_gia = "0";
     truyen.xep_hang = "0";
+    truyen.luot_theo_doi = "0";
     truyen.save((err, doc) => {
         if (!err) {
             res.redirect("/admin/truyen/");
         } else {
-            console.log(err);
             if (err.name == "ValidationError") {
                 res.render("admin/themSuaTruyen", {
                     viewTitle: "THÊM SỬA TRUYỆN"
@@ -67,7 +80,7 @@ function updateRecord(req, res) {
     }
 
     if (req.body.tenTruyen) {
-        foundTruyen.ten_chuong = req.body.tenChuong;
+        foundTruyen.ten_truyen = req.body.tenTruyen;
     }
 
     if (req.body.tacGia) {
@@ -82,9 +95,9 @@ function updateRecord(req, res) {
         foundTruyen.noi_dung = req.body.noiDung;
     }
 
-    foundTruyen.findByIdAndUpdate(new ObjectId(req.body.truyenId), foundChapter, { new: true, strict: false, setDefaultsOnInsert: true }, function(err, doc) {
+    Truyen.findByIdAndUpdate(new ObjectId(req.body.truyenId), foundTruyen, { new: true, strict: false, setDefaultsOnInsert: true }, function(err, doc) {
         if (!err) {
-            res.redirect("/admin/chapter/" + req.body.truyenId);
+            res.redirect("/admin/truyen/");
         } else {
             if (err.name == "ValidationError") {
                 res.redirect("admin/themSuaTruyen")

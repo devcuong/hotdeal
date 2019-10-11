@@ -36,18 +36,7 @@
             {{/each}}
             
         </div>
-          <script>
-                                        var nodes = document.querySelectorAll('.needs_to_be_rendered');
-
-                                        // use render method to render nodes in real time
-                                        timeago.render(nodes, 'vi');
-
-                                        // cancel all real-time render task
-                                        timeago.cancel();
-
-                                        // or cancel for the specific one
-                                        timeago.cancel(nodes[0])
-                                    </script>
+         
     </div>
 </section>
 <!-- endsectionuudaigia -->
@@ -63,547 +52,51 @@
                         </a>
                     </div>
                     <div class="row">
+                        {{#each lstTruyenCapNhat}}
                         <div class="col-md-3 col-truyen">
                             <div class="item-truyen">
                                 <figure class="clearfix">
                                     <div class="image">
-                                        <a title="Truyện tranh Bởi vì chúng ta đều là những ngôi sao"
+                                        <a title="{{this.ten_truyen}}"
                                             href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao">
-                                            <img src="http://st.nettruyen.com/data/comics/153/boi-vi-chung-ta-deu-la-nhung-ngoi-sao.jpg"
+                                            <img src="{{this.hinh_truyen}}"
                                                 class="lazy"
-                                                data-original="http://st.nettruyen.com/data/comics/153/boi-vi-chung-ta-deu-la-nhung-ngoi-sao.jpg"
-                                                alt="Truyện tranh Bởi vì chúng ta đều là những ngôi sao"
+                                                data-original="{{this.hinh_truyen}}"
+                                                alt="{{this.ten_truyen}}"
                                                 style="display: inline;">
                                         </a>
                                         <div class="view clearfix">
                                             <span class="pull-left">
                                                 <i class="fa fa-eye">
-                                                </i> 497.773 <i class="fa fa-comment"></i> 715 <i
+                                                </i> <span class="needs_to_format">{{this.luot_xem}}</span><i class="fa fa-comment"></i> <span class="needs_to_format">{{this.luot_danh_gia}}</span> <i
                                                     class="fa fa-heart"></i>
-                                                2.498</span>
+                                                <span class="needs_to_format">{{this.luot_theo_doi}}</span></span>
                                         </div>
                                     </div>
                                     <figcaption>
                                         <h3>
                                             <a class="jtip" data-jtip="#truyen-tranh-23961"
-                                                href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao">Bởi
-                                                vì chúng ta đều là những ngôi sao</a>
+                                                href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao">{{this.ten_truyen}}</a>
                                         </h3>
                                         <ul>
                                             <li class="chapter clearfix"><a
                                                     href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao/chap-96/510360"
-                                                    title="Chapter 96: Lời thề đóng mộc đỏ">Chapter 96</a><i
-                                                    class="time">21
-                                                    phút trước</i></li>
+                                                    title="Chapter {{this.chap_moi_ra.2.ten_chuong}}: {{this.ten_truyen}}">Chapter {{this.chap_moi_ra.2.ten_chuong}}</a><i
+                                                    class="time needs_to_be_rendered" datetime="{{this.chap_moi_ra.2.thoi_gian_tao}}"></i></li>
                                             <li class="chapter clearfix"><a
                                                     href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao/chap-95/510035"
-                                                    title="Chapter 95: Giọt máu cô đặc 18 năm">Chapter 95</a><i
-                                                    class="time">1 ngày trước</i></li>
+                                                    title="Chapter {{this.chap_moi_ra.1.ten_chuong}}: {{this.ten_truyen}}">Chapter {{this.chap_moi_ra.1.ten_chuong}}</a><i
+                                                    class="time needs_to_be_rendered" datetime="{{this.chap_moi_ra.1.thoi_gian_tao}}">{{this.chap_moi_ra.1.thoi_gian_tao}}</i></li>
                                             <li class="chapter clearfix"><a
                                                     href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao/chap-94/509793"
-                                                    title="Chapter 94: Quyết chiến trường học loài thú">Chapter 94</a><i
-                                                    class="time">2 ngày trước</i></li>
+                                                    title="Chapter {{this.chap_moi_ra.2.ten_chuong}}: {{this.ten_truyen}}">Chapter {{this.chap_moi_ra.0.ten_chuong}}</a><i
+                                                    class="time needs_to_be_rendered" datetime="{{this.chap_moi_ra.0.thoi_gian_tao}}">{{this.chap_moi_ra.0.thoi_gian_tao}}</i></li>
                                         </ul>
                                     </figcaption>
                                 </figure>
                             </div>
                         </div>
-                        <div class="col-md-3 col-truyen">
-                            <div class="item-truyen">
-                                <figure class="clearfix">
-                                    <div class="image">
-                                        <a title="Truyện tranh Bởi vì chúng ta đều là những ngôi sao"
-                                            href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao">
-                                            <img src="http://st.nettruyen.com/data/comics/153/boi-vi-chung-ta-deu-la-nhung-ngoi-sao.jpg"
-                                                class="lazy"
-                                                data-original="http://st.nettruyen.com/data/comics/153/boi-vi-chung-ta-deu-la-nhung-ngoi-sao.jpg"
-                                                alt="Truyện tranh Bởi vì chúng ta đều là những ngôi sao"
-                                                style="display: inline;">
-                                        </a>
-                                        <div class="view clearfix">
-                                            <span class="pull-left">
-                                                <i class="fa fa-eye">
-                                                </i> 497.773 <i class="fa fa-comment"></i> 715 <i
-                                                    class="fa fa-heart"></i>
-                                                2.498</span>
-                                        </div>
-                                    </div>
-                                    <figcaption>
-                                        <h3>
-                                            <a class="jtip" data-jtip="#truyen-tranh-23961"
-                                                href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao">Bởi
-                                                vì chúng ta đều là những ngôi sao</a>
-                                        </h3>
-                                        <ul>
-                                            <li class="chapter clearfix"><a
-                                                    href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao/chap-96/510360"
-                                                    title="Chapter 96: Lời thề đóng mộc đỏ">Chapter 96</a><i
-                                                    class="time">21
-                                                    phút trước</i></li>
-                                            <li class="chapter clearfix"><a
-                                                    href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao/chap-95/510035"
-                                                    title="Chapter 95: Giọt máu cô đặc 18 năm">Chapter 95</a><i
-                                                    class="time">1 ngày trước</i></li>
-                                            <li class="chapter clearfix"><a
-                                                    href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao/chap-94/509793"
-                                                    title="Chapter 94: Quyết chiến trường học loài thú">Chapter 94</a><i
-                                                    class="time">2 ngày trước</i></li>
-                                        </ul>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-truyen">
-                            <div class="item-truyen">
-                                <figure class="clearfix">
-                                    <div class="image">
-                                        <a title="Truyện tranh Bởi vì chúng ta đều là những ngôi sao"
-                                            href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao">
-                                            <img src="http://st.nettruyen.com/data/comics/153/boi-vi-chung-ta-deu-la-nhung-ngoi-sao.jpg"
-                                                class="lazy"
-                                                data-original="http://st.nettruyen.com/data/comics/153/boi-vi-chung-ta-deu-la-nhung-ngoi-sao.jpg"
-                                                alt="Truyện tranh Bởi vì chúng ta đều là những ngôi sao"
-                                                style="display: inline;">
-                                        </a>
-                                        <div class="view clearfix">
-                                            <span class="pull-left">
-                                                <i class="fa fa-eye">
-                                                </i> 497.773 <i class="fa fa-comment"></i> 715 <i
-                                                    class="fa fa-heart"></i>
-                                                2.498</span>
-                                        </div>
-                                    </div>
-                                    <figcaption>
-                                        <h3>
-                                            <a class="jtip" data-jtip="#truyen-tranh-23961"
-                                                href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao">Bởi
-                                                vì chúng ta đều là những ngôi sao</a>
-                                        </h3>
-                                        <ul>
-                                            <li class="chapter clearfix"><a
-                                                    href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao/chap-96/510360"
-                                                    title="Chapter 96: Lời thề đóng mộc đỏ">Chapter 96</a><i
-                                                    class="time">21
-                                                    phút trước</i></li>
-                                            <li class="chapter clearfix"><a
-                                                    href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao/chap-95/510035"
-                                                    title="Chapter 95: Giọt máu cô đặc 18 năm">Chapter 95</a><i
-                                                    class="time">1 ngày trước</i></li>
-                                            <li class="chapter clearfix"><a
-                                                    href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao/chap-94/509793"
-                                                    title="Chapter 94: Quyết chiến trường học loài thú">Chapter 94</a><i
-                                                    class="time">2 ngày trước</i></li>
-                                        </ul>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-truyen">
-                            <div class="item-truyen">
-                                <figure class="clearfix">
-                                    <div class="image">
-                                        <a title="Truyện tranh Bởi vì chúng ta đều là những ngôi sao"
-                                            href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao">
-                                            <img src="http://st.nettruyen.com/data/comics/153/boi-vi-chung-ta-deu-la-nhung-ngoi-sao.jpg"
-                                                class="lazy"
-                                                data-original="http://st.nettruyen.com/data/comics/153/boi-vi-chung-ta-deu-la-nhung-ngoi-sao.jpg"
-                                                alt="Truyện tranh Bởi vì chúng ta đều là những ngôi sao"
-                                                style="display: inline;">
-                                        </a>
-                                        <div class="view clearfix">
-                                            <span class="pull-left">
-                                                <i class="fa fa-eye">
-                                                </i> 497.773 <i class="fa fa-comment"></i> 715 <i
-                                                    class="fa fa-heart"></i>
-                                                2.498</span>
-                                        </div>
-                                    </div>
-                                    <figcaption>
-                                        <h3>
-                                            <a class="jtip" data-jtip="#truyen-tranh-23961"
-                                                href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao">Bởi
-                                                vì chúng ta đều là những ngôi sao</a>
-                                        </h3>
-                                        <ul>
-                                            <li class="chapter clearfix"><a
-                                                    href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao/chap-96/510360"
-                                                    title="Chapter 96: Lời thề đóng mộc đỏ">Chapter 96</a><i
-                                                    class="time">21
-                                                    phút trước</i></li>
-                                            <li class="chapter clearfix"><a
-                                                    href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao/chap-95/510035"
-                                                    title="Chapter 95: Giọt máu cô đặc 18 năm">Chapter 95</a><i
-                                                    class="time">1 ngày trước</i></li>
-                                            <li class="chapter clearfix"><a
-                                                    href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao/chap-94/509793"
-                                                    title="Chapter 94: Quyết chiến trường học loài thú">Chapter 94</a><i
-                                                    class="time">2 ngày trước</i></li>
-                                        </ul>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-truyen">
-                            <div class="item-truyen">
-                                <figure class="clearfix">
-                                    <div class="image">
-                                        <a title="Truyện tranh Bởi vì chúng ta đều là những ngôi sao"
-                                            href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao">
-                                            <img src="http://st.nettruyen.com/data/comics/153/boi-vi-chung-ta-deu-la-nhung-ngoi-sao.jpg"
-                                                class="lazy"
-                                                data-original="http://st.nettruyen.com/data/comics/153/boi-vi-chung-ta-deu-la-nhung-ngoi-sao.jpg"
-                                                alt="Truyện tranh Bởi vì chúng ta đều là những ngôi sao"
-                                                style="display: inline;">
-                                        </a>
-                                        <div class="view clearfix">
-                                            <span class="pull-left">
-                                                <i class="fa fa-eye">
-                                                </i> 497.773 <i class="fa fa-comment"></i> 715 <i
-                                                    class="fa fa-heart"></i>
-                                                2.498</span>
-                                        </div>
-                                    </div>
-                                    <figcaption>
-                                        <h3>
-                                            <a class="jtip" data-jtip="#truyen-tranh-23961"
-                                                href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao">Bởi
-                                                vì chúng ta đều là những ngôi sao</a>
-                                        </h3>
-                                        <ul>
-                                            <li class="chapter clearfix"><a
-                                                    href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao/chap-96/510360"
-                                                    title="Chapter 96: Lời thề đóng mộc đỏ">Chapter 96</a><i
-                                                    class="time">21
-                                                    phút trước</i></li>
-                                            <li class="chapter clearfix"><a
-                                                    href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao/chap-95/510035"
-                                                    title="Chapter 95: Giọt máu cô đặc 18 năm">Chapter 95</a><i
-                                                    class="time">1 ngày trước</i></li>
-                                            <li class="chapter clearfix"><a
-                                                    href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao/chap-94/509793"
-                                                    title="Chapter 94: Quyết chiến trường học loài thú">Chapter 94</a><i
-                                                    class="time">2 ngày trước</i></li>
-                                        </ul>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-truyen">
-                            <div class="item-truyen">
-                                <figure class="clearfix">
-                                    <div class="image">
-                                        <a title="Truyện tranh Bởi vì chúng ta đều là những ngôi sao"
-                                            href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao">
-                                            <img src="http://st.nettruyen.com/data/comics/153/boi-vi-chung-ta-deu-la-nhung-ngoi-sao.jpg"
-                                                class="lazy"
-                                                data-original="http://st.nettruyen.com/data/comics/153/boi-vi-chung-ta-deu-la-nhung-ngoi-sao.jpg"
-                                                alt="Truyện tranh Bởi vì chúng ta đều là những ngôi sao"
-                                                style="display: inline;">
-                                        </a>
-                                        <div class="view clearfix">
-                                            <span class="pull-left">
-                                                <i class="fa fa-eye">
-                                                </i> 497.773 <i class="fa fa-comment"></i> 715 <i
-                                                    class="fa fa-heart"></i>
-                                                2.498</span>
-                                        </div>
-                                    </div>
-                                    <figcaption>
-                                        <h3>
-                                            <a class="jtip" data-jtip="#truyen-tranh-23961"
-                                                href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao">Bởi
-                                                vì chúng ta đều là những ngôi sao</a>
-                                        </h3>
-                                        <ul>
-                                            <li class="chapter clearfix"><a
-                                                    href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao/chap-96/510360"
-                                                    title="Chapter 96: Lời thề đóng mộc đỏ">Chapter 96</a><i
-                                                    class="time">21
-                                                    phút trước</i></li>
-                                            <li class="chapter clearfix"><a
-                                                    href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao/chap-95/510035"
-                                                    title="Chapter 95: Giọt máu cô đặc 18 năm">Chapter 95</a><i
-                                                    class="time">1 ngày trước</i></li>
-                                            <li class="chapter clearfix"><a
-                                                    href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao/chap-94/509793"
-                                                    title="Chapter 94: Quyết chiến trường học loài thú">Chapter 94</a><i
-                                                    class="time">2 ngày trước</i></li>
-                                        </ul>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-truyen">
-                            <div class="item-truyen">
-                                <figure class="clearfix">
-                                    <div class="image">
-                                        <a title="Truyện tranh Bởi vì chúng ta đều là những ngôi sao"
-                                            href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao">
-                                            <img src="http://st.nettruyen.com/data/comics/153/boi-vi-chung-ta-deu-la-nhung-ngoi-sao.jpg"
-                                                class="lazy"
-                                                data-original="http://st.nettruyen.com/data/comics/153/boi-vi-chung-ta-deu-la-nhung-ngoi-sao.jpg"
-                                                alt="Truyện tranh Bởi vì chúng ta đều là những ngôi sao"
-                                                style="display: inline;">
-                                        </a>
-                                        <div class="view clearfix">
-                                            <span class="pull-left">
-                                                <i class="fa fa-eye">
-                                                </i> 497.773 <i class="fa fa-comment"></i> 715 <i
-                                                    class="fa fa-heart"></i>
-                                                2.498</span>
-                                        </div>
-                                    </div>
-                                    <figcaption>
-                                        <h3>
-                                            <a class="jtip" data-jtip="#truyen-tranh-23961"
-                                                href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao">Bởi
-                                                vì chúng ta đều là những ngôi sao</a>
-                                        </h3>
-                                        <ul>
-                                            <li class="chapter clearfix"><a
-                                                    href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao/chap-96/510360"
-                                                    title="Chapter 96: Lời thề đóng mộc đỏ">Chapter 96</a><i
-                                                    class="time">21
-                                                    phút trước</i></li>
-                                            <li class="chapter clearfix"><a
-                                                    href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao/chap-95/510035"
-                                                    title="Chapter 95: Giọt máu cô đặc 18 năm">Chapter 95</a><i
-                                                    class="time">1 ngày trước</i></li>
-                                            <li class="chapter clearfix"><a
-                                                    href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao/chap-94/509793"
-                                                    title="Chapter 94: Quyết chiến trường học loài thú">Chapter 94</a><i
-                                                    class="time">2 ngày trước</i></li>
-                                        </ul>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div>
-                         <div class="col-md-3 col-truyen">
-                            <div class="item-truyen">
-                                <figure class="clearfix">
-                                    <div class="image">
-                                        <a title="Truyện tranh Bởi vì chúng ta đều là những ngôi sao"
-                                            href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao">
-                                            <img src="http://st.nettruyen.com/data/comics/153/boi-vi-chung-ta-deu-la-nhung-ngoi-sao.jpg"
-                                                class="lazy"
-                                                data-original="http://st.nettruyen.com/data/comics/153/boi-vi-chung-ta-deu-la-nhung-ngoi-sao.jpg"
-                                                alt="Truyện tranh Bởi vì chúng ta đều là những ngôi sao"
-                                                style="display: inline;">
-                                        </a>
-                                        <div class="view clearfix">
-                                            <span class="pull-left">
-                                                <i class="fa fa-eye">
-                                                </i> 497.773 <i class="fa fa-comment"></i> 715 <i
-                                                    class="fa fa-heart"></i>
-                                                2.498</span>
-                                        </div>
-                                    </div>
-                                    <figcaption>
-                                        <h3>
-                                            <a class="jtip" data-jtip="#truyen-tranh-23961"
-                                                href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao">Bởi
-                                                vì chúng ta đều là những ngôi sao</a>
-                                        </h3>
-                                        <ul>
-                                            <li class="chapter clearfix"><a
-                                                    href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao/chap-96/510360"
-                                                    title="Chapter 96: Lời thề đóng mộc đỏ">Chapter 96</a><i
-                                                    class="time">21
-                                                    phút trước</i></li>
-                                            <li class="chapter clearfix"><a
-                                                    href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao/chap-95/510035"
-                                                    title="Chapter 95: Giọt máu cô đặc 18 năm">Chapter 95</a><i
-                                                    class="time">1 ngày trước</i></li>
-                                            <li class="chapter clearfix"><a
-                                                    href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao/chap-94/509793"
-                                                    title="Chapter 94: Quyết chiến trường học loài thú">Chapter 94</a><i
-                                                    class="time">2 ngày trước</i></li>
-                                        </ul>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div>
-                         <div class="col-md-3 col-truyen">
-                            <div class="item-truyen">
-                                <figure class="clearfix">
-                                    <div class="image">
-                                        <a title="Truyện tranh Bởi vì chúng ta đều là những ngôi sao"
-                                            href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao">
-                                            <img src="http://st.nettruyen.com/data/comics/153/boi-vi-chung-ta-deu-la-nhung-ngoi-sao.jpg"
-                                                class="lazy"
-                                                data-original="http://st.nettruyen.com/data/comics/153/boi-vi-chung-ta-deu-la-nhung-ngoi-sao.jpg"
-                                                alt="Truyện tranh Bởi vì chúng ta đều là những ngôi sao"
-                                                style="display: inline;">
-                                        </a>
-                                        <div class="view clearfix">
-                                            <span class="pull-left">
-                                                <i class="fa fa-eye">
-                                                </i> 497.773 <i class="fa fa-comment"></i> 715 <i
-                                                    class="fa fa-heart"></i>
-                                                2.498</span>
-                                        </div>
-                                    </div>
-                                    <figcaption>
-                                        <h3>
-                                            <a class="jtip" data-jtip="#truyen-tranh-23961"
-                                                href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao">Bởi
-                                                vì chúng ta đều là những ngôi sao</a>
-                                        </h3>
-                                        <ul>
-                                            <li class="chapter clearfix"><a
-                                                    href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao/chap-96/510360"
-                                                    title="Chapter 96: Lời thề đóng mộc đỏ">Chapter 96</a><i
-                                                    class="time">21
-                                                    phút trước</i></li>
-                                            <li class="chapter clearfix"><a
-                                                    href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao/chap-95/510035"
-                                                    title="Chapter 95: Giọt máu cô đặc 18 năm">Chapter 95</a><i
-                                                    class="time">1 ngày trước</i></li>
-                                            <li class="chapter clearfix"><a
-                                                    href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao/chap-94/509793"
-                                                    title="Chapter 94: Quyết chiến trường học loài thú">Chapter 94</a><i
-                                                    class="time">2 ngày trước</i></li>
-                                        </ul>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div>
-                         <div class="col-md-3 col-truyen">
-                            <div class="item-truyen">
-                                <figure class="clearfix">
-                                    <div class="image">
-                                        <a title="Truyện tranh Bởi vì chúng ta đều là những ngôi sao"
-                                            href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao">
-                                            <img src="http://st.nettruyen.com/data/comics/153/boi-vi-chung-ta-deu-la-nhung-ngoi-sao.jpg"
-                                                class="lazy"
-                                                data-original="http://st.nettruyen.com/data/comics/153/boi-vi-chung-ta-deu-la-nhung-ngoi-sao.jpg"
-                                                alt="Truyện tranh Bởi vì chúng ta đều là những ngôi sao"
-                                                style="display: inline;">
-                                        </a>
-                                        <div class="view clearfix">
-                                            <span class="pull-left">
-                                                <i class="fa fa-eye">
-                                                </i> 497.773 <i class="fa fa-comment"></i> 715 <i
-                                                    class="fa fa-heart"></i>
-                                                2.498</span>
-                                        </div>
-                                    </div>
-                                    <figcaption>
-                                        <h3>
-                                            <a class="jtip" data-jtip="#truyen-tranh-23961"
-                                                href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao">Bởi
-                                                vì chúng ta đều là những ngôi sao</a>
-                                        </h3>
-                                        <ul>
-                                            <li class="chapter clearfix"><a
-                                                    href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao/chap-96/510360"
-                                                    title="Chapter 96: Lời thề đóng mộc đỏ">Chapter 96</a><i
-                                                    class="time">21
-                                                    phút trước</i></li>
-                                            <li class="chapter clearfix"><a
-                                                    href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao/chap-95/510035"
-                                                    title="Chapter 95: Giọt máu cô đặc 18 năm">Chapter 95</a><i
-                                                    class="time">1 ngày trước</i></li>
-                                            <li class="chapter clearfix"><a
-                                                    href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao/chap-94/509793"
-                                                    title="Chapter 94: Quyết chiến trường học loài thú">Chapter 94</a><i
-                                                    class="time">2 ngày trước</i></li>
-                                        </ul>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div>
-                         <div class="col-md-3 col-truyen">
-                            <div class="item-truyen">
-                                <figure class="clearfix">
-                                    <div class="image">
-                                        <a title="Truyện tranh Bởi vì chúng ta đều là những ngôi sao"
-                                            href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao">
-                                            <img src="http://st.nettruyen.com/data/comics/153/boi-vi-chung-ta-deu-la-nhung-ngoi-sao.jpg"
-                                                class="lazy"
-                                                data-original="http://st.nettruyen.com/data/comics/153/boi-vi-chung-ta-deu-la-nhung-ngoi-sao.jpg"
-                                                alt="Truyện tranh Bởi vì chúng ta đều là những ngôi sao"
-                                                style="display: inline;">
-                                        </a>
-                                        <div class="view clearfix">
-                                            <span class="pull-left">
-                                                <i class="fa fa-eye">
-                                                </i> 497.773 <i class="fa fa-comment"></i> 715 <i
-                                                    class="fa fa-heart"></i>
-                                                2.498</span>
-                                        </div>
-                                    </div>
-                                    <figcaption>
-                                        <h3>
-                                            <a class="jtip" data-jtip="#truyen-tranh-23961"
-                                                href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao">Bởi
-                                                vì chúng ta đều là những ngôi sao</a>
-                                        </h3>
-                                        <ul>
-                                            <li class="chapter clearfix"><a
-                                                    href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao/chap-96/510360"
-                                                    title="Chapter 96: Lời thề đóng mộc đỏ">Chapter 96</a><i
-                                                    class="time">21
-                                                    phút trước</i></li>
-                                            <li class="chapter clearfix"><a
-                                                    href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao/chap-95/510035"
-                                                    title="Chapter 95: Giọt máu cô đặc 18 năm">Chapter 95</a><i
-                                                    class="time">1 ngày trước</i></li>
-                                            <li class="chapter clearfix"><a
-                                                    href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao/chap-94/509793"
-                                                    title="Chapter 94: Quyết chiến trường học loài thú">Chapter 94</a><i
-                                                    class="time">2 ngày trước</i></li>
-                                        </ul>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div>
-                         <div class="col-md-3 col-truyen">
-                            <div class="item-truyen">
-                                <figure class="clearfix">
-                                    <div class="image">
-                                        <a title="Truyện tranh Bởi vì chúng ta đều là những ngôi sao"
-                                            href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao">
-                                            <img src="http://st.nettruyen.com/data/comics/153/boi-vi-chung-ta-deu-la-nhung-ngoi-sao.jpg"
-                                                class="lazy"
-                                                data-original="http://st.nettruyen.com/data/comics/153/boi-vi-chung-ta-deu-la-nhung-ngoi-sao.jpg"
-                                                alt="Truyện tranh Bởi vì chúng ta đều là những ngôi sao"
-                                                style="display: inline;">
-                                        </a>
-                                        <div class="view clearfix">
-                                            <span class="pull-left">
-                                                <i class="fa fa-eye">
-                                                </i> 497.773 <i class="fa fa-comment"></i> 715 <i
-                                                    class="fa fa-heart"></i>
-                                                2.498</span>
-                                        </div>
-                                    </div>
-                                    <figcaption>
-                                        <h3>
-                                            <a class="jtip" data-jtip="#truyen-tranh-23961"
-                                                href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao">Bởi
-                                                vì chúng ta đều là những ngôi sao</a>
-                                        </h3>
-                                        <ul>
-                                            <li class="chapter clearfix"><a
-                                                    href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao/chap-96/510360"
-                                                    title="Chapter 96: Lời thề đóng mộc đỏ">Chapter 96</a><i
-                                                    class="time">21
-                                                    phút trước</i></li>
-                                            <li class="chapter clearfix"><a
-                                                    href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao/chap-95/510035"
-                                                    title="Chapter 95: Giọt máu cô đặc 18 năm">Chapter 95</a><i
-                                                    class="time">1 ngày trước</i></li>
-                                            <li class="chapter clearfix"><a
-                                                    href="http://www.nettruyen.com/truyen-tranh/boi-vi-chung-ta-deu-la-nhung-ngoi-sao/chap-94/509793"
-                                                    title="Chapter 94: Quyết chiến trường học loài thú">Chapter 94</a><i
-                                                    class="time">2 ngày trước</i></li>
-                                        </ul>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div>
+                    {{/each}}
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-3">

@@ -64,16 +64,16 @@ router.get("/", (req, res) => {
                 },
                 {
                     "$addFields": {
-                        "chap_moi_ra": { "$slice": ["$chap_moi_ra", -1] }
+                        "chap_moi_ra": { "$slice": ["$chap_moi_ra", -3] }
                     }
                 }
-            ]).limit(10).exec(function(err2, truyens) {
+            ]).limit(12).exec(function(err2, truyens) {
                 if (!err2) {
-                    console.log(truyens);
                     res.render("home/noiDungTrangChu", {
                         layout: 'homeLayout.hbs',
                         lstTheLoai: theLoais,
-                        lstTruyenDeCu: truyens
+                        lstTruyenDeCu: truyens,
+                        lstTruyenCapNhat: truyens
                     });
                 } else {
                     console.log(err2);

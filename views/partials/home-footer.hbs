@@ -1,31 +1,51 @@
 <footer>
-        <div class="padding">
-            <div class="row text-center">
-                <div class="col-md-4">
-                    <h5>Về order đi</h5>
-                    <hr class="light">
-                    <p>111-222-3333</p>
-                    <p>mymail@gmail.com</p>
-                    <p>hiep thanh street quan 12</p>
-                </div>
-                <div class="col-md-4">
-                    <hr class="light">
-                    <h5>Working hours</h5>
-                    <hr class="light">
-                    <p>Monday-Friday: 8am - 5pm</p>
-                    <p>Weekend: 8am - 12am</p>
-                </div>
-                <div class="col-md-4">
-                    <hr class="light">
-                    <h5>Services</h5>
-                    <hr class="light">
-                    <p>Outsourcing</p>
-                    <p>Website development</p>
-                    <p>Mobile applications</p>
-                </div>
-                <div class="col-12">
-                    <hr class="light-100">
-                    <h5>&copy; Webpro</h5>
-                </div>
+    <div class="padding">
+        <div class="row text-center">
+            <div class="col-md-4">
+                <h5>Về order đi</h5>
+                <hr class="light">
+                <p>111-222-3333</p>
+                <p>mymail@gmail.com</p>
+                <p>hiep thanh street quan 12</p>
             </div>
-    </footer>
+            <div class="col-md-4">
+                <hr class="light">
+                <h5>Working hours</h5>
+                <hr class="light">
+                <p>Monday-Friday: 8am - 5pm</p>
+                <p>Weekend: 8am - 12am</p>
+            </div>
+            <div class="col-md-4">
+                <hr class="light">
+                <h5>Services</h5>
+                <hr class="light">
+                <p>Outsourcing</p>
+                <p>Website development</p>
+                <p>Mobile applications</p>
+            </div>
+            <div class="col-12">
+                <hr class="light-100">
+                <h5>&copy; Webpro</h5>
+            </div>
+        </div>
+</footer>
+<script>
+    var nodes = document.querySelectorAll('.needs_to_be_rendered');
+
+    // use render method to render nodes in real time
+    timeago.render(nodes, 'vi');
+
+    // cancel all real-time render task
+    timeago.cancel();
+
+    // or cancel for the specific one
+    timeago.cancel(nodes[0])
+
+    var numberNodes = document.querySelectorAll('.needs_to_format');
+
+    // Format nodes number wit dots
+    for (i = 0; i < numberNodes.length; i++) {
+        numberNodes[i].innerHTML = numberNodes[i].innerHTML.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
+
+</script>

@@ -9,6 +9,7 @@ const videoController = require("./controllers/videoController");
 const truyenController = require("./controllers/truyenController");
 const chapterController = require("./controllers/chapterController");
 const mainController = require("./controllers/mainController");
+const detailController = require("./controllers/detailController.js");
 
 
 app.use(bodyparser.urlencoded({
@@ -60,3 +61,4 @@ app.use("/admin/video", videoController);
 app.use("/admin/truyen", truyenController);
 app.use("/admin/chapter", chapterController);
 app.use("/", mainController);
+app.use("/truyen-tranh", detailController);

@@ -10,6 +10,9 @@ var truyenSchema = new mongoose.Schema({
     ten_truyen: {
         type: String
     },
+    slug_truyen: {
+        type: String
+    },
     tac_gia: {
         type: String
     },

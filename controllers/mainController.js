@@ -6,8 +6,6 @@ var fs = require("fs");
 var path = require("path");
 var crypto = require("crypto");
 const mongoose = require("mongoose");
-const TinTuc = mongoose.model("TinTuc");
-const Video = mongoose.model("Video");
 const TheLoai = mongoose.model("TheLoai");
 const Truyen = mongoose.model("Truyen");
 

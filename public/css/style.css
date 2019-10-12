@@ -47,6 +47,10 @@ a:active {
     background-color: #fff;
 }
 
+.section-detail-truyen {
+    background-color: #fff;
+}
+
 .index-section {
     padding: 30px 0px 30px 0px;
 }
@@ -93,6 +97,14 @@ a:active {
 .mr-auto,
 .mx-auto {
     margin-right: auto !important;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mb-5 {
+    margin-bottom: 5px;
 }
 
 .flex-wrap {
@@ -1359,3 +1371,32 @@ a.jtip {
 }
 
 /* endtheloaitruyen */
+.col-detail {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.t-author .fa-user,
+.t-author .fa-bell {
+    color: #000000;
+}
+.t-author .name {
+    background-color: #ccc;
+}
+.col-image {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.col-image img {
+    width: 100%;
+}
+.col-info {
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: left;
+}
+.fa-file-alt {
+    font-size: 20px;
+}
+.short-des {
+    text-align: left;
+}

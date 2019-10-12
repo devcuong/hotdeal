@@ -2,6 +2,7 @@ const express = require("express");
 var router = express.Router();
 const mongoose = require("mongoose");
 const Truyen = mongoose.model("Truyen");
+const stringHandle = require("../utils/stringHandle.js");
 var ObjectId = require('mongoose').Types.ObjectId;
 router.get("/", (req, res) => {
     var q = Truyen.find();
@@ -48,6 +49,7 @@ router.get("/edit/:id", (req, res) => {
 function insertRecord(req, res) {
     var truyen = new Truyen();
     truyen.ten_truyen = req.body.tenTruyen;
+    truyen.slug_truyen = stringHandle.changeToSlug(req.body.tenTruyen);
     truyen.tac_gia = req.body.tacGia;
     truyen.hinh_truyen = req.body.hinhTruyen;
     truyen.noi_dung = req.body.noiDung;
@@ -81,6 +83,7 @@ function updateRecord(req, res) {
 
     if (req.body.tenTruyen) {
         foundTruyen.ten_truyen = req.body.tenTruyen;
+        foundTruyen.slug_truyen = stringHandle.changeToSlug(req.body.tenTruyen);
     }
 
     if (req.body.tacGia) {

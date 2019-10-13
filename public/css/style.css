@@ -107,6 +107,10 @@ a:active {
     margin-bottom: 5px;
 }
 
+.pl-15 {
+    padding-left: 15px;
+}
+
 .flex-wrap {
     -ms-flex-wrap: wrap !important;
     flex-wrap: wrap !important;
@@ -1379,12 +1383,9 @@ a.jtip {
 .t-author .fa-bell {
     color: #000000;
 }
-.t-author .name {
-    background-color: #ccc;
-}
 .col-image {
     padding-left: 0px;
-    padding-right: 0px;
+    padding-right: 10px;
 }
 .col-image img {
     width: 100%;
@@ -1393,10 +1394,48 @@ a.jtip {
     padding-left: 0px;
     padding-right: 0px;
     text-align: left;
+    font-size: 20px;
 }
 .fa-file-alt {
     font-size: 20px;
 }
+.fa-list {
+    font-size: 20px;
+}
 .short-des {
     text-align: left;
+}
+.title-des {
+    margin: 0px 0px 10px 0px !important;
+}
+.all-chapter {
+    text-align: left;
+}
+.heading {
+    padding: 5px 0 10px;
+    font-size: 20px;
+}
+.all-chapter ul li {
+    border-bottom: 1px dashed #ddd;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 6px 0;
+    margin: 0;
+}
+.info-list a {
+    color: #03f;
+}
+.info-list a:hover {
+    text-decoration: none;
+    color: #c8102e;
+}
+h3.title {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 5px;
+    padding: 0 15px 7px;
+    border-bottom: 1px dashed #b5b5b5;
+    text-transform: uppercase;
+    font-family: roboto condensed, Tahoma, sans-serif;
+    text-align: center;
 }

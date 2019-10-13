@@ -19,6 +19,9 @@ var chapterSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
+    luot_xem: {
+        type: String
+    },
     server_1: {
         type: String
     },

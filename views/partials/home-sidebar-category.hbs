@@ -1,0 +1,12 @@
+
+                    <div class="list list-truyen list-cat col-xs-12">
+                        <div class="title-list">
+                            <h4>Thể loại truyện</h4>
+                        </div>
+                        <div class="row">
+                            {{#each lstTheLoai}}
+                            <div class="col-md-6"><a href="{{this.slug_the_loai}}"
+                                    title="Action">{{this.ten_the_loai}}</a></div>
+                            {{/each}}
+                        </div>
+                    </div>

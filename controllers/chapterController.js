@@ -67,6 +67,7 @@ function insertRecord(req, res) {
                     var chapter = new Chapter();
                     chapter.ten_chuong = req.body.tenChuong;
                     chapter.ma_truyen = new ObjectId(req.body.idTruyen);
+                    chapter.luot_xem = "0";
                     chapter.server_1 = req.body.server1;
                     chapter.server_2 = req.body.server2;
                     chapter.server_3 = req.body.server3;

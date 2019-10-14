@@ -1239,7 +1239,8 @@ p.wap-time.px-2 {
 /* enditemtruyen */
 
 /* lichsudoctruyen */
-.darkBox {
+.darkBox,
+.darkDetail {
     border: 1px solid #ddd;
     color: #333;
     padding: 10px;
@@ -1438,4 +1439,22 @@ h3.title {
     text-transform: uppercase;
     font-family: roboto condensed, Tahoma, sans-serif;
     text-align: center;
+}
+.breadcrumb {
+    border-radius: 0px;
+    background-color: #fff;
+}
+.breadcrumb li a {
+    color: #c8102e;
+    font-weight: 700;
+}
+.breadcrumb li a:hover {
+    text-decoration: none;
+}
+.breadcrumb>li+li:before {
+    content: "\00BB";
+}
+.breadcrumb>li+li:before {
+    padding: 0 5px;
+    color: #c8102e;
 }

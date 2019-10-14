@@ -5,13 +5,23 @@ const Truyen = mongoose.model("Truyen");
 var ObjectId = require('mongoose').Types.ObjectId;
 router.get("/:slugTruyen", (req, res) => {
     var slugTruyen = req.params.slugTruyen;
-    var q = Truyen.findOne({ slug_truyen: slugTruyen });
-    q.exec(function(err, doc) {
+    var q2 = Truyen.aggregate([{
+            $lookup: { from: "chapter", localField: "_id", foreignField: "ma_truyen", as: "chap_moi_ra" }
+        },
+        // {
+        //     "$addFields": {
+        //         "chap_moi_ra": { "$slice": ["$chap_moi_ra", -3] }
+        //     }
+        // },
+        { $match: { slug_truyen: slugTruyen } }
+
+    ]).exec(function(err, truyen) {
         if (!err) {
+            console.log(truyen);
             res.render("home/noiDungTrangDetail", {
                 layout: 'homeLayout.hbs',
-                noiDung: doc
-            });
+                noiDung: truyen[0],
+            })
         }
     });
 })

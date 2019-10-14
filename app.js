@@ -44,8 +44,10 @@ app.engine("hbs", exphbs({
         },
         inc: function(value, options) {
             return parseInt(value) + 1;
+        },
+        revArr: function(array) {
+            array.reverse();
         }
-
     }
 }));
 

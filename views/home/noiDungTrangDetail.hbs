@@ -3,19 +3,38 @@
     <div class="container">
         <div>
             <div class="row text-center padding">
-                <div class="col-md-8 col-detail">
+                <div class="col-md-8 darkDetail">
+                      <div>
+            <ul class="breadcrumb" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+                <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a
+                        href="http://www.nettruyen.com" class="itemcrumb" itemprop="item"
+                        itemtype="http://schema.org/Thing"><span itemprop="name">Trang chủ</span></a>
+                    <meta itemprop="position" content="1">
+                </li>
+                <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a
+                        href="http://www.nettruyen.com/tim-truyen" class="itemcrumb" itemprop="item"
+                        itemtype="http://schema.org/Thing"><span itemprop="name">Thể loại</span></a>
+                    <meta itemprop="position" content="2">
+                </li>
+                <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a
+                        href="http://www.nettruyen.com/truyen-tranh/bat-hu-pham-nhan" class="itemcrumb active"
+                        itemprop="item" itemtype="http://schema.org/Thing"><span itemprop="name">{{noiDung.ten_truyen}}</span></a>
+                    <meta itemprop="position" content="3">
+                </li>
+            </ul>
+        </div>
                     <div class="row">
                         <div class="col-md-4 col-image"><img src="{{noiDung.hinh_truyen}}" alt="" class="src"></div>
                         <div class="col-md-8 col-info">
                             <div class="truyen-title">
-                                <h3 class="title">BẤT HỦ PHÀM NHÂN</h3>
+                                <h3 class="title">{{noiDung.ten_truyen}}</h3>
                             </div>
                             <ul class="info-list ">
                                 <li class="t-author row">
                                     <p class="name col-md-4"><i class="fas fa-user"></i>Tác giả</p>
                                     <p class="name col-md-8"><a
-                                            href="http://www.nettruyen.com/tim-truyen?tac-gia=Ta+L%c3%a0+L%c3%a3o+Ng%c5%a9">Ta
-                                            Là Lão Ngũ</a></p>
+                                            href="http://www.nettruyen.com/tim-truyen?tac-gia=Ta+L%c3%a0+L%c3%a3o+Ng%c5%a9">{{noiDung.tac_gia}}</a>
+                                    </p>
                                 </li>
                                 <li class="t-status row">
                                     <p class="name col-md-4"><i class="far fa-bell"></i>Tình trạng</p>
@@ -31,14 +50,14 @@
                                 </li>
                                 <li class="t-views row">
                                     <p class="name col-md-4"><i class="fas fa-eye"></i>Lượt xem</p>
-                                    <p class="name col-md-8">12.345</p>
+                                    <p class="name col-md-8">{{noiDung.luot_xem}}</p>
                                 </li>
                             </ul>
                             <div class="follow pl-15">
                                 <a class="follow-link btn btn-success" href="javascript:void(0)" data-id="17519"><i
                                         class="fa fa-heart"></i> <span>Theo dõi</span></a>
                                 <span>
-                                    <b>1.159</b> Người Đã Theo Dõi</span>
+                                    <b>{{noiDung.luot_theo_doi}}</b> Người Đã Theo Dõi</span>
                             </div>
                             <div class="read-action mt-10 pl-15">
                                 <a class="btn btn-warning mb-5"
@@ -58,7 +77,7 @@
                             </a>
                         </div>
                         <div class="short-des">
-                            Ta, chỉ có phàm căn, một kẻ phàm nhân!Ta, gọi Mạc Vô Kỵ!Ta, muốn bất hủ!
+                            {{noiDung.noi_dung}}
                         </div>
                     </div>
                     <div class="truyen-chapter">
@@ -76,78 +95,18 @@
                                         <div class="col-md-4 no-wrap text-center">Cập nhật</div>
                                         <div class="col-md-3 no-wrap text-center">Lượt xem</div>
                                     </li>
+                                    {{revArr noiDung.chap_moi_ra}}
+                                    {{#each noiDung.chap_moi_ra }}
                                     <li class="row">
                                         <div class="col-md-5 chapter">
                                             <a href="http://www.nettruyen.com/truyen-tranh/bat-hu-pham-nhan/chap-4/512370"
-                                                data-id="512370">Chapter 4</a>
+                                                data-id="512370">Chapter {{this.ten_chuong}}</a>
                                         </div>
-                                        <div class="col-md-4 text-center small">19 giờ trước</div>
-                                        <div class="col-md-3 text-center small">1.184</div>
+                                        <div class="col-md-4 text-center small needs_to_be_rendered"
+                                            datetime="{{this.thoi_gian_tao}}"></div>
+                                        <div class="col-md-3 text-center small needs_to_format">{{this.luot_xem}}</div>
                                     </li>
-                                    <li class="row">
-                                        <div class="col-md-5 chapter">
-                                            <a href="http://www.nettruyen.com/truyen-tranh/bat-hu-pham-nhan/chap-3/494759"
-                                                data-id="494759">Chapter 3</a>
-                                        </div>
-                                        <div class="col-md-4 text-center small">18:03 13/08</div>
-                                        <div class="col-md-3 text-center small">2.294</div>
-                                    </li>
-                                    <li class="row">
-                                        <div class="col-md-5 chapter">
-                                            <a href="http://www.nettruyen.com/truyen-tranh/bat-hu-pham-nhan/chap-2.2/358828"
-                                                data-id="358828">Chapter 2.2</a>
-                                        </div>
-                                        <div class="col-md-4 text-center small">14/12/17</div>
-                                        <div class="col-md-3 text-center small">8.141</div>
-                                    </li>
-                                    <li class="row">
-                                        <div class="col-md-5 chapter">
-                                            <a href="http://www.nettruyen.com/truyen-tranh/bat-hu-pham-nhan/chap-2.1/357693"
-                                                data-id="357693">Chapter 2.1</a>
-                                        </div>
-                                        <div class="col-md-4 text-center small">06/12/17</div>
-                                        <div class="col-md-3 text-center small">8.829</div>
-                                    </li>
-                                    <li class="row">
-                                        <div class="col-md-5 chapter">
-                                            <a href="http://www.nettruyen.com/truyen-tranh/bat-hu-pham-nhan/chap-2/494314"
-                                                data-id="494314">Chapter 2</a>
-                                        </div>
-                                        <div class="col-md-4 text-center small">17:56 11/08</div>
-                                        <div class="col-md-3 text-center small">2.575</div>
-                                    </li>
-                                    <li class="row">
-                                        <div class="col-md-5 chapter">
-                                            <a href="http://www.nettruyen.com/truyen-tranh/bat-hu-pham-nhan/chap-1.3/357516"
-                                                data-id="357516">Chapter 1.3</a>
-                                        </div>
-                                        <div class="col-md-4 text-center small">05/12/17</div>
-                                        <div class="col-md-3 text-center small">9.985</div>
-                                    </li>
-                                    <li class="row">
-                                        <div class="col-md-5 chapter">
-                                            <a href="http://www.nettruyen.com/truyen-tranh/bat-hu-pham-nhan/chap-1.2/356789"
-                                                data-id="356789">Chapter 1.2</a>
-                                        </div>
-                                        <div class="col-md-4 text-center small">03/12/17</div>
-                                        <div class="col-md-3 text-center small">13.217</div>
-                                    </li>
-                                    <li class="row">
-                                        <div class="col-md-5 chapter">
-                                            <a href="http://www.nettruyen.com/truyen-tranh/bat-hu-pham-nhan/chap-1/356640"
-                                                data-id="356640">Chapter 1</a>
-                                        </div>
-                                        <div class="col-md-4 text-center small">02/12/17</div>
-                                        <div class="col-md-3 text-center small">18.513</div>
-                                    </li>
-                                    <li class="row">
-                                        <div class="col-md-5 chapter">
-                                            <a href="http://www.nettruyen.com/truyen-tranh/bat-hu-pham-nhan/chap-0/491774"
-                                                data-id="491774">Chapter 0</a>
-                                        </div>
-                                        <div class="col-md-4 text-center small">20:21 02/08</div>
-                                        <div class="col-md-3 text-center small">3.612</div>
-                                    </li>
+                                    {{/each}}
                                 </ul>
                             </nav>
                         </div>

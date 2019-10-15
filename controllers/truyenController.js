@@ -7,7 +7,7 @@ const stringHandle = require("../utils/stringHandle.js");
 var ObjectId = require('mongoose').Types.ObjectId;
 router.get("/", (req, res) => {
     var q = Truyen.find();
-    q.exec(function(err, docs) {
+    q.exec(function (err, docs) {
         if (!err) {
             res.render("admin/quanLyTruyen", {
                 layout: 'adminLayout.hbs',
@@ -20,9 +20,8 @@ router.get("/", (req, res) => {
 // thêm truyện
 router.get("/add", (req, res) => {
     var q = TheLoai.find();
-    q.exec(function(err, lstTheLoai) {
-        if (!err) 
-        {
+    q.exec(function (err, lstTheLoai) {
+        if (!err) {
             res.render("admin/themSuaTruyen", {
                 viewTitle: "THÊM SỬA TRUYỆN",
                 lstTheLoai: lstTheLoai
@@ -43,13 +42,18 @@ router.post("/add", (req, res) => {
 router.get("/edit/:id", (req, res) => {
     var idTruyen = req.params.id;
     var q = Truyen.findOne({ _id: new ObjectId(idTruyen) });
-    q.exec(function(err, doc) {
+    q.exec(function (err, doc) {
         if (!err) {
-            console.log(doc.the_loai);
-            res.render("admin/themSuaTruyen", {
-                layout: 'adminLayout.hbs',
-                truyen: doc
-            });
+            var q2 = TheLoai.find();
+            q2.exec(function (err2, lstTheLoai) {
+                if (!err2) {
+                    res.render("admin/themSuaTruyen", {
+                        viewTitle: "THÊM SỬA TRUYỆN",
+                        lstTheLoai: lstTheLoai,
+                        truyen: doc
+                    });
+                }
+            })
         }
     });
 });
@@ -110,13 +114,13 @@ function updateRecord(req, res) {
         foundTruyen.noi_dung = req.body.noiDung;
     }
 
-    if(req.body.theLoai){
+    if (req.body.theLoai) {
         var arrTheLoai = new Array();
         arrTheLoai = req.body.theLoai.trim().split(",");
         foundTruyen.the_loai = arrTheLoai;
     }
 
-    Truyen.findByIdAndUpdate(new ObjectId(req.body.truyenId), foundTruyen, { new: true, strict: false, setDefaultsOnInsert: true }, function(err, doc) {
+    Truyen.findByIdAndUpdate(new ObjectId(req.body.truyenId), foundTruyen, { new: true, strict: false, setDefaultsOnInsert: true }, function (err, doc) {
         if (!err) {
             res.redirect("/admin/truyen/");
         } else {

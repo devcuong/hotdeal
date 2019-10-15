@@ -47,9 +47,6 @@ app.engine("hbs", exphbs({
         },
         revArr: function(array) {
             array.reverse();
-        },
-        displayArr: function(array){
-            return array.toString();
         }
     }
 }));

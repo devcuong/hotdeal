@@ -13,6 +13,9 @@ router.get("/:slugTruyen", (req, res) => {
         //         "chap_moi_ra": { "$slice": ["$chap_moi_ra", -3] }
         //     }
         // },
+        {
+            $lookup: { from: "theloai", localField: "the_loai", foreignField: "slug_the_loai", as: "ds_the_loai" }
+        },
         { $match: { slug_truyen: slugTruyen } }
 
     ]).exec(function(err, truyen) {

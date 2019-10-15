@@ -42,11 +42,12 @@
                                 </li>
                                 <li class="t-category row">
                                     <p class="name col-md-4"><i class="fas fa-tags"></i>Thể loại</p>
-                                    <p class="name col-md-8"><a
-                                            href="http://www.nettruyen.com/tim-truyen/manhua">Manhua</a>,<a
-                                            href="http://www.nettruyen.com/tim-truyen/mystery">Mystery</a>,<a
-                                            href="http://www.nettruyen.com/tim-truyen/truyen-mau">Truyện Màu</a>,
-                                        <a href="http://www.nettruyen.com/tim-truyen/xuyen-khong">Xuyên Không</a></p>
+                                    <p class="name col-md-8">
+                                        {{#each noiDung.ds_the_loai }}
+                                        <a
+                                            href="#">{{this.ten_the_loai}}</a>,
+                                        {{/each}}
+                                    </p>
                                 </li>
                                 <li class="t-views row">
                                     <p class="name col-md-4"><i class="fas fa-eye"></i>Lượt xem</p>

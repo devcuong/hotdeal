@@ -7,7 +7,7 @@ const stringHandle = require("../utils/stringHandle.js");
 var ObjectId = require('mongoose').Types.ObjectId;
 router.get("/", (req, res) => {
     var q = Truyen.find();
-    q.exec(function (err, docs) {
+    q.exec(function(err, docs) {
         if (!err) {
             res.render("admin/quanLyTruyen", {
                 layout: 'adminLayout.hbs',
@@ -20,7 +20,7 @@ router.get("/", (req, res) => {
 // thêm truyện
 router.get("/add", (req, res) => {
     var q = TheLoai.find();
-    q.exec(function (err, lstTheLoai) {
+    q.exec(function(err, lstTheLoai) {
         if (!err) {
             res.render("admin/themSuaTruyen", {
                 viewTitle: "THÊM SỬA TRUYỆN",
@@ -42,10 +42,10 @@ router.post("/add", (req, res) => {
 router.get("/edit/:id", (req, res) => {
     var idTruyen = req.params.id;
     var q = Truyen.findOne({ _id: new ObjectId(idTruyen) });
-    q.exec(function (err, doc) {
+    q.exec(function(err, doc) {
         if (!err) {
             var q2 = TheLoai.find();
-            q2.exec(function (err2, lstTheLoai) {
+            q2.exec(function(err2, lstTheLoai) {
                 if (!err2) {
                     res.render("admin/themSuaTruyen", {
                         viewTitle: "THÊM SỬA TRUYỆN",
@@ -120,7 +120,7 @@ function updateRecord(req, res) {
         foundTruyen.the_loai = arrTheLoai;
     }
 
-    Truyen.findByIdAndUpdate(new ObjectId(req.body.truyenId), foundTruyen, { new: true, strict: false, setDefaultsOnInsert: true }, function (err, doc) {
+    Truyen.findByIdAndUpdate(new ObjectId(req.body.truyenId), foundTruyen, { new: true, strict: false, setDefaultsOnInsert: true }, function(err, doc) {
         if (!err) {
             res.redirect("/admin/truyen/");
         } else {
@@ -135,9 +135,9 @@ function updateRecord(req, res) {
 router.get("/delete/:id", (req, res) => {
     Truyen.findByIdAndRemove(new ObjectId(req.params.id), (err, doc) => {
         if (!err) {
-            res.redirect("/admin/chapter/" + req.params.idTruyen);
+            res.redirect("/admin/truyen/");
         } else {
-            console.log("Error in chapter delete: " + err);
+            console.log("Error in truyen delete: " + err);
         }
     });
 });

@@ -16,9 +16,8 @@ var truyenSchema = new mongoose.Schema({
     tac_gia: {
         type: String
     },
-    the_loai: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'TheLoai'
+    the_loai:  [{
+        type: String
     }],
     hinh_truyen: {
         type: String

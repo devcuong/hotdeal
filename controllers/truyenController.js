@@ -2,6 +2,7 @@ const express = require("express");
 var router = express.Router();
 const mongoose = require("mongoose");
 const Truyen = mongoose.model("Truyen");
+const TheLoai = mongoose.model("TheLoai");
 const stringHandle = require("../utils/stringHandle.js");
 var ObjectId = require('mongoose').Types.ObjectId;
 router.get("/", (req, res) => {
@@ -18,9 +19,16 @@ router.get("/", (req, res) => {
 
 // thêm truyện
 router.get("/add", (req, res) => {
-    res.render("admin/themSuaTruyen", {
-        viewTitle: "THÊM SỬA TRUYỆN"
-    });
+    var q = TheLoai.find();
+    q.exec(function(err, lstTheLoai) {
+        if (!err) 
+        {
+            res.render("admin/themSuaTruyen", {
+                viewTitle: "THÊM SỬA TRUYỆN",
+                lstTheLoai: lstTheLoai
+            });
+        }
+    })
 });
 
 // Add thông tin truyện
@@ -37,6 +45,7 @@ router.get("/edit/:id", (req, res) => {
     var q = Truyen.findOne({ _id: new ObjectId(idTruyen) });
     q.exec(function(err, doc) {
         if (!err) {
+            console.log(doc.the_loai);
             res.render("admin/themSuaTruyen", {
                 layout: 'adminLayout.hbs',
                 truyen: doc
@@ -53,6 +62,9 @@ function insertRecord(req, res) {
     truyen.tac_gia = req.body.tacGia;
     truyen.hinh_truyen = req.body.hinhTruyen;
     truyen.noi_dung = req.body.noiDung;
+    var arrTheLoai = new Array();
+    arrTheLoai = req.body.theLoai.trim().split(",");
+    truyen.the_loai = arrTheLoai;
     truyen.so_chuong = "0";
     truyen.luot_xem = "0";
     truyen.luot_danh_gia = "0";
@@ -96,6 +108,12 @@ function updateRecord(req, res) {
 
     if (req.body.noiDung) {
         foundTruyen.noi_dung = req.body.noiDung;
+    }
+
+    if(req.body.theLoai){
+        var arrTheLoai = new Array();
+        arrTheLoai = req.body.theLoai.trim().split(",");
+        foundTruyen.the_loai = arrTheLoai;
     }
 
     Truyen.findByIdAndUpdate(new ObjectId(req.body.truyenId), foundTruyen, { new: true, strict: false, setDefaultsOnInsert: true }, function(err, doc) {

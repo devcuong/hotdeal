@@ -1376,6 +1376,8 @@ a.jtip {
 }
 
 /* endtheloaitruyen */
+
+/* thongtintruyen */
 .col-detail {
     padding-left: 0px;
     padding-right: 0px;
@@ -1458,3 +1460,6 @@ h3.title {
     padding: 0 5px;
     color: #c8102e;
 }
+#more {display: none;}
+
+/* endthongtintruyen */

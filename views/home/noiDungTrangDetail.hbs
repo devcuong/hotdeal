@@ -98,18 +98,26 @@
                                     </li>
                                     {{revArr noiDung.chap_moi_ra}}
                                     {{#each noiDung.chap_moi_ra }}
-                                    <li class="row">
-                                        <div class="col-md-5 chapter">
-                                            <a href="http://www.nettruyen.com/truyen-tranh/bat-hu-pham-nhan/chap-4/512370"
-                                                data-id="512370">Chapter {{this.ten_chuong}}</a>
-                                        </div>
-                                        <div class="col-md-4 text-center small needs_to_be_rendered"
-                                            datetime="{{this.thoi_gian_tao}}"></div>
-                                        <div class="col-md-3 text-center small needs_to_format">{{this.luot_xem}}</div>
-                                    </li>
+                                        {{#if @index "eq" 3 }}
+                                            <span id="dots">...</span>
+                                            <span id="more">
+                                        {{/if}}
+                                        <li class="row">
+                                            <div class="col-md-5 chapter">
+                                                <a href="http://www.nettruyen.com/truyen-tranh/bat-hu-pham-nhan/chap-4/512370"
+                                                    data-id="512370">Chapter {{this.ten_chuong}}</a>
+                                            </div>
+                                            <div class="col-md-4 text-center small needs_to_be_rendered"
+                                                datetime="{{this.thoi_gian_tao}}"></div>
+                                            <div class="col-md-3 text-center small needs_to_format">{{this.luot_xem}}</div>
+                                        </li>
+                                         {{#if @index "eq" array.length-1 }}
+                                           </span></p>
+                                        {{/if}}
                                     {{/each}}
                                 </ul>
                             </nav>
+                             <button class="mb-2 mr-2 btn btn-lg btn-block btn-outline-success" onclick="showMore()" id="myBtn">XEM THÊM</button>
                         </div>
                     </div>
                 </div>

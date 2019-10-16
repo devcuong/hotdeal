@@ -104,7 +104,19 @@ a:active {
 }
 
 .mb-5 {
-    margin-bottom: 5px;
+    margin-bottom: 5px !important;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.mr-5 {
+    margin-right: 5px;
+}
+
+.mr-10 {
+    margin-right: 5px;
 }
 
 .pl-15 {
@@ -1460,6 +1472,62 @@ h3.title {
     padding: 0 5px;
     color: #c8102e;
 }
-#more {display: none;}
+#more {
+    display: none;
+}
 
 /* endthongtintruyen */
+
+/* chapter */
+.top .txt-primary {
+    font-weight: 500;
+    font-size: 20px;
+    margin: 0 0 7px 10px;
+    display: inline-block;
+}
+.reading-control .home {
+    width: 40px;
+    text-align: center;
+    color: #ae4ad9;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 24px;
+}
+.reading-control .changeserver {
+    position: relative;
+}
+.reading-control .changeserver span {
+    font-size: 12px;
+    position: absolute;
+    left: 17px;
+    top: 8px;
+    font-weight: 700;
+}
+.reading-control .select-chapter {
+    border-radius: 4px;
+    color: #555;
+    display: inline-block;
+    padding: 4px 6px;
+    border: 1px solid #ccc;
+    width: 25%;
+}
+.reading-control .next {
+    background: url(http://s.nettruyen.com/Data/Sites/1/skins/comic/images/prev-next.jpg) no-repeat -33px 0;
+    display: inline-block;
+    height: 29px;
+    width: 33px;
+    line-height: 30px;
+}
+.reading-control .prev {
+    background: url(http://s.nettruyen.com/Data/Sites/1/skins/comic/images/prev-next.jpg) no-repeat;
+    display: inline-block;
+    height: 29px;
+    width: 33px;
+    line-height: 30px;
+}
+.error {
+    color: red;
+}
+
+/* endchapter */

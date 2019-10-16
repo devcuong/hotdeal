@@ -2,7 +2,6 @@ const express = require("express");
 var router = express.Router();
 const mongoose = require("mongoose");
 const Truyen = mongoose.model("Truyen");
-var ObjectId = require('mongoose').Types.ObjectId;
 router.get("/:slugTruyen", (req, res) => {
     var slugTruyen = req.params.slugTruyen;
     var q2 = Truyen.aggregate([{
@@ -26,5 +25,10 @@ router.get("/:slugTruyen", (req, res) => {
             })
         }
     });
+})
+router.get("/:slugTruyen/:tenChap", (req, res) => {
+    res.render("home/noiDungTrangChapter", {
+        layout: 'homeLayout.hbs'
+    })
 })
 module.exports = router;

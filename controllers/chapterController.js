@@ -5,8 +5,6 @@ const Chapter = mongoose.model("Chapter");
 var ObjectId = require('mongoose').Types.ObjectId;
 const Truyen = mongoose.model("Truyen");
 
-var timeHandle = require('../utils/timeHandle.js')
-
 // quản lý chapter trong truyện
 router.get("/:idTruyen", (req, res) => {
         var idTruyen = req.params.idTruyen;

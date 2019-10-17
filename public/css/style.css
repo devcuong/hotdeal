@@ -1526,6 +1526,9 @@ h3.title {
     width: 33px;
     line-height: 30px;
 }
+.reading-control .prev .fa, .reading-control .next .fa {
+    visibility: hidden;
+}
 .error {
     color: red;
 }

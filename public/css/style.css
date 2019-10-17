@@ -1526,11 +1526,16 @@ h3.title {
     width: 33px;
     line-height: 30px;
 }
-.reading-control .prev .fa, .reading-control .next .fa {
+.reading-control .prev .fa,
+.reading-control .next .fa {
     visibility: hidden;
 }
 .error {
     color: red;
+}
+.image-truyen {
+    margin-top: 20px;
+    border: 3px solid #6c757d;
 }
 
 /* endchapter */

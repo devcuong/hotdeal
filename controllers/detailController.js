@@ -3,9 +3,10 @@ var router = express.Router();
 const mongoose = require("mongoose");
 const Truyen = mongoose.model("Truyen");
 const Chapter = mongoose.model("Chapter");
+var ObjectId = require('mongoose').Types.ObjectId;
 router.get("/:slugTruyen", (req, res) => {
     var slugTruyen = req.params.slugTruyen;
-    var q2 = Truyen.aggregate([{
+    Truyen.aggregate([{
             $lookup: { from: "chapter", localField: "_id", foreignField: "ma_truyen", as: "chap_moi_ra" }
         },
         // {
@@ -27,32 +28,35 @@ router.get("/:slugTruyen", (req, res) => {
         }
     });
 })
-router.get("/:slugTruyen/:tenChap", (req, res) => {
-    var arrTenChap = req.params.tenChap.split("-");
-    var tenChap = arrTenChap[1];
-    Cha.aggregate([{
-            $lookup: { from: "chapter", localField: "_id", foreignField: "ma_truyen", as: "chap_moi_ra" }
+router.get("/:slugTruyen/:tenChap/:idChap", (req, res) => {
+
+    // Chapter.findById(new ObjectId(req.params.idChap)).exec(function(err, truyen) {
+    //     if (!err) {
+    //         res.render("home/noiDungTrangChapter", {
+    //             layout: 'homeLayout.hbs',
+    //             chapTruyen: truyen
+    //         })
+    //     }
+    // })
+    var idChap = req.params.idChap;
+    Chapter.aggregate([{
+            $lookup: { from: "truyen", localField: "ma_truyen", foreignField: "_id", as: "truyen_chap" }
         },
-        // {
-        //     "$addFields": {
-        //         "chap_moi_ra": { "$slice": ["$chap_moi_ra", -3] }
-        //     }
-        // },
         {
-            $lookup: { from: "theloai", localField: "the_loai", foreignField: "slug_the_loai", as: "ds_the_loai" }
+            "$addFields": {
+                "truyen_chap": { "$slice": ["$truyen_chap", -1] }
+            }
         },
-        { $match: { slug_truyen: req.params.slugTruyen } }
-        // ,
-        // {
-        //     $match: { "chap_moi_ra.ten_chuong": { $eq: arrTenChap[1] } }
-        // }
+        { $match: { _id: new ObjectId(idChap) } }
+
     ]).exec(function(err, truyen) {
         if (!err) {
-            console.log(truyen);
             res.render("home/noiDungTrangChapter", {
-                layout: 'homeLayout.hbs'
+                layout: 'homeLayout.hbs',
+                chapTruyen: truyen[0],
+                nameTruyen: truyen[0].truyen_chap[0].ten_truyen
             })
         }
-    })
-})
+    });
+});
 module.exports = router;

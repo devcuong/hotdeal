@@ -1,141 +1,121 @@
 <footer>
-    <div class="padding">
-        <div class="row text-center">
-            <div class="col-md-4">
-                <h5>Về order đi</h5>
-                <hr class="light">
-                <p>111-222-3333</p>
-                <p>mymail@gmail.com</p>
-                <p>hiep thanh street quan 12</p>
-            </div>
-            <div class="col-md-4">
-                <hr class="light">
-                <h5>Working hours</h5>
-                <hr class="light">
-                <p>Monday-Friday: 8am - 5pm</p>
-                <p>Weekend: 8am - 12am</p>
-            </div>
-            <div class="col-md-4">
-                <hr class="light">
-                <h5>Services</h5>
-                <hr class="light">
-                <p>Outsourcing</p>
-                <p>Website development</p>
-                <p>Mobile applications</p>
-            </div>
-            <div class="col-12">
-                <hr class="light-100">
-                <h5>&copy; Webpro</h5>
-            </div>
-        </div>
+  <div class="padding">
+    <div class="row text-center">
+      <div class="col-md-4">
+        <h5>Về order đi</h5>
+        <hr class="light">
+        <p>111-222-3333</p>
+        <p>mymail@gmail.com</p>
+        <p>hiep thanh street quan 12</p>
+      </div>
+      <div class="col-md-4">
+        <hr class="light">
+        <h5>Working hours</h5>
+        <hr class="light">
+        <p>Monday-Friday: 8am - 5pm</p>
+        <p>Weekend: 8am - 12am</p>
+      </div>
+      <div class="col-md-4">
+        <hr class="light">
+        <h5>Services</h5>
+        <hr class="light">
+        <p>Outsourcing</p>
+        <p>Website development</p>
+        <p>Mobile applications</p>
+      </div>
+      <div class="col-12">
+        <hr class="light-100">
+        <h5>&copy; Webpro</h5>
+      </div>
+    </div>
 </footer>
 <script>
-    var nodes = document.querySelectorAll('.needs_to_be_rendered');
+  var sv1 = 'https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&gadget=a&no_expand=1&resize_h=0&rewriteMime=image%2F*&url=';
+  var sv2 = 'https://images.weserv.nl/?url=';
+  var nodes = document.querySelectorAll('.needs_to_be_rendered');
 
-    // use render method to render nodes in real time
-    timeago.render(nodes, 'vi');
+  // use render method to render nodes in real time
+  timeago.render(nodes, 'vi');
 
-    // cancel all real-time render task
-    timeago.cancel();
+  // cancel all real-time render task
+  timeago.cancel();
 
-    // or cancel for the specific one
-    timeago.cancel(nodes[0])
+  // or cancel for the specific one
+  timeago.cancel(nodes[0])
 
-    var numberNodes = document.querySelectorAll('.needs_to_format');
+  var numberNodes = document.querySelectorAll('.needs_to_format');
 
-    // Format nodes number wit dots
-    for (i = 0; i < numberNodes.length; i++) {
-        numberNodes[i].innerHTML = numberNodes[i].innerHTML.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-    }
-
-    function showMore(){
-        var dots = document.getElementById("dots");
-        var moreText = document.getElementById("more");
-        var btnText = document.getElementById("myBtn");
-
-        if(dots.style.display == "none"){
-            dots.style.display = "inline";
-            btnText.innerHTML = "XEM THÊM";
-            moreText.style.display = "none";
-        } else{
-            dots.style.display = "none";
-            btnText.innerHTML = "ẨN ĐI";
-            moreText.style.display = "inline";
-        }
-    }
-
-    !function(window){
-  var $q = function(q, res){
-        if (document.querySelectorAll) {
-          res = document.querySelectorAll(q);
-        } else {
-          var d=document
-            , a=d.styleSheets[0] || d.createStyleSheet();
-          a.addRule(q,'f:b');
-          for(var l=d.all,b=0,c=[],f=l.length;b<f;b++)
-            l[b].currentStyle.f && c.push(l[b]);
-
-          a.removeRule(0);
-          res = c;
-        }
-        return res;
-      }
-    , addEventListener = function(evt, fn){
-        window.addEventListener
-          ? this.addEventListener(evt, fn, false)
-          : (window.attachEvent)
-            ? this.attachEvent('on' + evt, fn)
-            : this['on' + evt] = fn;
-      }
-    , _has = function(obj, key) {
-        return Object.prototype.hasOwnProperty.call(obj, key);
-      }
-    ;
-
-  function loadImage (el, fn) {
-    var img = new Image()
-      , src = el.getAttribute('data-src');
-    img.onload = function() {
-      if (!! el.parent)
-        el.parent.replaceChild(img, el)
-      else
-        el.src = src;
-
-      fn? fn() : null;
-    }
-    img.src = src;
+  // Format nodes number wit dots
+  for (i = 0; i < numberNodes.length; i++) {
+    numberNodes[i].innerHTML = numberNodes[i].innerHTML.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   }
 
-  function elementInViewport(el) {
-    var rect = el.getBoundingClientRect()
+  changeServer(2);
 
-    return (
-       rect.top    >= 0
-    && rect.left   >= 0
-    && rect.top <= (window.innerHeight || document.documentElement.clientHeight)
-    )
+  function changeServer(server) {
+    if (server == "1") {
+      getTruyenFromServer("");
+    }
+    else if(server == "2")
+    {
+      getTruyenFromServer(sv1);
+    }else if(server == "3"){
+      getTruyenFromServer(sv2);
+    }
   }
 
-    var images = new Array()
-      , query = $q('img.lazy-hinh')
-      , processScroll = function(){
-          for (var i = 0; i < images.length; i++) {
-            if (elementInViewport(images[i])) {
-              loadImage(images[i], function () {
-                images.splice(i, i);
-              });
-            }
-          };
-        }
-      ;
-    // Array.prototype.slice.call is not callable under our lovely IE8 
-    for (var i = 0; i < query.length; i++) {
-      images.push(query[i]);
-    };
+  function testImageServer(){
+     // test image
+    for (i = 0; i < imageNodes.length; i++) {
+      if (!ImageExists("#image-truyen-" + i)) {
 
-    processScroll();
-    addEventListener('scroll',processScroll);
+      }
+    }
+  }
 
-}(this);
+  function getTruyenFromServer(proxy) {
+
+    // Get all image tag
+    var imageNodes = document.querySelectorAll('.img-truyen');
+
+    // add image
+    for (i = 0; i < imageNodes.length; i++) {
+      var urlImage = imageNodes[i].getAttribute("data-src");
+      var imgNode = document.getElementById("image-truyen-" + i);
+      imgNode.src = proxy+urlImage;
+    }
+
+   
+  }
+
+
+  function showMore() {
+    var dots = document.getElementById("dots");
+    var moreText = document.getElementById("more");
+    var btnText = document.getElementById("myBtn");
+
+    if (dots.style.display == "none") {
+      dots.style.display = "inline";
+      btnText.innerHTML = "XEM THÊM";
+      moreText.style.display = "none";
+    } else {
+      dots.style.display = "none";
+      btnText.innerHTML = "ẨN ĐI";
+      moreText.style.display = "inline";
+    }
+  }
+
+  function ImageExists(selector) {
+    var imageFound = $(selector);
+
+    if (!imageFound.get(0).complete) {
+      return false;
+    }
+    else if (imageFound.height() === 0) {
+      return false;
+    }
+
+    return true;
+  }
 
 </script>

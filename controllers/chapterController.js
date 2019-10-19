@@ -66,11 +66,11 @@ function insertRecord(req, res) {
                     chapter.ten_chuong = req.body.tenChuong;
                     chapter.ma_truyen = new ObjectId(req.body.idTruyen);
                     chapter.luot_xem = "0";
-                    chapter.server_1 = req.body.server1;
-                    chapter.server_2 = req.body.server2;
-                    chapter.server_3 = req.body.server3;
-                    chapter.server_4 = req.body.server4;
-                    chapter.server_5 = req.body.server5;
+                    chapter.server_1 = req.body.server1.trim().split(",");
+                    chapter.server_2 = req.body.server2.trim().split(",");
+                    chapter.server_3 = req.body.server3.trim().split(",");
+                    chapter.server_4 = req.body.server4.trim().split(",");
+                    chapter.server_5 = req.body.server5.trim().split(",");
                     chapter.save((err, doc) => {
                         if (!err) {
                             res.redirect("/admin/chapter/" + req.body.idTruyen);
@@ -110,23 +110,23 @@ function updateRecord(req, res) {
     }
 
     if (req.body.server1) {
-        foundChapter.server_1 = req.body.server1;
+        foundChapter.server_1 = req.body.server1.trim().split(',');
     }
 
     if (req.body.server2) {
-        foundChapter.server_2 = req.body.server2;
+        foundChapter.server_2 = req.body.server2.trim().split(',');
     }
 
     if (req.body.server3) {
-        foundChapter.server_3 = req.body.server3;
+        foundChapter.server_3 = req.body.server3.trim().split(',');
     }
 
     if (req.body.server4) {
-        foundChapter.server_4 = req.body.server4;
+        foundChapter.server_4 = req.body.server4.trim().split(',');
     }
 
     if (req.body.server5) {
-        foundChapter.server_5 = req.body.server5;
+        foundChapter.server_5 = req.body.server5.trim().split(',');
     }
     Chapter.findByIdAndUpdate(new ObjectId(req.body.chapId), foundChapter, { new: true, strict: false, setDefaultsOnInsert: true }, function(err, doc) {
         if (!err) {

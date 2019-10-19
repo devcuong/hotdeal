@@ -22,21 +22,21 @@ var chapterSchema = new mongoose.Schema({
     luot_xem: {
         type: String
     },
-    server_1: {
+    server_1: [{
         type: String
-    },
-    server_2: {
+    }],
+    server_2: [{
         type: String
-    },
-    server_3: {
+    }],
+    server_3: [{
         type: String
-    },
-    server_4: {
+    }],
+    server_4: [{
         type: String
-    },
-    server_5: {
+    }],
+    server_5: [{
         type: String
-    }
+    }]
 
 }, {
     versionKey: false // You should be aware of the outcome after set to false

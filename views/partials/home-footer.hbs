@@ -30,8 +30,23 @@
     </div>
 </footer>
 <script>
-  var sv1 = 'https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&gadget=a&no_expand=1&resize_h=0&rewriteMime=image%2F*&url=';
-  var sv2 = 'https://images.weserv.nl/?url=';
+  var proxy1="";
+  var proxy2 = 'https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&gadget=a&no_expand=1&resize_h=0&rewriteMime=image%2F*&url=';
+  var proxy3 = 'https://images.weserv.nl/?url=';
+
+  var loadChapter = document.querySelectorAll('a.loadchapter');
+  loadChapter.forEach(function myFunction(item, index) {
+    item.classList.add("hidden");
+    item.classList.remove("btn-success");
+  });
+
+  var imageNodes = document.querySelectorAll('.img-truyen');
+  var serverTemp = document.getElementById("server-temp").innerText;
+  var lstServerTemp = serverTemp.split(",");
+  for(var svt in lstServerTemp){
+    imageNodes[svt].setAttribute("data-cdn", lstServerTemp[svt]);
+  }
+  document.getElementById("server-temp").innerText = "";
   var nodes = document.querySelectorAll('.needs_to_be_rendered');
 
   // use render method to render nodes in real time
@@ -50,42 +65,62 @@
     numberNodes[i].innerHTML = numberNodes[i].innerHTML.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   }
 
-  changeServer(2);
+  //changeServer(6);
 
   function changeServer(server) {
-    if (server == "1") {
-      getTruyenFromServer("");
+    if (server == "1" || server == "4") {
+      getTruyenFromServer(proxy1,server);
     }
-    else if(server == "2")
+    else if(server == "2" || server == "5")
     {
-      getTruyenFromServer(sv1);
-    }else if(server == "3"){
-      getTruyenFromServer(sv2);
+      getTruyenFromServer(proxy2,server);
+    }else if(server == "3" || server == "6"){
+      getTruyenFromServer(proxy3,server);
     }
   }
 
-  function testImageServer(){
-     // test image
-    for (i = 0; i < imageNodes.length; i++) {
-      if (!ImageExists("#image-truyen-" + i)) {
-
-      }
-    }
-  }
-
-  function getTruyenFromServer(proxy) {
+  function getTruyenFromServer(proxy, server) {
 
     // Get all image tag
     var imageNodes = document.querySelectorAll('.img-truyen');
-
-    // add image
-    for (i = 0; i < imageNodes.length; i++) {
-      var urlImage = imageNodes[i].getAttribute("data-src");
-      var imgNode = document.getElementById("image-truyen-" + i);
-      imgNode.src = proxy+urlImage;
+    var sv = parseInt(server)
+    if(sv < 4)
+    {
+      // add image
+      for (i = 0; i < imageNodes.length; i++) {
+        var urlImage = imageNodes[i].getAttribute("data-src");
+        var imgNode = document.getElementById("image-truyen-" + i);
+        imgNode.src = proxy+urlImage;
+      }
+    }else{
+       // add image
+      for (i = 0; i < imageNodes.length; i++) {
+        var urlImage = imageNodes[i].getAttribute("data-cdn");
+        var imgNode = document.getElementById("image-truyen-" + i);
+        imgNode.src = proxy+urlImage;
+      }
     }
+    testImageServer(server);
+  }
 
-   
+  function testImageServer(server){
+
+     // Get all image tag
+    var imageNodes = document.querySelectorAll('.img-truyen');
+     // test image
+    for (i = 0; i < imageNodes.length; i++) {
+      if (!ImageExists("#image-truyen-" + i)) {
+        var sv = parseInt(server);
+        if(sv < 6)
+        {
+          sv = sv + 1;
+          
+        }else{
+          sv = 1;
+        }
+        changeServer(sv);
+      }
+    }
   }
 
 
@@ -117,5 +152,18 @@
 
     return true;
   }
+  //document.querySelector("a.loadchapter[data-server='1']");
+  document.querySelector("a.changeserver").addEventListener("click", function(){
+     
+  });
 
+  document.getElementById('content-image-truyen').addEventListener("error", function(){
+     
+  });
+
+
+var lazyLoadInstance = new LazyLoad({
+    elements_selector: ".lazy-hinh",
+    container: document.getElementById('content-image-truyen')
+});
 </script>

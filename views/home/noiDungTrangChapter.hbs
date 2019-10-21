@@ -72,9 +72,12 @@
                 <a class="follow-link btn btn-success" href="javascript:void(0)" data-id="4446"><i class="fa fa-heart"></i> <span>Theo dõi</span></a></div><div></div>
             </div>
             <div class="image-truyen" id="content-image-truyen">
-                {{#each chapTruyen.server_1}}
-                <img id="image-truyen-{{@index}}" data-src="{{this}}" src="https://icon-library.net/images/spinner-icon-gif/spinner-icon-gif-10.jpg" class="lazy-hinh img-truyen">
-                {{/each}}
+                    {{#each chapTruyen.server_1}}
+                        <img id="image-truyen-{{@index}}" data-cdn="" data-src="{{this}}" src="https://icon-library.net/images/spinner-icon-gif/spinner-icon-gif-10.jpg" class="lazy-hinh img-truyen">
+                    {{/each}}
+            </div>
+            <div id="server-temp">
+                {{chapTruyen.server_2}}
             </div>
         </div>
     </div>

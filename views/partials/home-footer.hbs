@@ -30,99 +30,81 @@
     </div>
 </footer>
 <script>
-  var proxy1="";
+  var proxy1 = "";
   var proxy2 = 'https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&gadget=a&no_expand=1&resize_h=0&rewriteMime=image%2F*&url=';
   var proxy3 = 'https://images.weserv.nl/?url=';
 
+  function changeClass(selector, otherSelector) {
+    var sel = $(selector);
+    otherSelector.forEach(function myFunction(item, index) {
+      item.classList.remove("btn-success");
+    });
+    sel[0].classList.add("btn-success");
+  }
+
   var loadChapter = document.querySelectorAll('a.loadchapter');
   loadChapter.forEach(function myFunction(item, index) {
-    item.classList.add("hidden");
-    item.classList.remove("btn-success");
+    item.addEventListener("click", function () {
+      changeClass(this, loadChapter);
+    });
   });
 
   var imageNodes = document.querySelectorAll('.img-truyen');
   var serverTemp = document.getElementById("server-temp").innerText;
   var lstServerTemp = serverTemp.split(",");
-  for(var svt in lstServerTemp){
+  for (var svt in lstServerTemp) {
     imageNodes[svt].setAttribute("data-cdn", lstServerTemp[svt]);
   }
   document.getElementById("server-temp").innerText = "";
-  var nodes = document.querySelectorAll('.needs_to_be_rendered');
 
-  // use render method to render nodes in real time
-  timeago.render(nodes, 'vi');
-
-  // cancel all real-time render task
-  timeago.cancel();
-
-  // or cancel for the specific one
-  timeago.cancel(nodes[0])
-
-  var numberNodes = document.querySelectorAll('.needs_to_format');
-
-  // Format nodes number wit dots
-  for (i = 0; i < numberNodes.length; i++) {
-    numberNodes[i].innerHTML = numberNodes[i].innerHTML.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  }
-
-  //changeServer(6);
-
-  function changeServer(server) {
-    if (server == "1" || server == "4") {
-      getTruyenFromServer(proxy1,server);
+  document.querySelector("a.changeserver").addEventListener("click", function () {
+    var btnSuccess = document.querySelector("a.btn-success[data-server]").nextElementSibling;
+    if (btnSuccess != null && !btnSuccess.classList.contains("hidden")) {
+      document.querySelector("a.btn-success[data-server]").classList.remove("btn-success");
+      btnSuccess.classList.add("btn-success");
+    } else {
+      btnSuccessFirst = document.querySelectorAll("a.loadchapter")[0];
+      document.querySelector("a.btn-success[data-server]").classList.remove("btn-success");
+      btnSuccessFirst.classList.add("btn-success");
     }
-    else if(server == "2" || server == "5")
-    {
-      getTruyenFromServer(proxy2,server);
-    }else if(server == "3" || server == "6"){
-      getTruyenFromServer(proxy3,server);
-    }
-  }
 
-  function getTruyenFromServer(proxy, server) {
+  })
 
-    // Get all image tag
-    var imageNodes = document.querySelectorAll('.img-truyen');
-    var sv = parseInt(server)
-    if(sv < 4)
-    {
-      // add image
-      for (i = 0; i < imageNodes.length; i++) {
-        var urlImage = imageNodes[i].getAttribute("data-src");
-        var imgNode = document.getElementById("image-truyen-" + i);
-        imgNode.src = proxy+urlImage;
-      }
-    }else{
-       // add image
-      for (i = 0; i < imageNodes.length; i++) {
-        var urlImage = imageNodes[i].getAttribute("data-cdn");
-        var imgNode = document.getElementById("image-truyen-" + i);
-        imgNode.src = proxy+urlImage;
-      }
-    }
-    testImageServer(server);
-  }
-
-  function testImageServer(server){
-
-     // Get all image tag
-    var imageNodes = document.querySelectorAll('.img-truyen');
-     // test image
-    for (i = 0; i < imageNodes.length; i++) {
-      if (!ImageExists("#image-truyen-" + i)) {
-        var sv = parseInt(server);
-        if(sv < 6)
-        {
-          sv = sv + 1;
-          
-        }else{
-          sv = 1;
-        }
-        changeServer(sv);
-      }
+  function loadImageFromServer(dataServer) {
+    var selectorTruyen = document.querySelectorAll("img.img-truyen");
+    switch (dataServer) {
+      case 1:
+        selectorTruyen.forEach(function myFunction(item, index) {
+        $(item).attr('src', $(item).data("src"));
+        });
+        break;
+        case 2:
+        selectorTruyen.forEach(function myFunction(item, index) {
+        $(item).attr('src',proxy3+$(item).data("src"));
+        });
+        break;
+        case 3:
+        selectorTruyen.forEach(function myFunction(item, index) {
+        $(item).attr('src',proxy2+$(item).data("src"));
+        });
+        break;
+      default:
+      // code block
     }
   }
+  // event khi add class
+  $('.btn-success').attrchange({
+  trackValues: true, 
+  callback: function (event) {
+    alert($('.btn-success').data("server"));
+    loadImageFromServer($('.btn-success').data("server"))
+  }
+});
 
+// khi upload image truyện bị lỗi
+  document.querySelector("img.img-truyen").addEventListener("error", function(){ 
+    console.clear();
+  });
 
   function showMore() {
     var dots = document.getElementById("dots");
@@ -139,31 +121,37 @@
       moreText.style.display = "inline";
     }
   }
+  
 
-  function ImageExists(selector) {
-    var imageFound = $(selector);
-
-    if (!imageFound.get(0).complete) {
-      return false;
-    }
-    else if (imageFound.height() === 0) {
-      return false;
-    }
-
-    return true;
-  }
   //document.querySelector("a.loadchapter[data-server='1']");
-  document.querySelector("a.changeserver").addEventListener("click", function(){
-     
+  document.querySelector("a.changeserver").addEventListener("click", function () {
+
   });
 
-  document.getElementById('content-image-truyen').addEventListener("error", function(){
-     
+  document.getElementById('content-image-truyen').addEventListener("error", function () {
+
   });
 
+  var nodes = document.querySelectorAll('.needs_to_be_rendered');
 
-var lazyLoadInstance = new LazyLoad({
+ // use render method to render nodes in real time
+  timeago.render(nodes, 'vi');
+
+  // cancel all real-time render task
+  timeago.cancel();
+
+  // or cancel for the specific one
+  timeago.cancel(nodes[0])
+
+  var numberNodes = document.querySelectorAll('.needs_to_format');
+
+  // Format nodes number wit dots
+  for (i = 0; i < numberNodes.length; i++) {
+    numberNodes[i].innerHTML = numberNodes[i].innerHTML.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  }
+
+  var lazyLoadInstance = new LazyLoad({
     elements_selector: ".lazy-hinh",
     container: document.getElementById('content-image-truyen')
-});
+  });
 </script>

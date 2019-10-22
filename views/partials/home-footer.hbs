@@ -60,12 +60,10 @@
   document.querySelector("a.changeserver").addEventListener("click", function () {
     var btnSuccess = document.querySelector("a.btn-success[data-server]").nextElementSibling;
     if (btnSuccess != null && !btnSuccess.classList.contains("hidden")) {
-      document.querySelector("a.btn-success[data-server]").classList.remove("btn-success");
-      btnSuccess.classList.add("btn-success");
+       changeClass(btnSuccess, loadChapter);
     } else {
       btnSuccessFirst = document.querySelectorAll("a.loadchapter")[0];
-      document.querySelector("a.btn-success[data-server]").classList.remove("btn-success");
-      btnSuccessFirst.classList.add("btn-success");
+      changeClass(btnSuccessFirst, loadChapter);
     }
 
   })
@@ -80,12 +78,22 @@
         break;
         case 2:
         selectorTruyen.forEach(function myFunction(item, index) {
-        $(item).attr('src',proxy3+$(item).data("src"));
+        $(item).attr('src',proxy2+$(item).data("src"));
         });
         break;
         case 3:
         selectorTruyen.forEach(function myFunction(item, index) {
-        $(item).attr('src',proxy2+$(item).data("src"));
+        $(item).attr('src',proxy3+$(item).data("src"));
+        });
+        break;
+        case 4:
+        selectorTruyen.forEach(function myFunction(item, index) {
+        $(item).attr('src',$(item).data("cdn"));
+        });
+        break;
+        case 5:
+        selectorTruyen.forEach(function myFunction(item, index) {
+        $(item).attr('src',proxy2+$(item).data("cdn"));
         });
         break;
       default:
@@ -101,7 +109,7 @@
   }
 });
 
-// khi upload image truyện bị lỗi
+// khi load image truyện bị lỗi
   document.querySelector("img.img-truyen").addEventListener("error", function(){ 
     console.clear();
   });

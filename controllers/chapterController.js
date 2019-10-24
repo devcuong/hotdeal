@@ -19,6 +19,7 @@ router.get("/:idTruyen", (req, res) => {
             }
         });
     })
+
     // Update thông tin chapter theo truyện
 router.get("/edit/:cid/:tid", (req, res) => {
     var chapId = req.params.cid;

@@ -1528,20 +1528,6 @@ h3.title {
     border: 1px solid #ccc;
     width: 25%;
 }
-.reading-control .next {
-    background: url(http://s.nettruyen.com/Data/Sites/1/skins/comic/images/prev-next.jpg) no-repeat -33px 0;
-    display: inline-block;
-    height: 29px;
-    width: 33px;
-    line-height: 30px;
-}
-.reading-control .prev {
-    background: url(http://s.nettruyen.com/Data/Sites/1/skins/comic/images/prev-next.jpg) no-repeat;
-    display: inline-block;
-    height: 29px;
-    width: 33px;
-    line-height: 30px;
-}
 .reading-control .prev .fa,
 .reading-control .next .fa {
     visibility: hidden;

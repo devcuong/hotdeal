@@ -6,6 +6,8 @@ const Chapter = mongoose.model("Chapter");
 const Error = mongoose.model("Error");
 var ObjectId = require('mongoose').Types.ObjectId;
 const dateFormat = require('dateformat');
+
+// Lấy thông tin của truyện
 router.get("/:slugTruyen", (req, res) => {
     var slugTruyen = req.params.slugTruyen;
     Truyen.aggregate([{
@@ -30,6 +32,8 @@ router.get("/:slugTruyen", (req, res) => {
         }
     });
 })
+
+// lấy nội dung truyện
 router.get("/:slugTruyen/:tenChap/:idChap", (req, res) => {
 
     // Chapter.findById(new ObjectId(req.params.idChap)).exec(function(err, truyen) {
@@ -56,7 +60,7 @@ router.get("/:slugTruyen/:tenChap/:idChap", (req, res) => {
             res.render("home/noiDungTrangChapter", {
                 layout: 'homeLayout.hbs',
                 chapTruyen: truyen[0],
-                nameTruyen: truyen[0].truyen_chap[0].ten_truyen
+                nameTruyen: truyen[0].truyen_chap[0]
             })
         }
     });
@@ -78,4 +82,23 @@ function insertRecord(req, res) {
         }
     })
 }
+
+// lấy list chapter của truyện và comment
+router.post("/:idTruyen", (req, res) => {
+    var idTruyen = req.params.idTruyen;
+    var q = Chapter.find({ "ma_truyen": new ObjectId(idTruyen) });
+        q.exec(function(err, docs) {
+            var arrIdChap = new Array();
+            docs.forEach(function(item){
+                var objChap = new Object();
+                objChap.ten_chap = item.ten_chuong;
+                objChap.id_chap = item._id;
+                arrIdChap.push(objChap);
+            })
+            console.log(arrIdChap);
+            if (!err) {
+                res.send(JSON.stringify(arrIdChap));
+            }
+        });
+})
 module.exports = router;

@@ -13,11 +13,13 @@
                             href="http://www.nettruyen.com/tim-truyen" class="itemcrumb" itemprop="item"
                             itemtype="http://schema.org/Thing"><span itemprop="name">Thể loại</span></a>
                         <meta itemprop="position" content="2">
+                        <input type="hidden" class="type" value="{{nameTruyen._id}}" id="hidden-id-truyen">
                     </li>
                     <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a
                             href="http://www.nettruyen.com/truyen-tranh/chua-te-hoc-duong" class="itemcrumb"
-                            itemprop="item" itemtype="http://schema.org/Thing"><span itemprop="name">{{nameTruyen}}</span></a>
+                            itemprop="item" itemtype="http://schema.org/Thing"><span itemprop="name">{{nameTruyen.ten_truyen}}</span></a>
                         <meta itemprop="position" content="3">
+                        <input type="hidden" class="type" value="{{chapTruyen._id}}" id="hidden-chap">
                     </li>
                     <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a
                             href="http://www.nettruyen.com/truyen-tranh/chua-te-hoc-duong/chap-1/84517"
@@ -27,7 +29,7 @@
                         <input type="hidden" class="type" value="{{chapTruyen._id}}" id="hidden-chap">
                     </li>
                 </ul>
-                <h1 class="txt-primary"><a href="http://www.nettruyen.com/truyen-tranh/chua-te-hoc-duong">{{nameTruyen}}</a> <span>- Chapter 1</span></h1><i>[Cập nhật lúc: 01:14 16/03/2015]</i>
+                <h1 class="txt-primary"><a href="http://www.nettruyen.com/truyen-tranh/chua-te-hoc-duong">{{nameTruyen.ten_truyen}}</a> <span>- Chapter 1</span></h1><i>[Cập nhật lúc: 01:14 16/03/2015]</i>
 
                 <div class="facebook-like">
                     <div data-share="true" data-show-faces="true" data-action="like" data-layout="button_count"
@@ -91,12 +93,12 @@
                 </div>
                 <div class="chapter-nav" style="z-index: 1000;">
                     <a class="home" href="/" title="Trang chủ"><i class="fa fa-home"></i></a>
-                    <a class="home backward" href="http://www.nettruyen.com/truyen-tranh/chua-te-hoc-duong#nt_listchapter" title="{{nameTruyen}}"><i class="fa fa-list"></i></a>
+                    <a class="home backward" href="http://www.nettruyen.com/truyen-tranh/chua-te-hoc-duong#nt_listchapter" title="{{nameTruyen.ten_truyen}}"><i class="fa fa-list"></i></a>
 					<a class="home changeserver btn-danger" href="#" title="Đổi server">change SV</a>
-                    <a href="javascript:void(0)" class="prev a_prev disabled"><i class="fa fa-angle-left"></i></a>
+                    <button href="javascript:void(0)" class="btn-info">chap trước</button>
                     <select name="ctl00$mainContent$ddlSelectChapter" id="ctl00_mainContent_ddlSelectChapter" class="select-chapter">
                         <option value="/truyen-tranh/chua-te-hoc-duong/chap-394/513695">Chapter 394</option></select>
-                    <a href="/truyen-tranh/chua-te-hoc-duong/chap-2/84518" class="next a_next"><i class="fa fa-angle-right"></i></a>
+                    <button href="/truyen-tranh/chua-te-hoc-duong/chap-2/84518" class="btn-info">chap sau</button>
                     
                     
                     
@@ -212,6 +214,14 @@ $(function(){
            alert(data);
          });
     });
+});
+$(window).on("load", function () {
+    var urlLoadListChap = "http://localhost:3000/truyen-tranh/"+$("#hidden-id-truyen").val();
+    $.post(urlLoadListChap,
+      function(data, status, xhr){
+        alert(data);
+      }
+    )
 });
     var lazyLoadInstance = new LazyLoad({
     elements_selector: ".lazy-hinh",

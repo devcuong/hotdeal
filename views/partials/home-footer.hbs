@@ -30,94 +30,6 @@
     </div>
 </footer>
 <script>
-  var proxy1 = "";
-  var proxy2 = 'https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&gadget=a&no_expand=1&resize_h=0&rewriteMime=image%2F*&url=';
-  var proxy3 = 'https://images.weserv.nl/?url=';
-
-  function changeClass(selector, otherSelector) {
-    var sel = $(selector);
-    otherSelector.forEach(function myFunction(item, index) {
-      item.classList.remove("btn-success");
-    });
-    sel[0].classList.add("btn-success");
-  }
-
-  var loadChapter = document.querySelectorAll('a.loadchapter');
-  loadChapter.forEach(function myFunction(item, index) {
-    item.addEventListener("click", function () {
-      changeClass(this, loadChapter);
-    });
-  });
-
-  var imageNodes = document.querySelectorAll('.img-truyen');
-  var serverTemp = document.getElementById("server-temp").innerText;
-  var lstServerTemp = serverTemp.split(",");
-  for (var svt in lstServerTemp) {
-    imageNodes[svt].setAttribute("data-cdn", lstServerTemp[svt]);
-  }
-  document.getElementById("server-temp").innerText = "";
-
-  document.querySelector("a.changeserver").addEventListener("click", function () {
-    var btnSuccess = document.querySelector("a.btn-success[data-server]").nextElementSibling;
-    if (btnSuccess != null && !btnSuccess.classList.contains("hidden")) {
-       changeClass(btnSuccess, loadChapter);
-    } else {
-      btnSuccessFirst = document.querySelectorAll("a.loadchapter")[0];
-      changeClass(btnSuccessFirst, loadChapter);
-    }
-
-  })
-
-  function loadImageFromServer(dataServer) {
-    var selectorTruyen = document.querySelectorAll("img.img-truyen");
-    switch (dataServer) {
-      case 1:
-        selectorTruyen.forEach(function myFunction(item, index) {
-        $(item).attr('src', $(item).data("src"));
-        });
-        break;
-        case 2:
-        selectorTruyen.forEach(function myFunction(item, index) {
-        $(item).attr('src',proxy2+$(item).data("src"));
-        });
-        break;
-        case 3:
-        selectorTruyen.forEach(function myFunction(item, index) {
-        $(item).attr('src',proxy3+$(item).data("src"));
-        });
-        break;
-        case 4:
-        selectorTruyen.forEach(function myFunction(item, index) {
-        $(item).attr('src',$(item).data("cdn"));
-        });
-        break;
-        case 5:
-        selectorTruyen.forEach(function myFunction(item, index) {
-        $(item).attr('src',proxy2+$(item).data("cdn"));
-        });
-        break;
-        case 6:
-        selectorTruyen.forEach(function myFunction(item, index) {
-        $(item).attr('src',proxy3+$(item).data("cdn"));
-        });
-        break;
-      default:
-      // code block
-    }
-  }
-  // event khi add class
-  $('.btn-success').attrchange({
-  trackValues: true, 
-  callback: function (event) {
-    loadImageFromServer($('.btn-success').data("server"))
-  }
-});
-
-// khi load image truyện bị lỗi
-  document.querySelector("img.img-truyen").addEventListener("error", function(){ 
-     document.querySelector("a.changeserver").click();  
-  });
-
   function showMore() {
     var dots = document.getElementById("dots");
     var moreText = document.getElementById("more");
@@ -134,16 +46,6 @@
     }
   }
   
-
-  //document.querySelector("a.loadchapter[data-server='1']");
-  document.querySelector("a.changeserver").addEventListener("click", function () {
-
-  });
-
-  document.getElementById('content-image-truyen').addEventListener("error", function () {
-
-  });
-
   var nodes = document.querySelectorAll('.needs_to_be_rendered');
 
  // use render method to render nodes in real time
@@ -162,8 +64,5 @@
     numberNodes[i].innerHTML = numberNodes[i].innerHTML.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   }
 
-  var lazyLoadInstance = new LazyLoad({
-    elements_selector: ".lazy-hinh",
-    container: document.getElementById('content-image-truyen')
-  });
+
 </script>

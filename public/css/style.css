@@ -352,7 +352,6 @@ a:active {
 .form-control {
     display: block;
     background-color: #fff;
-    border: medium none;
     border-radius: 0;
 }
 
@@ -815,9 +814,16 @@ hr.light-100 {
         background-image: url(https://www.toyota.com.vn/Content/images/icon-play-video.png);
     }
     /* modal */
-    .modal-dialog {
-        max-width: 800px;
-        margin: 30px auto;
+    .modal-header {
+        background: #103f4b;
+        text-align: center;
+        color: #fff;
+        text-transform: uppercase;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
+    .modal-content {
+        border-radius: 0px;
     }
     .modal-body {
         position: relative;
@@ -832,6 +838,15 @@ hr.light-100 {
         font-weight: normal;
         color: #fff;
         opacity: 1;
+    }
+    .btn-bao-loi {
+        border: 1px solid #103f4b;
+        background: #103f4b;
+        color: #fff;
+        transition: all .3s;
+        text-transform: uppercase;
+        padding: 10px 20px;
+        white-space: nowrap;
     }
     /* endmodal */
     /* endvideo */
@@ -1486,7 +1501,6 @@ h3.title {
     display: inline-block;
 }
 .reading-control .home {
-    width: 40px;
     text-align: center;
     color: #ae4ad9;
     display: inline-block;
@@ -1495,7 +1509,9 @@ h3.title {
     font-size: 24px;
 }
 .reading-control .changeserver {
+    color: #ccc;
     position: relative;
+    border-radius: .25rem;
 }
 .reading-control .changeserver span {
     font-size: 12px;

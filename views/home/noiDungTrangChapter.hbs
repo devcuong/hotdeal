@@ -22,15 +22,14 @@
                     <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a
                             href="http://www.nettruyen.com/truyen-tranh/chua-te-hoc-duong/chap-1/84517"
                             class="itemcrumb active" itemprop="item" itemtype="http://schema.org/Thing"><span
-                                itemprop="name">Chapter 1</span></a>
+                                itemprop="name">Chapter {{chapTruyen.ten_chuong}}</span></a>
                         <meta itemprop="position" content="4">
+                        <input type="hidden" class="type" value="{{chapTruyen._id}}" id="hidden-chap">
                     </li>
                 </ul>
                 <h1 class="txt-primary"><a href="http://www.nettruyen.com/truyen-tranh/chua-te-hoc-duong">{{nameTruyen}}</a> <span>- Chapter 1</span></h1><i>[Cập nhật lúc: 01:14 16/03/2015]</i>
 
                 <div class="facebook-like">
-                    <span class="tip">Share để ủng hộ NetTruyen</span>
-
                     <div data-share="true" data-show-faces="true" data-action="like" data-layout="button_count"
                         data-href="http://www.nettruyen.com/truyen-tranh/chua-te-hoc-duong/chap-1/84517"
                         class="fb-like fb_iframe_widget" fb-xfbml-state="rendered"
@@ -40,7 +39,7 @@
             </div>
             <div class="reading-control">
                 <span class="chapter-id hidden" data-id="84517" data-cdn="http://truyen.cloud" data-cdn2="http://imageinstant.com" data-suffix=""></span>
-                <div class="mb-5">
+                <div class="mb-10">
                     Nếu không xem được truyện vui lòng đổi "SERVER ẢNH" bên dưới
                     <div class="mt-10">
                         <a rel="nofollow" href="javascript:void(0)" data-server="1" class="loadchapter btn btn-primary btn-success mr-5">Server site</a>
@@ -53,7 +52,39 @@
                 </div>
 				
                 <div class="mb-10">
-                    <a rel="nofollow" href="javascript:void(0)" class="alertError btn btn-warning"><i class="fa fa-exclamation-triangle"></i> Báo lỗi</a>
+                    <a rel="nofollow" href="javascript:void(0)" class="alertError btn btn-warning" data-toggle="modal" data-target="#myModal"><i class="fa fa-exclamation-triangle"></i> Báo lỗi</a>
+                    <!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><b>BÁO LỖI TRUYỆN</b></h4>
+      </div>
+      <div class="modal-body">
+        <p>Bạn muốn báo lỗi chương này ? Hãy nói cho bọn mình biết chương này bị lỗi gì vào dưới đây nhé ?</p>
+        <div class="form-horizontal">
+          <div class="form-group error-content">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <form id="myForm" method="post">
+              <input id="errorField" name="errorField" type="text" class="form-control" maxlength="255" placeholder="Mô tả lỗi">
+              </form>
+            </div>
+          </div>
+          <p>
+            <button id="myFormSubmit" href="javascript:void(0);" class="btn btn-focus mrb5 btn-send-report btn-bao-loi" type="submit">Gửi đi</button>
+          </p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
                 </div>
                 <div class="alert alert-info mrb10 hidden-xs hidden-sm">
                   <i class="fa fa-info-circle"></i> <em>Sử dụng mũi tên trái (←) hoặc phải (→) để chuyển chapter</em>
@@ -61,7 +92,7 @@
                 <div class="chapter-nav" style="z-index: 1000;">
                     <a class="home" href="/" title="Trang chủ"><i class="fa fa-home"></i></a>
                     <a class="home backward" href="http://www.nettruyen.com/truyen-tranh/chua-te-hoc-duong#nt_listchapter" title="{{nameTruyen}}"><i class="fa fa-list"></i></a>
-					<a class="home changeserver" href="#" title="Đổi server"><i class="fa fa-undo error"></i><span>1</span></a>
+					<a class="home changeserver btn-danger" href="#" title="Đổi server">change SV</a>
                     <a href="javascript:void(0)" class="prev a_prev disabled"><i class="fa fa-angle-left"></i></a>
                     <select name="ctl00$mainContent$ddlSelectChapter" id="ctl00_mainContent_ddlSelectChapter" class="select-chapter">
                         <option value="/truyen-tranh/chua-te-hoc-duong/chap-394/513695">Chapter 394</option></select>
@@ -82,5 +113,111 @@
             </div>
         </div>
     </div>
+    <script>
+         var proxy1 = "";
+  var proxy2 = 'https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&gadget=a&no_expand=1&resize_h=0&rewriteMime=image%2F*&url=';
+  var proxy3 = 'https://images.weserv.nl/?url=';
+
+  function changeClass(selector, otherSelector) {
+    var sel = $(selector);
+    otherSelector.forEach(function myFunction(item, index) {
+      item.classList.remove("btn-success");
+    });
+    sel[0].classList.add("btn-success");
+  }
+
+  var loadChapter = document.querySelectorAll('a.loadchapter');
+  loadChapter.forEach(function myFunction(item, index) {
+    item.addEventListener("click", function () {
+      changeClass(this, loadChapter);
+    });
+  });
+
+  var imageNodes = document.querySelectorAll('.img-truyen');
+      var serverTemp = document.getElementById("server-temp").innerText;
+      var lstServerTemp = serverTemp.split(",");
+      for (var svt in lstServerTemp) {
+        imageNodes[svt].setAttribute("data-cdn", lstServerTemp[svt]);
+      }
+      document.getElementById("server-temp").innerText = "";
+  
+  document.querySelector("a.changeserver").addEventListener("click", function () {
+    var btnSuccess = document.querySelector("a.btn-success[data-server]").nextElementSibling;
+    if (btnSuccess != null && !btnSuccess.classList.contains("hidden")) {
+       changeClass(btnSuccess, loadChapter);
+    } else {
+      btnSuccessFirst = document.querySelectorAll("a.loadchapter")[0];
+      changeClass(btnSuccessFirst, loadChapter);
+    }
+
+  })
+
+  function loadImageFromServer(dataServer) {
+    var selectorTruyen = document.querySelectorAll("img.img-truyen");
+    switch (dataServer) {
+      case 1:
+        selectorTruyen.forEach(function myFunction(item, index) {
+        $(item).attr('src', $(item).data("src"));
+        });
+        break;
+        case 2:
+        selectorTruyen.forEach(function myFunction(item, index) {
+        $(item).attr('src',proxy2+encodeURIComponent($(item).data("src")));
+        });
+        break;
+        case 3:
+        selectorTruyen.forEach(function myFunction(item, index) {
+        $(item).attr('src',proxy3+encodeURIComponent($(item).data("src")));
+        });
+        break;
+        case 4:
+        selectorTruyen.forEach(function myFunction(item, index) {
+        $(item).attr('src',$(item).data("cdn"));
+        });
+        break;
+        case 5:
+        selectorTruyen.forEach(function myFunction(item, index) {
+        $(item).attr('src',proxy2+encodeURIComponent($(item).data("cdn")));
+        });
+        break;
+        case 6:
+        selectorTruyen.forEach(function myFunction(item, index) {
+        $(item).attr('src',proxy3+encodeURIComponent($(item).data("cdn")));
+        });
+        break;
+      default:
+      // code block
+    }
+  }
+  // event khi add class
+  $('.btn-success').attrchange({
+  trackValues: true, 
+  callback: function (event) {
+    loadImageFromServer($('.btn-success').data("server"))
+  }
+});
+
+// khi load image truyện bị lỗi
+  document.querySelector("img.img-truyen").addEventListener("error", function(){ 
+     document.querySelector("a.changeserver").click();  
+  });
+// 
+$(function(){
+    $('#myFormSubmit').click(function(e){
+      e.preventDefault();
+      $.post('http://localhost:3000/truyen-tranh/error/'+$("#hidden-chap").val(), 
+         $('#myForm').serialize(), 
+         function(data, status, xhr){
+           $("#myModal .close").click()
+           alert(data);
+         });
+    });
+});
+    var lazyLoadInstance = new LazyLoad({
+    elements_selector: ".lazy-hinh",
+    container: document.getElementById('content-image-truyen')
+  });
+    </script>
+
 </section>
 {{!-- endsectionchaptertruyen --}}

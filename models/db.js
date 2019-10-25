@@ -12,3 +12,4 @@ require("./video.model");
 require("./theloai.model");
 require("./truyen.model");
 require("./chapter.model");
+require("./error.model");

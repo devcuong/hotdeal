@@ -3,7 +3,9 @@ var router = express.Router();
 const mongoose = require("mongoose");
 const Truyen = mongoose.model("Truyen");
 const Chapter = mongoose.model("Chapter");
+const Error = mongoose.model("Error");
 var ObjectId = require('mongoose').Types.ObjectId;
+const dateFormat = require('dateformat');
 router.get("/:slugTruyen", (req, res) => {
     var slugTruyen = req.params.slugTruyen;
     Truyen.aggregate([{
@@ -59,4 +61,21 @@ router.get("/:slugTruyen/:tenChap/:idChap", (req, res) => {
         }
     });
 });
+
+router.post("/error/:idChap", (req, res) => {
+    insertRecord(req, res);
+})
+
+// hàm thêm mới
+function insertRecord(req, res) {
+    var error = new Error();
+    error.error_chap = req.params.idChap;
+    error.mo_ta = req.body.errorField;
+    error.ngay_bao = dateFormat(new Date(), "dd/mm/yyyy");
+    error.save((err, doc) => {
+        if (!err) {
+            res.json("lỗi đã được thông báo tới quản trị viên, xin cảm ơn");
+        }
+    })
+}
 module.exports = router;

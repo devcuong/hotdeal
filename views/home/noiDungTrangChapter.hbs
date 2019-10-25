@@ -17,7 +17,10 @@
                     </li>
                     <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a
                             href="http://www.nettruyen.com/truyen-tranh/chua-te-hoc-duong" class="itemcrumb"
-                            itemprop="item" itemtype="http://schema.org/Thing"><span itemprop="name">{{nameTruyen.ten_truyen}}</span></a>
+                            itemprop="item" itemtype="http://schema.org/Thing">
+                            <span itemprop="name">{{nameTruyen.ten_truyen}}</span>
+                            <input type="hidden" value="{{nameTruyen.slug_truyen}}" id="hidden-name-truyen">
+                            </a>
                         <meta itemprop="position" content="3">
                         <input type="hidden" class="type" value="{{chapTruyen._id}}" id="hidden-chap">
                     </li>
@@ -96,7 +99,7 @@
                     <a class="home backward" href="http://www.nettruyen.com/truyen-tranh/chua-te-hoc-duong#nt_listchapter" title="{{nameTruyen.ten_truyen}}"><i class="fa fa-list"></i></a>
 					<a class="home changeserver btn-danger" href="#" title="Đổi server">change SV</a>
                     <button href="javascript:void(0)" class="btn-info">chap trước</button>
-                    <select name="ctl00$mainContent$ddlSelectChapter" id="ctl00_mainContent_ddlSelectChapter" class="select-chapter">
+                    <select name="ctl00$mainContent$ddlSelectChapter" id="id-Select-chapter" class="select-chapter">
                         <option value="/truyen-tranh/chua-te-hoc-duong/chap-394/513695">Chapter 394</option></select>
                     <button href="/truyen-tranh/chua-te-hoc-duong/chap-2/84518" class="btn-info">chap sau</button>
                     
@@ -216,12 +219,25 @@ $(function(){
     });
 });
 $(window).on("load", function () {
-    var urlLoadListChap = "http://localhost:3000/truyen-tranh/"+$("#hidden-id-truyen").val();
+    var urlLoadListChap = "/truyen-tranh/"+$("#hidden-id-truyen").val();
     $.post(urlLoadListChap,
-      function(data, status, xhr){
-        alert(data);
+      function(data, status, xhr){  
+        var returnedData = JSON.parse(data);
+        if(returnedData.success == true){
+           $("#id-Select-chapter").empty();
+          var listChap = returnedData.listChap;
+          listChap.forEach(function myFunction(item, index){
+            var itemSelection = new Option("Chapter "+item.ten_chap, "/truyen-tranh/"+$("#hidden-name-truyen").val()+"/chap-"+item.ten_chap+"/"+item.id_chap);
+            $("#id-Select-chapter").append(itemSelection);
+          })
+           var pathname = window.location.pathname; 
+            $('#id-Select-chapter').val(pathname).prop('selected', true);
+        }
       }
     )
+});
+$('#id-Select-chapter').on('change', function() {
+  window.location.href = this.value;
 });
     var lazyLoadInstance = new LazyLoad({
     elements_selector: ".lazy-hinh",

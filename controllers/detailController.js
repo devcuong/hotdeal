@@ -87,18 +87,22 @@ function insertRecord(req, res) {
 router.post("/:idTruyen", (req, res) => {
     var idTruyen = req.params.idTruyen;
     var q = Chapter.find({ "ma_truyen": new ObjectId(idTruyen) });
-        q.exec(function(err, docs) {
+    q.exec(function(err, docs) {
+        if (!err) {
+            var o = new Object;
+            var keyListChap = "listChap";
+            o[keyListChap] = [];
+            var keySuccess = "success";
+            o[keySuccess] = true;
             var arrIdChap = new Array();
-            docs.forEach(function(item){
+            docs.forEach(function(item) {
                 var objChap = new Object();
                 objChap.ten_chap = item.ten_chuong;
                 objChap.id_chap = item._id;
-                arrIdChap.push(objChap);
+                o[keyListChap].push(objChap);
             })
-            console.log(arrIdChap);
-            if (!err) {
-                res.send(JSON.stringify(arrIdChap));
-            }
-        });
+            res.send(JSON.stringify(o));
+        }
+    });
 })
 module.exports = router;

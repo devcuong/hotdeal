@@ -24,11 +24,7 @@
             <th>Tên chương</th>
             <th>Mã truyện</th>
             <th>Thời gian tạo</th>
-            <th>Server 1</th>
-            <th>Server 2</th>
-            <th>Server 3</th>
-            <th>Server 4</th>
-            <th>Server 5</th>
+            <th>Server truyện</th>
         </tr>
     </thead>
     <tbody>
@@ -37,11 +33,7 @@
             <td>{{this.ten_chuong}}</td>
             <td>{{this.ma_truyen}}</td>
             <td>{{this.thoi_gian_tao}}</td>
-            <td>{{this.server_1}}</td>
-            <td>{{this.server_2}}</td>
-            <td>{{this.server_3}}</td>
-            <td>{{this.server_4}}</td>
-            <td>{{this.server_5}}</td>
+            <td>{{this.server_truyen}}</td>
             <td>
                 <a href="/admin/chapter/edit/{{this._id}}/{{this.ma_truyen}}"><i class="fas fa-edit"></i></a>
                 <a href="/admin/chapter/delete/{{this._id}}/{{this.ma_truyen}}" onclick="return confirm('Are you sure to delete this record ?');">

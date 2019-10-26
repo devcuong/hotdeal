@@ -67,11 +67,15 @@ function insertRecord(req, res) {
                     chapter.ten_chuong = req.body.tenChuong;
                     chapter.ma_truyen = new ObjectId(req.body.idTruyen);
                     chapter.luot_xem = "0";
-                    chapter.server_1 = req.body.server1.trim().split(",");
-                    chapter.server_2 = req.body.server2.trim().split(",");
-                    chapter.server_3 = req.body.server3.trim().split(",");
-                    chapter.server_4 = req.body.server4.trim().split(",");
-                    chapter.server_5 = req.body.server5.trim().split(",");
+                    if (req.body.server1 && req.body.server2) {
+                        var lstServer1 = req.body.server1.trim().split(',');
+                        var lstServer2 = req.body.server2.trim().split(',');
+                        for(var i=0; i<lstServer1.length; i++){
+                            var sv = { sv_original:lstServer1[i],sv_cdn:lstServer2[i] };
+                            chapter.server_truyen.push(sv);
+                        }
+                
+                    }
                     chapter.save((err, doc) => {
                         if (!err) {
                             res.redirect("/admin/chapter/" + req.body.idTruyen);
@@ -110,24 +114,14 @@ function updateRecord(req, res) {
         foundChapter.ma_truyen = req.body.idTruyen;
     }
 
-    if (req.body.server1) {
-        foundChapter.server_1 = req.body.server1.trim().split(',');
-    }
+    if (req.body.server1 && req.body.server2) {
+        var lstServer1 = req.body.server1.trim().split(',');
+        var lstServer2 = req.body.server2.trim().split(',');
+        for(var i=0; i<lstServer1.length; i++){
+            var sv = { sv_original:lstServer1[i],sv_cdn:lstServer2[i] };
+            foundChapter.server_truyen.push(sv);
+        }
 
-    if (req.body.server2) {
-        foundChapter.server_2 = req.body.server2.trim().split(',');
-    }
-
-    if (req.body.server3) {
-        foundChapter.server_3 = req.body.server3.trim().split(',');
-    }
-
-    if (req.body.server4) {
-        foundChapter.server_4 = req.body.server4.trim().split(',');
-    }
-
-    if (req.body.server5) {
-        foundChapter.server_5 = req.body.server5.trim().split(',');
     }
     Chapter.findByIdAndUpdate(new ObjectId(req.body.chapId), foundChapter, { new: true, strict: false, setDefaultsOnInsert: true }, function(err, doc) {
         if (!err) {

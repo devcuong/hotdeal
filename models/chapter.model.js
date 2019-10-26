@@ -22,19 +22,15 @@ var chapterSchema = new mongoose.Schema({
     luot_xem: {
         type: String
     },
+    server_truyen: [{
+        _id:false,
+        sv_original: String,
+        sv_cdn: String
+    }],
     server_1: [{
         type: String
     }],
     server_2: [{
-        type: String
-    }],
-    server_3: [{
-        type: String
-    }],
-    server_4: [{
-        type: String
-    }],
-    server_5: [{
         type: String
     }]
 

@@ -67,8 +67,20 @@ router.get("/:slugTruyen/:tenChap/:idChap", (req, res) => {
 });
 
 router.post("/error/:idChap", (req, res) => {
-    insertRecord(req, res);
+    var idChap = req.params.idChap;
+    var q = Error.findOne({ "error_chap": idChap });
+    q.exec(function(err, doc) {
+        if (!err) {
+            if (doc.length == 0) {
+                insertRecord(req, res);
+            } else {
+                res.json("lỗi đã được thông báo tới quản trị viên, xin cảm ơn");
+            }
+
+        }
+    })
 })
+
 
 // hàm thêm mới
 function insertRecord(req, res) {

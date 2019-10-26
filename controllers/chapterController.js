@@ -7,20 +7,20 @@ const Truyen = mongoose.model("Truyen");
 
 // quản lý chapter trong truyện
 router.get("/:idTruyen", (req, res) => {
-        var idTruyen = req.params.idTruyen;
-        var q = Chapter.find({ "ma_truyen": new ObjectId(idTruyen) });
-        q.exec(function(err, docs) {
-            if (!err) {
-                res.render("admin/quanLyChapter", {
-                    layout: 'adminLayout.hbs',
-                    list: docs,
-                    idT: idTruyen
-                });
-            }
-        });
-    })
+    var idTruyen = req.params.idTruyen;
+    var q = Chapter.find({ "ma_truyen": new ObjectId(idTruyen) });
+    q.exec(function(err, docs) {
+        if (!err) {
+            res.render("admin/quanLyChapter", {
+                layout: 'adminLayout.hbs',
+                list: docs,
+                idT: idTruyen
+            });
+        }
+    });
+})
 
-    // Update thông tin chapter theo truyện
+// Update thông tin chapter theo truyện
 router.get("/edit/:cid/:tid", (req, res) => {
     var chapId = req.params.cid;
     var truyenId = req.params.tid;
@@ -147,8 +147,6 @@ router.get("/delete/:id/:idTruyen", (req, res) => {
     var truyenId = req.params.idTruyen;
     var q = Truyen.findOne({ "_id": new ObjectId(truyenId) });
     q.exec(function(err, doc) {
-        console.log(doc);
-
         if (!err) {
             doc.so_chuong = Number(doc.so_chuong) - 1;
             doc.save(function(errUpdate) {

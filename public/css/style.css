@@ -1542,5 +1542,27 @@ h3.title {
 .hidden {
     display: none;
 }
+.prev-link,
+.next-link {
+    background-color: #BE9F06;
+    color: white;
+    padding: 0.5em 0.5em;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.prev-link:hover,
+.next-link:hover {
+    background-color: peru;
+    text-decoration: none;
+    color: white;
+}
+.disabled {
+    display: none;
+}
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%
+}
 
 /* endchapter */

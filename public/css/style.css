@@ -1503,15 +1503,15 @@ h3.title {
 .reading-control .home {
     text-align: center;
     color: #ae4ad9;
-    display: inline-block;
     text-align: center;
     vertical-align: middle;
-    font-size: 24px;
+    padding: 0.5em 0.5em;
+    text-transform: uppercase;
 }
 .reading-control .changeserver {
     color: #ccc;
     position: relative;
-    border-radius: .25rem;
+    background-color: #c8102e;
 }
 .reading-control .changeserver span {
     font-size: 12px;
@@ -1559,10 +1559,46 @@ h3.title {
 .disabled {
     display: none;
 }
+
+/* endchapter */
+
+/* navcontrol */
 .sticky {
     position: fixed;
     top: 0;
-    width: 100%
+    width: 100%;
+    background-color: white;
+}
+.sticky+.content {
+    padding-top: 102px;
+}
+.home-button {
+    font-size: 2rem;
+    height: 80px;
+    width: 80px;
+    background-color: #31B0D5;
+    color: white;
+    border-radius: 50%;
+    border-color: #46b8da;
+}
+.list-button {
+    font-size: 2rem;
+    height: 80px;
+    width: 80px;
+    background-color: #31B0D5;
+    color: white;
+    border-radius: 50%;
+    border-color: #46b8da;
+}
+#control-list-button {
+    position: fixed;
+    bottom: 100px;
+    right: 10px;
+}
+#control-home-button {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
 }
 
-/* endchapter */
+/* endnavcontrol */

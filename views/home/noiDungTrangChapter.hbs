@@ -104,10 +104,7 @@
           </div>
         </div>
         <div class="chapter-nav" style="z-index: 1000;">
-          <a class="home" href="/" title="Trang chủ"><i class="fa fa-home"></i></a>
-          <a class="home backward" href="http://www.nettruyen.com/truyen-tranh/chua-te-hoc-duong#nt_listchapter"
-            title="{{nameTruyen.ten_truyen}}"><i class="fa fa-list"></i></a>
-          <a class="home changeserver btn-danger" href="#" title="Đổi server">change SV</a>
+          <a class="home changeserver" href="#" title="Đổi server">change SV</a>
           <a href="javascript:void(0)" class="prev-link">chap trước</a>
           <select id="id-Select-chapter" class="select-chapter"></select>
           <a href="/truyen-tranh/chua-te-hoc-duong/chap-2/84518" class="next-link">chap sau</a>
@@ -255,7 +252,7 @@
               document.querySelector('.reading-control .prev-link').setAttribute("href", prevSelect.val());
               document.querySelector('.reading-control .prev-link').classList.remove("disabled");
             }
-             if (nextSelect != null && nextSelect.val() != null) {
+            if (nextSelect != null && nextSelect.val() != null) {
               document.querySelector('.reading-control .next-link').setAttribute("href", nextSelect.val());
               document.querySelector('.reading-control .next-link').classList.remove("disabled");
             }
@@ -269,6 +266,23 @@
       window.location.href = this.value;
     });
 
+    // When the user scrolls the page, execute myFunction
+    window.onscroll = function () { myFunction() };
+
+    // Get the header
+    var header = document.querySelector(".chapter-nav");
+
+    // Get the offset position of the navbar
+    var sticky = header.offsetTop;
+
+    // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+    function myFunction() {
+      if (window.pageYOffset > sticky) {
+        header.classList.add("sticky");
+      } else {
+        header.classList.remove("sticky");
+      }
+    }
 
     var lazyLoadInstance = new LazyLoad({
       elements_selector: ".lazy-hinh",

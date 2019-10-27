@@ -1,6 +1,7 @@
 {{!-- sectionchaptertruyen --}}
 <section class="section-chapter-truyen index-section">
-  <div class="row text-center padding">
+  <div class="container">
+    <div class="row text-center padding">
     <div class="col-md-12">
       <div class="top">
         <ul class="breadcrumb" itemscope="" itemtype="http://schema.org/BreadcrumbList">
@@ -108,25 +109,21 @@
           <a href="javascript:void(0)" class="prev-link">chap trước</a>
           <select id="id-Select-chapter" class="select-chapter"></select>
           <a href="/truyen-tranh/chua-te-hoc-duong/chap-2/84518" class="next-link">chap sau</a>
-
-
-
-
           <a class="follow-link btn btn-success" href="javascript:void(0)" data-id="4446"><i class="fa fa-heart"></i>
             <span>Theo dõi</span></a></div>
         <div></div>
       </div>
       <div class="image-truyen" id="content-image-truyen">
-        {{#each chapTruyen.server_1}}
-        <img id="image-truyen-{{@index}}" data-cdn="" data-src="{{this}}"
+        {{#each chapTruyen.server_truyen}}
+        <img id="image-truyen-{{@index}}" data-cdn="{{this.sv_cdn}}" data-src="{{this.sv_original}}"
           src="https://icon-library.net/images/spinner-icon-gif/spinner-icon-gif-10.jpg" class="lazy-hinh img-truyen">
         {{/each}}
       </div>
-      <div id="server-temp">
-        {{chapTruyen.server_2}}
-      </div>
     </div>
   </div>
+  </div>  
+  
+
   <script>
     var proxy1 = "";
     var proxy2 = 'https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&gadget=a&no_expand=1&resize_h=0&rewriteMime=image%2F*&url=';
@@ -146,14 +143,6 @@
         changeClass(this, loadChapter);
       });
     });
-
-    var imageNodes = document.querySelectorAll('.img-truyen');
-    var serverTemp = document.getElementById("server-temp").innerText;
-    var lstServerTemp = serverTemp.split(",");
-    for (var svt in lstServerTemp) {
-      imageNodes[svt].setAttribute("data-cdn", lstServerTemp[svt]);
-    }
-    document.getElementById("server-temp").innerText = "";
 
     document.querySelector("a.changeserver").addEventListener("click", function () {
       var btnSuccess = document.querySelector("a.btn-success[data-server]").nextElementSibling;

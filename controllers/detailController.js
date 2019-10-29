@@ -25,6 +25,7 @@ router.get("/:slugTruyen", (req, res) => {
 
     ]).exec(function(err, truyen) {
         if (!err) {
+            console.log(truyen[0]);
             res.render("home/noiDungTrangDetail", {
                 layout: 'homeLayout.hbs',
                 noiDung: truyen[0],

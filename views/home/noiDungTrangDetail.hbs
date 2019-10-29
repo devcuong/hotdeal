@@ -28,6 +28,7 @@
                         <div class="col-md-8 col-info">
                             <div class="truyen-title">
                                 <h3 class="title">{{noiDung.ten_truyen}}</h3>
+                                <input type="hidden" id="hidden-slug-truyen" value="{{noiDung.slug_truyen}}" />
                             </div>
                             <ul class="info-list ">
                                 <li class="t-author row">
@@ -61,12 +62,8 @@
                                     <b>{{noiDung.luot_theo_doi}}</b> Người Đã Theo Dõi</span>
                             </div>
                             <div class="read-action mt-10 pl-15">
-                                <a class="btn btn-warning mb-5"
-                                    href="http://www.nettruyen.com/truyen-tranh/bat-hu-pham-nhan/chap-0/491774"> Đọc từ
-                                    đầu</a>
-                                <a class="btn btn-warning mb-5"
-                                    href="http://www.nettruyen.com/truyen-tranh/bat-hu-pham-nhan/chap-4/512370"> Đọc mới
-                                    nhất</a>
+                                <a href="#" class="btn-doc-tu-dau">ĐỌC TỪ ĐẦU</a>
+                                 <a href="#" class="btn-doc-moi-nhat">ĐỌC MỚI NHẤT</a>
                             </div>
                         </div>
                     </div>
@@ -102,10 +99,12 @@
                                             <span id="dots">...</span>
                                             <span id="more">
                                         {{/if}}
-                                        <li class="row">
+                                        <li class="row all-list-chapter">
                                             <div class="col-md-5 chapter">
-                                                <a href="http://www.nettruyen.com/truyen-tranh/bat-hu-pham-nhan/chap-4/512370"
-                                                    data-id="512370">Chapter {{this.ten_chuong}}</a>
+                                                <a href="#"
+                                                    id="link-truyen">Chapter {{this.ten_chuong}}</a>
+                                                <input type="hidden" id="hidden-chap-name" value="{{this.ten_chuong}}">
+                                                <input type="hidden" id="hidden-chap-id" value="{{this._id}}">
                                             </div>
                                             <div class="col-md-4 text-center small needs_to_be_rendered"
                                                 datetime="{{this.thoi_gian_tao}}"></div>
@@ -127,5 +126,19 @@
             </div>
         </div>
     </div>
+    <script>
+          var slugTruyen = document.querySelector("#hidden-slug-truyen").value;
+          var listChapter = $(".all-list-chapter");
+          for(var i=0; i<listChapter.length;i++)
+          {
+            var chapName = listChapter[i].querySelector("input#hidden-chap-name").value;
+            var chapId = listChapter[i].querySelector("input#hidden-chap-id").value;
+            var urlChapTruyen = "/truyen-tranh/"+slugTruyen+"/chap-"+chapName+"/"+chapId;
+            listChapter[i].querySelector("a#link-truyen").setAttribute("href",urlChapTruyen);
+          }
+           var listChapterAfterAddLink = $(".all-list-chapter");
+          document.querySelector(".btn-doc-tu-dau").setAttribute("href",listChapterAfterAddLink[listChapter.length-1].querySelector("a#link-truyen").getAttribute("href"));
+          document.querySelector(".btn-doc-moi-nhat").setAttribute("href",listChapterAfterAddLink[0].querySelector("a#link-truyen").getAttribute("href"));
+    </script>
 </section>
 {{!-- endsectionnoidungtrangdetail --}}

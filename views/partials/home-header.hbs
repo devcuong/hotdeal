@@ -30,8 +30,8 @@
 
 <body>
     <!-- container chứa main menu-->
-    <div class="container">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark dark">
+        <div class="container">
             <a class="navbar-brand" href="#">Fixed navbar</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,14 +45,63 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Link</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Three Column <b
+                                class="caret"></b></a>
+                        <ul class="dropdown-menu multi-column columns-3">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <ul class="multi-column-dropdown">
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        <li class="divider"></li>
+                                        <li><a class="dropdown-item" href="#">Separated link</a></li>
+                                        <li class="divider"></li>
+                                        <li><a class="dropdown-item" href="#">One more separated link</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-4">
+                                    <ul class="multi-column-dropdown">
+                                        <li><a href="#">Action</a></li>
+                                        <li><a href="#">Another action</a></li>
+                                        <li><a href="#">Something else here</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Separated link</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">One more separated link</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-4">
+                                    <ul class="multi-column-dropdown">
+                                        <li><a href="#">Action</a></li>
+                                        <li><a href="#">Another action</a></li>
+                                        <li><a href="#">Something else here</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Separated link</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">One more separated link</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </ul>
                     </li>
                 </ul>
                 <form class="form-inline mt-2 mt-md-0">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <div class="input-group search-holder">
+                        <meta itemprop="target" content="https://truyenfull.vn/tim-kiem/?tukhoa={tukhoa}"><input
+                            aria-label="Từ khóa tìm kiếm" role="search key" class="form-control" id="search-input"
+                            type="search" name="tukhoa" placeholder="Tìm kiếm..." value="" itemprop="query-input"
+                            required="">
+                        <div class="input-group-btn"><button class="btn btn-default" type="submit" aria-label="Tìm kiếm"
+                                role="search"><i class="fa fa-search" aria-hidden="true"></i></button></div>
+                    </div>
                 </form>
             </div>
-        </nav>
+        </div>
+
+    </nav>
+    <div class="navbar-breadcrumb">
+        <div class="container breadcrumb-container"> Đọc truyện online, đọc truyện chữ, truyện full, truyện hay. Tổng
+            hợp đầy đủ và cập nhật liên tục. </div>
     </div>

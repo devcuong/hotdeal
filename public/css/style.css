@@ -1458,21 +1458,16 @@ h3.title {
     background-color: white;
 }
 .home-button {
-    font-size: 2rem;
-    height: 80px;
-    width: 80px;
-    background-color: #31B0D5;
-    color: white;
-    border-radius: 50%;
-    border-color: #46b8da;
+    display: block;
+    padding: 7px 10px;
+    margin-bottom: 10px;
+    background: #ff530d;
 }
 .list-button {
-    font-size: 2rem;
-    height: 30px;
-    width: 150px;
-    background-color: #31B0D5;
-    color: white;
-    border-color: #46b8da;
+    display: block;
+    padding: 7px 10px;
+    margin-bottom: 10px;
+    background: #9C27B0;
 }
 #control-list-button {
     position: fixed;

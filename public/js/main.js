@@ -5,6 +5,8 @@ $(document).ready(function() {
         margin: 30,
         nav: true,
         dots: false,
+        mouseDrag: true,
+        touchDrag: true,
         navText: [
             '<i class="fa fa-arrow-left" aria-hidden="true"></i>',
             '<i class="fa fa-arrow-right" aria-hidden="true"></i>'

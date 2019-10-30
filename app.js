@@ -10,7 +10,7 @@ const truyenController = require("./controllers/truyenController");
 const chapterController = require("./controllers/chapterController");
 const mainController = require("./controllers/mainController");
 const detailController = require("./controllers/detailController.js");
-
+const timTruyenController = require("./controllers/timTruyenController.js");
 
 app.use(bodyparser.urlencoded({
     extended: true
@@ -64,3 +64,4 @@ app.use("/admin/truyen", truyenController);
 app.use("/admin/chapter", chapterController);
 app.use("/", mainController);
 app.use("/truyen-tranh", detailController);
+app.use("/tim-truyen", timTruyenController);

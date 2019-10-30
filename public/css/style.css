@@ -57,7 +57,7 @@ a:active {
 }
 
 .dark {
-    background-color: #990000;
+    background-color: #ff530d;
 }
 
 
@@ -167,6 +167,7 @@ a:active {
     -webkit-box-shadow: 0 3px 8px rgba(3, 3, 3, 0.26);
     box-shadow: 0 3px 8px rgba(3, 3, 3, 0.26);
     border-radius: 0px;
+    border: 2px solid #ff530d;
 }
 
 .multi-column-dropdown {
@@ -176,16 +177,18 @@ a:active {
 }
 
 .multi-column-dropdown li a {
+    color: #000;
+    padding: 0 16px;
+    text-decoration: none;
     display: block;
-    clear: both;
-    line-height: 1.428571429;
-    color: #333;
-    white-space: normal;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
 }
 
 .multi-column-dropdown li a:hover {
     text-decoration: none;
-    color: #ae4ad9;
+    color: #ff530d;
 }
 
 
@@ -1353,7 +1356,7 @@ h3.title {
     font-size: 14px;
     color: #fff;
     text-align: center;
-    text-shadow: 0 1px 2px rgba(0,0,0,.25);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .25);
     background: #31a95b;
     border-bottom: 2px solid #26904b;
     cursor: pointer;
@@ -1368,12 +1371,13 @@ h3.title {
     font-size: 14px;
     color: #fff;
     text-align: center;
-    text-shadow: 0 1px 2px rgba(0,0,0,.25);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .25);
     background: #e84c3d;
     border-bottom: 2px solid #c0392b;
     cursor: pointer;
     border-radius: 3px;
 }
+
 /* endthongtintruyen */
 
 /* chapter */

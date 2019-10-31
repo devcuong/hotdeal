@@ -40,7 +40,6 @@ a {
 a:hover,
 a:focus,
 a:active {
-    color: #fff;
     text-decoration: none;
 }
 
@@ -1075,12 +1074,6 @@ p.wap-time.px-2 {
 .col-truyen {
     text-align: left;
 }
-.item-truyen {
-    /* width: 22%; */
-}
-.img_a {
-    /* width: 100%; */
-}
 .lazy {
     width: 200px;
 }
@@ -1118,6 +1111,16 @@ p.wap-time.px-2 {
     float: right;
     overflow: hidden;
     white-space: nowrap;
+}
+.sts {
+    background: url(https://truyenmoi.xyz/themes/home/icons/item-bg.png) 1px 8px no-repeat;
+    padding-left: 15px;
+    color: #003555;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
 }
 
 /* enditemtruyen */
@@ -1243,7 +1246,7 @@ a.jtip {
     position: relative;
 }
 .list>.row {
-    background-color: #ecf0f1;
+    background-color: #fff;
 }
 .list.list-cat>.row>div:nth-child(odd) {
     padding-left: 20px!important;
@@ -1471,7 +1474,7 @@ h3.title {
 }
 #control-list-button {
     position: fixed;
-    bottom: 100px;
+    bottom: 60px;
     right: 10px;
 }
 #control-home-button {

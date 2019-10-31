@@ -11,77 +11,46 @@ const Truyen = mongoose.model("Truyen");
 
 // trang chu
 router.get("/", (req, res) => {
-    // var q = TinTuc.find().limit(2);
-    // q.exec(function(err, docs) {
-    //     if (!err) {
-    //         var q2 = TinTuc.find().limit(6).skip(2);
-    //         q2.exec(function(err2, getMoreNews) {
-    //             if (!err2) {
-    //                 var q3 = Video.find().limit(4);
-    //                 q3.exec(function(err3, getVideos) {
-    //                     res.render("home/noiDungTrangChu", {
-    //                         layout: 'homeLayout.hbs',
-    //                         firstNews: docs[0],
-    //                         secondNews: docs[1],
-    //                         allNews: getMoreNews,
-    //                         allVideos: getVideos
-    //                     });
-    //                 });
-    //             }
-    //         })
-    //     } else {
-    //         console.log(err);
-    //     }
-
-    // });
-    /* var q = TheLoai.find();
-     q.exec(function(err, theLoais) {
-         if (!err) {
-             var q2 = Truyen.find().limit(10);
-             q2.exec(function(err2, truyens) {
-                 if (!err2) {
-                     res.render("home/noiDungTrangChu", {
-                         layout: 'homeLayout.hbs',
-                         lstTheLoai: theLoais,
-                         lstTruyenDeCu: truyens
-                     });
-                 } else {
-                     console.log(err2);
-                 }
-             })
-         } else {
-             console.log(err);
-         }
-
-     });*/
-    var q = TheLoai.find();
-    q.exec(function(err, theLoais) {
-        if (!err) {
-            var q2 = Truyen.aggregate([{
-                    $lookup: { from: "chapter", localField: "_id", foreignField: "ma_truyen", as: "chap_moi_ra" }
-                },
-                {
-                    "$addFields": {
-                        "chap_moi_ra": { "$slice": ["$chap_moi_ra", -3] }
+        var q = TheLoai.find();
+        q.exec(function(err, theLoais) {
+            if (!err) {
+                var q2 = Truyen.aggregate([{
+                        $lookup: { from: "chapter", localField: "_id", foreignField: "ma_truyen", as: "chap_moi_ra" }
+                    },
+                    {
+                        "$addFields": {
+                            "chap_moi_ra": { "$slice": ["$chap_moi_ra", -3] }
+                        }
                     }
-                }
-            ]).limit(12).exec(function(err2, truyens) {
-                if (!err2) {
-                    res.render("home/noiDungTrangChu", {
-                        layout: 'homeLayout.hbs',
-                        lstTheLoai: theLoais,
-                        lstTruyenDeCu: truyens,
-                        lstTruyenCapNhat: truyens
-                    });
-                } else {
-                    console.log(err2);
-                }
-            })
-        }
+                ]).limit(12).exec(function(err2, truyens) {
+                    if (!err2) {
+                        res.render("home/noiDungTrangChu", {
+                            layout: 'homeLayout.hbs',
+                            lstTheLoai: theLoais,
+                            lstTruyenDeCu: truyens,
+                            lstTruyenCapNhat: truyens
+                        });
+                    } else {
+                        console.log(err2);
+                    }
+                })
+            }
+        })
     })
-})
-
-// cấu hình multer
+    // trang chu
+router.get("/hot", (req, res) => {
+        var sortTruyen = { luot_xem: -1 };
+        Truyen.find().sort(sortTruyen).exec(function(err, truyen) {
+            if (!err) {
+                res.render("home/noiDungTrangTimTruyen", {
+                    layout: 'homeLayout.hbs',
+                    lstTruyen: truyen,
+                    titleTrang: "TRUYỆN HOT"
+                })
+            }
+        });
+    })
+    // cấu hình multer
 var storage = multer.diskStorage({
 
     // folder up file

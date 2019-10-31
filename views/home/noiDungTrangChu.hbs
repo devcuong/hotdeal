@@ -9,32 +9,33 @@
         <div class="owl-carousel owl-theme" id="truyen-de-cu">
             {{#each lstTruyenDeCu}}
             <div class="item">
-                    <a href="/truyen-tranh/{{this.slug_truyen}}" class="card-content" title="{{this.ten_truyen}}">
-                        <div class="card-img card-img-top order-now"><img src="{{this.hinh_truyen}}"
-                                alt="{{this.ten_truyen}}" class="card-img">
-                            <p class="pcd-pricing">
-                                <span class="pcd-price"><a href="/truyen-tranh/{{this.slug_truyen}}"
-                                        title="Chapter {{this.chap_moi_ra.0.ten_chuong}}">Chapter
-                                        {{this.chap_moi_ra.0.ten_chuong}}</a>
-                                    &nbsp;
-                                    <i class="fas fa-clock"></i><span class="time needs_to_be_rendered" datetime="{{this.chap_moi_ra.0.thoi_gian_tao}}">
-                                       
-                                    </span>
-                                    <input type="hidden" id="t-{{this._id}}" class="type"
-                                        value="{{this.chap_moi_ra.0.thoi_gian_tao}}">
+                <a href="/truyen-tranh/{{this.slug_truyen}}" class="card-content" title="{{this.ten_truyen}}">
+                    <div class="card-img card-img-top order-now"><img src="{{this.hinh_truyen}}"
+                            alt="{{this.ten_truyen}}" class="card-img">
+                        <p class="pcd-pricing">
+                            <span class="pcd-price"><a href="/truyen-tranh/{{this.slug_truyen}}"
+                                    title="Chapter {{this.chap_moi_ra.0.ten_chuong}}">Chapter
+                                    {{this.chap_moi_ra.0.ten_chuong}}</a>
+                                &nbsp;
+                                <i class="fas fa-clock"></i><span class="time needs_to_be_rendered"
+                                    datetime="{{this.chap_moi_ra.0.thoi_gian_tao}}">
+
                                 </span>
-                            </p>
+                                <input type="hidden" id="t-{{this._id}}" class="type"
+                                    value="{{this.chap_moi_ra.0.thoi_gian_tao}}">
+                            </span>
+                        </p>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-name">{{this.ten_truyen}}
                         </div>
-                        <div class="product-body">
-                            <div class="product-name">{{this.ten_truyen}}
-                            </div>
-                        </div>
-                    </a>
+                    </div>
+                </a>
             </div>
             {{/each}}
-            
+
         </div>
-         
+
     </div>
 </section>
 <!-- endsectionuudaigia -->
@@ -55,54 +56,67 @@
                             <div class="item-truyen">
                                 <figure class="clearfix">
                                     <div class="image">
-                                        <a title="{{this.ten_truyen}}"
-                                            href="/truyen-tranh/{{this.slug_truyen}}">
-                                            <img src="{{this.hinh_truyen}}"
-                                                class="lazy"
-                                                data-original="{{this.hinh_truyen}}"
-                                                alt="{{this.ten_truyen}}"
+                                        <a title="{{this.ten_truyen}}" href="/truyen-tranh/{{this.slug_truyen}}"
+                                            data-toggle="tooltip">
+                                            <img src="{{this.hinh_truyen}}" class="lazy"
+                                                data-original="{{this.hinh_truyen}}" alt="{{this.ten_truyen}}"
                                                 style="display: inline;">
                                         </a>
+
                                         <div class="view clearfix">
                                             <span class="pull-left">
                                                 <i class="fa fa-eye">
-                                                </i> <span class="needs_to_format">{{this.luot_xem}}</span><i class="fa fa-comment"></i> <span class="needs_to_format">{{this.luot_danh_gia}}</span> <i
+                                                </i> <span class="needs_to_format">{{this.luot_xem}}</span><i
+                                                    class="fa fa-comment"></i> <span
+                                                    class="needs_to_format">{{this.luot_danh_gia}}</span> <i
                                                     class="fa fa-heart"></i>
                                                 <span class="needs_to_format">{{this.luot_theo_doi}}</span></span>
                                         </div>
                                     </div>
                                     <figcaption>
                                         <h3>
-                                            <a class="jtip" data-jtip="#truyen-tranh-23961"
+                                            <a class="jtip"
                                                 href="/truyen-tranh/{{this.slug_truyen}}">{{this.ten_truyen}}</a>
                                         </h3>
+
                                         <ul>
-                                            <li class="chapter clearfix"><a
-                                                    href="/truyen-tranh/{{this.slug_truyen}}"
-                                                    title="Chapter {{this.chap_moi_ra.2.ten_chuong}}: {{this.ten_truyen}}">Chapter {{this.chap_moi_ra.2.ten_chuong}}</a><i
-                                                    class="time needs_to_be_rendered" datetime="{{this.chap_moi_ra.2.thoi_gian_tao}}"></i></li>
-                                            <li class="chapter clearfix"><a
-                                                    href="/truyen-tranh/{{this.slug_truyen}}"
-                                                    title="Chapter {{this.chap_moi_ra.1.ten_chuong}}: {{this.ten_truyen}}">Chapter {{this.chap_moi_ra.1.ten_chuong}}</a><i
-                                                    class="time needs_to_be_rendered" datetime="{{this.chap_moi_ra.1.thoi_gian_tao}}">{{this.chap_moi_ra.1.thoi_gian_tao}}</i></li>
-                                            <li class="chapter clearfix"><a
-                                                    href="/truyen-tranh/{{this.slug_truyen}}"
-                                                    title="Chapter {{this.chap_moi_ra.2.ten_chuong}}: {{this.ten_truyen}}">Chapter {{this.chap_moi_ra.0.ten_chuong}}</a><i
-                                                    class="time needs_to_be_rendered" datetime="{{this.chap_moi_ra.0.thoi_gian_tao}}">{{this.chap_moi_ra.0.thoi_gian_tao}}</i></li>
+                                            <li class="chapter clearfix"><a href="/truyen-tranh/{{this.slug_truyen}}"
+                                                    title="Chapter {{this.chap_moi_ra.2.ten_chuong}}: {{this.ten_truyen}}"
+                                                    class="sts">Chapter {{this.chap_moi_ra.2.ten_chuong}}</a><i
+                                                    class="time needs_to_be_rendered"
+                                                    datetime="{{this.chap_moi_ra.2.thoi_gian_tao}}"></i></li>
+                                            <li class="chapter clearfix"><a href="/truyen-tranh/{{this.slug_truyen}}"
+                                                    title="Chapter {{this.chap_moi_ra.1.ten_chuong}}: {{this.ten_truyen}}"
+                                                    class="sts">Chapter {{this.chap_moi_ra.1.ten_chuong}}</a><i
+                                                    class="time needs_to_be_rendered"
+                                                    datetime="{{this.chap_moi_ra.1.thoi_gian_tao}}">{{this.chap_moi_ra.1.thoi_gian_tao}}</i>
+                                            </li>
+                                            <li class="chapter clearfix"><a href="/truyen-tranh/{{this.slug_truyen}}"
+                                                    title="Chapter {{this.chap_moi_ra.0.ten_chuong}}: {{this.ten_truyen}}"
+                                                    class="sts">Chapter {{this.chap_moi_ra.0.ten_chuong}}</a><i
+                                                    class="time needs_to_be_rendered"
+                                                    datetime="{{this.chap_moi_ra.0.thoi_gian_tao}}">{{this.chap_moi_ra.0.thoi_gian_tao}}</i>
+                                                                                    
+                                            </li>
                                         </ul>
                                     </figcaption>
                                 </figure>
                             </div>
                         </div>
-                    {{/each}}
+                        {{/each}}
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-3">
                     {{> home-sidebar-history }}
-                     {{> home-sidebar-category }}
+                    {{> home-sidebar-category }}
                 </div>
             </div>
         </div>
     </div>
+    <a class="tooltip" href="#">Critical<span class="custom critical"><img
+                                                    src="Critical.png" alt="Error" height="48"
+                                                    width="48" /><em>Critical</em>This is just an example of what you
+                                                can do using a CSS tooltip, feel free to get creative and produce your
+                                                own!</span></a>
 </section>
 {{!-- endsectionnoidungtrangchu --}}

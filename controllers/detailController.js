@@ -25,7 +25,6 @@ router.get("/:slugTruyen", (req, res) => {
 
     ]).exec(function(err, truyen) {
         if (!err) {
-            console.log(truyen[0]);
             res.render("home/noiDungTrangDetail", {
                 layout: 'homeLayout.hbs',
                 noiDung: truyen[0],
@@ -44,36 +43,35 @@ router.get("/:slugTruyen/:tenChap/:idChap", (req, res) => {
             doc.luot_xem = Number(doc.luot_xem) + 1;
             doc.save(function(errUpdate) {
                 if (!errUpdate) {
-                    var q2 = Truyen.findOne({"slug_truyen": slugTruyen});
-                    q2.exec(function(err2, doc2){
-                        if(!err2)
-                        {
+                    var q2 = Truyen.findOne({ "slug_truyen": slugTruyen });
+                    q2.exec(function(err2, doc2) {
+                        if (!err2) {
                             doc2.luot_xem = Number(doc2.luot_xem) + 1;
-                            doc2.save(function(errupdate2){
+                            doc2.save(function(errupdate2) {
                                 Chapter.aggregate([{
-                                    $lookup: { from: "truyen", localField: "ma_truyen", foreignField: "_id", as: "truyen_chap" }
-                                },
-                                {
-                                    "$addFields": {
-                                        "truyen_chap": { "$slice": ["$truyen_chap", -1] }
+                                        $lookup: { from: "truyen", localField: "ma_truyen", foreignField: "_id", as: "truyen_chap" }
+                                    },
+                                    {
+                                        "$addFields": {
+                                            "truyen_chap": { "$slice": ["$truyen_chap", -1] }
+                                        }
+                                    },
+                                    { $match: { _id: new ObjectId(idChap) } }
+
+                                ]).exec(function(err, truyen) {
+                                    if (!err) {
+                                        res.render("home/noiDungTrangChapter", {
+                                            layout: 'homeLayout.hbs',
+                                            chapTruyen: truyen[0],
+                                            nameTruyen: truyen[0].truyen_chap[0]
+                                        })
                                     }
-                                },
-                                { $match: { _id: new ObjectId(idChap) } }
-        
-                            ]).exec(function(err, truyen) {
-                                if (!err) {
-                                    res.render("home/noiDungTrangChapter", {
-                                        layout: 'homeLayout.hbs',
-                                        chapTruyen: truyen[0],
-                                        nameTruyen: truyen[0].truyen_chap[0]
-                                    })
-                                }
-                            });
+                                });
                             })
                         }
 
                     })
-                   
+
                 }
             })
         }

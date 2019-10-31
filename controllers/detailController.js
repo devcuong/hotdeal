@@ -36,35 +36,37 @@ router.get("/:slugTruyen", (req, res) => {
 
 // lấy nội dung truyện
 router.get("/:slugTruyen/:tenChap/:idChap", (req, res) => {
-
-    // Chapter.findById(new ObjectId(req.params.idChap)).exec(function(err, truyen) {
-    //     if (!err) {
-    //         res.render("home/noiDungTrangChapter", {
-    //             layout: 'homeLayout.hbs',
-    //             chapTruyen: truyen
-    //         })
-    //     }
-    // })
     var idChap = req.params.idChap;
-    Chapter.aggregate([{
-            $lookup: { from: "truyen", localField: "ma_truyen", foreignField: "_id", as: "truyen_chap" }
-        },
-        {
-            "$addFields": {
-                "truyen_chap": { "$slice": ["$truyen_chap", -1] }
-            }
-        },
-        { $match: { _id: new ObjectId(idChap) } }
-
-    ]).exec(function(err, truyen) {
+    var slugTruyen = req.params.slugTruyen;
+    var q = Chapter.findOne({ "_id": new ObjectId(idChap) });
+    q.exec(function(err, doc) {
         if (!err) {
-            res.render("home/noiDungTrangChapter", {
-                layout: 'homeLayout.hbs',
-                chapTruyen: truyen[0],
-                nameTruyen: truyen[0].truyen_chap[0]
+            doc.luot_xem = Number(doc.luot_xem) + 1;
+            doc.save(function(errUpdate) {
+                if (!errUpdate) {
+                    Chapter.aggregate([{
+                            $lookup: { from: "truyen", localField: "ma_truyen", foreignField: "_id", as: "truyen_chap" }
+                        },
+                        {
+                            "$addFields": {
+                                "truyen_chap": { "$slice": ["$truyen_chap", -1] }
+                            }
+                        },
+                        { $match: { _id: new ObjectId(idChap) } }
+
+                    ]).exec(function(err, truyen) {
+                        if (!err) {
+                            res.render("home/noiDungTrangChapter", {
+                                layout: 'homeLayout.hbs',
+                                chapTruyen: truyen[0],
+                                nameTruyen: truyen[0].truyen_chap[0]
+                            })
+                        }
+                    });
+                }
             })
         }
-    });
+    })
 });
 
 router.post("/error/:idChap", (req, res) => {

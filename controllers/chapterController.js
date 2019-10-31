@@ -56,7 +56,6 @@ router.post("/add", (req, res) => {
 // hàm thêm mới
 function insertRecord(req, res) {
     var truyenId = req.body.idTruyen;
-
     var q = Truyen.findOne({ "_id": new ObjectId(truyenId) });
     q.exec(function(err, doc) {
         if (!err) {
@@ -70,11 +69,11 @@ function insertRecord(req, res) {
                     if (req.body.server1 && req.body.server2) {
                         var lstServer1 = req.body.server1.trim().split(',');
                         var lstServer2 = req.body.server2.trim().split(',');
-                        for(var i=0; i<lstServer1.length; i++){
-                            var sv = { sv_original:lstServer1[i],sv_cdn:lstServer2[i] };
+                        for (var i = 0; i < lstServer1.length; i++) {
+                            var sv = { sv_original: lstServer1[i], sv_cdn: lstServer2[i] };
                             chapter.server_truyen.push(sv);
                         }
-                
+
                     }
                     chapter.save((err, doc) => {
                         if (!err) {
@@ -117,8 +116,8 @@ function updateRecord(req, res) {
     if (req.body.server1 && req.body.server2) {
         var lstServer1 = req.body.server1.trim().split(',');
         var lstServer2 = req.body.server2.trim().split(',');
-        for(var i=0; i<lstServer1.length; i++){
-            var sv = { sv_original:lstServer1[i],sv_cdn:lstServer2[i] };
+        for (var i = 0; i < lstServer1.length; i++) {
+            var sv = { sv_original: lstServer1[i], sv_cdn: lstServer2[i] };
             foundChapter.server_truyen.push(sv);
         }
 

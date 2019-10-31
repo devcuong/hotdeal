@@ -6,18 +6,18 @@
       <div class="top">
         <ul class="breadcrumb" itemscope="" itemtype="http://schema.org/BreadcrumbList">
           <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a
-              href="http://www.nettruyen.com" class="itemcrumb" itemprop="item" itemtype="http://schema.org/Thing"><span
+              href="http://localhost:3000" class="itemcrumb" itemprop="item" itemtype="http://schema.org/Thing"><span
                 itemprop="name">Trang chủ</span></a>
             <meta itemprop="position" content="1">
           </li>
           <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a
-              href="http://www.nettruyen.com/tim-truyen" class="itemcrumb" itemprop="item"
+              href="http://localhost:3000/tim-truyen" class="itemcrumb" itemprop="item"
               itemtype="http://schema.org/Thing"><span itemprop="name">Thể loại</span></a>
             <meta itemprop="position" content="2">
             <input type="hidden" class="type" value="{{nameTruyen._id}}" id="hidden-id-truyen">
           </li>
           <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a
-              href="http://www.nettruyen.com/truyen-tranh/chua-te-hoc-duong" class="itemcrumb" itemprop="item"
+              href="http://localhost:3000/truyen-tranh/{{nameTruyen.slug_truyen}}" class="itemcrumb" itemprop="item"
               itemtype="http://schema.org/Thing">
               <span itemprop="name">{{nameTruyen.ten_truyen}}</span>
               <input type="hidden" value="{{nameTruyen.slug_truyen}}" id="hidden-name-truyen">
@@ -26,7 +26,7 @@
             <input type="hidden" class="type" value="{{chapTruyen._id}}" id="hidden-chap">
           </li>
           <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a
-              href="http://www.nettruyen.com/truyen-tranh/chua-te-hoc-duong/chap-1/84517" class="itemcrumb active"
+              href="http://localhost:3000/truyen-tranh/{{nameTruyen.slug_truyen}}/chap-{{chapTruyen.ten_chuong}}/{{chapTruyen._id}}" class="itemcrumb active"
               itemprop="item" itemtype="http://schema.org/Thing"><span itemprop="name">Chapter
                 {{chapTruyen.ten_chuong}}</span></a>
             <meta itemprop="position" content="4">
@@ -34,8 +34,8 @@
           </li>
         </ul>
         <h1 class="txt-primary"><a
-            href="http://www.nettruyen.com/truyen-tranh/chua-te-hoc-duong">{{nameTruyen.ten_truyen}}</a> <span>- Chapter
-            1</span></h1><i>[Cập nhật lúc: 01:14 16/03/2015]</i>
+            href="http://localhost:3000/truyen-tranh/{{nameTruyen.slug_truyen}}">{{nameTruyen.ten_truyen}}</a> <span>- Chapter
+            1</span></h1>
 
         <div class="facebook-like">
           <div data-share="true" data-show-faces="true" data-action="like" data-layout="button_count"

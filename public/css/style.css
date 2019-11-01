@@ -1503,3 +1503,37 @@ h3.title {
 }
 
 /* endsearch */
+
+/* tooltip */
+#preview {
+    position: absolute;
+    border: 1px solid #ccc;
+    background: #ffffff;
+    display: none;
+    color: #555;
+    width: 350px;
+}
+#preview p {
+    margin: 0px;
+}
+#preview label {
+    margin: 0px;
+    color: #059e9a;
+    font-weight: bold;
+}
+.img-tooltip {
+    float: left;
+    width: 140px;
+}
+.img-tooltip img {
+    width: 100%;
+}
+.info-tooltip {
+    float: right;
+    width: 200px;
+}
+.clearfix {
+    clear: both;
+}
+
+/* endtooltip */

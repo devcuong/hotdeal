@@ -57,12 +57,16 @@
                                 <figure class="clearfix">
                                     <div class="image">
                                         <a title="{{this.ten_truyen}}" href="/truyen-tranh/{{this.slug_truyen}}"
-                                            data-toggle="tooltip">
+                                            class="preview">
                                             <img src="{{this.hinh_truyen}}" class="lazy"
                                                 data-original="{{this.hinh_truyen}}" alt="{{this.ten_truyen}}"
                                                 style="display: inline;">
+                                            <span style="display: none;" id="hidden-ten-truyen">{{this.ten_truyen}}</span>
+                                            <span style="display: none;" id="hidden-the-loai">{{this.the_loai}}</span>
+                                            <span style="display: none;" id="hidden-luot-xem">{{this.luot_xem}}</span>
+                                            <span style="display: none;" id="hidden-tac-gia">{{this.tac_gia}}</span>
+                                            <span style="display: none;" id="hidden-noi-dung">{{this.noi_dung}}</span>
                                         </a>
-
                                         <div class="view clearfix">
                                             <span class="pull-left">
                                                 <i class="fa fa-eye">
@@ -96,7 +100,7 @@
                                                     class="sts">Chapter {{this.chap_moi_ra.0.ten_chuong}}</a><i
                                                     class="time needs_to_be_rendered"
                                                     datetime="{{this.chap_moi_ra.0.thoi_gian_tao}}">{{this.chap_moi_ra.0.thoi_gian_tao}}</i>
-                                                                                    
+
                                             </li>
                                         </ul>
                                     </figcaption>
@@ -113,10 +117,5 @@
             </div>
         </div>
     </div>
-    <a class="tooltip" href="#">Critical<span class="custom critical"><img
-                                                    src="Critical.png" alt="Error" height="48"
-                                                    width="48" /><em>Critical</em>This is just an example of what you
-                                                can do using a CSS tooltip, feel free to get creative and produce your
-                                                own!</span></a>
 </section>
 {{!-- endsectionnoidungtrangchu --}}

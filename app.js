@@ -54,7 +54,7 @@ app.engine("hbs", exphbs({
 
 app.set("view engine", "hbs");
 
-app.listen(3000, '127.0.0.1', () => {
+app.listen(3000, 'localhost', () => {
     console.log("Express server started at port : 3000");
 });
 // app.use("/noi-dung", trangConController);

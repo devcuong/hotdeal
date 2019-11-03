@@ -1,3 +1,6 @@
+<script>
+  $("body").addClass("chapter-detail");
+</script>
 {{!-- sectionchaptertruyen --}}
 <section class="section-chapter-truyen index-section">
   <div class="container">
@@ -46,8 +49,7 @@
         </div>
       </div>
       <div class="reading-control">
-        <span class="chapter-id hidden" data-id="84517" data-cdn="http://truyen.cloud"
-          data-cdn2="http://imageinstant.com" data-suffix=""></span>
+        <span class="chapter-id hidden" data-id="{{chapTruyen._id}}" data-suffix=""></span>
         <div class="mb-10">
           Nếu không xem được truyện vui lòng đổi "SERVER ẢNH" bên dưới
           <div class="mt-10">
@@ -106,9 +108,9 @@
         </div>
         <div class="chapter-nav" style="z-index: 1000;">
           <a class="home changeserver" href="#" title="Đổi server">Đổi SV</a>
-          <a href="javascript:void(0)" class="prev-link">chap trước</a>
+          <a href="#" class="prev-link">chap trước</a>
           <select id="id-Select-chapter" class="select-chapter"></select>
-          <a href="/truyen-tranh/chua-te-hoc-duong/chap-2/84518" class="next-link">chap sau</a>
+          <a href="#" class="next-link">chap sau</a>
           <a class="follow-link btn btn-success" href="javascript:void(0)" data-id="4446"><i class="fa fa-heart"></i>
             <span>Theo dõi</span></a></div>
         <div></div>

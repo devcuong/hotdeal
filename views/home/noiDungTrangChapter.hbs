@@ -214,7 +214,7 @@
     $(function () {
       $('#myFormSubmit').click(function (e) {
         e.preventDefault();
-        $.post('http://localhost:3000/truyen-tranh/error/' + $("#hidden-chap").val(),
+        $.post('/truyen-tranh/error/' + $("#hidden-chap").val(),
           $('#myForm').serialize(),
           function (data, status, xhr) {
             $("#myModal .close").click()

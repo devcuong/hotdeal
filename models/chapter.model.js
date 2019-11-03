@@ -16,14 +16,14 @@ var chapterSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId
     },
     thoi_gian_tao: {
-        type: Date,
+        type: String,
         default: Date.now
     },
     luot_xem: {
         type: String
     },
     server_truyen: [{
-        _id:false,
+        _id: false,
         sv_original: String,
         sv_cdn: String
     }],

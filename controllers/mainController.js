@@ -11,29 +11,23 @@ const Truyen = mongoose.model("Truyen");
 
 // trang chu
 router.get("/", (req, res) => {
-        var q = TheLoai.find();
-        q.exec(function(err, theLoais) {
-            if (!err) {
-                var q2 = Truyen.aggregate([{
-                        $lookup: { from: "chapter", localField: "_id", foreignField: "ma_truyen", as: "chap_moi_ra" }
-                    },
-                    {
-                        "$addFields": {
-                            "chap_moi_ra": { "$slice": ["$chap_moi_ra", -3] }
-                        }
-                    }
-                ]).limit(12).exec(function(err2, truyens) {
-                    if (!err2) {
-                        res.render("home/noiDungTrangChu", {
-                            layout: 'homeLayout.hbs',
-                            lstTheLoai: theLoais,
-                            lstTruyenDeCu: truyens,
-                            lstTruyenCapNhat: truyens
-                        });
-                    } else {
-                        console.log(err2);
-                    }
-                })
+        var q2 = Truyen.aggregate([{
+                $lookup: { from: "chapter", localField: "_id", foreignField: "ma_truyen", as: "chap_moi_ra" }
+            },
+            {
+                "$addFields": {
+                    "chap_moi_ra": { "$slice": ["$chap_moi_ra", -3] }
+                }
+            }
+        ]).limit(12).exec(function(err2, truyens) {
+            if (!err2) {
+                res.render("home/noiDungTrangChu", {
+                    layout: 'homeLayout.hbs',
+                    lstTruyenDeCu: truyens,
+                    lstTruyenCapNhat: truyens
+                });
+            } else {
+                console.log(err2);
             }
         })
     })

@@ -1,5 +1,5 @@
 <script>
-  $("body").addClass("chapter-detail");
+  $("body").addClass("view-chapter");
 </script>
 {{!-- sectionchaptertruyen --}}
 <section class="section-chapter-truyen index-section">
@@ -26,27 +26,16 @@
               <input type="hidden" value="{{nameTruyen.slug_truyen}}" id="hidden-name-truyen">
             </a>
             <meta itemprop="position" content="3">
-            <input type="hidden" class="type" value="{{chapTruyen._id}}" id="hidden-chap">
           </li>
           <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a
               href="/truyen-tranh/{{nameTruyen.slug_truyen}}/chap-{{chapTruyen.ten_chuong}}/{{chapTruyen._id}}" class="itemcrumb active"
-              itemprop="item" itemtype="http://schema.org/Thing"><span itemprop="name">Chapter
-                {{chapTruyen.ten_chuong}}</span></a>
+              itemprop="item" itemtype="http://schema.org/Thing"><span itemprop="name">Chapter {{chapTruyen.ten_chuong}}</span></a>
             <meta itemprop="position" content="4">
-            <input type="hidden" class="type" value="{{chapTruyen._id}}" id="hidden-chap">
           </li>
         </ul>
         <h1 class="txt-primary"><a
             href="/truyen-tranh/{{nameTruyen.slug_truyen}}">{{nameTruyen.ten_truyen}}</a> <span>- Chapter
             1</span></h1>
-
-        <div class="facebook-like">
-          <div data-share="true" data-show-faces="true" data-action="like" data-layout="button_count"
-            data-href="http://www.nettruyen.com/truyen-tranh/chua-te-hoc-duong/chap-1/84517"
-            class="fb-like fb_iframe_widget" fb-xfbml-state="rendered"
-            fb-iframe-plugin-query="action=like&amp;app_id=745819368841087&amp;container_width=0&amp;href=http%3a%2f%2fwww.nettruyen.com%2ftruyen-tranh%2fchua-te-hoc-duong%2fchap-1%2f84517&amp;layout=button_count&amp;locale=vi_VN&amp;sdk=joey&amp;share=true&amp;show_faces=true">
-          </div>
-        </div>
       </div>
       <div class="reading-control">
         <span class="chapter-id hidden" data-id="{{chapTruyen._id}}" data-suffix=""></span>
@@ -69,7 +58,7 @@
         </div>
 
         <div class="mb-10">
-          <a rel="nofollow" href="javascript:void(0)" class="alertError btn btn-warning" data-toggle="modal"
+          <a rel="nofollow" href="#" class="alertError btn btn-warning" data-toggle="modal"
             data-target="#myModal"><i class="fa fa-exclamation-triangle"></i> Báo lỗi</a>
           <!-- Modal -->
           <div id="myModal" class="modal fade" role="dialog">
@@ -93,7 +82,7 @@
                       </div>
                     </div>
                     <p>
-                      <button id="myFormSubmit" href="javascript:void(0);"
+                      <button id="myFormSubmit" href="#"
                         class="btn btn-focus mrb5 btn-send-report btn-bao-loi" type="submit">Gửi đi</button>
                     </p>
                   </div>
@@ -111,7 +100,7 @@
           <a href="#" class="prev-link">chap trước</a>
           <select id="id-Select-chapter" class="select-chapter"></select>
           <a href="#" class="next-link">chap sau</a>
-          <a class="follow-link btn btn-success" href="javascript:void(0)" data-id="4446"><i class="fa fa-heart"></i>
+          <a class="follow-link btn btn-success" href="#" data-id="4446"><i class="fa fa-heart"></i>
             <span>Theo dõi</span></a></div>
         <div></div>
       </div>
@@ -216,7 +205,7 @@
     $(function () {
       $('#myFormSubmit').click(function (e) {
         e.preventDefault();
-        $.post('/truyen-tranh/error/' + $("#hidden-chap").val(),
+        $.post('/truyen-tranh/error/' + $(".chapter-id").data("id"),
           $('#myForm').serialize(),
           function (data, status, xhr) {
             $("#myModal .close").click()
@@ -280,12 +269,6 @@
         header.classList.remove("sticky");
       }
     }
-
-    var lazyLoadInstance = new LazyLoad({
-      elements_selector: ".lazy-hinh",
-      container: document.getElementById('content-image-truyen')
-    });
-
     
   </script>
 

@@ -45,10 +45,10 @@
       moreText.style.display = "inline";
     }
   }
-  
+
   var nodes = document.querySelectorAll('.needs_to_be_rendered');
 
- // use render method to render nodes in real time
+  // use render method to render nodes in real time
   timeago.render(nodes, 'vi');
 
   // cancel all real-time render task
@@ -65,4 +65,67 @@
     numberNodes[i].innerHTML = numberNodes[i].innerHTML.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   }
 
+  if ($("body").hasClass("view-chapter") && "undefined" != typeof Storage) {
+    var c = $(".chapter-id").data("id");
+    if (c) {
+      if (void 0 !== localStorage["visited-chapters"]) {
+        if (-1 == (H = JSON.parse(localStorage["visited-chapters"])).indexOf(c)) {
+          if (H.push(c), H.length > 2e3)
+            for (var b = 0; b < 1500; b++) H.shift();
+          localStorage["visited-chapters"] = JSON.stringify(H)
+        }
+      }
+      else {
+        (O = []).push(c), localStorage["visited-chapters"] = JSON.stringify(O);
+      }
+      var x = $(".breadcrumb li").eq(2).find("a"),
+        A = $(".breadcrumb li").eq(3).find("a"),
+        k = $('meta[itemprop="image"]').attr("content");
+      if (x && A && k) {
+        var S = $("#hidden-id-truyen").val();
+          j = {
+            id: S,
+            image: k,
+            name: x.find("span").html(),
+            url: x.attr("href"),
+            chapterName: A.find("span").html(),
+            chapterUrl: A.attr("href")
+          };
+        if (void 0 !== localStorage["visited-comics"]) {
+          var H, T = (H = JSON.parse(localStorage["visited-comics"])).map(function (e) {
+            return e.id
+          }).indexOf(S);
+          if (T > -1 && H.splice(T, 1), H.push(j), H.length > 72)
+            for (b = 72; b < H.length; b++) H.shift();
+          localStorage["visited-comics"] = JSON.stringify(H)
+        } else {
+          (O = []).push(j), localStorage["visited-comics"] = JSON.stringify(O)
+        }
+      }
+    }
+  }
+  if ($(".visited-comics").length && ("undefined" != typeof Storage && void 0 !== localStorage["visited-comics"] && (H = JSON.parse(localStorage["visited-comics"])).length > 0)) {
+    L = $("<div>").addClass("box darkBox").html('<h2>Lịch sử đọc truyện<a class="view-all" href="/lich-su">Xem tất cả</a></h2>'), P = $("<ul>").addClass("list-unstyled");
+    var J = 0;
+    for (b = H.length - 1; b >= 0; b--) {
+        I = H[b], E = $("<li>").addClass("clearfix");
+        var F = $("<div>").addClass("t-item");
+        E.append(F);
+        U = $("<a>").addClass("thumb").attr("title", I.name).attr("href", I.chapterUrl), B = $("<img>").addClass("lazy").attr("alt", I.name).attr("data-original", I.image).attr("src", I.image);
+        U.append(B), F.append(U);
+        _ = $("<h3>").addClass("t-title"), z = $("<a>").html(I.name).attr("href", I.chapterUrl);
+        _.append(z), F.append(_);
+        var q = $("<p>").addClass("chapter"),
+            K = $("<a>").html("Đọc tiếp " + I.chapterName + ' <i class="fa fa-angle-double-right"></i>').attr("href", I.chapterUrl),
+            X = $("<span>").addClass("view pull-right");
+        $("<a>").addClass("visited-remove").attr("href", "#").data("id", I.id).html('<i class="fa fa-times"></i> Xóa').click(function(e) {
+            return e.preventDefault(), V($(this)), !1
+        }).appendTo(X);
+        if (q.append(K).append(X), F.append(q), P.append(E), ++J > 2) break
+    }
+    L.append(P), $(".visited-comics").append(L)
+}
+    var lazyLoadInstance = new LazyLoad({
+      elements_selector: ".lazy-hinh"
+    });
 </script>

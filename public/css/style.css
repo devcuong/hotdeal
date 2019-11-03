@@ -1074,11 +1074,14 @@ p.wap-time.px-2 {
 .col-truyen {
     text-align: left;
 }
-.lazy {
-    width: 200px;
-}
 .image {
     position: relative;
+    height: 250px;
+    border: 2px solid #c0392b;
+    border-radius: 4px;
+    box-shadow: #000 0 0 0;
+    text-align: center;
+    overflow: hidden;
 }
 .image .view {
     position: absolute;

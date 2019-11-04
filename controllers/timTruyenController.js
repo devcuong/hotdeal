@@ -15,6 +15,7 @@ router.get("/:theLoaiTruyen", (req, res) => {
             res.render("home/noiDungTrangTimTruyen", {
                 layout: 'homeLayout.hbs',
                 lstTruyen: truyen,
+                titleTrang: "DANH SÁCH TRUYỆN"
             })
         }
     });

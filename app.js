@@ -11,6 +11,7 @@ const chapterController = require("./controllers/chapterController");
 const mainController = require("./controllers/mainController");
 const detailController = require("./controllers/detailController.js");
 const timTruyenController = require("./controllers/timTruyenController.js");
+const lichSuController = require("./controllers/lichSuController.js");
 
 app.use(bodyparser.urlencoded({
     extended: true
@@ -57,7 +58,6 @@ app.set("view engine", "hbs");
 app.listen(3000, () => {
     console.log("Express server started at port : 3000");
 });
-// app.use("/noi-dung", trangConController);
 app.use("/admin/tin-tuc", tintucController);
 app.use("/admin/video", videoController);
 app.use("/admin/truyen", truyenController);
@@ -65,3 +65,4 @@ app.use("/admin/chapter", chapterController);
 app.use("/", mainController);
 app.use("/truyen-tranh", detailController);
 app.use("/tim-truyen", timTruyenController);
+app.use("/lich-su", lichSuController);

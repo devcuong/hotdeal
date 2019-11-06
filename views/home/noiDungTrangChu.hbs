@@ -50,7 +50,7 @@
                             <span class="title_home_text">TRUYỆN MỚI CẬP NHẬT</span>
                         </a>
                     </div>
-                    <div class="row">
+                    <div class="row truyen-item-home">
                         {{#each lstTruyenCapNhat}}
                         <div class="col-md-3 col-truyen">
                             <div class="item-truyen">
@@ -61,7 +61,8 @@
                                             <img src="//images.weserv.nl/?url={{this.hinh_truyen}}&w=200" class="lazy"
                                                 data-original="{{this.hinh_truyen}}" alt="{{this.ten_truyen}}"
                                                 style="display: inline;">
-                                            <span style="display: none;" id="hidden-ten-truyen">{{this.ten_truyen}}</span>
+                                            <span style="display: none;"
+                                                id="hidden-ten-truyen">{{this.ten_truyen}}</span>
                                             <span style="display: none;" id="hidden-the-loai">{{this.the_loai}}</span>
                                             <span style="display: none;" id="hidden-luot-xem">{{this.luot_xem}}</span>
                                             <span style="display: none;" id="hidden-tac-gia">{{this.tac_gia}}</span>
@@ -69,12 +70,13 @@
                                         </a>
                                         <div class="view clearfix">
                                             <span class="pull-left">
-                                                <i class="fa fa-eye">
-                                                </i> <span class="needs_to_format">{{this.luot_xem}}</span><i
-                                                    class="fa fa-comment"></i> <span
-                                                    class="needs_to_format">{{this.luot_danh_gia}}</span> <i
-                                                    class="fa fa-heart"></i>
-                                                <span class="needs_to_format">{{this.luot_theo_doi}}</span></span>
+                                                <i class="fa fa-eye"></i>
+                                                <span class="needs_to_format">{{this.luot_xem}}</span>
+                                                <i class="fa fa-comment"></i> 
+                                                <span class="needs_to_format">{{this.luot_danh_gia}}</span> 
+                                                <i class="fa fa-heart"></i>
+                                                <span class="needs_to_format">{{this.luot_theo_doi}}</span>
+                                            </span>
                                         </div>
                                     </div>
                                     <figcaption>
@@ -106,9 +108,18 @@
                                     </figcaption>
                                 </figure>
                             </div>
+                          
                         </div>
                         {{/each}}
                     </div>
+                        <div id="loadpage">
+                                <div class="loadingGif" style="width: 60px;margin: 0 auto; display: none;">
+                                <img src="https://truyenmoi.xyz/web_images/loading.gif" alt="loading next page truyenmoi.xyz" style="width: 100%">
+                                </div>
+                                <div>
+                                    <a href="javascript:;" class="xem-them">Xem thêm, còn nhiều truyện nữa</a>
+                                </div>
+                        </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-3">
                     {{> home-sidebar-history }}

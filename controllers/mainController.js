@@ -33,18 +33,50 @@ router.get("/", (req, res) => {
     })
     // trang chu
 router.get("/hot", (req, res) => {
-        var sortTruyen = { luot_xem: -1 };
-        Truyen.find().sort(sortTruyen).exec(function(err, truyen) {
-            if (!err) {
-                res.render("home/noiDungTrangTimTruyen", {
-                    layout: 'homeLayout.hbs',
-                    lstTruyen: truyen,
-                    titleTrang: "TRUYỆN HOT"
-                })
+    var sortTruyen = { luot_xem: -1 };
+    Truyen.find().sort(sortTruyen).exec(function(err, truyen) {
+        if (!err) {
+            res.render("home/noiDungTrangTimTruyen", {
+                layout: 'homeLayout.hbs',
+                lstTruyen: truyen,
+                titleTrang: "TRUYỆN HOT"
+            })
+        }
+    });
+})
+
+// api get thêm truyện
+router.post("/load-them-truyen", (req, res) => {
+    var perPage = 12;
+    var page = parseInt(req.body.skip);
+    Truyen.aggregate([{
+                $lookup: { from: "chapter", localField: "_id", foreignField: "ma_truyen", as: "chap_moi_ra" }
+            },
+            {
+                "$addFields": {
+                    "chap_moi_ra": { "$slice": ["$chap_moi_ra", -3] }
+                }
             }
-        });
-    })
-    // cấu hình multer
+        ]).skip(page)
+        .limit(perPage)
+        .exec(function(err, truyens) {
+            if (!err) {
+                var o = new Object;
+                var keyStatus = "status";
+                var keyListTruyen = "listTruyen";
+                if (truyens.length > 0) {
+                    o[keyListTruyen] = truyens;
+                    o[keyStatus] = 1;
+                } else {
+                    o[keyStatus] = 0;
+                }
+                res.send(JSON.stringify(o));
+            } else {
+                console.log(err);
+            }
+        })
+});
+// cấu hình multer
 var storage = multer.diskStorage({
 
     // folder up file

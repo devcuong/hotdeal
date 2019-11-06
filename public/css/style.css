@@ -12,7 +12,7 @@ body {
     height: 100%;
     font-size: 16px;
     color: #333;
-    font-family: "Roboto", sans-serif;
+    font-family: Open Sans, Tahoma, Geneva, sans-serif;
 }
 
 h1,
@@ -214,9 +214,10 @@ a:active {
 
 /* endbreadcrumbcontainer */
 
-.title_home_text {
+
+/*.title_home_text {
     font-family: "Anton", sans-serif;
-}
+}*/
 
 footer {
     background-color: #3f3f3f;
@@ -691,7 +692,7 @@ div.title_home {
 
 .title_home_text {
     display: inline-block;
-    padding: 4px 15px 7px 30px;
+    padding: 4px 15px 6px 30px;
     font-size: 20px;
     line-height: 40px;
     position: relative;
@@ -704,6 +705,16 @@ div.title_home {
 .col-product {
     padding-right: 20px;
     padding-left: 20px;
+}
+
+.xem-them {
+    float: left;
+    width: 100%;
+    font: 300 16px/43px Open Sans, Tahoma, Geneva, sans-serif;
+    color: #fff;
+    text-align: center;
+    background: #ff530d;
+    -webkit-transition: all .5s;
 }
 
 
@@ -1210,6 +1221,11 @@ a.jtip {
     color: #03f;
     text-decoration: none;
     font-weight: bold;
+}
+.item ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 /* endlichsudoctruyen */

@@ -183,7 +183,6 @@
       url: '/load-them-truyen',
       success: function (response) {
         if (response.status == 1) {
-          alert(response.listTruyen[0]._id);
           var listTruyen = response.listTruyen;
 
           var errorJs = "javascript:this.src='/themes/home/images/404-avatar.png';";
@@ -199,24 +198,50 @@
             var B = $("<div>").addClass("item-truyen");
             var C = $("<figure>").addClass("clearfix");
             var D = $("<div>").addClass("image");
-              var E = $("<a>").addClass("preview");
-              E.attr("title", truyen.ten_truyen);
-              E.attr("href", "/truyen-tranh/" + truyen.slug_truyen);
-              var F = $("<img>").addClass("lazy");
-              F.attr("src", truyen.hinh_truyen);
-              F.data("original", truyen.hinh_truyen);
-              F.attr("style", "display: inline ;");
-              var G = $("<div>").addClass("view clearfix");
-              var H = $("<span>").addClass("pull-left");
-              var I1 = $("<i>").addClass("fa fa-eye");
-              var I2 = $("<i>").addClass("fa fa-comment");
-              var I3 = $("<i>").addClass("fa fa-heart");
-              var J1 = $("<span>").addClass("needs_to_format");
-              J1.text(listTruyen[i].luot_xem);
-              var J2 = $("<span>").addClass("needs_to_format");
-              J2.text(listTruyen[i].luot_danh_gia);
-              var J3 = $("<span>").addClass("needs_to_format");
-              J3.text(listTruyen[i].luot_theo_doi);
+            var E = $("<a>").addClass("preview");
+            E.attr("title", truyen.ten_truyen);
+            E.attr("href", "/truyen-tranh/" + truyen.slug_truyen);
+            var F = $("<img>").addClass("lazy");
+            F.attr("src", truyen.hinh_truyen);
+            F.data("original", truyen.hinh_truyen);
+            F.attr("style", "display: inline ;");
+
+            var FF = $("<span>");
+            FF.attr("style","display:none");
+            FF.attr("id","hidden-ten-truyen");
+            FF.text(truyen.ten_truyen);
+
+            var FFF = $("<span>");
+            FFF.attr("style","display:none");
+            FFF.attr("id","hidden-the-loai");
+            FFF.text(truyen.the_loai);
+
+            var FFFF = $("<span>");
+            FFFF.attr("style","display:none");
+            FFFF.attr("id","hidden-luot-xem");
+            FFFF.text(truyen.luot_xem);
+
+            var FFFF = $("<span>");
+            FFFF.attr("style","display:none");
+            FFFF.attr("id","hidden-tac-gia");
+            FFFF.text(truyen.tac_gia);
+
+            var FFFFF = $("<span>");
+            FFFFF.attr("style","display:none");
+            FFFFF.attr("id","hidden-noi-dung");
+            FFFFF.text(truyen.noi_dung);
+            
+            var G = $("<div>").addClass("view clearfix");
+            var H = $("<span>").addClass("pull-left");
+            var I1 = $("<i>").addClass("fa fa-eye");
+            var I2 = $("<i>").addClass("fa fa-comment");
+            var I3 = $("<i>").addClass("fa fa-heart");
+            var J1 = $("<span>").addClass("needs_to_format");
+            J1.text(listTruyen[i].luot_xem);
+            var J2 = $("<span>").addClass("needs_to_format");
+            J2.text(listTruyen[i].luot_danh_gia);
+            var J3 = $("<span>").addClass("needs_to_format");
+            J3.text(listTruyen[i].luot_theo_doi);
             //Figcaption
             var DF = $("<figcaption>");
             var DFH3 = $("<H3>");
@@ -226,12 +251,12 @@
             for (var j = 0; j < baChapMoi.length; j++) {
               var DFULLI = $("<li>").addClass("chapter clearfix");
               var DFULLIA = $("<a>").addClass("sts");
-              DFULLIA.attr("title","Chapter " + baChapMoi[i].ten_chuong);
+              DFULLIA.attr("title", "Chapter " + baChapMoi[i].ten_chuong);
               DFULLIA.attr("href", "/truyen-tranh/" + truyen.ten_truyen);
               DFULLIA.text("Chapter " + baChapMoi[i].ten_chuong);
               var DFULLII = $("<i>").addClass("time needs_to_be_rendered");
               DFULLII.attr("datetime", baChapMoi[i].thoi_gian_tao);
-              timeago.render(DFULLII,'vi');
+              timeago.render(DFULLII, 'vi');
               DFULLI.append(DFULLIA);
               DFULLI.append(DFULLII);
 
@@ -246,6 +271,10 @@
             H.append(J3);
             G.append(H);
             E.append(F);
+            E.append(FF);
+            E.append(FFF);
+            E.append(FFFF);
+            E.append(FFFFF);
             E.append(G);
             D.append(E);
             C.append(D);
@@ -263,6 +292,57 @@
     });
   });
 
+  /*tooltip*/
+    /* CONFIG */
+    xOffset = 10;
+    yOffset = 30;
+    /* END CONFIG */
+    $("a.preview").hover(function(e) {
+            this.t = this.title;
+            this.title = "";
+            var imageHover = this.querySelector("img.lazy").src;
+            var theLoaiTruyen = this.querySelector("span#hidden-the-loai").innerText;
+            var luotXemTruyen = this.querySelector("span#hidden-luot-xem").innerText;
+            var tacGiaTruyen = this.querySelector("span#hidden-tac-gia").innerText;
+            var noiDungTruyen = this.querySelector("span#hidden-noi-dung").innerText;
+            var c = (this.t != "") ? "<br/>" + this.t : "";
+            var toolTipBox = "<div id='preview'>";
+            toolTipBox += "<div class='tooltip-box'>";
+            toolTipBox += "<div class='img-tooltip'>";
+            toolTipBox += "<img src='" + imageHover + "' alt='Image preview' />";
+            toolTipBox += "</div>"
+            toolTipBox += "<div class='info-tooltip'>";
+            toolTipBox += "<p><label>Thể loại:</label>" + theLoaiTruyen;
+            toolTipBox += "</p>";
+            toolTipBox += "<p><label>Lượt xem:</label>" + luotXemTruyen;
+            toolTipBox += "</p>";
+            toolTipBox += "<p><label>Tác giả:</label>" + tacGiaTruyen;
+            toolTipBox += "</p>";
+            toolTipBox += "</div>";
+            toolTipBox += "<div class='clearfix'>";
+            toolTipBox += "</div>";
+            toolTipBox += "<div>";
+            toolTipBox += "<p><label>Nội dung:</label>" + noiDungTruyen;
+            toolTipBox += "</p>";
+            toolTipBox += "</div>";
+            toolTipBox += "</div>";
+            toolTipBox += "</div>";
+            $("body").append(toolTipBox);
+            $("#preview")
+                .css("top", (e.pageY - xOffset) + "px")
+                .css("left", (e.pageX + yOffset) + "px")
+                .fadeIn("fast");
+        },
+        function() {
+            this.title = this.t;
+            $("#preview").remove();
+        });
+    $("a.preview").mousemove(function(e) {
+        $("#preview")
+            .css("top", (e.pageY - xOffset) + "px")
+            .css("left", (e.pageX + yOffset) + "px");
+    });
+    /*endtooltip*/
   var lazyLoadInstance = new LazyLoad({
     elements_selector: ".lazy-hinh"
   });

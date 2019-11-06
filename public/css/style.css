@@ -10,7 +10,8 @@
 html,
 body {
     height: 100%;
-    font-size: 16px;
+    font-size: 14px;
+    font-weight: 400;
     color: #333;
     font-family: Open Sans, Tahoma, Geneva, sans-serif;
 }
@@ -47,8 +48,16 @@ a:active {
     background-color: #fff;
 }
 
+.section-chapter-truyen {
+    padding-top: 5px !important;
+}
+
 .section-detail-truyen {
-    background-color: #fff;
+    /*background-color: #fff;*/
+}
+
+.section-view-chapter {
+    padding: 5px 0px 30px 0px;
 }
 
 .index-section {
@@ -57,6 +66,15 @@ a:active {
 
 .dark {
     background-color: #ff530d;
+}
+
+.btn {
+    border-radius: 0px;
+}
+
+.view-chapter {
+    background: url(https://truyenmoi.xyz/themes/home/icons/black_thread.png)!important;
+    border: 0;
 }
 
 
@@ -72,11 +90,6 @@ a:active {
 .container-fluid {
     padding-right: 20px;
     padding-left: 20px;
-}
-
-.row {
-    margin-right: 0px !important;
-    margin-left: 0px !important;
 }
 
 .d-flex {
@@ -237,69 +250,39 @@ hr.light-100 {
 
 /*Media query*/
 
-@media(max-width: 992px) {
-    .carousel-caption {
-        top: 20%;
+@media screen and (max-width: 576px) {
+    #control-list-button {
+        display: none;
     }
-    .carousel-caption h1 {
-        font-size: 250%;
+    #control-home-button {
+        display: none;
     }
-    .carousel-caption h3 {
-        font-size: 160%;
+    .col-noi-dung {
+        padding-left: 0px;
+        padding-right: 0px;
     }
-    .carousel-caption btn {
-        font-size: 160%;
+    .breadcrumb {
+        padding: 0px;
+        background-color: #059e9a;
+        white-space: nowrap;
+        flex-wrap: unset;
     }
-}
-
-@media(max-width: 768px) {
-    .carousel-caption {
-        top: 20%;
+    .breadcrumb li a {
+        color: #ffffff;
+        font-weight: 400;
     }
-    .carousel-caption h1 {
-        font-size: 220%;
-    }
-    .carousel-caption h3 {
-        font-size: 140%;
-        padding-bottom: 0.2rem;
-    }
-    .carousel-caption .btn {
-        font-size: 95%;
-        padding: 8px 14px;
-    }
-}
-
-@media(max-width: 576px) {
-    .carousel-caption {
-        top: 10%;
-    }
-    .carousel-caption h1 {
-        font-size: 150%;
-    }
-    .carousel-caption h3 {
-        font-size: 110%;
-    }
-    .carousel-caption .btn {
-        font-size: 90%;
-        padding: 4px 8px;
+    .row {
+        margin-right: -15px;
+        margin-left: -15px;
     }
 }
 
 @media (min-width: 1200px) {
-    html,
-    body {
-        background-color: #f4f4f4;
-    }
-    .main-container {
-        margin-right: auto;
-        margin-left: auto;
+    .row {
+        margin-left: 0px;
+        margin-right: 0px;
     }
     /*slider*/
-    #big .item {
-        color: #FFF;
-        text-align: center;
-        height: 220px;
-    }
     .owl-theme .owl-nav [class*='owl-'] {
         transition: all .3s ease;
         border-radius: 0px;
@@ -428,64 +411,10 @@ hr.light-100 {
         background-color: #fff;
         transition: box-shadow .3s;
     }
-    .product .order-now .btn-order {
-        transform: translate(-50%, -50%) scale(0);
-        transition: all .2s;
-        z-index: 2;
-    }
-    .product-body {
-        font-size: 14px;
-        color: #333;
-        -ms-flex: 1 1 auto;
-        flex: 1 1 auto;
-        padding: 0 15px;
-        /* border: 1px solid #ebebeb; */
-        border-top: 0;
-        border-radius: 0 0 5px 5px;
-    }
-    .product-name {
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-        font-weight: 700;
-        padding: 6px 0;
-    }
-    .product-name {
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-    }
-    .product-address .fa-map-marker {
-        margin-right: 5px;
-    }
-    .product-info {
-        position: relative;
-        border-top: 1px solid #ebebeb;
-    }
-    .product-info .label .sale {
-        color: #c8102e;
-        font-size: 16px;
-    }
-    .product-info .label span {
-        color: #000;
-        font-family: inherit;
-        font-weight: bold;
-        margin-right: 5px;
-        margin-bottom: 5px;
-        font-size: 16px;
-    }
     .card-img {
         height: 300px;
         border-radius: 0px;
         position: relative;
-    }
-    .pcd-pricing {
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        background: rgb(0, 0, 0, 0.8);
-        color: #fff;
-        padding: 8px 15px;
     }
     .card-content:hover {
         text-decoration: none;
@@ -519,126 +448,10 @@ hr.light-100 {
         opacity: 0;
         transition: all .1s;
     }
-    .product .order-now:hover .btn-order {
-        transform: translate(-50%, -50%) scale(1);
-        transition: all .2s;
-        z-index: 2;
-    }
-    .bg-img {
-        width: 100%;
-        padding-top: 185px;
-        margin-top: 8px;
-        margin-bottom: 12px;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: 50%;
-        text-align: center;
-        z-index: 1;
-        overflow: hidden;
-        display: inline-block;
-        height: auto;
-        vertical-align: middle;
-        border-style: none;
-        webkit-transform: translate3d(0, 0, 0);
-        transform: translate3d(0, 0, 0);
-        -ms-transform: translate3d(0, 0, 0);
-        -o-transform: translate3d(0, 0, 0);
-        -moz-transform: translate3d(0, 0, 0);
-        transition: all 0.5s ease 0s;
-        -webkit-transition: all 0.5s ease;
-        -moz-transition: all 0.5s ease 0s;
-        -o-transition: all 0.5s ease 0s;
-    }
     .promo-row {
         padding: 0px;
     }
-    /*ribbonproduct*/
-    .all-ribbon {
-        position: absolute;
-        top: 0;
-        left: 10px;
-        filter: drop-shadow(2px 0px 1px rgba(0, 0, 0, 0.5));
-    }
-    .ribbon-product {
-        background: rgba(255, 255, 255, 1);
-        min-height: 50px;
-    }
-    .ribbon-product img {
-        margin-top: 10px;
-        max-width: 100px;
-    }
-    .ribbon-end {
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-width: 20px 100px 0 0;
-        border-color: rgba(255, 255, 255, 1) transparent transparent transparent;
-    }
-    /*endribbonproduct*/
     /*endproduct*/
-    /*showroom*/
-    .showroom-body {
-        text-align: left;
-    }
-    .showroom-name {
-        margin-bottom: 0px;
-        ;
-    }
-    .showroom-name a {
-        color: #c8102e;
-        font-weight: bold;
-    }
-    .showroom-province {
-        color: #00aced;
-    }
-    .showroom-address {
-        color: #666;
-    }
-    /*endshowroom*/
-    /*video*/
-    .video-item {
-        overflow: hidden;
-    }
-    .img-video {
-        position: relative;
-    }
-    .img-video:before {
-        content: "";
-        -webkit-transition: all 0.3s;
-        -o-transition: all 0.3s;
-        transition: all 0.3s;
-        position: absolute;
-        height: 64px;
-        width: 64px;
-        display: inline-block;
-        top: 50%;
-        left: 50%;
-        margin-top: -32px;
-        margin-left: -32px;
-        background-image: url(https://www.toyota.com.vn/Content/images/icon-play-video-1.png);
-        background-repeat: no-repeat;
-        background-position: center;
-        pointer-events: none;
-        opacity: 0.8;
-    }
-    .video-button {
-        background-image: url(https://www.toyota.com.vn/Content/images/play-button.png)!important;
-        background-repeat: no-repeat!important;
-        background-position: center!important;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        height: 100%;
-        width: 100%;
-        position: fixed;
-        float: left;
-        -webkit-transition: 0.3s all;
-        -o-transition: 0.3s all;
-        transition: 0.3s all;
-    }
-    .img-video:hover:before {
-        background-image: url(https://www.toyota.com.vn/Content/images/icon-play-video.png);
-    }
     /* modal */
     .modal-header {
         background: #103f4b;
@@ -676,6 +489,26 @@ hr.light-100 {
     }
     /* endmodal */
     /* endvideo */
+    .breadcrumb {
+        border-radius: 0px;
+        background-color: #fff;
+    }
+    .breadcrumb li a {
+        color: #c8102e;
+        font-weight: 700;
+    }
+    .breadcrumb li a:hover {
+        text-decoration: none;
+    }
+}
+
+.breadcrumb>li+li:before {
+    content: "\00BB";
+}
+
+.breadcrumb>li+li:before {
+    padding: 0 5px;
+    color: #c8102e;
 }
 
 div.title_home {
@@ -686,20 +519,44 @@ div.title_home {
 
 .title_home_text {
     color: #fff;
-    font-weight: 500;
-    font-size: 150%;
+    font-weight: 400;
+    font-size: 20px;
 }
 
 .title_home_text {
     display: inline-block;
-    padding: 4px 15px 6px 30px;
-    font-size: 20px;
+    padding: 2px 15px 6px 30px;
     line-height: 40px;
     position: relative;
     margin: 0;
     text-transform: uppercase;
     letter-spacing: -0.8px;
     background: url(https://truyenmoi.xyz/themes/home/icons/update-icon.png) 7px center no-repeat #ff530d;
+}
+
+.product-body {
+    font-size: 14px;
+    color: #333;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 0 15px;
+    /* border: 1px solid #ebebeb; */
+    border-top: 0;
+    border-radius: 0 0 5px 5px;
+}
+
+.product-name {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-weight: 700;
+    padding: 6px 0;
+}
+
+.product-name {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .col-product {
@@ -1000,61 +857,12 @@ p.wap-time.px-2 {
 /*carbrandmenu*/
 
 
-}
-.col-2dot4,
-.col-sm-2dot4,
-.col-md-2dot4,
-.col-lg-2dot4,
-.col-xl-2dot4 {
-    position: relative;
-    width: 100%;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
-}
-.col-2dot4 {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 20%;
-    flex: 0 0 20%;
-    max-width: 20%;
-}
-@media (min-width: 540px) {
-    .col-sm-2dot4 {
-        -webkit-box-flex: 0;
-        -ms-flex: 0 0 20%;
-        flex: 0 0 20%;
-        max-width: 20%;
-    }
-}
-@media (min-width: 720px) {
-    .col-md-2dot4 {
-        -webkit-box-flex: 0;
-        -ms-flex: 0 0 20%;
-        flex: 0 0 20%;
-        max-width: 20%;
-    }
-}
-@media (min-width: 960px) {
-    .col-lg-2dot4 {
-        -webkit-box-flex: 0;
-        -ms-flex: 0 0 20%;
-        flex: 0 0 20%;
-        max-width: 20%;
-    }
-}
-@media (min-width: 1140px) {
-    .col-xl-2dot4 {
-        -webkit-box-flex: 0;
-        -ms-flex: 0 0 20%;
-        flex: 0 0 20%;
-        max-width: 20%;
-    }
-}
-
 /* itemtruyen */
+
 .col-truyen {
     text-align: left;
 }
+
 .image {
     position: relative;
     height: 250px;
@@ -1063,6 +871,7 @@ p.wap-time.px-2 {
     text-align: center;
     overflow: hidden;
 }
+
 .image .view {
     position: absolute;
     left: 0;
@@ -1072,20 +881,24 @@ p.wap-time.px-2 {
     width: 200px;
     font-size: 0.8em;
 }
+
 .item-truyen ul {
     margin: 0;
     padding: 0;
     list-style: none;
 }
+
 .chapter a {
     font-size: 1em;
     color: #d35400;
 }
+
 .chapter a:hover {
     font-size: 1em;
     color: #03f;
     text-decoration: none;
 }
+
 .chapter .time {
     color: #4cae4c;
     font-size: 0.7em;
@@ -1095,6 +908,7 @@ p.wap-time.px-2 {
     overflow: hidden;
     white-space: nowrap;
 }
+
 .sts {
     background: url(https://truyenmoi.xyz/themes/home/icons/item-bg.png) 1px 8px no-repeat;
     padding-left: 15px;
@@ -1106,12 +920,16 @@ p.wap-time.px-2 {
     display: inline-block;
 }
 
+
 /* enditemtruyen */
 
+
 /* lichsudoctruyen */
+
 .visited-comics {
     border: 3px solid #f1c40f;
 }
+
 .title-history {
     text-align: left;
     height: 40px;
@@ -1119,25 +937,30 @@ p.wap-time.px-2 {
     position: relative;
     background: #f1c40f;
 }
+
 .title-history h4 {
     padding: 4px 15px 7px 30px;
     font: 300 15px Open Sans, Tahoma, Geneva, sans-serif;
     color: #fff;
     background: url(https://truyenmoi.xyz/themes/home/icons/tag-icon.png) 7px center no-repeat;
 }
+
 .title-history h4 a {
     text-transform: lowercase;
     margin-left: 10px;
 }
+
 .darkBox,
 .darkDetail {
     color: #333;
     clear: right;
     margin-bottom: 15px;
 }
+
 .darkDetail {
     border: 3px solid #059e9a;
 }
+
 .darkBox h2 {
     font-size: 16px;
     margin: 0;
@@ -1145,32 +968,38 @@ p.wap-time.px-2 {
     font-weight: bold;
     color: #2980b9;
 }
+
 .darkBox h2 .view-all {
     float: right;
     font-size: 13px;
     line-height: 22px;
     font-style: italic;
 }
+
 .darkBox ul {
     padding-left: 0;
     margin: 0;
 }
+
 .darkBox ul li {
     list-style: none;
     margin: 0;
     padding: 10px 0;
     border-top: 1px solid #dedede;
 }
+
 .darkBox ul li .thumb {
     overflow: hidden;
     width: 80px;
     height: 70px;
     float: left;
 }
+
 .darkBox ul li .thumb img {
     width: 100%;
     left: 0;
 }
+
 .darkBox ul li h3 {
     font-size: 1rem;
     font-weight: 400;
@@ -1179,76 +1008,96 @@ p.wap-time.px-2 {
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+
 .darkBox ul li p {
     margin: 0;
 }
+
 .chapter a:focus,
 .chapter a:visited,
 a.visited {
     text-decoration: none;
     color: #d35400;
 }
+
 .fa-angle-double-right:before {
     content: "\f101";
 }
+
 .darkBox ul li .chapter .view {
     display: block;
     font-style: italic;
     font-size: 1rem;
     color: #666;
 }
+
 .fa-angle-double-right:before {
     content: "\f101";
 }
+
 .fa-remove:before,
 .fa-close:before,
 .fa-times:before {
     content: "\f00d";
 }
+
 .visited-remove {
     color: #c8102e;
 }
+
 .visited-remove:visited {
     color: #c8102e !important;
 }
+
 .t-title a {
     color: #c8102e;
     font-weight: bold;
     text-decoration: none;
     text-transform: lowercase;
 }
+
 a.jtip {
     color: #03f;
     text-decoration: none;
     font-weight: bold;
 }
+
 .item ul {
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
+
 /* endlichsudoctruyen */
 
+
 /* truyendecu */
+
 .pcd-pricing {
     font-size: 0.8em;
     color: #fff;
 }
+
 .pcd-pricing a {
     color: #fff;
 }
 
+
 /* endtruyendecu */
 
+
 /* theloaitruyen */
+
 .list.list-truyen {
-    margin: 10px 0;
+    margin: 7px 0;
     border: 3px solid #16a085;
 }
+
 .list.list-truyen a {
     text-decoration: none;
 }
+
 .title-list {
     text-align: left;
     height: 40px;
@@ -1256,72 +1105,95 @@ a.jtip {
     position: relative;
     background: #16a085;
 }
+
 .title-list h4 {
     padding: 4px 15px 7px 30px;
     font: 300 15px Open Sans, Tahoma, Geneva, sans-serif;
     color: #fff;
     background: url(https://truyenmoi.xyz/themes/home/icons/tag-icon.png) 7px center no-repeat;
 }
+
 .list>.row {
     background-color: #fff;
 }
+
 .list.list-cat>.row>div:nth-child(odd) {
     padding-left: 20px!important;
 }
+
 .list.list-cat>.row>div {
     height: 30px!important;
     line-height: 35px!important;
     border: 0!important;
     padding-left: 20px!important;
 }
+
 .col-truyen-side .list>.row>div {
     max-width: 140px;
     padding: 0;
 }
 
+
 /* endtheloaitruyen */
 
+
 /* thongtintruyen */
+
+.truyen-description {
+    padding-top: 8px;
+}
+
 .col-detail {
     padding-left: 0px;
     padding-right: 0px;
 }
+
 .t-author .fa-user,
 .t-author .fa-bell {
     color: #000000;
 }
+
 .col-image {
     padding-left: 0px;
     padding-right: 10px;
 }
+
 .col-image img {
     width: 100%;
 }
+
 .col-info {
     padding-left: 0px;
     padding-right: 0px;
     text-align: left;
     font-size: 20px;
 }
+
 .fa-file-alt {
     font-size: 20px;
 }
+
 .fa-list {
     font-size: 20px;
 }
+
 .short-des {
     text-align: left;
 }
+
 .title-des {
     margin: 0px 0px 10px 0px !important;
 }
+
 .all-chapter {
     text-align: left;
 }
+
 .heading {
     padding: 5px 0 10px;
     font-size: 20px;
 }
+
 .all-chapter ul li {
     border-bottom: 1px dashed #ddd;
     text-overflow: ellipsis;
@@ -1329,13 +1201,16 @@ a.jtip {
     padding: 6px 0;
     margin: 0;
 }
+
 .info-list a {
     color: #03f;
 }
+
 .info-list a:hover {
     text-decoration: none;
     color: #c8102e;
 }
+
 h3.title {
     font-size: 24px;
     font-weight: 700;
@@ -1346,27 +1221,11 @@ h3.title {
     font-family: roboto condensed, Tahoma, sans-serif;
     text-align: center;
 }
-.breadcrumb {
-    border-radius: 0px;
-    background-color: #fff;
-}
-.breadcrumb li a {
-    color: #c8102e;
-    font-weight: 700;
-}
-.breadcrumb li a:hover {
-    text-decoration: none;
-}
-.breadcrumb>li+li:before {
-    content: "\00BB";
-}
-.breadcrumb>li+li:before {
-    padding: 0 5px;
-    color: #c8102e;
-}
+
 #more {
     display: none;
 }
+
 .btn-doc-tu-dau {
     float: left;
     width: 100%;
@@ -1382,6 +1241,7 @@ h3.title {
     cursor: pointer;
     border-radius: 3px;
 }
+
 .btn-doc-moi-nhat {
     float: left;
     width: 100%;
@@ -1398,15 +1258,20 @@ h3.title {
     border-radius: 3px;
 }
 
+
 /* endthongtintruyen */
 
+
 /* chapter */
-.top .txt-primary {
-    font-weight: 500;
-    font-size: 20px;
+
+.top .txt-primary,
+.top .txt-primary a {
+    font-size: 1.5em;
     margin: 0 0 7px 10px;
     display: inline-block;
+    color: #fff;
 }
+
 .reading-control .home {
     text-align: center;
     color: #ae4ad9;
@@ -1415,11 +1280,13 @@ h3.title {
     padding: 0.5em 0.5em;
     text-transform: uppercase;
 }
+
 .reading-control .changeserver {
     color: #fff;
     position: relative;
     background-color: #c8102e;
 }
+
 .reading-control .changeserver span {
     font-size: 12px;
     position: absolute;
@@ -1427,6 +1294,7 @@ h3.title {
     top: 8px;
     font-weight: 700;
 }
+
 .reading-control .select-chapter {
     color: #555;
     display: inline-block;
@@ -1434,20 +1302,29 @@ h3.title {
     border: 1px solid #ccc;
     width: 25%;
 }
+
 .reading-control .prev .fa,
 .reading-control .next .fa {
     visibility: hidden;
 }
+
 .error {
     color: red;
 }
+
 .image-truyen {
     margin-top: 20px;
     border: 3px solid #6c757d;
 }
+
+.image-truyen img {
+    width: 100%;
+}
+
 .hidden {
     display: none;
 }
+
 .prev-link,
 .next-link {
     background-color: #BE9F06;
@@ -1456,56 +1333,73 @@ h3.title {
     text-decoration: none;
     text-transform: uppercase;
 }
+
 .prev-link:hover,
 .next-link:hover {
     background-color: peru;
     text-decoration: none;
     color: white;
 }
+
 .disabled {
     pointer-events: none;
     cursor: default;
     opacity: 0.6;
 }
 
+.chapter-alert {
+    color: #fff;
+}
+
+
 /* endchapter */
 
+
 /* navcontrol */
+
 .sticky {
     position: fixed;
     bottom: 0;
     width: 90%;
     background-color: white;
 }
+
 .home-button {
     display: block;
     padding: 7px 10px;
     margin-bottom: 10px;
     background: #ff530d;
 }
+
 .list-button {
     display: block;
     padding: 7px 10px;
     margin-bottom: 10px;
     background: #9C27B0;
 }
+
 #control-list-button {
     position: fixed;
-    bottom: 60px;
+    bottom: 100px;
     right: 10px;
 }
+
 #control-home-button {
     position: fixed;
-    bottom: 10px;
+    bottom: 50px;
     right: 10px;
 }
+
 
 /* endnavcontrol */
 
+
 /* search */
+
 .search-holder input {
     border: 0px;
 }
+
 .input-group-btn {
     position: relative;
     font-size: 0;
@@ -1513,15 +1407,19 @@ h3.title {
     background-color: #fff;
     border: 0px;
 }
+
 .search-holder>.input-group-btn>.btn {
     padding: 5px 10px;
     border-left: 0;
     border-radius: 0;
 }
 
+
 /* endsearch */
 
+
 /* tooltip */
+
 #preview {
     position: absolute;
     border: 3px solid #16a085;
@@ -1530,27 +1428,34 @@ h3.title {
     color: #555;
     width: 350px;
 }
+
 #preview p {
     margin: 0px;
 }
+
 #preview label {
     margin: 0px;
     color: #059e9a;
     font-weight: bold;
 }
+
 .img-tooltip {
     float: left;
     width: 140px;
 }
+
 .img-tooltip img {
     width: 100%;
 }
+
 .info-tooltip {
     float: right;
     width: 200px;
 }
+
 .clearfix {
     clear: both;
 }
+
 
 /* endtooltip */

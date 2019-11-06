@@ -2,10 +2,10 @@
   $("body").addClass("view-chapter");
 </script>
 {{!-- sectionchaptertruyen --}}
-<section class="section-chapter-truyen index-section">
+<section class="section-chapter-truyen">
   <div class="container">
-    <div class="row text-center padding">
-    <div class="col-md-12">
+    <div class="row text-center">
+    <div class="col-md-12 col-noi-dung">
       <div class="top">
         <ul class="breadcrumb" itemscope="" itemtype="http://schema.org/BreadcrumbList">
           <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a
@@ -40,20 +40,22 @@
       <div class="reading-control">
         <span class="chapter-id hidden" data-id="{{chapTruyen._id}}" data-suffix=""></span>
         <div class="mb-10">
-          Nếu không xem được truyện vui lòng đổi "SERVER ẢNH" bên dưới
+          <span class="chapter-alert"> Nếu không xem được truyện vui lòng đổi "SERVER ẢNH" bên dưới</span>
           <div class="mt-10">
-            <a rel="nofollow" href="#" data-server="1"
-              class="loadchapter btn btn-primary btn-success mr-5">Server site</a>
-            <a rel="nofollow" href="#" data-server="2" class="loadchapter btn btn-primary mr-5">Server
+            <div class="row">
+              <a rel="nofollow" href="#" data-server="1"
+              class="loadchapter col-md-2 btn btn-primary btn-success">Server site</a>
+              <a rel="nofollow" href="#" data-server="2" class="loadchapter col-md-2 btn btn-primary">Server
               GG</a>
-            <a rel="nofollow" href="#" data-server="3" class="loadchapter btn btn-primary mr-5">Server
+              <a rel="nofollow" href="#" data-server="3" class="loadchapter col-md-2 btn btn-primary">Server
               EU</a>
-            <a rel="nofollow" href="#" data-server="4" class="loadchapter btn btn-primary mr-5"><i
+              <a rel="nofollow" href="#" data-server="4" class="loadchapter col-md-2 btn btn-primary"><i
                 class="fa fa-diamond"></i> Server VN</a>
-            <a rel="nofollow" href="#" data-server="5" class="loadchapter btn btn-primary mr-5"><i
+              <a rel="nofollow" href="#" data-server="5" class="loadchapter col-md-2 btn btn-primary"><i
                 class="fa fa-diamond"></i> Server VN 2</a>
-            <a rel="nofollow" href="#" data-server="6" class="loadchapter btn btn-primary mr-5"><i
+              <a rel="nofollow" href="#" data-server="6" class="loadchapter col-md-2 btn btn-primary"><i
                 class="fa fa-diamond"></i> Server VN 3</a>
+            </div>
           </div>
         </div>
 
@@ -107,7 +109,7 @@
       <div class="image-truyen" id="content-image-truyen">
         {{#each chapTruyen.server_truyen}}
         <img id="image-truyen-{{@index}}" data-cdn="{{this.sv_cdn}}" data-src="{{this.sv_original}}"
-          src="https://icon-library.net/images/spinner-icon-gif/spinner-icon-gif-10.jpg" class="lazy-hinh img-truyen">
+          src="https://icon-library.net/images/spinner-icon-gif/spinner-icon-gif-10.jpg" class="lazy-hinh img-truyen img-fluid">
         {{/each}}
       </div>
        <div id="control-list-button">

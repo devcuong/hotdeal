@@ -295,38 +295,29 @@ hr.light-100 {
         display: inline-block;
         vertical-align: middle;
     }
-    .fa-refresh:before {
-        content: "\f021";
-    }
-    .hidden-control-mobile .manga1 {
+    .hidden-control-mobile .hidden-list-chap {
         color: #9c27b0;
     }
-    .hidden-control-mobile .home1 {
+    .hidden-control-mobile .hidden-home-mobile {
         color: #ff530d;
     }
-    .hidden-control-mobile .reload1 {
+    .hidden-control-mobile .change-server-mobile {
         color: #e91e63;
     }
     .div-chap {
         display: inline-block;
     }
-    #c_chapter_ {
+    #id-select-chapter {
         height: 30px;
         width: 100px;
         text-align: right;
     }
-    .hidden-control-mobile .next1,
-    .hidden-control-mobile .prev1 {
+    .hidden-control-mobile .hidden-next-chapter,
+    .hidden-control-mobile .hidden-prev-chapter {
         background: #27ae60;
         color: #fff;
         border-radius: 2px;
         padding: 3px 10px;
-    }
-    .hidden-control-mobile .report1 {
-        background: red;
-        padding: 0 7px;
-        height: auto;
-        border-radius: 2px;
     }
 }
 
@@ -553,7 +544,7 @@ hr.light-100 {
     .breadcrumb li a:hover {
         text-decoration: none;
     }
-    .shortcut {
+    .hidden-control-mobile {
         display: none;
     }
 }
@@ -921,27 +912,65 @@ p.wap-time.px-2 {
 
 .image {
     position: relative;
-    height: 250px;
+    height: 200px;
     border: 3px solid #673ab7;
     box-shadow: #000 0 0 0;
     text-align: center;
     overflow: hidden;
 }
 
+.image img {
+    vertical-align: middle;
+    width: 100%;
+}
+
 .image .view {
     position: absolute;
-    left: 0;
     bottom: 0;
-    background: rgb(0, 0, 0, 0.8);
+    left: 0;
+    right: 0;
+    height: 25px;
+    line-height: 25px;
+    padding-left: 2px;
+    padding-right: 2px;
+    font-size: 12px;
+    display: block;
     color: #fff;
-    width: 200px;
-    font-size: 0.8em;
+    background-color: #000;
+    opacity: .65;
+    filter: alpha(opacity=50);
 }
 
 .item-truyen ul {
     margin: 0;
     padding: 0;
     list-style: none;
+}
+
+.item-truyen figcaption {
+    padding: 5px 0 0;
+    position: relative;
+}
+
+.item-truyen figcaption h3 {
+    font-size: 16px;
+    margin: 0 0 7px;
+    font-weight: 400;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.item-truyen figcaption ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.text-left {
+    text-align: left;
 }
 
 .chapter a {
@@ -1520,3 +1549,7 @@ h3.title {
 
 
 /* endtooltip */
+
+.fa-refresh:before {
+    content: "\f021";
+}

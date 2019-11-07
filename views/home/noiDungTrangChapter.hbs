@@ -35,8 +35,7 @@
             </li>
           </ul>
           <h1 class="txt-primary"><a href="/truyen-tranh/{{nameTruyen.slug_truyen}}">{{nameTruyen.ten_truyen}}</a>
-            <span>- Chapter
-              1</span></h1>
+            <span>- Chapter-{{chapTruyen.ten_chuong}}</span></h1>
         </div>
         <div class="reading-control">
           <span class="chapter-id hidden" data-id="{{chapTruyen._id}}" data-suffix=""></span>
@@ -45,7 +44,7 @@
             <div class="mt-10">
               <div class="row">
                 <a rel="nofollow" href="#" data-server="1"
-                  class="loadchapter col-md-2 btn btn-primary btn-success">Server site</a>
+                  class="loadchapter col-md-2 btn btn-primary btn-success">Server CDN</a>
                 <a rel="nofollow" href="#" data-server="2" class="loadchapter col-md-2 btn btn-primary">Server
                   GG</a>
                 <a rel="nofollow" href="#" data-server="3" class="loadchapter col-md-2 btn btn-primary">Server
@@ -100,31 +99,31 @@
             </div>
           </div>
           <div class="chapter-nav" style="z-index: auto; position: static; top: auto;">
-            <a class="home changeserver" href="#" title="Đổi server">Đổi SV</a>
-            <a href="#" class="prev-link">chap trước</a>
+            <a class="home changeserver" href="#" title="Đổi server"><i class="fa fa-refresh"></i></a>
+            <a href="#" class="prev-link"><i class="fas fa-arrow-left"></i></a>
             <select id="id-Select-chapter" class="select-chapter"></select>
-            <a href="#" class="next-link">chap sau</a>
+            <a href="#" class="next-link"><i class="fas fa-arrow-right"></i></a>
             <a class="follow-link btn btn-success" href="#" data-id="4446"><i class="fa fa-heart"></i>
               <span>Theo dõi</span></a></div>
           <div></div>
         </div>
         <div class="hidden-control-mobile" id="style-3">
-          <a href="/" class="home1"><i class="fa fa-home"></i></a>
+          <a href="/" class="hidden-home-mobile"><i class="fa fa-home"></i></a>
           <a href="#"
-            class="manga1"><i class="fa fa-list"></i></a>
+            class="hidden-list-chap"><i class="fa fa-list"></i></a>
           <a href="#"
-            class="reload1"><i class="fa fa-refresh"></i></a>
+            class="change-server-mobile"><i class="fa fa-refresh"></i></a>
           <div class="div-chap">
-            <select id="c_chapter_" onchange="Changes('c_chapter_', 'thuan-tinh-nha-dau-hoa-lat-lat-truyen-manga');"
-              dir="rtl">
-
-              <option value="doc-truyen-tranh-chapter-1" selected="">Chapter 1</option>
+            <a href="#"
+              class="hidden-prev-chapter prev-link"><i class="fas fa-chevron-left"></i></a>
+            <select id="hidden-select-chapter">
+             
             </select>
             <a href="#"
-              class="next1"><i class="fa fa-chevron-right"></i></a>
+              class="hidden-next-chapter next-link"><i class="fa fa-chevron-right"></i></a>
           </div>
           <a href="javascript:;" onclick="#"
-            class="report1"><i class="fa fa-exclamation-circle"></i> Báo hỏng </a>
+            class="alertError btn btn-warning" data-toggle="modal" data-target="#myModal">Báo lỗi</a>
         </div>
         <div class="image-truyen" id="content-image-truyen">
           {{#each chapTruyen.server_truyen}}
@@ -165,12 +164,25 @@
       });
     });
 
+    // change server desktop
     document.querySelector("a.changeserver").addEventListener("click", function () {
       var btnSuccess = document.querySelector("a.btn-success[data-server]").nextElementSibling;
       if (btnSuccess != null && !btnSuccess.classList.contains("hidden")) {
         changeClass(btnSuccess, loadChapter);
       } else {
         btnSuccessFirst = document.querySelectorAll("a.loadchapter")[0];
+        changeClass(btnSuccessFirst, loadChapter);
+      }
+
+    })
+
+      // change server mobile
+    document.querySelector("a.change-server-mobile").addEventListener("click", function () {
+      var btnSuccess = document.querySelector("a.btn-success[data-server]").nextElementSibling;
+      if (btnSuccess != null && !btnSuccess.classList.contains("hidden")) {
+        changeClass(btnSuccess, loadChapter);
+      } else {
+        btnSuccessFirst = document.querySelectorAll("a.change-server-mobile")[0];
         changeClass(btnSuccessFirst, loadChapter);
       }
 
@@ -244,20 +256,35 @@
           var returnedData = JSON.parse(data);
           if (returnedData.success == true) {
             $("#id-Select-chapter").empty();
+            $("#hidden-select-chapter").empty();
             var listChap = returnedData.listChap;
             listChap.forEach(function myFunction(item, index) {
               var itemSelection = new Option("Chapter " + item.ten_chap, "/truyen-tranh/" + $("#hidden-name-truyen").val() + "/chap-" + item.ten_chap + "/" + item.id_chap);
+              var itemSelectionMobile =  new Option("Chapter " + item.ten_chap, "/truyen-tranh/" + $("#hidden-name-truyen").val() + "/chap-" + item.ten_chap + "/" + item.id_chap);
               $("#id-Select-chapter").append(itemSelection);
+              $("#hidden-select-chapter").append(itemSelectionMobile);
             })
             var pathname = window.location.pathname;
             $('#id-Select-chapter').val(pathname).prop('selected', true);
+             $("#hidden-select-chapter").val(pathname).prop('selected', true);
 
             // set prev next link
             document.querySelector('.reading-control .prev-link').classList.add("disabled");
+            document.querySelector('.hidden-control-mobile .prev-link').classList.add("disabled");
             document.querySelector('.reading-control .next-link').classList.add("disabled");
+            document.querySelector('.hidden-control-mobile .next-link').classList.add("disabled");
+            
+            // desktop select chapter
             var chapSelected = $('#id-Select-chapter option:selected');
             var prevSelect = chapSelected.prev();
             var nextSelect = chapSelected.next();
+
+            // mobile select chapter
+            var mobileChapSelected = $('#hidden-select-chapter option:selected');
+            var mobilePrevSelect = mobileChapSelected.prev();
+            var mobileNextSelect = mobileChapSelected.next();
+
+            // desktop link
             if (prevSelect != null && prevSelect.val() != null) {
               document.querySelector('.reading-control .prev-link').setAttribute("href", prevSelect.val());
               document.querySelector('.reading-control .prev-link').classList.remove("disabled");
@@ -266,13 +293,28 @@
               document.querySelector('.reading-control .next-link').setAttribute("href", nextSelect.val());
               document.querySelector('.reading-control .next-link').classList.remove("disabled");
             }
+            // mobile link
+              if (mobilePrevSelect != null && mobilePrevSelect.val() != null) {
+              document.querySelector('.hidden-control-mobile .prev-link').setAttribute("href", mobilePrevSelect.val());
+              document.querySelector('.hidden-control-mobile .prev-link').classList.remove("disabled");
+            }
+            if (mobileNextSelect != null && mobileNextSelect.val() != null) {
+              document.querySelector('.hidden-control-mobile .next-link').setAttribute("href", mobileNextSelect.val());
+              document.querySelector('.hidden-control-mobile .next-link').classList.remove("disabled");
+            }
+
           }
         }
       )
 
     });
-
+    // change chapter nav desktop
     $('#id-Select-chapter').on('change', function () {
+      window.location.href = this.value;
+    });
+
+    // change chapter nav mobile
+      $('#hidden-select-chapter').on('change', function () {
       window.location.href = this.value;
     });
 

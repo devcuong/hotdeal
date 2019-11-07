@@ -275,6 +275,59 @@ hr.light-100 {
         margin-right: -15px;
         margin-left: -15px;
     }
+    .hidden-control-mobile {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        font-size: 13px;
+        line-height: 25px;
+        background-color: #e4e4e4;
+        max-height: 40px;
+        z-index: 99999;
+        white-space: nowrap;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        cursor: pointer;
+        width: 100%;
+    }
+    .hidden-control-mobile a {
+        padding: 6px 5px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .fa-refresh:before {
+        content: "\f021";
+    }
+    .hidden-control-mobile .manga1 {
+        color: #9c27b0;
+    }
+    .hidden-control-mobile .home1 {
+        color: #ff530d;
+    }
+    .hidden-control-mobile .reload1 {
+        color: #e91e63;
+    }
+    .div-chap {
+        display: inline-block;
+    }
+    #c_chapter_ {
+        height: 30px;
+        width: 100px;
+        text-align: right;
+    }
+    .hidden-control-mobile .next1,
+    .hidden-control-mobile .prev1 {
+        background: #27ae60;
+        color: #fff;
+        border-radius: 2px;
+        padding: 3px 10px;
+    }
+    .hidden-control-mobile .report1 {
+        background: red;
+        padding: 0 7px;
+        height: auto;
+        border-radius: 2px;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -499,6 +552,9 @@ hr.light-100 {
     }
     .breadcrumb li a:hover {
         text-decoration: none;
+    }
+    .shortcut {
+        display: none;
     }
 }
 
@@ -1388,6 +1444,11 @@ h3.title {
     position: fixed;
     bottom: 50px;
     right: 10px;
+}
+
+.reading-control .chapter-nav {
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 

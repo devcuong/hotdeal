@@ -23,8 +23,8 @@
                         </li>
                     </ul>
                     <div class="row">
-                        <div class="col-md-4 col-image"><img src="{{noiDung.hinh_truyen}}" alt="" class="src"></div>
-                        <div class="col-md-8 col-info">
+                        <div class="col-md-4 col-12 col-image"><img src="{{noiDung.hinh_truyen}}" alt="" class="src"></div>
+                        <div class="col-md-8 col-12 col-info">
                             <div class="truyen-title">
                                 <h3 class="title">{{noiDung.ten_truyen}}</h3>
                                 <input type="hidden" id="hidden-slug-truyen" value="{{noiDung.slug_truyen}}" />
@@ -78,9 +78,9 @@
                             <nav>
                                 <ul>
                                     <li class="row heading">
-                                        <div class="col-md-5 no-wrap">Số chương</div>
-                                        <div class="col-md-4 no-wrap text-center">Cập nhật</div>
-                                        <div class="col-md-3 no-wrap text-center">Lượt xem</div>
+                                        <div class="col-md-5 col-5 no-wrap">Số chương</div>
+                                        <div class="col-md-4 col-4 no-wrap text-center">Cập nhật</div>
+                                        <div class="col-md-3 col-3 no-wrap text-center">Lượt xem</div>
                                     </li>
                                     {{revArr noiDung.chap_moi_ra}}
                                     {{#each noiDung.chap_moi_ra }}
@@ -89,14 +89,14 @@
                                     <span id="more">
                                         {{/if}}
                                         <li class="row all-list-chapter">
-                                            <div class="col-md-5 chapter">
+                                            <div class="col-md-5 col-5 no-wrap chapter">
                                                 <a href="#" id="link-truyen">Chapter {{this.ten_chuong}}</a>
                                                 <input type="hidden" id="hidden-chap-name" value="{{this.ten_chuong}}">
                                                 <input type="hidden" id="hidden-chap-id" value="{{this._id}}">
                                             </div>
-                                            <div class="col-md-4 text-center small needs_to_be_rendered"
+                                            <div class="col-md-4 col-4 no-wrap text-center small needs_to_be_rendered"
                                                 datetime="{{this.thoi_gian_tao}}"></div>
-                                            <div class="col-md-3 text-center small needs_to_format">{{this.luot_xem}}
+                                            <div class="col-md-3 col-3 no-wrap text-center small needs_to_format">{{this.luot_xem}}
                                             </div>
                                         </li>
                                         {{#if @index "eq" array.length-1 }}

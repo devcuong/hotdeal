@@ -10,27 +10,17 @@
             {{#each lstTruyenDeCu}}
             <div class="item">
                 <a href="/truyen-tranh/{{this.slug_truyen}}" class="card-content" title="{{this.ten_truyen}}">
-                    <div class="card-img card-img-top order-now"><img src="{{this.hinh_truyen}}"
-                            alt="{{this.ten_truyen}}" class="card-img">
-                        <p class="pcd-pricing">
-                            <span class="pcd-price"><a href="/truyen-tranh/{{this.slug_truyen}}"
-                                    title="Chapter {{this.chap_moi_ra.0.ten_chuong}}">Chapter
-                                    {{this.chap_moi_ra.0.ten_chuong}}</a>
-                                &nbsp;
-                                <i class="fas fa-clock"></i><span class="time needs_to_be_rendered"
-                                    datetime="{{this.chap_moi_ra.0.thoi_gian_tao}}">
-
-                                </span>
-                                <input type="hidden" id="t-{{this._id}}" class="type"
-                                    value="{{this.chap_moi_ra.0.thoi_gian_tao}}">
-                            </span>
-                        </p>
-                    </div>
-                    <div class="product-body">
-                        <div class="product-name">{{this.ten_truyen}}
-                        </div>
-                    </div>
+                    <img src="{{this.hinh_truyen}}" alt="{{this.ten_truyen}}" class="card-img">
                 </a>
+                <div class="slide-caption">
+                    <h3>
+                        <a href="/truyen-tranh/{{this.slug_truyen}}"
+                            title="Tu Chân Giả Tại Dị Thế">{{this.ten_truyen}}</a>
+                    </h3>
+                    <a href="/truyen-tranh/{{this.slug_truyen}}" title="Chapter {{this.chap_moi_ra.2.ten_chuong}}">Chapter {{this.chap_moi_ra.2.ten_chuong}}</a>
+                    <i class="needs_to_be_rendered" datetime="{{this.chap_moi_ra.2.thoi_gian_tao}}">{{this.chap_moi_ra.2.thoi_gian_tao}}</i>
+                </div>
+
             </div>
             {{/each}}
 
@@ -72,8 +62,8 @@
                                             <span class="pull-left">
                                                 <i class="fa fa-eye"></i>
                                                 <span class="needs_to_format">{{this.luot_xem}}</span>
-                                                <i class="fa fa-comment"></i> 
-                                                <span class="needs_to_format">{{this.luot_danh_gia}}</span> 
+                                                <i class="fa fa-comment"></i>
+                                                <span class="needs_to_format">{{this.luot_danh_gia}}</span>
                                                 <i class="fa fa-heart"></i>
                                                 <span class="needs_to_format">{{this.luot_theo_doi}}</span>
                                             </span>
@@ -108,18 +98,20 @@
                                     </figcaption>
                                 </figure>
                             </div>
-                          
+
                         </div>
                         {{/each}}
                     </div>
-                        <div id="loadpage">
-                                <div class="loadingGif" style="width: 60px;margin: 0 auto; display: none;">
-                                <img src="https://truyenmoi.xyz/web_images/loading.gif" alt="loading next page truyenmoi.xyz" style="width: 100%">
-                                </div>
-                                <div>
-                                    <a href="javascript:;" class="xem-them">Xem thêm, còn nhiều truyện nữa</a>
-                                </div>
+                    <div id="loadpage">
+                        <div class="loadingGif" style="width: 60px;margin: 0 auto; display: none;">
+                            <img src="https://truyenmoi.xyz/web_images/loading.gif"
+                                alt="loading next page truyenmoi.xyz" style="width: 100%">
                         </div>
+                        <div>
+                            <a href="javascript:;" class="xem-them">Xem thêm, còn nhiều truyện nữa</a>
+                        </div>
+                    </div>
+                    <div class="clearfix mb-10"></div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-3">
                     {{> home-sidebar-history }}

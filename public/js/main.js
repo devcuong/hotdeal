@@ -2,11 +2,9 @@ $(document).ready(function() {
     var syncedSecondary = true;
     $("#truyen-de-cu").owlCarousel({
         loop: true,
-        margin: 30,
+        margin: 10,
         nav: true,
         dots: false,
-        autoplay: true,
-        autoplayTimeout: 2000,
         autoplayHoverPause: true,
         navText: [
             '<i class="fa fa-arrow-left" aria-hidden="true"></i>',
@@ -14,10 +12,10 @@ $(document).ready(function() {
         ],
         responsive: {
             0: {
-                items: 2.5
+                items: 2
             },
             600: {
-                items: 2.5
+                items: 2
             },
             1000: {
                 items: 5

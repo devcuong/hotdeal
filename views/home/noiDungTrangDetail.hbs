@@ -4,25 +4,24 @@
         <div>
             <div class="row text-center padding">
                 <div class="col-md-8 darkDetail">
-                      <div>
-            <ul class="breadcrumb" itemscope="" itemtype="http://schema.org/BreadcrumbList">
-                <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a
-                        href="/" class="itemcrumb" itemprop="item"
-                        itemtype="http://schema.org/Thing"><span itemprop="name">Trang chủ</span></a>
-                    <meta itemprop="position" content="1">
-                </li>
-                <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a
-                        href="/tim-truyen" class="itemcrumb" itemprop="item"
-                        itemtype="http://schema.org/Thing"><span itemprop="name">Thể loại</span></a>
-                    <meta itemprop="position" content="2">
-                </li>
-                <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a
-                        href="/truyen-tranh/{{noiDung.ten_truyen}}" class="itemcrumb active"
-                        itemprop="item" itemtype="http://schema.org/Thing"><span itemprop="name">{{noiDung.ten_truyen}}</span></a>
-                    <meta itemprop="position" content="3">
-                </li>
-            </ul>
-        </div>
+                    <ul class="breadcrumb" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+                        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a href="/"
+                                class="itemcrumb" itemprop="item" itemtype="http://schema.org/Thing"><span
+                                    itemprop="name">Trang chủ</span></a>
+                            <meta itemprop="position" content="1">
+                        </li>
+                        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a
+                                href="/tim-truyen" class="itemcrumb" itemprop="item"
+                                itemtype="http://schema.org/Thing"><span itemprop="name">Thể loại</span></a>
+                            <meta itemprop="position" content="2">
+                        </li>
+                        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a
+                                href="/truyen-tranh/{{noiDung.ten_truyen}}" class="itemcrumb active" itemprop="item"
+                                itemtype="http://schema.org/Thing"><span
+                                    itemprop="name">{{noiDung.ten_truyen}}</span></a>
+                            <meta itemprop="position" content="3">
+                        </li>
+                    </ul>
                     <div class="row">
                         <div class="col-md-4 col-image"><img src="{{noiDung.hinh_truyen}}" alt="" class="src"></div>
                         <div class="col-md-8 col-info">
@@ -32,32 +31,30 @@
                             </div>
                             <ul class="info-list ">
                                 <li class="t-author row">
-                                    <p class="name col-md-4"><i class="fas fa-user"></i>Tác giả</p>
-                                    <p class="name col-md-8"><a
-                                            href="/">{{noiDung.tac_gia}}</a>
+                                    <p class="name col-md-4 col-4"><i class="fas fa-user"></i>Tác giả</p>
+                                    <p class="name col-md-8 col-8"><a href="/">{{noiDung.tac_gia}}</a>
                                     </p>
                                 </li>
                                 <li class="t-status row">
-                                    <p class="name col-md-4"><i class="far fa-bell"></i>Tình trạng</p>
-                                    <p class="name col-md-8">Đang tiến hành</p>
+                                    <p class="name col-md-4 col-4"><i class="far fa-bell"></i>Tình trạng</p>
+                                    <p class="name col-md-8 col-8">Đang tiến hành</p>
                                 </li>
                                 <li class="t-category row">
-                                    <p class="name col-md-4"><i class="fas fa-tags"></i>Thể loại</p>
-                                    <p class="name col-md-8">
+                                    <p class="name col-md-4 col-4"><i class="fas fa-tags"></i>Thể loại</p>
+                                    <p class="name col-md-8 col-8">
                                         {{#each noiDung.ds_the_loai }}
-                                        <a
-                                            href="#">{{this.ten_the_loai}}</a>,
+                                        <a href="#">{{this.ten_the_loai}}</a>,
                                         {{/each}}
                                     </p>
                                 </li>
                                 <li class="t-views row">
-                                    <p class="name col-md-4"><i class="fas fa-eye"></i>Lượt xem</p>
-                                    <p class="name col-md-8">{{noiDung.luot_xem}}</p>
+                                    <p class="name col-md-4 col-4"><i class="fas fa-eye"></i>Lượt xem</p>
+                                    <p class="name col-md-8 col-8">{{noiDung.luot_xem}}</p>
                                 </li>
                             </ul>
-                            <div class="read-action mt-10 pl-15">
+                            <div class="read-action mt-10">
                                 <a href="#" class="btn-doc-tu-dau">ĐỌC TỪ ĐẦU</a>
-                                 <a href="#" class="btn-doc-moi-nhat">ĐỌC MỚI NHẤT</a>
+                                <a href="#" class="btn-doc-moi-nhat">ĐỌC MỚI NHẤT</a>
                             </div>
                         </div>
                     </div>
@@ -87,28 +84,29 @@
                                     </li>
                                     {{revArr noiDung.chap_moi_ra}}
                                     {{#each noiDung.chap_moi_ra }}
-                                        {{#if @index "eq" 3 }}
-                                            <span id="dots">...</span>
-                                            <span id="more">
+                                    {{#if @index "eq" 3 }}
+                                    <span id="dots">...</span>
+                                    <span id="more">
                                         {{/if}}
                                         <li class="row all-list-chapter">
                                             <div class="col-md-5 chapter">
-                                                <a href="#"
-                                                    id="link-truyen">Chapter {{this.ten_chuong}}</a>
+                                                <a href="#" id="link-truyen">Chapter {{this.ten_chuong}}</a>
                                                 <input type="hidden" id="hidden-chap-name" value="{{this.ten_chuong}}">
                                                 <input type="hidden" id="hidden-chap-id" value="{{this._id}}">
                                             </div>
                                             <div class="col-md-4 text-center small needs_to_be_rendered"
                                                 datetime="{{this.thoi_gian_tao}}"></div>
-                                            <div class="col-md-3 text-center small needs_to_format">{{this.luot_xem}}</div>
+                                            <div class="col-md-3 text-center small needs_to_format">{{this.luot_xem}}
+                                            </div>
                                         </li>
-                                         {{#if @index "eq" array.length-1 }}
-                                           </span></p>
-                                        {{/if}}
+                                        {{#if @index "eq" array.length-1 }}
+                                    </span></p>
+                                    {{/if}}
                                     {{/each}}
                                 </ul>
                             </nav>
-                             <button class="mb-2 mr-2 btn btn-lg btn-block btn-outline-success" onclick="showMore()" id="myBtn">XEM THÊM</button>
+                            <button class="mb-2 mr-2 btn btn-lg btn-block btn-outline-success" onclick="showMore()"
+                                id="myBtn">XEM THÊM</button>
                         </div>
                     </div>
                 </div>
@@ -119,18 +117,17 @@
         </div>
     </div>
     <script>
-          var slugTruyen = document.querySelector("#hidden-slug-truyen").value;
-          var listChapter = $(".all-list-chapter");
-          for(var i=0; i<listChapter.length;i++)
-          {
+        var slugTruyen = document.querySelector("#hidden-slug-truyen").value;
+        var listChapter = $(".all-list-chapter");
+        for (var i = 0; i < listChapter.length; i++) {
             var chapName = listChapter[i].querySelector("input#hidden-chap-name").value;
             var chapId = listChapter[i].querySelector("input#hidden-chap-id").value;
-            var urlChapTruyen = "/truyen-tranh/"+slugTruyen+"/chap-"+chapName+"/"+chapId;
-            listChapter[i].querySelector("a#link-truyen").setAttribute("href",urlChapTruyen);
-          }
-           var listChapterAfterAddLink = $(".all-list-chapter");
-          document.querySelector(".btn-doc-tu-dau").setAttribute("href",listChapterAfterAddLink[listChapter.length-1].querySelector("a#link-truyen").getAttribute("href"));
-          document.querySelector(".btn-doc-moi-nhat").setAttribute("href",listChapterAfterAddLink[0].querySelector("a#link-truyen").getAttribute("href"));
+            var urlChapTruyen = "/truyen-tranh/" + slugTruyen + "/chap-" + chapName + "/" + chapId;
+            listChapter[i].querySelector("a#link-truyen").setAttribute("href", urlChapTruyen);
+        }
+        var listChapterAfterAddLink = $(".all-list-chapter");
+        document.querySelector(".btn-doc-tu-dau").setAttribute("href", listChapterAfterAddLink[listChapter.length - 1].querySelector("a#link-truyen").getAttribute("href"));
+        document.querySelector(".btn-doc-moi-nhat").setAttribute("href", listChapterAfterAddLink[0].querySelector("a#link-truyen").getAttribute("href"));
     </script>
 </section>
 {{!-- endsectionnoidungtrangdetail --}}

@@ -23,7 +23,7 @@
         <p>Website development</p>
         <p>Mobile applications</p>
       </div>
-       <div class="col-md-3 col-6">
+      <div class="col-md-3 col-6">
         <hr class="light">
         <h5>Services</h5>
         <hr class="light">
@@ -211,30 +211,30 @@
             F.attr("style", "display: inline ;");
 
             var FF = $("<span>");
-            FF.attr("style","display:none");
-            FF.attr("id","hidden-ten-truyen");
+            FF.attr("style", "display:none");
+            FF.attr("id", "hidden-ten-truyen");
             FF.text(truyen.ten_truyen);
 
             var FFF = $("<span>");
-            FFF.attr("style","display:none");
-            FFF.attr("id","hidden-the-loai");
+            FFF.attr("style", "display:none");
+            FFF.attr("id", "hidden-the-loai");
             FFF.text(truyen.the_loai);
 
             var FFFF = $("<span>");
-            FFFF.attr("style","display:none");
-            FFFF.attr("id","hidden-luot-xem");
+            FFFF.attr("style", "display:none");
+            FFFF.attr("id", "hidden-luot-xem");
             FFFF.text(truyen.luot_xem);
 
             var FFFF = $("<span>");
-            FFFF.attr("style","display:none");
-            FFFF.attr("id","hidden-tac-gia");
+            FFFF.attr("style", "display:none");
+            FFFF.attr("id", "hidden-tac-gia");
             FFFF.text(truyen.tac_gia);
 
             var FFFFF = $("<span>");
-            FFFFF.attr("style","display:none");
-            FFFFF.attr("id","hidden-noi-dung");
+            FFFFF.attr("style", "display:none");
+            FFFFF.attr("id", "hidden-noi-dung");
             FFFFF.text(truyen.noi_dung);
-            
+
             var G = $("<div>").addClass("view clearfix");
             var H = $("<span>").addClass("pull-left");
             var I1 = $("<i>").addClass("fa fa-eye");
@@ -251,17 +251,17 @@
             var DFH3 = $("<H3>");
             var DFH3A = $("<a>").addClass("jtip");
             DFH3A.text(listTruyen[i].ten_truyen);
-            DFH3A.attr("href","/truyen-tranh/"+listTruyen[i].slug_truyen);
+            DFH3A.attr("href", "/truyen-tranh/" + listTruyen[i].slug_truyen);
             var DFUL = $("<ul>");
 
             for (var j = 0; j < baChapMoi.length; j++) {
               var DFULLI = $("<li>").addClass("chapter clearfix");
               var DFULLIA = $("<a>").addClass("sts");
-              DFULLIA.attr("title", "Chapter " + baChapMoi[baChapMoi.length - (j+1)].ten_chuong);
+              DFULLIA.attr("title", "Chapter " + baChapMoi[baChapMoi.length - (j + 1)].ten_chuong);
               DFULLIA.attr("href", "/truyen-tranh/" + truyen.ten_truyen);
-              DFULLIA.text("Chapter " + baChapMoi[baChapMoi.length - (j+1)].ten_chuong);
+              DFULLIA.text("Chapter " + baChapMoi[baChapMoi.length - (j + 1)].ten_chuong);
               var DFULLII = $("<i>").addClass("time needs_to_be_rendered");
-              DFULLII.attr("datetime", baChapMoi[baChapMoi.length - (j+1)].thoi_gian_tao);
+              DFULLII.attr("datetime", baChapMoi[baChapMoi.length - (j + 1)].thoi_gian_tao);
               timeago.render(DFULLII, 'vi');
               DFULLI.append(DFULLIA);
               DFULLI.append(DFULLII);
@@ -298,86 +298,73 @@
       }
     });
   });
-/*search*/
- var availableTags = [
-      "ActionScript",
-      "AppleScript",
-      "Asp",
-      "BASIC",
-      "C",
-      "C++",
-      "Clojure",
-      "COBOL",
-      "ColdFusion",
-      "Erlang",
-      "Fortran",
-      "Groovy",
-      "Haskell",
-      "Java",
-      "JavaScript",
-      "Lisp",
-      "Perl",
-      "PHP",
-      "Python",
-      "Ruby",
-      "Scala",
-      "Scheme"
-    ];
-    $( "#search-input" ).autocomplete({
-      source: availableTags
-    });
-/*endsearch*/
+  /*search*/
+  var countries = ["Afghanistan",
+  "Albania",
+  "Algeria",
+  "Andorra",
+  "Angola",
+  "Anguilla",
+  "Antigua &amp; Barbuda",
+  "Argentina",
+  "Armenia",
+  "Aruba",
+  "Australia",
+  "Austria",
+  "Azerbaijan",
+  "Bahamas"];
+  /*endsearch*/
   /*tooltip*/
-    /* CONFIG */
-    xOffset = 10;
-    yOffset = 30;
-    /* END CONFIG */
-    $("a.preview").hover(function(e) {
-            this.t = this.title;
-            this.title = "";
-            var imageHover = this.querySelector("img.lazy").src;
-            var theLoaiTruyen = this.querySelector("span#hidden-the-loai").innerText;
-            var luotXemTruyen = this.querySelector("span#hidden-luot-xem").innerText;
-            var tacGiaTruyen = this.querySelector("span#hidden-tac-gia").innerText;
-            var noiDungTruyen = this.querySelector("span#hidden-noi-dung").innerText;
-            var c = (this.t != "") ? "<br/>" + this.t : "";
-            var toolTipBox = "<div id='preview'>";
-            toolTipBox += "<div class='tooltip-box'>";
-            toolTipBox += "<div class='img-tooltip'>";
-            toolTipBox += "<img src='" + imageHover + "' alt='Image preview' />";
-            toolTipBox += "</div>"
-            toolTipBox += "<div class='info-tooltip'>";
-            toolTipBox += "<p><label>Thể loại:</label>" + theLoaiTruyen;
-            toolTipBox += "</p>";
-            toolTipBox += "<p><label>Lượt xem:</label>" + luotXemTruyen;
-            toolTipBox += "</p>";
-            toolTipBox += "<p><label>Tác giả:</label>" + tacGiaTruyen;
-            toolTipBox += "</p>";
-            toolTipBox += "</div>";
-            toolTipBox += "<div class='clearfix'>";
-            toolTipBox += "</div>";
-            toolTipBox += "<div>";
-            toolTipBox += "<p><label>Nội dung:</label>" + noiDungTruyen;
-            toolTipBox += "</p>";
-            toolTipBox += "</div>";
-            toolTipBox += "</div>";
-            toolTipBox += "</div>";
-            $("body").append(toolTipBox);
-            $("#preview")
-                .css("top", (e.pageY - xOffset) + "px")
-                .css("left", (e.pageX + yOffset) + "px")
-                .fadeIn("fast");
-        },
-        function() {
-            this.title = this.t;
-            $("#preview").remove();
-        });
-    $("a.preview").mousemove(function(e) {
-        $("#preview")
-            .css("top", (e.pageY - xOffset) + "px")
-            .css("left", (e.pageX + yOffset) + "px");
+  /* CONFIG */
+  xOffset = 10;
+  yOffset = 30;
+  /* END CONFIG */
+  $("a.preview").hover(function (e) {
+    this.t = this.title;
+    this.title = "";
+    var imageHover = this.querySelector("img.lazy").src;
+    var theLoaiTruyen = this.querySelector("span#hidden-the-loai").innerText;
+    var luotXemTruyen = this.querySelector("span#hidden-luot-xem").innerText;
+    var tacGiaTruyen = this.querySelector("span#hidden-tac-gia").innerText;
+    var noiDungTruyen = this.querySelector("span#hidden-noi-dung").innerText;
+    var c = (this.t != "") ? "<br/>" + this.t : "";
+    var toolTipBox = "<div id='preview'>";
+    toolTipBox += "<div class='tooltip-box'>";
+    toolTipBox += "<div class='img-tooltip'>";
+    toolTipBox += "<img src='" + imageHover + "' alt='Image preview' />";
+    toolTipBox += "</div>"
+    toolTipBox += "<div class='info-tooltip'>";
+    toolTipBox += "<p><label>Thể loại:</label>" + theLoaiTruyen;
+    toolTipBox += "</p>";
+    toolTipBox += "<p><label>Lượt xem:</label>" + luotXemTruyen;
+    toolTipBox += "</p>";
+    toolTipBox += "<p><label>Tác giả:</label>" + tacGiaTruyen;
+    toolTipBox += "</p>";
+    toolTipBox += "</div>";
+    toolTipBox += "<div class='clearfix'>";
+    toolTipBox += "</div>";
+    toolTipBox += "<div>";
+    toolTipBox += "<p><label>Nội dung:</label>" + noiDungTruyen;
+    toolTipBox += "</p>";
+    toolTipBox += "</div>";
+    toolTipBox += "</div>";
+    toolTipBox += "</div>";
+    $("body").append(toolTipBox);
+    $("#preview")
+      .css("top", (e.pageY - xOffset) + "px")
+      .css("left", (e.pageX + yOffset) + "px")
+      .fadeIn("fast");
+  },
+    function () {
+      this.title = this.t;
+      $("#preview").remove();
     });
-    /*endtooltip*/
+  $("a.preview").mousemove(function (e) {
+    $("#preview")
+      .css("top", (e.pageY - xOffset) + "px")
+      .css("left", (e.pageX + yOffset) + "px");
+  });
+  /*endtooltip*/
   var lazyLoadInstance = new LazyLoad({
     elements_selector: ".lazy-hinh"
   });

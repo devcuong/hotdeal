@@ -7,7 +7,7 @@ const Error = mongoose.model("Error");
 var ObjectId = require('mongoose').Types.ObjectId;
 const dateFormat = require('dateformat');
 
-// Lấy thông tin của truyện
+// Lấy truyện theo thể loại
 router.get("/:theLoaiTruyen", (req, res) => {
     var theLoaiTruyen = req.params.theLoaiTruyen;
     Truyen.find({ the_loai: theLoaiTruyen }).exec(function(err, truyen) {
@@ -19,5 +19,15 @@ router.get("/:theLoaiTruyen", (req, res) => {
             })
         }
     });
+})
+
+// Lấy truyện theo keyword
+router.post("/tu-khoa/", (req, res) => {
+    var tuKhoa = req.body.tuKhoa.trim();
+    Truyen.find({'ten_truyen': {'$regex': tuKhoa,'$options' : 'i'}}, { ten_truyen: 1, slug_truyen: 1 }).exec(function(err, truyen){
+        if(!err){
+            res.send(JSON.stringify(truyen));
+        }
+    })
 })
 module.exports = router;

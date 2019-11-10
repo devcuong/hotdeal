@@ -109,21 +109,17 @@
         </div>
         <div class="hidden-control-mobile" id="style-3">
           <a href="/" class="hidden-home-mobile"><i class="fa fa-home"></i></a>
-          <a href="#"
-            class="hidden-list-chap"><i class="fa fa-list"></i></a>
-          <a href="#"
-            class="change-server-mobile"><i class="fa fa-refresh"></i></a>
+          <a href="#" class="hidden-list-chap"><i class="fa fa-list"></i></a>
+          <a href="#" class="change-server-mobile"><i class="fa fa-refresh"></i></a>
           <div class="div-chap">
-            <a href="#"
-              class="hidden-prev-chapter prev-link"><i class="fas fa-chevron-left"></i></a>
+            <a href="#" class="hidden-prev-chapter prev-link"><i class="fas fa-chevron-left"></i></a>
             <select id="hidden-select-chapter">
-             
+
             </select>
-            <a href="#"
-              class="hidden-next-chapter next-link"><i class="fa fa-chevron-right"></i></a>
+            <a href="#" class="hidden-next-chapter next-link"><i class="fa fa-chevron-right"></i></a>
           </div>
-          <a href="javascript:;" onclick="#"
-            class="alertError btn btn-warning" data-toggle="modal" data-target="#myModal">Báo lỗi</a>
+          <a href="javascript:;" onclick="#" class="alertError btn btn-warning" data-toggle="modal"
+            data-target="#myModal">Báo lỗi</a>
         </div>
         <div class="image-truyen" id="content-image-truyen">
           {{#each chapTruyen.server_truyen}}
@@ -145,6 +141,48 @@
 
 
   <script>
+
+    if ($("body").hasClass("view-chapter") && "undefined" != typeof Storage) {
+      var c = $(".chapter-id").data("id");
+      if (c) {
+        if (void 0 !== localStorage["visited-chapters"]) {
+          if (-1 == (H = JSON.parse(localStorage["visited-chapters"])).indexOf(c)) {
+            if (H.push(c), H.length > 2e3)
+              for (var b = 0; b < 1500; b++) H.shift();
+            localStorage["visited-chapters"] = JSON.stringify(H)
+          }
+        }
+        else {
+          (O = []).push(c), localStorage["visited-chapters"] = JSON.stringify(O);
+        }
+        var x = $(".breadcrumb li").eq(2).find("a"),
+          A = $(".breadcrumb li").eq(3).find("a"),
+          k = $('meta[itemprop="image"]').attr("content");
+        if (x && A && k) {
+          var S = $("#hidden-id-truyen").val();
+          j = {
+            id: S,
+            image: k,
+            name: x.find("span").html(),
+            url: x.attr("href"),
+            chapterName: A.find("span").html(),
+            chapterUrl: A.attr("href")
+          };
+          if (void 0 !== localStorage["visited-comics"]) {
+            var H, T = (H = JSON.parse(localStorage["visited-comics"])).map(function (e) {
+              return e.id
+            }).indexOf(S);
+            if (T > -1 && H.splice(T, 1), H.push(j), H.length > 72)
+              for (b = 72; b < H.length; b++) H.shift();
+            localStorage["visited-comics"] = JSON.stringify(H)
+          } else {
+            (O = []).push(j), localStorage["visited-comics"] = JSON.stringify(O)
+          }
+        }
+      }
+    }
+
+    // server truyện
     var proxy1 = "";
     var proxy2 = 'https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&gadget=a&no_expand=1&resize_h=0&rewriteMime=image%2F*&url=';
     var proxy3 = 'https://images.weserv.nl/?url=';
@@ -176,7 +214,7 @@
 
     })
 
-      // change server mobile
+    // change server mobile
     document.querySelector("a.change-server-mobile").addEventListener("click", function () {
       var btnSuccess = document.querySelector("a.btn-success[data-server]").nextElementSibling;
       if (btnSuccess != null && !btnSuccess.classList.contains("hidden")) {
@@ -260,20 +298,20 @@
             var listChap = returnedData.listChap;
             listChap.forEach(function myFunction(item, index) {
               var itemSelection = new Option("Chapter " + item.ten_chap, "/truyen-tranh/" + $("#hidden-name-truyen").val() + "/chap-" + item.ten_chap + "/" + item.id_chap);
-              var itemSelectionMobile =  new Option("Chapter " + item.ten_chap, "/truyen-tranh/" + $("#hidden-name-truyen").val() + "/chap-" + item.ten_chap + "/" + item.id_chap);
+              var itemSelectionMobile = new Option("Chapter " + item.ten_chap, "/truyen-tranh/" + $("#hidden-name-truyen").val() + "/chap-" + item.ten_chap + "/" + item.id_chap);
               $("#id-Select-chapter").append(itemSelection);
               $("#hidden-select-chapter").append(itemSelectionMobile);
             })
             var pathname = window.location.pathname;
             $('#id-Select-chapter').val(pathname).prop('selected', true);
-             $("#hidden-select-chapter").val(pathname).prop('selected', true);
+            $("#hidden-select-chapter").val(pathname).prop('selected', true);
 
             // set prev next link
             document.querySelector('.reading-control .prev-link').classList.add("disabled");
             document.querySelector('.hidden-control-mobile .prev-link').classList.add("disabled");
             document.querySelector('.reading-control .next-link').classList.add("disabled");
             document.querySelector('.hidden-control-mobile .next-link').classList.add("disabled");
-            
+
             // desktop select chapter
             var chapSelected = $('#id-Select-chapter option:selected');
             var prevSelect = chapSelected.prev();
@@ -294,7 +332,7 @@
               document.querySelector('.reading-control .next-link').classList.remove("disabled");
             }
             // mobile link
-              if (mobilePrevSelect != null && mobilePrevSelect.val() != null) {
+            if (mobilePrevSelect != null && mobilePrevSelect.val() != null) {
               document.querySelector('.hidden-control-mobile .prev-link').setAttribute("href", mobilePrevSelect.val());
               document.querySelector('.hidden-control-mobile .prev-link').classList.remove("disabled");
             }
@@ -314,7 +352,7 @@
     });
 
     // change chapter nav mobile
-      $('#hidden-select-chapter').on('change', function () {
+    $('#hidden-select-chapter').on('change', function () {
       window.location.href = this.value;
     });
 

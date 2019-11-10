@@ -34,22 +34,7 @@
     </div>
 </footer>
 <script>
-  function showMore() {
-    var dots = document.getElementById("dots");
-    var moreText = document.getElementById("more");
-    var btnText = document.getElementById("myBtn");
-
-    if (dots.style.display == "none") {
-      dots.style.display = "inline";
-      btnText.innerHTML = "XEM THÊM";
-      moreText.style.display = "none";
-    } else {
-      dots.style.display = "none";
-      btnText.innerHTML = "ẨN ĐI";
-      moreText.style.display = "inline";
-    }
-  }
-
+  
   var nodes = document.querySelectorAll('.needs_to_be_rendered');
 
   // use render method to render nodes in real time
@@ -66,74 +51,8 @@
     numberNodes[i].innerHTML = numberNodes[i].innerHTML.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   }
 
-  if ($("body").hasClass("view-chapter") && "undefined" != typeof Storage) {
-    var c = $(".chapter-id").data("id");
-    if (c) {
-      if (void 0 !== localStorage["visited-chapters"]) {
-        if (-1 == (H = JSON.parse(localStorage["visited-chapters"])).indexOf(c)) {
-          if (H.push(c), H.length > 2e3)
-            for (var b = 0; b < 1500; b++) H.shift();
-          localStorage["visited-chapters"] = JSON.stringify(H)
-        }
-      }
-      else {
-        (O = []).push(c), localStorage["visited-chapters"] = JSON.stringify(O);
-      }
-      var x = $(".breadcrumb li").eq(2).find("a"),
-        A = $(".breadcrumb li").eq(3).find("a"),
-        k = $('meta[itemprop="image"]').attr("content");
-      if (x && A && k) {
-        var S = $("#hidden-id-truyen").val();
-        j = {
-          id: S,
-          image: k,
-          name: x.find("span").html(),
-          url: x.attr("href"),
-          chapterName: A.find("span").html(),
-          chapterUrl: A.attr("href")
-        };
-        if (void 0 !== localStorage["visited-comics"]) {
-          var H, T = (H = JSON.parse(localStorage["visited-comics"])).map(function (e) {
-            return e.id
-          }).indexOf(S);
-          if (T > -1 && H.splice(T, 1), H.push(j), H.length > 72)
-            for (b = 72; b < H.length; b++) H.shift();
-          localStorage["visited-comics"] = JSON.stringify(H)
-        } else {
-          (O = []).push(j), localStorage["visited-comics"] = JSON.stringify(O)
-        }
-      }
-    }
-  }
-  if ($(".visited-comics-page").length && "undefined" != typeof Storage)
-    if (void 0 !== localStorage["visited-comics"])
-      if ((H = JSON.parse(localStorage["visited-comics"])).length > 0) {
-        var L = $("<div>").addClass("row");
-        for (b = H.length - 1; b >= 0; b--) {
-          var XA = $("<div>").addClass("col-md-3 col-truyen"),
-            I = H[b],
-            O = $("<div>").addClass("item"),
-            R = $("<figure>").addClass("clearfix"),
-            W = $("<div>").addClass("image"),
-            U = $("<a>").attr("title", I.name).attr("href", I.url),
-            B = $("<img>").addClass("lazy").attr("alt", I.name).attr("data-original", I.image).attr("src", I.image),
-            G = $("<div>").addClass("view");
-          $("<a>").addClass("visited-remove").attr("href", "#").data("id", I.id).html('<i class="fa fa-times"></i> Xóa').click(function (e) {
-            return e.preventDefault(), V($(this)), !1
-          }).appendTo(G);
-          U.append(B), W.append(U).append(G);
-          var M = $("<figcaption>"),
-            _ = $("<h3>"),
-            P = $("<ul>"),
-            E = $("<li>").addClass("chapter clearfix"),
-            D = $("<a>").html('Đọc tiếp <i class="fa fa-angle-double-right"></i>').attr("href", I.chapterUrl),
-            N = $("<i>").text(I.chapterName).addClass("time"),
-            z = $("<a>").html(I.name).attr("title", I.name).attr("href", I.url);
-          _.append(z), E.append(D).append(N), P.append(E), M.append(_).append(P), R.append(W).append(M), O.append(R), L.append(XA), XA.append(O)
-        }
-        $(".visited-comics-page").empty().append(L)
-      } else $(".visited-comics-page").html("Bạn chưa đọc truyện nào.");
-    else $(".visited-comics-page").html("Bạn chưa đọc truyện nào.");
+ 
+ 
   if ($(".visited-comics").length && ("undefined" != typeof Storage && void 0 !== localStorage["visited-comics"] && (H = JSON.parse(localStorage["visited-comics"])).length > 0)) {
     var titleHistory = "<div class='title-history'>" + "<h4>Lịch sử đọc truyện<a class='view-all' href='/lich-su'>tất cả></a></h4></div>";
     L = $("<div>").addClass("box darkBox"), P = $("<ul>").addClass("list-unstyled");

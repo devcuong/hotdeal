@@ -60,6 +60,7 @@ router.get("/:slugTruyen/:tenChap/:idChap", (req, res) => {
 
                                 ]).exec(function(err, truyen) {
                                     if (!err) {
+                                        console.log(truyen[0]);
                                         res.render("home/noiDungTrangChapter", {
                                             layout: 'homeLayout.hbs',
                                             chapTruyen: truyen[0],

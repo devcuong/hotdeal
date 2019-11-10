@@ -24,9 +24,8 @@ router.get("/:theLoaiTruyen", (req, res) => {
 // Lấy truyện theo keyword
 router.post("/tu-khoa/", (req, res) => {
     var tuKhoa = req.body.tuKhoa.trim();
-    Truyen.find({name: new RegExp('^' + tuKhoa + '$')}, { ten_truyen: 1, slug_truyen: 1 }).exec(function(err, truyen){
+    Truyen.find( { 'ten_truyen' : { '$regex' : tuKhoa, '$options' : 'i' } } , { ten_truyen: 1, slug_truyen: 1 }).limit(20).exec(function(err, truyen){
         if(!err){
-            console.log(truyen);
             res.send(JSON.stringify(truyen));
         }
     })

@@ -1432,35 +1432,27 @@ h3.title {
     border-radius: 0;
 }
 
-.autocomplete-items {
-    position: absolute;
-    border: 1px solid #d4d4d4;
-    border-bottom: none;
-    border-top: none;
-    z-index: 99;
-    /*position the autocomplete items to be the same width as the container:*/
-    top: 100%;
-    left: 0;
-    right: 0;
-  }
-
-.autocomplete-items div {
-    padding: 10px;
+.ui-menu .ui-menu-item {
+    margin: 0;
     cursor: pointer;
-    background-color: #fff;
-    border-bottom: 1px solid #d4d4d4;
+    font-size: 1.1rem;
+    text-transform: lowercase;
+    min-height: 30px;
+    text-align: center;
+    border-bottom: 1px solid #ebebeb;
 }
 
-.autocomplete-items div:hover {
-    /*when hovering an item:*/
-    background-color: #e9e9e9;
-}
-
-.autocomplete-active {
-    /*when navigating through the items using the arrow keys:*/
-    background-color: DodgerBlue !important;
-    color: #ffffff;
-}
+.ui-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: block;
+    outline: 0;
+  }
+  .ui-widget {
+      font-family: Arial,Helvetica,sans-serif;
+      font-size: 1em;
+  }
 /* endsearch */
 
 
@@ -1509,4 +1501,3 @@ h3.title {
 .fa-refresh:before {
     content: "\f021";
 }
-

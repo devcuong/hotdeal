@@ -411,9 +411,9 @@
                         <a class="nav-link" href="#">GÓP Ý</a>
                     </li>
                 </ul>
-                <form class="form-inline mt-2 mt-md-0" autocomplete="off">
+                <form class="form-inline mt-2 mt-md-0" autocomplete="off" action="/tim-truyen/ten-truyen/" method="post">
                     <div class="input-group search-holder">
-                        <input id="search-input" class="comicsearchbox" type="text" placeholder="Tìm kiếm(tiếng việt có dấu)" value="">
+                        <input id="search-input" name="tuKhoa" class="comicsearchbox" type="text" placeholder="Tìm kiếm(tiếng việt có dấu)" value="">
                         <div class="input-group-btn"><button class="btn btn-default" type="submit" aria-label="Tìm kiếm"
                                 role="search"><i class="fa fa-search" aria-hidden="true"></i></button></div>
                     </div>
@@ -421,9 +421,6 @@
             </div>
         </div>
         <script>
-
-
-
             var listCategory = $(".dropdown-item");
             for (var i = 0; i < listCategory.length; i++) {
                 listCategory[i].setAttribute("href", "/tim-truyen/" + changeToSlug(listCategory[i].innerText.trim()));

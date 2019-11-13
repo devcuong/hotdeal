@@ -1,7 +1,7 @@
 <footer>
   <div class="padding">
     <div class="row text-center">
-    
+
     </div>
 </footer>
 <script>
@@ -96,7 +96,7 @@
             E.attr("title", truyen.ten_truyen);
             E.attr("href", "/truyen-tranh/" + truyen.slug_truyen);
             var F = $("<img>").addClass("lazy");
-            F.attr("src", truyen.hinh_truyen);
+            F.attr("src", "//images.weserv.nl/?url="+encodeURIComponent(truyen.hinh_truyen)+"&w=200");
             F.data("original", truyen.hinh_truyen);
             F.attr("style", "display: inline ;");
 

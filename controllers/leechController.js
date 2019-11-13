@@ -4,9 +4,9 @@ const mongoose = require("mongoose");
 const Truyen = mongoose.model("Truyen");
 
 // Lấy thông tin của truyện
-router.get("/truyen", (req, res) => {
+router.get("/", (req, res) => {
     res.render("admin/trangLeechTruyen", {
-        layout: 'admnLayout.hbs',
+        layout: 'adminLayout.hbs',
         titleTrang: "LEECH TRANG TRUYỆN"
     })
 });

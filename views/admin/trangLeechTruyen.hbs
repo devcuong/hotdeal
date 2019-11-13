@@ -1,12 +1,28 @@
 <div class="row">
-    <div class="col-md-12">
-        <h5 class="card-title">QUẢN LÝ TIN TỨC</h5>
-    </div>
+  <div class="col-md-12">
+    <h5 class="card-title">QUẢN LÝ TIN TỨC</h5>
+  </div>
 </div>
 
 <script>
-    function themTinTuc() {
-        location.href = "tin-tuc/add";
-    }
+function themTinTuc() {
+  location.href = "tin-tuc/add";
+}
 </script>
-<div class="position-relative form-group"><label for="exampleEmail" class="">Email</label><input name="email" id="exampleEmail" placeholder="with a placeholder" type="email" class="form-control"></div>
+<div class="position-relative form-group"><label for="exampleEmail" class="">Email</label>
+  <input name="urlTruyen" placeholder="with a placeholder" type="text" class="form-control">
+  <button class="mb-2 mr-2 btn btn-success get-truyen">Success
+</button></div>
+<script>
+$(".get-truyen").click(function() {
+  var flickerAPI = "http://chauau3.herokuapp.com/lay-chapter?id=http://www.nettruyen.com/truyen-tranh/quy-luat-tinh-yeu-o-mat-the/chap-76/520046";
+ $.getJSON( flickerAPI, {
+   format: "json"
+ })
+   .done(function( data ) {
+     $.each( data.server_truyen, function( i, item ) {
+       alert(item.sv_original);
+     });
+   });
+});
+</script>

@@ -7,6 +7,7 @@ const bodyparser = require("body-parser");
 const tintucController = require("./controllers/tintucController");
 const videoController = require("./controllers/videoController");
 const truyenController = require("./controllers/truyenController");
+const leechController = require("./controllers/leechController");
 const chapterController = require("./controllers/chapterController");
 const mainController = require("./controllers/mainController");
 const detailController = require("./controllers/detailController.js");
@@ -61,6 +62,7 @@ app.listen(3000, () => {
 app.use("/admin/tin-tuc", tintucController);
 app.use("/admin/video", videoController);
 app.use("/admin/truyen", truyenController);
+app.use("/admin/leech/truyen", leechController);
 app.use("/admin/chapter", chapterController);
 app.use("/", mainController);
 app.use("/truyen-tranh", detailController);

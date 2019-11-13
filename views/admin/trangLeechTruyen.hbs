@@ -5,24 +5,45 @@
 </div>
 
 <script>
-function themTinTuc() {
-  location.href = "tin-tuc/add";
-}
+  function themTinTuc() {
+    location.href = "tin-tuc/add";
+  }
 </script>
 <div class="position-relative form-group"><label for="exampleEmail" class="">Email</label>
-  <input name="urlTruyen" placeholder="with a placeholder" type="text" class="form-control">
+  <input name="urlTruyen" placeholder="with a placeholder" type="text" class="form-control url-truyen">
   <button class="mb-2 mr-2 btn btn-success get-truyen">Success
-</button></div>
+  </button>
+</div>
+<table class="mb-0 table" id="tbl-chapter-comic">
+  <thead>
+    <tr>
+      <th>danh sách chương</th>
+      <th>lấy chương truyện</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
 <script>
-$(".get-truyen").click(function() {
-  var flickerAPI = "http://chauau3.herokuapp.com/lay-chapter?id=http://www.nettruyen.com/truyen-tranh/quy-luat-tinh-yeu-o-mat-the/chap-76/520046";
- $.getJSON( flickerAPI, {
-   format: "json"
- })
-   .done(function( data ) {
-     $.each( data.server_truyen, function( i, item ) {
-       alert(item.sv_original);
-     });
-   });
-});
+  $(".get-truyen").click(function () {
+    var urlTruyen = $(".url-truyen").val();
+    $.ajax({
+      type: 'post',
+      data: {
+        url: urlTruyen
+      },
+      dataType: 'json',
+      url: '/admin/leech/truyen',
+      success: function (response) {
+        var danhSachChap = response.danh_sach_chap;
+        alert(response);
+        for (var i = 0; i < danhSachChap.length; i++) {
+          var row = $("<tr>");
+          row.append($("<td>").text(danhSachChap[i]));
+          row.append($("<td>").text("click"));
+          $("#tbl-chapter-comic").append(row);
+        }
+      }
+    });
+  })
 </script>

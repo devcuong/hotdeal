@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-12">
-    <h5 class="card-title">QUẢN LÝ TIN TỨC</h5>
+    <h5 class="card-title">{{titleTrang}}</h5>
   </div>
 </div>
 
@@ -13,6 +13,9 @@
   <input name="urlTruyen" placeholder="with a placeholder" type="text" class="form-control url-truyen">
   <button class="mb-2 mr-2 btn btn-success get-truyen">Success
   </button>
+  <div class="loadingGif" style="width: 60px;margin: 0 auto; display: none;">
+    <img src="/image/loading.gif" alt="loading next page" style="width: 100%">
+  </div>
 </div>
 <table class="mb-0 table" id="tbl-chapter-comic">
   <thead>
@@ -24,8 +27,10 @@
   <tbody>
   </tbody>
 </table>
+<div id="res-json"></div>
 <script>
   $(".get-truyen").click(function () {
+    $('.loadingGif').show();
     var urlTruyen = $(".url-truyen").val();
     $.ajax({
       type: 'post',
@@ -35,15 +40,18 @@
       dataType: 'json',
       url: '/admin/leech/truyen',
       success: function (response) {
-        var danhSachChap = response.danh_sach_chap;
-        alert(response);
-        for (var i = 0; i < danhSachChap.length; i++) {
+        var truyenObj = JSON.parse(response);
+        for (var i = 0; i < truyenObj.danh_sach_chap.length; i++) {
+          var addChapterButton = $("<button>").addClass("btn-info");
+          addChapterButton.text("GET CHAPTER");
+          addChapterButton.attr('data-link', truyenObj.danh_sach_chap[truyenObj.danh_sach_chap.length - i - 1]);
           var row = $("<tr>");
-          row.append($("<td>").text(danhSachChap[i]));
-          row.append($("<td>").text("click"));
+          row.append($("<td>").text(truyenObj.danh_sach_chap[truyenObj.danh_sach_chap.length - i - 1]));
+          row.append($("<td>").html(addChapterButton));
           $("#tbl-chapter-comic").append(row);
         }
       }
     });
+     $('.loadingGif').hide();
   })
 </script>

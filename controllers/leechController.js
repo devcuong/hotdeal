@@ -8,7 +8,7 @@ const Truyen = mongoose.model("Truyen");
 router.get("/", (req, res) => {
     res.render("admin/trangLeechTruyen", {
         layout: 'adminLayout.hbs',
-        titleTrang: "LEECH TRANG TRUYỆN"
+        titleTrang: "LEECH TRUYỆN"
     })
 });
 

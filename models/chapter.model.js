@@ -32,7 +32,10 @@ var chapterSchema = new mongoose.Schema({
     }],
     server_2: [{
         type: String
-    }]
+    }],
+    nguon_truyen:{
+        type: String
+    }
 
 }, {
     versionKey: false // You should be aware of the outcome after set to false

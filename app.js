@@ -62,7 +62,7 @@ app.listen(3000, () => {
 app.use("/admin/tin-tuc", tintucController);
 app.use("/admin/video", videoController);
 app.use("/admin/truyen", truyenController);
-app.use("/admin/leech/truyen", leechController);
+app.use("/admin/leech", leechController);
 app.use("/admin/chapter", chapterController);
 app.use("/", mainController);
 app.use("/truyen-tranh", detailController);

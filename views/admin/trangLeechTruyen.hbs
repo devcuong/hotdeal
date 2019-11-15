@@ -16,7 +16,7 @@
   <div class="loadingGif" style="width: 60px;margin: 0 auto; display: none;">
     <img src="/image/loading.gif" alt="loading next page" style="width: 100%">
   </div>
-    <input type="hidden" id="truyenId">
+    <input type="hidden" id="idTruyen">
     <div class="position-relative row form-group"><label for="tenTruyen" class="col-sm-2 col-form-label">Tên
         Truyện</label>
       <div class="col-sm-10"><input name="tenTruyen" id="ten-truyen" placeholder="Tên Truyện" type="text"
@@ -63,11 +63,10 @@
 <script>
   $(".get-truyen").click(function () {
     $('.loadingGif').show();
-    var urlTruyen = $(".url-truyen").val();
     $.ajax({
       type: 'post',
       data: {
-        url: urlTruyen
+        url: $(".url-truyen").val()
       },
       dataType: 'json',
       url: '/admin/leech/',
@@ -107,10 +106,31 @@
       url: '/admin/leech/them-truyen',
       success: function (response) {
         alert(response);
-        $("#truyenId").val(response);
+        $("#idTruyen").val(response);
       }
     })
   })
+  $("#btn-them-chap").click(function () {
+    if ($("#idTruyen").val()) {
+      var trTable = $("#tbl-chapter-comic tr");
+      for (var i = 1; i < trTable.length; i++) {
+        setTimeout(function(i) {
+          $.ajax({
+            type: 'post',
+            data: {
+              idTruyen:  $("#idTruyen").val(),
+              url:trTable[i].cells[0].innerHTML
+            },
+            dataType: 'json',
+            url: '/admin/leech/them-chapter',
+            success: function (response) {
+              trTable[i].cells[0].innerHTML = "<b>"+trTable[i].cells[0].innerHTML+"</b>";
+            }
+          })
+ },1000 * i,i);
+      }
+    }
 
-  
+  })
+
 </script>

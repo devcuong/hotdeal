@@ -61,25 +61,28 @@ router.post("/them-truyen", (req, res) => {
 
 // thêm chapter theo truyện
 router.post("/them-chapter", (req, res) => {
-    var chapter = new Chapter();
-    chapter.ten_chuong = req.body.tenChuong;
-    chapter.ma_truyen = new ObjectId(req.body.idTruyen);
-    chapter.thoi_gian_tao = moment(Date.now).format('YYYY-MM-YY HH:mm');
-    chapter.luot_xem = "0";
-    if (req.body.server1 && req.body.server2) {
-        var lstServer1 = req.body.server1.trim().split(',');
-        var lstServer2 = req.body.server2.trim().split(',');
-        for (var i = 0; i < lstServer1.length; i++) {
-            var sv = { sv_original: lstServer1[i], sv_cdn: lstServer2[i] };
-            chapter.server_truyen.push(sv);
-        }
-    }
-    chapter.save((err, doc) => {
-        if (err) {
-            console.log(err);
-        } else {
-            res.json(doc._id);
-        }
-    })
+  var svChapter = "http://chauau3.herokuapp.com/lay-chapter?id=" + req.body.url;
+  request(
+      svChapter,
+      function (error, response, body) {
+          if (error) {
+              return "lỗi";
+          } else {
+            var jsonChap = JSON.parse(body);
+            var chapter = new Chapter();
+            chapter.ten_chuong = jsonChap.ten_chuong;
+            chapter.ma_truyen = new ObjectId(req.body.idTruyen);
+            chapter.thoi_gian_tao = moment(Date.now).format('YYYY-MM-YY HH:mm');
+            chapter.luot_xem = "0";
+            chapter.server_truyen = jsonChap.server_truyen;
+            chapter.save((err, doc) => {
+                if (err) {
+                    console.log(err);
+                } else {
+                    res.json(doc._id);
+                }
+            })
+          }
+      });
 })
 module.exports = router;

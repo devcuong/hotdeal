@@ -46,9 +46,9 @@ router.post("/them-truyen", (req, res) => {
     truyen.luot_theo_doi = "0";
     truyen.save((err, doc) => {
         if (err) {
-            console.log(err); 
+            console.log(err);
         } else {
-            console.log(doc);
+              res.json(doc._id);
         }
     })
 })

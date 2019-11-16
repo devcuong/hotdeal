@@ -72,9 +72,9 @@ router.post("/them-chapter", (req, res) => {
             var chapter = new Chapter();
             chapter.ten_chuong = jsonChap.ten_chuong;
             chapter.ma_truyen = new ObjectId(req.body.idTruyen);
-            chapter.thoi_gian_tao = moment(Date.now).format('YYYY-MM-YY HH:mm');
             chapter.luot_xem = "0";
             chapter.server_truyen = jsonChap.server_truyen;
+            chapter.thoi_gian_tao = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
             chapter.save((err, doc) => {
                 if (err) {
                     console.log(err);

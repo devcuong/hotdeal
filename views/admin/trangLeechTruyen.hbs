@@ -62,6 +62,8 @@
 <div id="res-json"></div>
 <script>
   $(".get-truyen").click(function () {
+    $("#tbl-chapter-comic > tbody").empty();
+
     $('.loadingGif').show();
     $.ajax({
       type: 'post',
@@ -124,10 +126,10 @@
             dataType: 'json',
             url: '/admin/leech/them-chapter',
             success: function (response) {
-              trTable[i].cells[0].innerHTML = "<b>"+trTable[i].cells[0].innerHTML+"</b>";
+              trTable[i].cells[0].innerHTML = "<b><font color='red'>"+trTable[i].cells[0].innerHTML+"</font></b>";
             }
           })
- },1000 * i,i);
+ },3000 * i,i);
       }
     }
 

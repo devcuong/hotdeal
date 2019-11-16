@@ -1386,14 +1386,14 @@ h3.title {
 .home-button {
     display: block;
     padding: 7px 10px;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
     background: #ff530d;
 }
 
 .list-button {
     display: block;
     padding: 7px 10px;
-    margin-bottom: 10px;
+    margin-bottom: 35px;
     background: #9C27B0;
 }
 
@@ -1507,4 +1507,40 @@ h3.title {
 
 .fa-refresh:before {
     content: "\f021";
+}
+#back-home-button {
+  display: inline-block;
+  background-color: #FF9800;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  position: fixed;
+  bottom: 30px;
+  right: 10px;
+  transition: background-color .3s,
+    opacity .5s, visibility .5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+#back-home-button::after {
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2em;
+  line-height: 50px;
+  color: #fff;
+}
+#back-home-button:hover {
+  cursor: pointer;
+  background-color: #333;
+  font-size: 2em;
+}
+#back-home-button:active {
+  background-color: #555;
+  font-size: 2em;
+}
+#back-home-button.show {
+  font-size: 2em;
+  opacity: 1;
+  visibility: visible;
 }

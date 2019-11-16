@@ -10,7 +10,6 @@ const stringHandle = require("../utils/stringHandle.js");
 // Lấy truyện theo thể loại
 router.get("/:theLoaiTruyen", (req, res) => {
     var theLoaiTruyen = req.params.theLoaiTruyen;
-    console.log(theLoaiTruyen);
     Truyen.find({ the_loai: theLoaiTruyen }).exec(function(err, truyen) {
         if (!err) {
             res.render("home/noiDungTrangTimTruyen", {

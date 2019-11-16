@@ -5,6 +5,8 @@ $(document).ready(function() {
         margin: 10,
         nav: true,
         dots: false,
+        autoplay:true,
+        autoplayTimeout:1000,
         autoplayHoverPause: true,
         navText: [
             '<i class="fa fa-arrow-left" aria-hidden="true"></i>',

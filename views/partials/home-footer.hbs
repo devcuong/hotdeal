@@ -3,6 +3,10 @@
     <div class="row text-center">
 
     </div>
+    <!-- Back to top button -->
+<a id="back-home-button">
+  <i class="fas fa-arrow-up"></i>
+</a>
 </footer>
 <script>
 
@@ -327,6 +331,23 @@
     $("footer .row").append(b);
   }
   /* endloadfootertheloai */
+  /* backtohome*/
+  var btn = $('#back-home-button');
+
+$(window).scroll(function() {
+  if ($(window).scrollTop() > 300) {
+    btn.addClass('show');
+  } else {
+    btn.removeClass('show');
+  }
+});
+
+btn.on('click', function(e) {
+  e.preventDefault();
+  $('html, body').animate({scrollTop:0}, '300');
+});
+
+  /*endbacktohome*/
   /*endtooltip*/
   var lazyLoadInstance = new LazyLoad({
     elements_selector: ".lazy-hinh"

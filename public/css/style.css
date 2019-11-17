@@ -313,11 +313,6 @@ hr.light-100 {
     .div-chap {
         display: inline-block;
     }
-    #id-select-chapter {
-        height: 30px;
-        width: 100px;
-        text-align: right;
-    }
     .hidden-control-mobile .hidden-next-chapter,
     .hidden-control-mobile .hidden-prev-chapter {
         background: #27ae60;
@@ -386,7 +381,47 @@ hr.light-100 {
         text-decoration: none;
     }
     .hidden-control-mobile {
-        display: none;
+        display: block
+    }
+    .hidden-control-mobile {
+        display: block;
+        font-size: 13px;
+        line-height: 25px;
+        background-color: #e4e4e4;
+        max-height: 40px;
+        z-index: 99999;
+        white-space: nowrap;
+        cursor: pointer;
+        width: 100%;
+    }
+    .hidden-control-mobile a {
+        padding: 6px 5px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .hidden-control-mobile .hidden-list-chap {
+        color: #9c27b0;
+    }
+    .hidden-control-mobile .hidden-home-mobile {
+        color: #ff530d;
+    }
+    .hidden-control-mobile .change-server-mobile {
+        color: #e91e63;
+    }
+    .div-chap {
+        display: inline-block;
+    }
+    #hidden-select-chapter {
+        height: 30px;
+        width: 300px;
+        text-align: right;
+    }
+    .hidden-control-mobile .hidden-next-chapter,
+    .hidden-control-mobile .hidden-prev-chapter {
+        background: #27ae60;
+        color: #fff;
+        border-radius: 2px;
+        padding: 3px 10px;
     }
 }
 

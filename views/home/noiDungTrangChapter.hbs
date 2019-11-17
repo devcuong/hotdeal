@@ -107,7 +107,15 @@
               <span>Theo dõi</span></a></div>
           <div></div>
         </div>
-        <div class="hidden-control-mobile" id="style-3">
+       
+        <div class="image-truyen" id="content-image-truyen">
+          {{#each chapTruyen.server_truyen}}
+          <img id="image-truyen-{{@index}}" data-cdn="{{this.sv_cdn}}" data-src="{{this.sv_original}}"
+            src="https://icon-library.net/images/spinner-icon-gif/spinner-icon-gif-10.jpg"
+            class="lazy-hinh img-truyen img-fluid">
+          {{/each}}
+        </div>
+         <div class="hidden-control-mobile" id="style-3">
           <a href="/" class="hidden-home-mobile"><i class="fa fa-home"></i></a>
           <a href="#" class="hidden-list-chap"><i class="fa fa-list"></i></a>
           <a href="#" class="change-server-mobile"><i class="fa fa-refresh"></i></a>
@@ -120,13 +128,6 @@
           </div>
           <a href="javascript:;" onclick="#" class="alertError btn btn-warning" data-toggle="modal"
             data-target="#myModal">Báo lỗi</a>
-        </div>
-        <div class="image-truyen" id="content-image-truyen">
-          {{#each chapTruyen.server_truyen}}
-          <img id="image-truyen-{{@index}}" data-cdn="{{this.sv_cdn}}" data-src="{{this.sv_original}}"
-            src="https://icon-library.net/images/spinner-icon-gif/spinner-icon-gif-10.jpg"
-            class="lazy-hinh img-truyen img-fluid">
-          {{/each}}
         </div>
         <div id="control-list-button">
           <a href="/truyen-tranh/{{nameTruyen.slug_truyen}}" class="list-button"><i class="fas fa-list"></i> List

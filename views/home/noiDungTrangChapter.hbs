@@ -294,6 +294,9 @@
         function (data, status, xhr) {
           var returnedData = JSON.parse(data);
           if (returnedData.success == true) {
+             if (void 0 == localStorage["loaded-chapters"]) {
+                localStorage["loaded-chapters"] = JSON.stringify(returnedData.listChap);
+             }
             $("#id-Select-chapter").empty();
             $("#hidden-select-chapter").empty();
             var listChap = returnedData.listChap;

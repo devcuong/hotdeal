@@ -107,10 +107,11 @@ function insertRecord(req, res) {
     })
 }
 
-// lấy list chapter của truyện và comment
-router.post("/:idTruyen", (req, res) => {
-    var idTruyen = req.params.idTruyen;
-    var q = Chapter.find({ "ma_truyen": new ObjectId(idTruyen) }).sort( { ten_chuong: 1 } ).collation({locale: "en_US", numericOrdering: true});
+// lấy list chapter của truyện
+router.post("/all-chapter", (req, res) => {
+    var idTruyen = req.body.idTruyen;
+    console.log(idTruyen);
+    var q = Chapter.find({ "ma_truyen": new ObjectId(idTruyen) }).sort({ ten_chuong: 1 }).collation({ locale: "en_US", numericOrdering: true });
     q.exec(function(err, docs) {
         if (!err) {
             var o = new Object;

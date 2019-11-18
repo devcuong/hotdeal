@@ -77,7 +77,11 @@
         $("#ten-truyen").val(truyenObj.ten_truyen);
         $("#tac-gia").val(truyenObj.tac_gia.replace("Tác giả", "").trim());
         var lstTheLoai = truyenObj.the_loai.replace("Thể loại", "").trim().split("-");
-        $("#the-loai").val(lstTheLoai);
+        var arrTheLoai = [];
+        for(var i=0 ;i<lstTheLoai.length;i++){
+          arrTheLoai.push(changeToSlug(lstTheLoai[i].trim()));
+        }
+        $("#the-loai").val(arrTheLoai);
         $("#noi-dung").val(truyenObj.noi_dung);
          $("#hinh-truyen").val(truyenObj.hinh_truyen);
         for (var i = 0; i < truyenObj.danh_sach_chap.length; i++) {

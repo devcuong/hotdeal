@@ -107,7 +107,7 @@
               <span>Theo dõi</span></a></div>
           <div></div>
         </div>
-       
+
         <div class="image-truyen" id="content-image-truyen">
           {{#each chapTruyen.server_truyen}}
           <img id="image-truyen-{{@index}}" data-cdn="{{this.sv_cdn}}" data-src="{{this.sv_original}}"
@@ -115,7 +115,7 @@
             class="lazy-hinh img-truyen img-fluid">
           {{/each}}
         </div>
-         <div class="hidden-control-mobile" id="style-3">
+        <div class="hidden-control-mobile" id="style-3">
           <a href="/" class="hidden-home-mobile"><i class="fa fa-home"></i></a>
           <a href="#" class="hidden-list-chap"><i class="fa fa-list"></i></a>
           <a href="#" class="change-server-mobile"><i class="fa fa-refresh"></i></a>
@@ -289,67 +289,27 @@
       });
     });
     $(window).on("load", function () {
-      var urlLoadListChap = "/truyen-tranh/" + $("#hidden-id-truyen").val();
-      $.post(urlLoadListChap,
-        function (data, status, xhr) {
-          var returnedData = JSON.parse(data);
-          if (returnedData.success == true) {
-             if (void 0 == localStorage["loaded-chapters"]) {
-                localStorage["loaded-chapters"] = JSON.stringify(returnedData.listChap);
-             }
-            $("#id-Select-chapter").empty();
-            $("#hidden-select-chapter").empty();
-            var listChap = returnedData.listChap;
-            listChap.forEach(function myFunction(item, index) {
-              var itemSelection = new Option("Chapter " + item.ten_chap, "/truyen-tranh/" + $("#hidden-name-truyen").val() + "/chap-" + item.ten_chap + "/" + item.id_chap);
-              var itemSelectionMobile = new Option("Chapter " + item.ten_chap, "/truyen-tranh/" + $("#hidden-name-truyen").val() + "/chap-" + item.ten_chap + "/" + item.id_chap);
-              $("#id-Select-chapter").append(itemSelection);
-              $("#hidden-select-chapter").append(itemSelectionMobile);
-            })
-            var pathname = window.location.pathname;
-            $('#id-Select-chapter').val(pathname).prop('selected', true);
-            $("#hidden-select-chapter").val(pathname).prop('selected', true);
-
-            // set prev next link
-            document.querySelector('.reading-control .prev-link').classList.add("disabled");
-            document.querySelector('.hidden-control-mobile .prev-link').classList.add("disabled");
-            document.querySelector('.reading-control .next-link').classList.add("disabled");
-            document.querySelector('.hidden-control-mobile .next-link').classList.add("disabled");
-
-            // desktop select chapter
-            var chapSelected = $('#id-Select-chapter option:selected');
-            var prevSelect = chapSelected.prev();
-            var nextSelect = chapSelected.next();
-
-            // mobile select chapter
-            var mobileChapSelected = $('#hidden-select-chapter option:selected');
-            var mobilePrevSelect = mobileChapSelected.prev();
-            var mobileNextSelect = mobileChapSelected.next();
-
-            // desktop link
-            if (prevSelect != null && prevSelect.val() != null) {
-              document.querySelector('.reading-control .prev-link').setAttribute("href", prevSelect.val());
-              document.querySelector('.reading-control .prev-link').classList.remove("disabled");
+      var c = $("#hidden-id-truyen").val();
+      var listChap = [];
+        $.ajax({
+          type: 'post',
+          data: {
+            idTruyen: c
+          },
+          dataType: 'json',
+          url: "/truyen-tranh/all-chapter",
+          success: function (response) {
+            //var returnedData = JSON.parse(response);
+            if (response.success == true) {
+              listChap = response.listChap;
+              $("#id-Select-chapter").empty();
+              $("#hidden-select-chapter").empty();
+              loadListChapter(listChap);
             }
-            if (nextSelect != null && nextSelect.val() != null) {
-              document.querySelector('.reading-control .next-link').setAttribute("href", nextSelect.val());
-              document.querySelector('.reading-control .next-link').classList.remove("disabled");
-            }
-            // mobile link
-            if (mobilePrevSelect != null && mobilePrevSelect.val() != null) {
-              document.querySelector('.hidden-control-mobile .prev-link').setAttribute("href", mobilePrevSelect.val());
-              document.querySelector('.hidden-control-mobile .prev-link').classList.remove("disabled");
-            }
-            if (mobileNextSelect != null && mobileNextSelect.val() != null) {
-              document.querySelector('.hidden-control-mobile .next-link').setAttribute("href", mobileNextSelect.val());
-              document.querySelector('.hidden-control-mobile .next-link').classList.remove("disabled");
-            }
-
           }
-        }
-      )
+        });
 
-    });
+    })
     // change chapter nav desktop
     $('#id-Select-chapter').on('change', function () {
       window.location.href = this.value;
@@ -360,6 +320,52 @@
       window.location.href = this.value;
     });
 
+    function loadListChapter(listChap) {
+      listChap.forEach(function myFunction(item, index) {
+        var itemSelection = new Option("Chapter " + item.ten_chap, "/truyen-tranh/" + $("#hidden-name-truyen").val() + "/chap-" + item.ten_chap + "/" + item.id_chap);
+        var itemSelectionMobile = new Option("Chapter " + item.ten_chap, "/truyen-tranh/" + $("#hidden-name-truyen").val() + "/chap-" + item.ten_chap + "/" + item.id_chap);
+        $("#id-Select-chapter").append(itemSelection);
+        $("#hidden-select-chapter").append(itemSelectionMobile);
+      })
+      var pathname = window.location.pathname;
+      $('#id-Select-chapter').val(pathname).prop('selected', true);
+      $("#hidden-select-chapter").val(pathname).prop('selected', true);
+
+      // set prev next link
+      document.querySelector('.reading-control .prev-link').classList.add("disabled");
+      document.querySelector('.hidden-control-mobile .prev-link').classList.add("disabled");
+      document.querySelector('.reading-control .next-link').classList.add("disabled");
+      document.querySelector('.hidden-control-mobile .next-link').classList.add("disabled");
+
+      // desktop select chapter
+      var chapSelected = $('#id-Select-chapter option:selected');
+      var prevSelect = chapSelected.prev();
+      var nextSelect = chapSelected.next();
+
+      // mobile select chapter
+      var mobileChapSelected = $('#hidden-select-chapter option:selected');
+      var mobilePrevSelect = mobileChapSelected.prev();
+      var mobileNextSelect = mobileChapSelected.next();
+
+      // desktop link
+      if (prevSelect != null && prevSelect.val() != null) {
+        document.querySelector('.reading-control .prev-link').setAttribute("href", prevSelect.val());
+        document.querySelector('.reading-control .prev-link').classList.remove("disabled");
+      }
+      if (nextSelect != null && nextSelect.val() != null) {
+        document.querySelector('.reading-control .next-link').setAttribute("href", nextSelect.val());
+        document.querySelector('.reading-control .next-link').classList.remove("disabled");
+      }
+      // mobile link
+      if (mobilePrevSelect != null && mobilePrevSelect.val() != null) {
+        document.querySelector('.hidden-control-mobile .prev-link').setAttribute("href", mobilePrevSelect.val());
+        document.querySelector('.hidden-control-mobile .prev-link').classList.remove("disabled");
+      }
+      if (mobileNextSelect != null && mobileNextSelect.val() != null) {
+        document.querySelector('.hidden-control-mobile .next-link').setAttribute("href", mobileNextSelect.val());
+        document.querySelector('.hidden-control-mobile .next-link').classList.remove("disabled");
+      };
+    }
   </script>
 
 </section>

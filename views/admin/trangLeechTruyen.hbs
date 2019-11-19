@@ -16,38 +16,45 @@
   <div class="loadingGif" style="width: 60px;margin: 0 auto; display: none;">
     <img src="/image/loading.gif" alt="loading next page" style="width: 100%">
   </div>
-    <input type="hidden" id="idTruyen">
-    <div class="position-relative row form-group"><label for="tenTruyen" class="col-sm-2 col-form-label">Tên
-        Truyện</label>
-      <div class="col-sm-10"><input name="tenTruyen" id="ten-truyen" placeholder="Tên Truyện" type="text"
-          class="form-control"></div>
+  <input type="hidden" id="idTruyen">
+  <div class="position-relative row form-group"><label for="tenTruyen" class="col-sm-2 col-form-label">Tên
+      Truyện</label>
+    <div class="col-sm-10"><input name="tenTruyen" id="ten-truyen" placeholder="Tên Truyện" type="text"
+        class="form-control"></div>
+  </div>
+  <div class="position-relative row form-group"><label for="tacGia" class="col-sm-2 col-form-label">Tác Giả</label>
+    <div class="col-sm-10"><input name="tacGia" id="tac-gia" placeholder="Tác Giả" type="text" class="form-control" />
     </div>
-    <div class="position-relative row form-group"><label for="tacGia" class="col-sm-2 col-form-label">Tác Giả</label>
-      <div class="col-sm-10"><input name="tacGia" id="tac-gia" placeholder="Tác Giả" type="text" class="form-control" />
-      </div>
+  </div>
+  <div class="position-relative row form-group"><label for="theLoai" class="col-sm-2 col-form-label">Thể Loại</label>
+    <div class="col-sm-10"><textarea name="theLoai" id="the-loai" placeholder="Thể Loại" type="text"
+        class="form-control"></textarea></div>
+  </div>
+  <div class="position-relative row form-group"><label for="soChap" class="col-sm-2 col-form-label">Số Chapter</label>
+    <div class="col-sm-10"><input name="soChap" id="so-chap" placeholder="Số Chapter" type="text"
+        class="form-control" />
     </div>
-    <div class="position-relative row form-group"><label for="theLoai" class="col-sm-2 col-form-label">Thể Loại</label>
-      <div class="col-sm-10"><textarea name="theLoai" id="the-loai" placeholder="Thể Loại" type="text"
-          class="form-control"></textarea></div>
+  </div>
+  <div class="position-relative row form-group"><label for="noiDung" class="col-sm-2 col-form-label">Nội Dung</label>
+    <div class="col-sm-10"><textarea name="noiDung" id="noi-dung" placeholder="Nội Dung" type="text"
+        class="form-control"></textarea></div>
+  </div>
+  <div class="position-relative row form-group"><label for="hinhTruyen" class="col-sm-2 col-form-label">Hình
+      Truyện</label>
+    <div class="col-sm-10"><input name="hinhTruyen" id="hinh-truyen" placeholder="Hình Truyện" type="text"
+        class="form-control" />
     </div>
-    <div class="position-relative row form-group"><label for="noiDung" class="col-sm-2 col-form-label">Nội Dung</label>
-      <div class="col-sm-10"><textarea name="noiDung" id="noi-dung" placeholder="Nội Dung" type="text"
-          class="form-control"></textarea></div>
+  </div>
+  <div class="position-relative row">
+    <div class="col-sm-6">
+      <button class="btn btn-primary" id="btn-them-truyen">Thêm Truyện</button>
     </div>
-     <div class="position-relative row form-group"><label for="hinhTruyen" class="col-sm-2 col-form-label">Hình Truyện</label>
-      <div class="col-sm-10"><input name="hinhTruyen" id="hinh-truyen" placeholder="Hình Truyện" type="text" class="form-control" />
-      </div>
+    <div class="col-sm-6">
+      <button class="btn btn-primary" id="btn-them-chap">Thêm Chap</button>
     </div>
-    <div class="position-relative row">
-      <div class="col-sm-6">
-        <button class="btn btn-primary" id="btn-them-truyen">Thêm Truyện</button>
-      </div>
-       <div class="col-sm-6">
-        <button class="btn btn-primary" id="btn-them-chap">Thêm Chap</button>
-       </div>
-    </div>
-    <div class="position-relative row form-check">
-    </div>
+  </div>
+  <div class="position-relative row form-check">
+  </div>
 </div>
 <table class="mb-0 table" id="tbl-chapter-comic">
   <thead>
@@ -63,8 +70,6 @@
 <script>
   $(".get-truyen").click(function () {
     $("#tbl-chapter-comic > tbody").empty();
-
-    $('.loadingGif').show();
     $.ajax({
       type: 'post',
       data: {
@@ -78,12 +83,13 @@
         $("#tac-gia").val(truyenObj.tac_gia.replace("Tác giả", "").trim());
         var lstTheLoai = truyenObj.the_loai.replace("Thể loại", "").trim().split("-");
         var arrTheLoai = [];
-        for(var i=0 ;i<lstTheLoai.length;i++){
+        for (var i = 0; i < lstTheLoai.length; i++) {
           arrTheLoai.push(changeToSlug(lstTheLoai[i].trim()));
         }
         $("#the-loai").val(arrTheLoai);
         $("#noi-dung").val(truyenObj.noi_dung);
-         $("#hinh-truyen").val(truyenObj.hinh_truyen);
+        $("#hinh-truyen").val(truyenObj.hinh_truyen);
+        $("#so-chap").val(truyenObj.soChap);
         for (var i = 0; i < truyenObj.danh_sach_chap.length; i++) {
           var addChapterButton = $("<button>").addClass("btn-info");
           addChapterButton.text("GET CHAPTER");
@@ -95,14 +101,13 @@
         }
       }
     });
-    $('.loadingGif').hide();
   })
   $("#btn-them-truyen").click(function () {
     var urlTruyen = $(".url-truyen").val();
     $.ajax({
       type: 'post',
       data: {
-        tenTruyen:  $("#ten-truyen").val(),
+        tenTruyen: $("#ten-truyen").val(),
         tacGia: $("#tac-gia").val(),
         theLoai: $("#the-loai").val(),
         noiDung: $("#noi-dung").val(),
@@ -120,20 +125,20 @@
     if ($("#idTruyen").val()) {
       var trTable = $("#tbl-chapter-comic tr");
       for (var i = 1; i < trTable.length; i++) {
-        setTimeout(function(i) {
+        setTimeout(function (i) {
           $.ajax({
             type: 'post',
             data: {
-              idTruyen:  $("#idTruyen").val(),
-              url:trTable[i].cells[0].innerHTML
+              idTruyen: $("#idTruyen").val(),
+              url: trTable[i].cells[0].innerHTML
             },
             dataType: 'json',
             url: '/admin/leech/them-chapter',
             success: function (response) {
-              trTable[i].cells[0].innerHTML = "<b><font color='red'>"+trTable[i].cells[0].innerHTML+"</font></b>";
+              trTable[i].cells[0].innerHTML = "<b><font color='red'>" + trTable[i].cells[0].innerHTML + "</font></b>";
             }
           })
- },3000 * i,i);
+        }, 3000 * i, i);
       }
     }
 

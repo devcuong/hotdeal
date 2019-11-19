@@ -13,11 +13,7 @@ router.get("/:slugTruyen", (req, res) => {
     Truyen.aggregate([{
             $lookup: { from: "chapter", localField: "_id", foreignField: "ma_truyen", as: "chap_moi_ra" }
         },
-        // {
-        //     "$addFields": {
-        //         "chap_moi_ra": { "$slice": ["$chap_moi_ra", -3] }
-        //     }
-        // },
+        { $sort: { "ten_chuong": -1 } },
         {
             $lookup: { from: "theloai", localField: "the_loai", foreignField: "slug_the_loai", as: "ds_the_loai" }
         },
@@ -119,7 +115,6 @@ router.post("/all-chapter", (req, res) => {
             o[keyListChap] = [];
             var keySuccess = "success";
             o[keySuccess] = true;
-            var arrIdChap = new Array();
             docs.forEach(function(item) {
                 var objChap = new Object();
                 objChap.ten_chap = item.ten_chuong;

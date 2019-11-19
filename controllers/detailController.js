@@ -13,7 +13,6 @@ router.get("/:slugTruyen", (req, res) => {
     Truyen.aggregate([{
             $lookup: { from: "chapter", localField: "_id", foreignField: "ma_truyen", as: "chap_moi_ra" }
         },
-        { $sort: { "ten_chuong": -1 } },
         {
             $lookup: { from: "theloai", localField: "the_loai", foreignField: "slug_the_loai", as: "ds_the_loai" }
         },

@@ -45,6 +45,7 @@ router.post("/them-truyen", (req, res) => {
         arrTheLoaiAdd.push(arrTheLoai[i].trim());
     }
     truyen.the_loai = arrTheLoaiAdd;
+    console.log(req.body.soChap);
     truyen.so_chuong = req.body.soChap;
     truyen.luot_xem = "0";
     truyen.luot_danh_gia = "0";

@@ -3,6 +3,7 @@ var router = express.Router();
 const mongoose = require("mongoose");
 const Truyen = mongoose.model("Truyen");
 const TheLoai = mongoose.model("TheLoai");
+const Chapter = mongoose.model("Chapter");
 const stringHandle = require("../utils/stringHandle.js");
 var ObjectId = require('mongoose').Types.ObjectId;
 router.get("/", (req, res) => {
@@ -133,9 +134,15 @@ function updateRecord(req, res) {
 }
 // xóa truyện
 router.get("/delete/:id", (req, res) => {
-    Truyen.findByIdAndRemove(new ObjectId(req.params.id), (err, doc) => {
+    Chapter.remove({ ma_truyen: new ObjectId(req.params.id) }, function(err){
         if (!err) {
-            res.redirect("/admin/truyen/");
+            Truyen.findByIdAndRemove(new ObjectId(req.params.id), (err2, doc) => {
+                if (!err2) {
+                    res.redirect("/admin/truyen/");
+                } else {
+                    console.log("Error in truyen delete: " + err2);
+                }
+            });
         } else {
             console.log("Error in truyen delete: " + err);
         }

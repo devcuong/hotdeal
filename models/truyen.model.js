@@ -31,6 +31,9 @@ var truyenSchema = new mongoose.Schema({
     luot_xem: {
         type: String
     },
+    ngay_cap_nhat:{
+        type: String
+    },
     luot_danh_gia: {
         type: String
     },

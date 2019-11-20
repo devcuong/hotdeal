@@ -38,6 +38,7 @@ router.post("/them-truyen", (req, res) => {
     truyen.tac_gia = req.body.tacGia;
     truyen.hinh_truyen = req.body.hinhTruyen;
     truyen.noi_dung = req.body.noiDung;
+    truyen.ngay_cap_nhat = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
     var arrTheLoai = new Array();
     arrTheLoai = req.body.theLoai.trim().split(",");
     var arrTheLoaiAdd = new Array();

@@ -21,9 +21,8 @@
             <th>Hình</th>
             <th>Số chương</th>
             <th>xem</th>
-            <th>đ.giá</th>
-            <th>x.hạng</th>
-            <th>t.dõi</th>
+            <th>update</th>
+
         </tr>
     </thead>
     <tbody>
@@ -35,9 +34,7 @@
             <td> <img src="{{this.hinh_truyen}}" width="100px" class="src"></td>
             <td>{{this.so_chuong}}</td>
             <td>{{this.luot_xem}}</td>
-            <td>{{this.luot_danh_gia}}</td>
-            <td>{{this.xep_hang}}</td>
-            <td>{{this.luot_theo_doi}}</td>
+            <td>{{this.ngay_cap_nhat}}</td>
             <td>
                 <a href="/admin/truyen/edit/{{this._id}}"><i class="fas fa-edit"></i></a>
                 <a href="/admin/truyen/delete/{{this._id}}" onclick="return confirm('Are you sure to delete this record ?');">

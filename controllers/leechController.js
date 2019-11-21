@@ -6,6 +6,7 @@ const Truyen = mongoose.model("Truyen");
 const Chapter = mongoose.model("Chapter");
 var ObjectId = require('mongoose').Types.ObjectId;
 var moment = require('moment');
+var sleep = require('system-sleep');
 const stringHandle = require("../utils/stringHandle.js");
 // Load trang leech truyện
 router.get("/", (req, res) => {
@@ -21,7 +22,7 @@ router.post("/", (req, res) => {
     var svTruyen = "http://chauau3.herokuapp.com/lay-truyen?id=" + urlTruyen;
     request(
         svTruyen,
-        function (error, response, body) {
+        function(error, response, body) {
             if (error) {
                 return "lỗi";
             } else {
@@ -66,9 +67,9 @@ router.post("/them-chapter", (req, res) => {
     var svChapter = "http://chauau3.herokuapp.com/lay-chapter?id=" + req.body.url;
     request(
         svChapter,
-        function (error, response, body) {
+        function(error, response, body) {
             if (error) {
-                return "lỗi";
+                console.log(error);
             } else {
                 var jsonChap = JSON.parse(body);
                 var chapter = new Chapter();
@@ -93,34 +94,34 @@ router.post("/update-chapter", (req, res) => {
     var svChapter = "http://chauau3.herokuapp.com/check-update?id=" + req.body.url + "&current=" + req.body.soChap;
     request(
         svChapter,
-        function (error, response, body) {
+        function(error, response, body) {
             if (error) {
                 return "lỗi";
             } else {
                 var jsonChapUpdate = JSON.parse(body);
                 var objectReturn = new Object;
                 var keySuccess = "status";
+                objectReturn[keySuccess] = true;
                 if (req.body.soChap == jsonChapUpdate.so_chap) {
                     objectReturn[keySuccess] = false;
-                    console.log("Không có chap mới");
                 } else {
                     var listChapter = jsonChapUpdate.danh_sach_chap;
-                 
                     for (var i = 0; i < listChapter.length; i++) {
                         var params = { idTruyen: req.body.idTruyen, url: listChapter[i] };
                         request.post({
-                            url: 'http://localhost:3000/admin/leech/them-chapter',
-                            form: params
-                        },
-                            function (error, response, body) {
+                                url: 'http://localhost:3000/admin/leech/them-chapter',
+                                form: params
+                            },
+                            function(error, response, body) {
                                 if (!error) {
                                     var q = Truyen.findOne({ "_id": new ObjectId(req.body.idTruyen) });
-                                    q.exec(function (err, doc) {
+                                    q.exec(function(err, doc) {
                                         if (!err) {
                                             doc.so_chuong = Number(doc.so_chuong) + 1;
-                                            doc.save(function (errUpdate) {
-                                                if (errUpdate) {    
-                                                    console.log(errUpdate);      
+                                            doc.ngay_cap_nhat = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
+                                            doc.save(function(errUpdate) {
+                                                if (errUpdate) {
+                                                    console.log(errUpdate);
                                                 }
                                             })
                                         }
@@ -130,6 +131,7 @@ router.post("/update-chapter", (req, res) => {
                                 }
                             }
                         );
+                        sleep(3 * 1000);
                     }
                 }
                 res.send(objectReturn);

@@ -16,7 +16,10 @@ var truyenSchema = new mongoose.Schema({
     tac_gia: {
         type: String
     },
-    the_loai:  [{
+    nguon_net_truyen: {
+        type: String
+    },
+    the_loai: [{
         type: String
     }],
     hinh_truyen: {
@@ -31,7 +34,7 @@ var truyenSchema = new mongoose.Schema({
     luot_xem: {
         type: String
     },
-    ngay_cap_nhat:{
+    ngay_cap_nhat: {
         type: String
     },
     luot_danh_gia: {

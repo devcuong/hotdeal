@@ -21,7 +21,7 @@ router.post("/", (req, res) => {
     var svTruyen = "http://chauau3.herokuapp.com/lay-truyen?id=" + urlTruyen;
     request(
         svTruyen,
-        function(error, response, body) {
+        function (error, response, body) {
             if (error) {
                 return "lỗi";
             } else {
@@ -64,10 +64,9 @@ router.post("/them-truyen", (req, res) => {
 // thêm chapter theo truyện
 router.post("/them-chapter", (req, res) => {
     var svChapter = "http://chauau3.herokuapp.com/lay-chapter?id=" + req.body.url;
-    console.log(svChapter);
     request(
         svChapter,
-        function(error, response, body) {
+        function (error, response, body) {
             if (error) {
                 return "lỗi";
             } else {
@@ -94,23 +93,38 @@ router.post("/update-chapter", (req, res) => {
     var svChapter = "http://chauau3.herokuapp.com/check-update?id=" + req.body.url + "&current=" + req.body.soChap;
     request(
         svChapter,
-        function(error, response, body) {
+        function (error, response, body) {
             if (error) {
                 return "lỗi";
             } else {
                 var jsonChapUpdate = JSON.parse(body);
+                var objectReturn = new Object;
+                var keySuccess = "status";
                 if (req.body.soChap == jsonChapUpdate.so_chap) {
-                    res.json("Không có chap mới");
+                    objectReturn[keySuccess] = false;
+                    console.log("Không có chap mới");
                 } else {
                     var listChapter = jsonChapUpdate.danh_sach_chap;
-                    let params = { idTruyen: req.body.idTruyen, url: listChapter[i] };
+                 
                     for (var i = 0; i < listChapter.length; i++) {
-                        request.post(
+                        var params = { idTruyen: req.body.idTruyen, url: listChapter[i] };
+                        request.post({
                             url: 'http://localhost:3000/admin/leech/them-chapter',
-                            body: params,
-                            function(error, response, body) {
+                            form: params
+                        },
+                            function (error, response, body) {
                                 if (!error) {
-                                    res.json(response);
+                                    var q = Truyen.findOne({ "_id": new ObjectId(req.body.idTruyen) });
+                                    q.exec(function (err, doc) {
+                                        if (!err) {
+                                            doc.so_chuong = Number(doc.so_chuong) + 1;
+                                            doc.save(function (errUpdate) {
+                                                if (errUpdate) {    
+                                                    console.log(errUpdate);      
+                                                }
+                                            })
+                                        }
+                                    });
                                 } else {
                                     console.log(error);
                                 }
@@ -118,6 +132,7 @@ router.post("/update-chapter", (req, res) => {
                         );
                     }
                 }
+                res.send(objectReturn);
             }
         })
 })

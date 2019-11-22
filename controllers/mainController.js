@@ -49,6 +49,7 @@ router.get("/hot", (req, res) => {
 router.post("/load-them-truyen", (req, res) => {
     var perPage = 12;
     var page = parseInt(req.body.skip);
+    console.log(page);
     Truyen.aggregate([{
                 $lookup: { from: "chapter", localField: "_id", foreignField: "ma_truyen", as: "chap_moi_ra" }
             },
@@ -61,7 +62,6 @@ router.post("/load-them-truyen", (req, res) => {
         .limit(perPage)
         .exec(function(err, truyens) {
             if (!err) {
-                console.log(truyens.length);
                 var o = new Object;
                 var keyStatus = "status";
                 var keyListTruyen = "listTruyen";

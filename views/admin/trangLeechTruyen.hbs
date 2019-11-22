@@ -124,10 +124,10 @@
     })
   })
   $("#btn-them-chap").click(function () {
-    if ($("#idTruyen").val() == "da-co") {
+    if ("da-co" == $("#idTruyen").val()) {
       alert("Không thêm chap vì truyện đã có");
     } else {
-      if ($("#idTruyen").val()) {
+      if ("da-co" != $("#idTruyen").val()) {
         var trTable = $("#tbl-chapter-comic tr");
         for (var i = 1; i < trTable.length; i++) {
           setTimeout(function (i) {

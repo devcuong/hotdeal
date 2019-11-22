@@ -10299,7 +10299,6 @@ button,
 .app-header__logo .logo-src {
     height: 23px;
     width: 97px;
-    background: url(assets/images/logo-inverse.png)
 }
 
 .app-header__menu,
@@ -10520,10 +10519,6 @@ button,
 .app-header.header-text-dark .search-wrapper .close::after,
 .app-header.header-text-dark .search-wrapper .input-holder .search-icon span::before {
     background: rgba(0, 0, 0, 0.8)
-}
-
-.app-header.header-text-dark .app-header__logo .logo-src {
-    background: url(assets/images/logo-inverse.png)
 }
 
 .app-sidebar {
@@ -24610,6 +24605,7 @@ a.fc-more:hover {
     margin-bottom: 30px;
     background-size: 100%
 }
-.hidden{
+
+.hidden {
     display: none;
 }

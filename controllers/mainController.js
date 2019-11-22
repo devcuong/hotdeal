@@ -61,6 +61,7 @@ router.post("/load-them-truyen", (req, res) => {
         .limit(perPage)
         .exec(function(err, truyens) {
             if (!err) {
+                console.log(truyens.length);
                 var o = new Object;
                 var keyStatus = "status";
                 var keyListTruyen = "listTruyen";

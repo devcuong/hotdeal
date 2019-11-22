@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const Truyen = mongoose.model("Truyen");
 const Chapter = mongoose.model("Chapter");
 var ObjectId = require('mongoose').Types.ObjectId;
-var moment = require('moment');
+var cors = require('cors')
 var sleep = require('system-sleep');
 const stringHandle = require("../utils/stringHandle.js");
 // Load trang leech truyện
@@ -17,12 +17,12 @@ router.get("/", (req, res) => {
 });
 
 // Lấy thông tin của truyện
-router.post("/", (req, res) => {
+router.post("/", cors(), (req, res) => {
     var urlTruyen = req.body.url;
     var svTruyen = "http://chauau3.herokuapp.com/lay-truyen?id=" + urlTruyen;
     request(
         svTruyen,
-        function (error, response, body) {
+        function(error, response, body) {
             if (error) {
                 return "lỗi";
             } else {
@@ -32,9 +32,9 @@ router.post("/", (req, res) => {
 });
 
 // thêm truyện
-router.post("/them-truyen", (req, res) => {
+router.post("/them-truyen", cors(), (req, res) => {
     var truyen = new Truyen();
-    Truyen.findOne({ slug_truyen: stringHandle.changeToSlug(req.body.tenTruyen) }, function (err, obj) {
+    Truyen.findOne({ slug_truyen: stringHandle.changeToSlug(req.body.tenTruyen) }, function(err, obj) {
         if (!err) {
             console.log(obj);
             if (obj !== null) {
@@ -73,11 +73,11 @@ router.post("/them-truyen", (req, res) => {
 })
 
 // thêm chapter theo truyện
-router.post("/them-chapter", (req, res) => {
+router.post("/them-chapter", cors(), (req, res) => {
     var svChapter = "http://chauau3.herokuapp.com/lay-chapter?id=" + req.body.url;
     request(
         svChapter,
-        function (error, response, body) {
+        function(error, response, body) {
             if (error) {
                 console.log(error);
             } else {
@@ -100,11 +100,11 @@ router.post("/them-chapter", (req, res) => {
 })
 
 // check update
-router.post("/update-chapter", (req, res) => {
+router.post("/update-chapter", cors(), (req, res) => {
     var svChapter = "http://chauau3.herokuapp.com/check-update?id=" + req.body.url + "&current=" + req.body.soChap;
     request(
         svChapter,
-        function (error, response, body) {
+        function(error, response, body) {
             if (error) {
                 return "lỗi";
             } else {
@@ -119,17 +119,17 @@ router.post("/update-chapter", (req, res) => {
                     for (var i = 0; i < listChapter.length; i++) {
                         var params = { idTruyen: req.body.idTruyen, url: listChapter[i] };
                         request.post({
-                            url: 'http://localhost:3000/admin/leech/them-chapter',
-                            form: params
-                        },
-                            function (error, response, body) {
+                                url: 'http://localhost:3000/admin/leech/them-chapter',
+                                form: params
+                            },
+                            function(error, response, body) {
                                 if (!error) {
                                     var q = Truyen.findOne({ "_id": new ObjectId(req.body.idTruyen) });
-                                    q.exec(function (err, doc) {
+                                    q.exec(function(err, doc) {
                                         if (!err) {
                                             doc.so_chuong = Number(doc.so_chuong) + 1;
                                             doc.ngay_cap_nhat = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
-                                            doc.save(function (errUpdate) {
+                                            doc.save(function(errUpdate) {
                                                 if (errUpdate) {
                                                     console.log(errUpdate);
                                                 }

@@ -124,26 +124,29 @@
     })
   })
   $("#btn-them-chap").click(function () {
-    if ($("#idTruyen").val()) {
-      var trTable = $("#tbl-chapter-comic tr");
-      for (var i = 1; i < trTable.length; i++) {
-        setTimeout(function (i) {
-          $.ajax({
-            type: 'post',
-            data: {
-              idTruyen: $("#idTruyen").val(),
-              url: trTable[i].cells[0].innerHTML
-            },
-            dataType: 'json',
-            url: '/admin/leech/them-chapter',
-            success: function (response) {
-              trTable[i].cells[0].innerHTML = "<b><font color='red'>" + trTable[i].cells[0].innerHTML + "</font></b>";
-            }
-          })
-        }, 3000 * i, i);
+    if ($("#idTruyen").val() == "da-co") {
+      alert("Không thêm chap vì truyện đã có");
+    } else {
+      if ($("#idTruyen").val()) {
+        var trTable = $("#tbl-chapter-comic tr");
+        for (var i = 1; i < trTable.length; i++) {
+          setTimeout(function (i) {
+            $.ajax({
+              type: 'post',
+              data: {
+                idTruyen: $("#idTruyen").val(),
+                url: trTable[i].cells[0].innerHTML
+              },
+              dataType: 'json',
+              url: '/admin/leech/them-chapter',
+              success: function (response) {
+                trTable[i].cells[0].innerHTML = "<b><font color='red'>" + trTable[i].cells[0].innerHTML + "</font></b>";
+              }
+            })
+          }, 3000 * i, i);
+        }
       }
     }
-
   })
 
 </script>

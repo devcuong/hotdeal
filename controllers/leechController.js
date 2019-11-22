@@ -22,7 +22,7 @@ router.post("/", (req, res) => {
     var svTruyen = "http://chauau3.herokuapp.com/lay-truyen?id=" + urlTruyen;
     request(
         svTruyen,
-        function(error, response, body) {
+        function (error, response, body) {
             if (error) {
                 return "lỗi";
             } else {
@@ -34,32 +34,42 @@ router.post("/", (req, res) => {
 // thêm truyện
 router.post("/them-truyen", (req, res) => {
     var truyen = new Truyen();
-    truyen.ten_truyen = req.body.tenTruyen;
-    truyen.slug_truyen = stringHandle.changeToSlug(req.body.tenTruyen);
-    truyen.tac_gia = req.body.tacGia;
-    truyen.nguon_net_truyen = req.body.nguonNetTruyen;
-    truyen.hinh_truyen = req.body.hinhTruyen;
-    truyen.noi_dung = req.body.noiDung;
-    truyen.ngay_cap_nhat = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
-    var arrTheLoai = new Array();
-    arrTheLoai = req.body.theLoai.trim().split(",");
-    var arrTheLoaiAdd = new Array();
-    for (var i = 0; i < arrTheLoai.length; i++) {
-        arrTheLoaiAdd.push(arrTheLoai[i].trim());
-    }
-    truyen.the_loai = arrTheLoaiAdd;
-    truyen.so_chuong = req.body.soChap;
-    truyen.luot_xem = "0";
-    truyen.luot_danh_gia = "0";
-    truyen.xep_hang = "0";
-    truyen.luot_theo_doi = "0";
-    truyen.save((err, doc) => {
-        if (err) {
-            console.log(err);
-        } else {
-            res.json(doc._id);
+    Truyen.findOne({ slug_truyen: stringHandle.changeToSlug(req.body.tenTruyen) }, function (err, obj) {
+        if (!err) {
+            console.log(obj);
+            if (obj !== null) {
+                res.json("da-co");
+            } else {
+                truyen.ten_truyen = req.body.tenTruyen;
+                truyen.slug_truyen = stringHandle.changeToSlug(req.body.tenTruyen);
+                truyen.tac_gia = req.body.tacGia;
+                truyen.nguon_net_truyen = req.body.nguonNetTruyen;
+                truyen.hinh_truyen = req.body.hinhTruyen;
+                truyen.noi_dung = req.body.noiDung;
+                truyen.ngay_cap_nhat = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
+                var arrTheLoai = new Array();
+                arrTheLoai = req.body.theLoai.trim().split(",");
+                var arrTheLoaiAdd = new Array();
+                for (var i = 0; i < arrTheLoai.length; i++) {
+                    arrTheLoaiAdd.push(arrTheLoai[i].trim());
+                }
+                truyen.the_loai = arrTheLoaiAdd;
+                truyen.so_chuong = req.body.soChap;
+                truyen.luot_xem = "0";
+                truyen.luot_danh_gia = "0";
+                truyen.xep_hang = "0";
+                truyen.luot_theo_doi = "0";
+                truyen.save((err, doc) => {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        res.json(doc._id);
+                    }
+                })
+            }
         }
-    })
+    });
+
 })
 
 // thêm chapter theo truyện
@@ -67,7 +77,7 @@ router.post("/them-chapter", (req, res) => {
     var svChapter = "http://chauau3.herokuapp.com/lay-chapter?id=" + req.body.url;
     request(
         svChapter,
-        function(error, response, body) {
+        function (error, response, body) {
             if (error) {
                 console.log(error);
             } else {
@@ -94,7 +104,7 @@ router.post("/update-chapter", (req, res) => {
     var svChapter = "http://chauau3.herokuapp.com/check-update?id=" + req.body.url + "&current=" + req.body.soChap;
     request(
         svChapter,
-        function(error, response, body) {
+        function (error, response, body) {
             if (error) {
                 return "lỗi";
             } else {
@@ -109,17 +119,17 @@ router.post("/update-chapter", (req, res) => {
                     for (var i = 0; i < listChapter.length; i++) {
                         var params = { idTruyen: req.body.idTruyen, url: listChapter[i] };
                         request.post({
-                                url: 'http://localhost:3000/admin/leech/them-chapter',
-                                form: params
-                            },
-                            function(error, response, body) {
+                            url: 'http://localhost:3000/admin/leech/them-chapter',
+                            form: params
+                        },
+                            function (error, response, body) {
                                 if (!error) {
                                     var q = Truyen.findOne({ "_id": new ObjectId(req.body.idTruyen) });
-                                    q.exec(function(err, doc) {
+                                    q.exec(function (err, doc) {
                                         if (!err) {
                                             doc.so_chuong = Number(doc.so_chuong) + 1;
                                             doc.ngay_cap_nhat = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
-                                            doc.save(function(errUpdate) {
+                                            doc.save(function (errUpdate) {
                                                 if (errUpdate) {
                                                     console.log(errUpdate);
                                                 }

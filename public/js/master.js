@@ -1,9 +1,12 @@
-$(document).ready(function() { $("#truyen-de-cu").owlCarousel({ loop: !0, margin: 10, nav: !0, dots: !1, autoplay: !0, autoplayTimeout: 1e3, autoplayHoverPause: !0, navText: ['<i class="fa fa-arrow-left" aria-hidden="true"></i>', '<i class="fa fa-arrow-right" aria-hidden="true"></i>'], responsive: { 0: { items: 2 }, 600: { items: 2 }, 1000: { items: 5 } } }) });
+$(document).ready(function() { $("#truyen-de-cu").owlCarousel({ loop: !0, margin: 10, nav: !0, dots: !1, autoplay: !0, autoplayTimeout: 1e3, autoplayHoverPause: !0, navText: ['<span class="glyphicon glyphicon-chevron-left"></span>', '<i class="fa fa-arrow-right" aria-hidden="true"></i>'], responsive: { 0: { items: 2 }, 600: { items: 2 }, 1000: { items: 5 } } }) });
 
 function changeToSlug(e) { return ("@" + e.toLowerCase().replace(/á|à|ả|ạ|ã|ă|ắ|ằ|ẳ|ẵ|ặ|â|ấ|ầ|ẩ|ẫ|ậ/gi, "a").replace(/é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ/gi, "e").replace(/i|í|ì|ỉ|ĩ|ị/gi, "i").replace(/ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ/gi, "o").replace(/ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự/gi, "u").replace(/ý|ỳ|ỷ|ỹ|ỵ/gi, "y").replace(/đ/gi, "d").replace(/\`|\~|\!|\@|\#|\||\$|\%|\^|\&|\*|\(|\)|\+|\=|\,|\.|\/|\?|\>|\<|\'|\"|\:|\;|_/gi, "").replace(/ /gi, "-").replace(/\-\-\-\-\-/gi, "-").replace(/\-\-\-\-/gi, "-").replace(/\-\-\-/gi, "-").replace(/\-\-/gi, "-") + "@").replace(/\@\-|\-\@|\@/gi, "") }
 if ($(".visited-comics-page").length && "undefined" != typeof Storage)
     if (void 0 !== localStorage["visited-comics"])
-        if ((H = JSON.parse(localStorage["visited-comics"])).length > 0) { var L = $("<div>").addClass("row"); for (b = H.length - 1; b >= 0; b--) { var XA = $("<div>").addClass("col-md-3 col-truyen"),
+        if ((H = JSON.parse(localStorage["visited-comics"])).length > 0) {
+            var L = $("<div>").addClass("row");
+            for (b = H.length - 1; b >= 0; b--) {
+                var XA = $("<div>").addClass("col-md-3 col-truyen"),
                     I = H[b],
                     O = $("<div>").addClass("item"),
                     R = $("<figure>").addClass("clearfix"),
@@ -11,119 +14,210 @@ if ($(".visited-comics-page").length && "undefined" != typeof Storage)
                     U = $("<a>").attr("title", I.name).attr("href", I.url),
                     B = $("<img>").addClass("lazy").attr("alt", I.name).attr("data-original", I.image).attr("src", I.image),
                     G = $("<div>").addClass("view");
-                $("<a>").addClass("visited-remove").attr("href", "#").data("id", I.id).html('<i class="fa fa-times"></i> Xóa').click(function(e) { return e.preventDefault(), V($(this)), !1 }).appendTo(G), U.append(B), W.append(U).append(G); var M = $("<figcaption>"),
+                $("<a>").addClass("visited-remove").attr("href", "#").data("id", I.id).html('<i class="fa fa-times"></i> Xóa').click(function(e) { return e.preventDefault(), V($(this)), !1 }).appendTo(G), U.append(B), W.append(U).append(G);
+                var M = $("<figcaption>"),
                     _ = $("<h3>"),
                     P = $("<ul>"),
                     E = $("<li>").addClass("chapter clearfix"),
                     D = $("<a>").html('Đọc tiếp <i class="fa fa-angle-double-right"></i>').attr("href", I.chapterUrl),
                     N = $("<i>").text(I.chapterName).addClass("time"),
                     z = $("<a>").html(I.name).attr("title", I.name).attr("href", I.url);
-                _.append(z), E.append(D).append(N), P.append(E), M.append(_).append(P), R.append(W).append(M), O.append(R), L.append(XA), XA.append(O) }
-            $(".visited-comics-page").empty().append(L) } else $(".visited-comics-page").html("Bạn chưa đọc truyện nào.");
+                _.append(z), E.append(D).append(N), P.append(E), M.append(_).append(P), R.append(W).append(M), O.append(R), L.append(XA), XA.append(O)
+            }
+            $(".visited-comics-page").empty().append(L)
+        } else $(".visited-comics-page").html("Bạn chưa đọc truyện nào.");
 else $(".visited-comics-page").html("Bạn chưa đọc truyện nào.");
-if ($(".visited-comics").length && "undefined" != typeof Storage && void 0 !== localStorage["visited-comics"] && (H = JSON.parse(localStorage["visited-comics"])).length > 0) { var titleHistory = "<div class='title-history'><h4>Lịch sử đọc truyện<a class='view-all' href='/lich-su'>tất cả></a></h4></div>";
-    L = $("<div>").addClass("box darkBox"), P = $("<ul>").addClass("list-unstyled"); var J = 0; for (b = H.length - 1; b >= 0; b--) { I = H[b], E = $("<li>").addClass("clearfix"); var F = $("<div>").addClass("t-item");
-        E.append(F), U = $("<a>").addClass("thumb").attr("title", I.name).attr("href", I.chapterUrl), B = $("<img>").addClass("lazy").attr("alt", I.name).attr("data-original", I.image).attr("src", "//images.weserv.nl/?url=" + I.image + "&w=80"), U.append(B), F.append(U), _ = $("<h3>").addClass("t-title"), z = $("<a>").html(I.name).attr("href", I.chapterUrl), _.append(z), F.append(_); var q = $("<p>").addClass("chapter"),
+if ($(".visited-comics").length && "undefined" != typeof Storage && void 0 !== localStorage["visited-comics"] && (H = JSON.parse(localStorage["visited-comics"])).length > 0) {
+    var titleHistory = "<div class='title-history'><h4>Lịch sử đọc truyện<a class='view-all' href='/lich-su'>tất cả></a></h4></div>";
+    L = $("<div>").addClass("box darkBox"), P = $("<ul>").addClass("list-unstyled");
+    var J = 0;
+    for (b = H.length - 1; b >= 0; b--) {
+        I = H[b], E = $("<li>").addClass("clearfix");
+        var F = $("<div>").addClass("t-item");
+        E.append(F), U = $("<a>").addClass("thumb").attr("title", I.name).attr("href", I.chapterUrl), B = $("<img>").addClass("lazy").attr("alt", I.name).attr("data-original", I.image).attr("src", "//images.weserv.nl/?url=" + I.image + "&w=80"), U.append(B), F.append(U), _ = $("<h3>").addClass("t-title"), z = $("<a>").html(I.name).attr("href", I.chapterUrl), _.append(z), F.append(_);
+        var q = $("<p>").addClass("chapter"),
             K = $("<a>").html("Đọc tiếp " + I.chapterName + ' <i class="fa fa-angle-double-right"></i>').attr("href", I.chapterUrl),
-            X = $("<span>").addClass("view pull-right"); if ($("<a>").addClass("visited-remove").attr("href", "#").data("id", I.id).html('<i class="fa fa-times"></i> Xóa').click(function(e) { return e.preventDefault(), V($(this)), !1 }).appendTo(X), q.append(K).append(X), F.append(q), P.append(E), ++J > 2) break }
-    L.append(P), $(".visited-comics").empty(), $(".visited-comics").append(titleHistory), $(".visited-comics").append(L) }
+            X = $("<span>").addClass("view pull-right");
+        if ($("<a>").addClass("visited-remove").attr("href", "#").data("id", I.id).html('<i class="fa fa-times"></i> Xóa').click(function(e) { return e.preventDefault(), V($(this)), !1 }).appendTo(X), q.append(K).append(X), F.append(q), P.append(E), ++J > 2) break
+    }
+    L.append(P), $(".visited-comics").empty(), $(".visited-comics").append(titleHistory), $(".visited-comics").append(L)
+}
 
-function V(e) { if ("undefined" != typeof Storage && void 0 !== localStorage["visited-comics"]) { var t = JSON.parse(localStorage["visited-comics"]),
-            a = $(e).data("id"); if (t.length > 0) { var n = t.map(function(e) { return e.id }).indexOf(a);
-            n > -1 && (t.splice(n, 1), localStorage["visited-comics"] = JSON.stringify(t), $(e).parents(".item").remove(), $(e).parents("li").remove()) } } }
+function V(e) {
+    if ("undefined" != typeof Storage && void 0 !== localStorage["visited-comics"]) {
+        var t = JSON.parse(localStorage["visited-comics"]),
+            a = $(e).data("id");
+        if (t.length > 0) {
+            var n = t.map(function(e) { return e.id }).indexOf(a);
+            n > -1 && (t.splice(n, 1), localStorage["visited-comics"] = JSON.stringify(t), $(e).parents(".item").remove(), $(e).parents("li").remove())
+        }
+    }
+}
 jQuery.ui.autocomplete.prototype._resizeMenu = function() { this.menu.element.outerWidth(this.element.outerWidth()) }, $(function() { $("#search-input").autocomplete({ source: function(e, t) { $.ajax({ type: "post", url: "/tim-truyen/tu-khoa", dataType: "json", data: { tuKhoa: e.term }, success: function(e) { t($.map(e, function(e) { var t = "/truyen-tranh/" + e.slug_truyen + "/"; return { label: e.ten_truyen, url: t } })) } }) }, minlength: 2, select: function(e, t) { window.location.href = t.item.url }, open: function() {}, close: function() {} }) });
-for (var allTheLoai = theLoai.size, i = 0; i < allTheLoai; i++) { var a = $("<a>"),
+for (var allTheLoai = theLoai.size, i = 0; i < allTheLoai; i++) {
+    var a = $("<a>"),
         b = $("<div>").addClass("col-md-3 col-6");
-    a.attr("href", "/tim-truyen/" + theLoai.get(i)[0]), a.attr("title", theLoai.get(i)[1]), a.text(theLoai.get(i)[1]), b.append(a), $("footer .row").append(b) }
+    a.attr("href", "/tim-truyen/" + theLoai.get(i)[0]), a.attr("title", theLoai.get(i)[1]), a.text(theLoai.get(i)[1]), b.append(a), $("footer .row").append(b)
+}
 var listCategory = $(".dropdown-item");
 for (i = 0; i < listCategory.length; i++) listCategory[i].setAttribute("href", "/tim-truyen/" + changeToSlug(listCategory[i].innerText.trim()));
-for (var elementPerCol = theLoai.size / 4, lastElementCol = theLoai.size - 3 * Math.round(elementPerCol), col1 = elementPerCol, col2 = elementPerCol, col3 = elementPerCol, col4 = lastElementCol, j = (a = $("<div>").addClass("col-sm-3"), b = $("<ul>").addClass("multi-column-dropdown"), 0); j < Math.round(col1); j++) { var c = $("<li>");
-    (d = $("<a>").addClass("dropdown-item")).attr("href", "/tim-truyen/" + theLoai.get(j)[0]), d.text(theLoai.get(j)[1]), c.append(d), b.append(c) }
+for (var elementPerCol = theLoai.size / 4, lastElementCol = theLoai.size - 3 * Math.round(elementPerCol), col1 = elementPerCol, col2 = elementPerCol, col3 = elementPerCol, col4 = lastElementCol, j = (a = $("<div>").addClass("col-sm-3"), b = $("<ul>").addClass("multi-column-dropdown"), 0); j < Math.round(col1); j++) {
+    var c = $("<li>");
+    (d = $("<a>").addClass("dropdown-item")).attr("href", "/tim-truyen/" + theLoai.get(j)[0]), d.text(theLoai.get(j)[1]), c.append(d), b.append(c)
+}
 for (a.append(b), $(".multi-column .row").append(a), a = $("<div>").addClass("col-sm-3"), b = $("<ul>").addClass("multi-column-dropdown"), j = 12; j < Math.round(col1) + Math.round(col2); j++) c = $("<li>"), (d = $("<a>").addClass("dropdown-item")).attr("href", "/tim-truyen/" + theLoai.get(j)[0]), d.text(theLoai.get(j)[1]), c.append(d), b.append(c);
 for (a.append(b), $(".multi-column .row").append(a), a = $("<div>").addClass("col-sm-3"), b = $("<ul>").addClass("multi-column-dropdown"), j = 24; j < Math.round(col1) + Math.round(col2) + Math.round(col3); j++) c = $("<li>"), (d = $("<a>").addClass("dropdown-item")).attr("href", "/tim-truyen/" + theLoai.get(j)[0]), d.text(theLoai.get(j)[1]), c.append(d), b.append(c);
-for (a.append(b), $(".multi-column .row").append(a), a = $("<div>").addClass("col-sm-3"), b = $("<ul>").addClass("multi-column-dropdown"), j = 36; j < Math.round(col1) + Math.round(col2) + Math.round(col3) + Math.round(col4); j++) { var d;
-    c = $("<li>"), (d = $("<a>").addClass("dropdown-item")).attr("href", "/tim-truyen/" + theLoai.get(j)[0]), d.text(theLoai.get(j)[1]), c.append(d), b.append(c) }
+for (a.append(b), $(".multi-column .row").append(a), a = $("<div>").addClass("col-sm-3"), b = $("<ul>").addClass("multi-column-dropdown"), j = 36; j < Math.round(col1) + Math.round(col2) + Math.round(col3) + Math.round(col4); j++) {
+    var d;
+    c = $("<li>"), (d = $("<a>").addClass("dropdown-item")).attr("href", "/tim-truyen/" + theLoai.get(j)[0]), d.text(theLoai.get(j)[1]), c.append(d), b.append(c)
+}
 a.append(b), $(".multi-column .row").append(a);
 var btn = $("#back-home-button");
-$(window).scroll(function() { $(window).scrollTop() > 300 ? btn.addClass("show") : btn.removeClass("show") }), btn.on("click", function(e) { e.preventDefault(), $("html, body").animate({ scrollTop: 0 }, "300") }), $(".xem-them").click(function() { $(".loadingGif").show(); var e = $(".item-truyen").length;
-    $.ajax({ type: "post", data: { skip: e }, dataType: "json", url: "/load-them-truyen", success: function(e) { if (1 == e.status)
-                for (var t, a, n = e.listTruyen, i = 0; i < n.length; i++) { t = n[i], a = n[i].chap_moi_ra; var r = $("<div>").addClass("col-md-3 col-6"),
+$(window).scroll(function() { $(window).scrollTop() > 300 ? btn.addClass("show") : btn.removeClass("show") }), btn.on("click", function(e) { e.preventDefault(), $("html, body").animate({ scrollTop: 0 }, "300") }), $(".xem-them").click(function() {
+    $(".loadingGif").show();
+    var e = $(".item-truyen").length;
+    $.ajax({
+        type: "post",
+        data: { skip: e },
+        dataType: "json",
+        url: "/load-them-truyen",
+        success: function(e) {
+            if (1 == e.status)
+                for (var t, a, n = e.listTruyen, i = 0; i < n.length; i++) {
+                    t = n[i], a = n[i].chap_moi_ra;
+                    var r = $("<div>").addClass("col-md-3 col-6"),
                         d = $("<div>").addClass("item-truyen text-left"),
                         l = $("<figure>").addClass("clearfix"),
                         o = $("<div>").addClass("image"),
                         s = $("<a>").addClass("preview");
-                    s.attr("title", t.ten_truyen), s.attr("href", "/truyen-tranh/" + t.slug_truyen); var c = $("<img>").addClass("lazy");
-                    c.attr("src", "//images.weserv.nl/?url=" + encodeURIComponent(t.hinh_truyen) + "&w=200"), c.data("original", t.hinh_truyen), c.attr("style", "display: inline ;"); var p = $("<span>");
-                    p.attr("style", "display:none"), p.attr("id", "hidden-ten-truyen"), p.text(t.ten_truyen); var u, h = $("<span>");
-                    h.attr("style", "display:none"), h.attr("id", "hidden-the-loai"), h.text(t.the_loai), (u = $("<span>")).attr("style", "display:none"), u.attr("id", "hidden-luot-xem"), u.text(t.luot_xem), (u = $("<span>")).attr("style", "display:none"), u.attr("id", "hidden-tac-gia"), u.text(t.tac_gia); var m = $("<span>");
-                    m.attr("style", "display:none"), m.attr("id", "hidden-noi-dung"), m.text(t.noi_dung); var f = $("<div>").addClass("view clearfix"),
+                    s.attr("title", t.ten_truyen), s.attr("href", "/truyen-tranh/" + t.slug_truyen);
+                    var c = $("<img>").addClass("lazy");
+                    c.attr("src", "//images.weserv.nl/?url=" + encodeURIComponent(t.hinh_truyen) + "&w=200"), c.data("original", t.hinh_truyen), c.attr("style", "display: inline ;");
+                    var p = $("<span>");
+                    p.attr("style", "display:none"), p.attr("id", "hidden-ten-truyen"), p.text(t.ten_truyen);
+                    var u, h = $("<span>");
+                    h.attr("style", "display:none"), h.attr("id", "hidden-the-loai"), h.text(t.the_loai), (u = $("<span>")).attr("style", "display:none"), u.attr("id", "hidden-luot-xem"), u.text(t.luot_xem), (u = $("<span>")).attr("style", "display:none"), u.attr("id", "hidden-tac-gia"), u.text(t.tac_gia);
+                    var m = $("<span>");
+                    m.attr("style", "display:none"), m.attr("id", "hidden-noi-dung"), m.text(t.noi_dung);
+                    var f = $("<div>").addClass("view clearfix"),
                         v = $("<span>").addClass("pull-left"),
                         g = $("<i>").addClass("fa fa-eye"),
                         y = $("<i>").addClass("fa fa-comment"),
                         b = $("<i>").addClass("fa fa-heart"),
                         C = $("<span>").addClass("needs_to_format");
-                    C.text(n[i].luot_xem); var S = $("<span>").addClass("needs_to_format");
-                    S.text(n[i].luot_danh_gia); var x = $("<span>").addClass("needs_to_format");
-                    x.text(n[i].luot_theo_doi); var _ = $("<figcaption>"),
+                    C.text(n[i].luot_xem);
+                    var S = $("<span>").addClass("needs_to_format");
+                    S.text(n[i].luot_danh_gia);
+                    var x = $("<span>").addClass("needs_to_format");
+                    x.text(n[i].luot_theo_doi);
+                    var _ = $("<figcaption>"),
                         w = $("<H3>"),
                         L = $("<a>").addClass("jtip");
-                    L.text(n[i].ten_truyen), L.attr("href", "/truyen-tranh/" + n[i].slug_truyen); for (var k = $("<ul>"), q = 0; q < a.length; q++) { var I = $("<li>").addClass("chapter clearfix"),
+                    L.text(n[i].ten_truyen), L.attr("href", "/truyen-tranh/" + n[i].slug_truyen);
+                    for (var k = $("<ul>"), q = 0; q < a.length; q++) {
+                        var I = $("<li>").addClass("chapter clearfix"),
                             j = $("<a>").addClass("sts");
-                        j.attr("title", "Chapter " + a[a.length - (q + 1)].ten_chuong), j.attr("href", "/truyen-tranh/" + t.ten_truyen), j.text("Chapter " + a[a.length - (q + 1)].ten_chuong); var O = $("<i>").addClass("time needs_to_be_rendered");
-                        O.attr("datetime", a[a.length - (q + 1)].thoi_gian_tao), timeago.render(O, "vi"), I.append(j), I.append(O), k.append(I) }
-                    v.append(g), v.append(C), v.append(y), v.append(S), v.append(b), v.append(x), f.append(v), s.append(c), s.append(p), s.append(h), s.append(u), s.append(m), s.append(f), o.append(s), l.append(o), w.append(L), _.append(w), _.append(k), l.append(_), d.append(l), r.append(d), $(".truyen-item-home").append(r) }
-            $(".loadingGif").hide() } }) }), xOffset = 10, yOffset = 30, $("a.preview").hover(function(e) { this.t = this.title, this.title = ""; var t = this.querySelector("img.lazy").src,
+                        j.attr("title", "Chapter " + a[a.length - (q + 1)].ten_chuong), j.attr("href", "/truyen-tranh/" + t.ten_truyen), j.text("Chapter " + a[a.length - (q + 1)].ten_chuong);
+                        var O = $("<i>").addClass("time needs_to_be_rendered");
+                        O.attr("datetime", a[a.length - (q + 1)].thoi_gian_tao), timeago.render(O, "vi"), I.append(j), I.append(O), k.append(I)
+                    }
+                    v.append(g), v.append(C), v.append(y), v.append(S), v.append(b), v.append(x), f.append(v), s.append(c), s.append(p), s.append(h), s.append(u), s.append(m), s.append(f), o.append(s), l.append(o), w.append(L), _.append(w), _.append(k), l.append(_), d.append(l), r.append(d), $(".truyen-item-home").append(r)
+                }
+            $(".loadingGif").hide()
+        }
+    })
+}), xOffset = 10, yOffset = 30, $("a.preview").hover(function(e) {
+    this.t = this.title, this.title = "";
+    var t = this.querySelector("img.lazy").src,
         a = this.querySelector("span#hidden-the-loai").innerText,
         n = this.querySelector("span#hidden-luot-xem").innerText,
         i = this.querySelector("span#hidden-tac-gia").innerText,
         r = this.querySelector("span#hidden-noi-dung").innerText,
         d = ("" != this.t && this.t, "<div id='preview'>");
-    d += "<div class='tooltip-box'>", d += "<div class='img-tooltip'>", d += "<img src='" + t + "' alt='Image preview' />", d += "</div>", d += "<div class='info-tooltip'>", d += "<p><label>Thể loại:</label>" + a, d += "</p>", d += "<p><label>Lượt xem:</label>" + n, d += "</p>", d += "<p><label>Tác giả:</label>" + i, d += "</p>", d += "</div>", d += "<div class='clearfix'>", d += "</div>", d += "<div>", d += "<p><label>Nội dung:</label>" + r, d += "</p>", d += "</div>", d += "</div>", d += "</div>", $("body").append(d), $("#preview").css("top", e.pageY - xOffset + "px").css("left", e.pageX + yOffset + "px").fadeIn("fast") }, function() { this.title = this.t, $("#preview").remove() }), $("a.preview").mousemove(function(e) { $("#preview").css("top", e.pageY - xOffset + "px").css("left", e.pageX + yOffset + "px") });
+    d += "<div class='tooltip-box'>", d += "<div class='img-tooltip'>", d += "<img src='" + t + "' alt='Image preview' />", d += "</div>", d += "<div class='info-tooltip'>", d += "<p><label>Thể loại:</label>" + a, d += "</p>", d += "<p><label>Lượt xem:</label>" + n, d += "</p>", d += "<p><label>Tác giả:</label>" + i, d += "</p>", d += "</div>", d += "<div class='clearfix'>", d += "</div>", d += "<div>", d += "<p><label>Nội dung:</label>" + r, d += "</p>", d += "</div>", d += "</div>", d += "</div>", $("body").append(d), $("#preview").css("top", e.pageY - xOffset + "px").css("left", e.pageX + yOffset + "px").fadeIn("fast")
+}, function() { this.title = this.t, $("#preview").remove() }), $("a.preview").mousemove(function(e) { $("#preview").css("top", e.pageY - xOffset + "px").css("left", e.pageX + yOffset + "px") });
 var nodes = document.querySelectorAll(".needs_to_be_rendered");
 timeago.render(nodes, "vi"), timeago.cancel();
 var numberNodes = document.querySelectorAll(".needs_to_format");
 for (i = 0; i < numberNodes.length; i++) numberNodes[i].innerHTML = numberNodes[i].innerHTML.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-if ($("body").hasClass("view-chapter") && "undefined" != typeof Storage && (c = $(".chapter-id").data("id"))) { if (void 0 !== localStorage["visited-chapters"]) { if (-1 == (H = JSON.parse(localStorage["visited-chapters"])).indexOf(c)) { if (H.push(c), H.length > 2e3)
+if ($("body").hasClass("view-chapter") && "undefined" != typeof Storage && (c = $(".chapter-id").data("id"))) {
+    if (void 0 !== localStorage["visited-chapters"]) {
+        if (-1 == (H = JSON.parse(localStorage["visited-chapters"])).indexOf(c)) {
+            if (H.push(c), H.length > 2e3)
                 for (b = 0; b < 1500; b++) H.shift();
-            localStorage["visited-chapters"] = JSON.stringify(H) } } else(O = []).push(c), localStorage["visited-chapters"] = JSON.stringify(O); var x = $(".breadcrumb li").eq(2).find("a"),
+            localStorage["visited-chapters"] = JSON.stringify(H)
+        }
+    } else(O = []).push(c), localStorage["visited-chapters"] = JSON.stringify(O);
+    var x = $(".breadcrumb li").eq(2).find("a"),
         A = $(".breadcrumb li").eq(3).find("a"),
-        k = $('meta[itemprop="image"]').attr("content"); if (x && A && k) { var S = $("#hidden-id-truyen").val(); if (j = { id: S, image: k, name: x.find("span").html(), url: x.attr("href"), chapterName: A.find("span").html(), chapterUrl: A.attr("href") }, void 0 !== localStorage["visited-comics"]) { var H, T = (H = JSON.parse(localStorage["visited-comics"])).map(function(e) { return e.id }).indexOf(S); if (T > -1 && H.splice(T, 1), H.push(j), H.length > 72)
+        k = $('meta[itemprop="image"]').attr("content");
+    if (x && A && k) {
+        var S = $("#hidden-id-truyen").val();
+        if (j = { id: S, image: k, name: x.find("span").html(), url: x.attr("href"), chapterName: A.find("span").html(), chapterUrl: A.attr("href") }, void 0 !== localStorage["visited-comics"]) {
+            var H, T = (H = JSON.parse(localStorage["visited-comics"])).map(function(e) { return e.id }).indexOf(S);
+            if (T > -1 && H.splice(T, 1), H.push(j), H.length > 72)
                 for (b = 72; b < H.length; b++) H.shift();
-            localStorage["visited-comics"] = JSON.stringify(H) } else(O = []).push(j), localStorage["visited-comics"] = JSON.stringify(O) } }
+            localStorage["visited-comics"] = JSON.stringify(H)
+        } else(O = []).push(j), localStorage["visited-comics"] = JSON.stringify(O)
+    }
+}
 var proxy1 = "",
     proxy2 = "https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&gadget=a&no_expand=1&resize_h=0&rewriteMime=image%2F*&url=",
     proxy3 = "https://images.weserv.nl/?url=";
 
-function changeClass(e, t) { var a = $(e);
-    t.forEach(function(e, t) { e.classList.remove("btn-success") }), a[0].classList.add("btn-success") }
+function changeClass(e, t) {
+    var a = $(e);
+    t.forEach(function(e, t) { e.classList.remove("btn-success") }), a[0].classList.add("btn-success")
+}
 var loadChapter = document.querySelectorAll("a.loadchapter");
 
-function loadImageFromServer(e) { var t = document.querySelectorAll("img.img-truyen"); switch (e) {
+function loadImageFromServer(e) {
+    var t = document.querySelectorAll("img.img-truyen");
+    switch (e) {
         case 1:
-            t.forEach(function(e, t) { $(e).attr("src", $(e).data("src")) }); break;
+            t.forEach(function(e, t) { $(e).attr("src", $(e).data("src")) });
+            break;
         case 2:
-            t.forEach(function(e, t) { $(e).attr("src", proxy2 + encodeURIComponent($(e).data("src"))) }); break;
+            t.forEach(function(e, t) { $(e).attr("src", proxy2 + encodeURIComponent($(e).data("src"))) });
+            break;
         case 3:
-            t.forEach(function(e, t) { $(e).attr("src", proxy3 + encodeURIComponent($(e).data("src"))) }); break;
+            t.forEach(function(e, t) { $(e).attr("src", proxy3 + encodeURIComponent($(e).data("src"))) });
+            break;
         case 4:
-            t.forEach(function(e, t) { $(e).attr("src", $(e).data("cdn")) }); break;
+            t.forEach(function(e, t) { $(e).attr("src", $(e).data("cdn")) });
+            break;
         case 5:
-            t.forEach(function(e, t) { $(e).attr("src", proxy2 + encodeURIComponent($(e).data("cdn"))) }); break;
+            t.forEach(function(e, t) { $(e).attr("src", proxy2 + encodeURIComponent($(e).data("cdn"))) });
+            break;
         case 6:
-            t.forEach(function(e, t) { $(e).attr("src", proxy3 + encodeURIComponent($(e).data("cdn"))) }) } }
+            t.forEach(function(e, t) { $(e).attr("src", proxy3 + encodeURIComponent($(e).data("cdn"))) })
+    }
+}
 
-function loadListChapter(e) { e.forEach(function(e, t) { var a = new Option("Chapter " + e.ten_chap, "/truyen-tranh/" + $("#hidden-name-truyen").val() + "/chap-" + e.ten_chap + "/" + e.id_chap),
+function loadListChapter(e) {
+    e.forEach(function(e, t) {
+        var a = new Option("Chapter " + e.ten_chap, "/truyen-tranh/" + $("#hidden-name-truyen").val() + "/chap-" + e.ten_chap + "/" + e.id_chap),
             n = new Option("Chapter " + e.ten_chap, "/truyen-tranh/" + $("#hidden-name-truyen").val() + "/chap-" + e.ten_chap + "/" + e.id_chap);
-        $("#id-Select-chapter").append(a), $("#hidden-select-chapter").append(n) }); var t = window.location.pathname;
-    $("#id-Select-chapter").val(t).prop("selected", !0), $("#hidden-select-chapter").val(t).prop("selected", !0), document.querySelector(".reading-control .prev-link").classList.add("disabled"), document.querySelector(".hidden-control-mobile .prev-link").classList.add("disabled"), document.querySelector(".reading-control .next-link").classList.add("disabled"), document.querySelector(".hidden-control-mobile .next-link").classList.add("disabled"); var a = $("#id-Select-chapter option:selected"),
+        $("#id-Select-chapter").append(a), $("#hidden-select-chapter").append(n)
+    });
+    var t = window.location.pathname;
+    $("#id-Select-chapter").val(t).prop("selected", !0), $("#hidden-select-chapter").val(t).prop("selected", !0), document.querySelector(".reading-control .prev-link").classList.add("disabled"), document.querySelector(".hidden-control-mobile .prev-link").classList.add("disabled"), document.querySelector(".reading-control .next-link").classList.add("disabled"), document.querySelector(".hidden-control-mobile .next-link").classList.add("disabled");
+    var a = $("#id-Select-chapter option:selected"),
         n = a.prev(),
         i = a.next(),
         r = $("#hidden-select-chapter option:selected"),
         d = r.prev(),
         l = r.next();
-    null != n && null != n.val() && (document.querySelector(".reading-control .prev-link").setAttribute("href", n.val()), document.querySelector(".reading-control .prev-link").classList.remove("disabled")), null != i && null != i.val() && (document.querySelector(".reading-control .next-link").setAttribute("href", i.val()), document.querySelector(".reading-control .next-link").classList.remove("disabled")), null != d && null != d.val() && (document.querySelector(".hidden-control-mobile .prev-link").setAttribute("href", d.val()), document.querySelector(".hidden-control-mobile .prev-link").classList.remove("disabled")), null != l && null != l.val() && (document.querySelector(".hidden-control-mobile .next-link").setAttribute("href", l.val()), document.querySelector(".hidden-control-mobile .next-link").classList.remove("disabled")) }
-loadChapter.forEach(function(e, t) { e.addEventListener("click", function() { changeClass(this, loadChapter) }) }), document.querySelector("a.changeserver").addEventListener("click", function() { var e = document.querySelector("a.btn-success[data-server]").nextElementSibling;
-    null == e || e.classList.contains("hidden") ? (btnSuccessFirst = document.querySelectorAll("a.loadchapter")[0], changeClass(btnSuccessFirst, loadChapter)) : changeClass(e, loadChapter) }), document.querySelector("a.change-server-mobile").addEventListener("click", function() { var e = document.querySelector("a.btn-success[data-server]").nextElementSibling;
-    null == e || e.classList.contains("hidden") ? (btnSuccessFirst = document.querySelectorAll("a.change-server-mobile")[0], changeClass(btnSuccessFirst, loadChapter)) : changeClass(e, loadChapter) }), $(".btn-success").attrchange({ trackValues: !0, callback: function(e) { loadImageFromServer($(".btn-success").data("server")) } }), document.querySelector("img.img-truyen").addEventListener("error", function() { document.querySelector("a.changeserver").click() }), $(function() { $("#myFormSubmit").click(function(e) { e.preventDefault(), $.post("/truyen-tranh/error/" + $(".chapter-id").data("id"), $("#myForm").serialize(), function(e, t, a) { $("#myModal .close").click(), alert(e) }) }) }), $(window).on("load", function() { var e = $("#hidden-id-truyen").val(),
+    null != n && null != n.val() && (document.querySelector(".reading-control .prev-link").setAttribute("href", n.val()), document.querySelector(".reading-control .prev-link").classList.remove("disabled")), null != i && null != i.val() && (document.querySelector(".reading-control .next-link").setAttribute("href", i.val()), document.querySelector(".reading-control .next-link").classList.remove("disabled")), null != d && null != d.val() && (document.querySelector(".hidden-control-mobile .prev-link").setAttribute("href", d.val()), document.querySelector(".hidden-control-mobile .prev-link").classList.remove("disabled")), null != l && null != l.val() && (document.querySelector(".hidden-control-mobile .next-link").setAttribute("href", l.val()), document.querySelector(".hidden-control-mobile .next-link").classList.remove("disabled"))
+}
+loadChapter.forEach(function(e, t) { e.addEventListener("click", function() { changeClass(this, loadChapter) }) }), document.querySelector("a.changeserver").addEventListener("click", function() {
+    var e = document.querySelector("a.btn-success[data-server]").nextElementSibling;
+    null == e || e.classList.contains("hidden") ? (btnSuccessFirst = document.querySelectorAll("a.loadchapter")[0], changeClass(btnSuccessFirst, loadChapter)) : changeClass(e, loadChapter)
+}), document.querySelector("a.change-server-mobile").addEventListener("click", function() {
+    var e = document.querySelector("a.btn-success[data-server]").nextElementSibling;
+    null == e || e.classList.contains("hidden") ? (btnSuccessFirst = document.querySelectorAll("a.change-server-mobile")[0], changeClass(btnSuccessFirst, loadChapter)) : changeClass(e, loadChapter)
+}), $(".btn-success").attrchange({ trackValues: !0, callback: function(e) { loadImageFromServer($(".btn-success").data("server")) } }), document.querySelector("img.img-truyen").addEventListener("error", function() { document.querySelector("a.changeserver").click() }), $(function() { $("#myFormSubmit").click(function(e) { e.preventDefault(), $.post("/truyen-tranh/error/" + $(".chapter-id").data("id"), $("#myForm").serialize(), function(e, t, a) { $("#myModal .close").click(), alert(e) }) }) }), $(window).on("load", function() {
+    var e = $("#hidden-id-truyen").val(),
         t = [];
-    $.ajax({ type: "post", data: { idTruyen: e }, dataType: "json", url: "/truyen-tranh/all-chapter", success: function(e) { 1 == e.success && (t = e.listChap, $("#id-Select-chapter").empty(), $("#hidden-select-chapter").empty(), loadListChapter(t)) } }) }), $("#id-Select-chapter").on("change", function() { window.location.href = this.value }), $("#hidden-select-chapter").on("change", function() { window.location.href = this.value });
+    $.ajax({ type: "post", data: { idTruyen: e }, dataType: "json", url: "/truyen-tranh/all-chapter", success: function(e) { 1 == e.success && (t = e.listChap, $("#id-Select-chapter").empty(), $("#hidden-select-chapter").empty(), loadListChapter(t)) } })
+}), $("#id-Select-chapter").on("change", function() { window.location.href = this.value }), $("#hidden-select-chapter").on("change", function() { window.location.href = this.value });

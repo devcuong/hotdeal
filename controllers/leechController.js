@@ -47,7 +47,7 @@ router.post("/lay-danh-sach-truyen", cors(), (req, res) => {
 });
 
 // thêm truyện
-router.post("/them-truyen", cors(), (req, res) => {
+router.get("/them-truyen", cors(), (req, res) => {
     var truyen = new Truyen();
     Truyen.findOne({ slug_truyen: stringHandle.changeToSlug(req.body.tenTruyen) }, function(err, obj) {
         if (!err) {

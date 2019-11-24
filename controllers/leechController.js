@@ -33,7 +33,7 @@ router.post("/", cors(), (req, res) => {
 
 // Lấy danh sach  truyện
 router.get("/lay-danh-sach-truyen", cors(), (req, res) => {
-    var urlTruyen = req.body.url;
+    var urlTruyen = "http://nettruyen.com";
     var svTruyen = "http://chauau3.herokuapp.com/lay-danh-sach-truyen?id=" + urlTruyen;
     console.log(svTruyen);
     request(

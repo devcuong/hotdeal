@@ -32,7 +32,7 @@ router.post("/", cors(), (req, res) => {
 });
 
 // Lấy danh sach  truyện
-router.post("/lay-danh-sach-truyen", cors(), (req, res) => {
+router.get("/lay-danh-sach-truyen", cors(), (req, res) => {
     var urlTruyen = req.body.url;
     var svTruyen = "http://chauau3.herokuapp.com/lay-danh-sach-truyen?id=" + urlTruyen;
     request(
@@ -47,7 +47,7 @@ router.post("/lay-danh-sach-truyen", cors(), (req, res) => {
 });
 
 // thêm truyện
-router.get("/them-truyen", cors(), (req, res) => {
+router.post("/them-truyen", cors(), (req, res) => {
     var truyen = new Truyen();
     Truyen.findOne({ slug_truyen: stringHandle.changeToSlug(req.body.tenTruyen) }, function(err, obj) {
         if (!err) {

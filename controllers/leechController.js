@@ -35,6 +35,7 @@ router.post("/", cors(), (req, res) => {
 router.get("/lay-danh-sach-truyen", cors(), (req, res) => {
     var urlTruyen = req.body.url;
     var svTruyen = "http://chauau3.herokuapp.com/lay-danh-sach-truyen?id=" + urlTruyen;
+    console.log(svTruyen);
     request(
         svTruyen,
         function(error, response, body) {

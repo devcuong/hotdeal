@@ -14,7 +14,6 @@ router.get("/:page*?", (req, res) => {
         var perPage = 12;
         var page = parseInt(req.params.page) || 1;
         var skip = (perPage * page) - perPage;
-        console.log(skip);
         var q2 = Truyen.aggregate([{
                 $lookup: { from: "chapter", localField: "_id", foreignField: "ma_truyen", as: "chap_moi_ra" }
             },

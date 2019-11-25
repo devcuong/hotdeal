@@ -1475,3 +1475,11 @@ p.name {
 .pagination {
     border-radius: 0px !important;
 }
+
+.page-item:first-child .page-link {
+    border-radius: 0px !important;
+}
+
+.page-item:last-child .page-link {
+    border-radius: 0px !important;
+}

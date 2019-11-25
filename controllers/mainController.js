@@ -28,7 +28,6 @@ router.get("/:page*?", (req, res) => {
                         layout: 'homeLayout.hbs',
                         lstTruyenDeCu: truyens,
                         lstTruyenCapNhat: truyens,
-                        pages: Math.ceil(count / perPage),
                         navRender: utils.getNavRender(page, Math.ceil(count / perPage), "http://truyenra.com"),
                         hostname: "http://truyenra.com"
                     });

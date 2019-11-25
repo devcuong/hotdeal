@@ -73,8 +73,7 @@ for (a.append(b), $(".multi-column .row").append(a), a = $("<div>").addClass("co
 }
 a.append(b), $(".multi-column .row").append(a);
 var btn = $("#back-home-button");
-$(window).scroll(function() { $(window).scrollTop() > 300 ? btn.addClass("show") : btn.removeClass("show") }), btn.on("click", function(e) { e.preventDefault(), $("html, body").animate({ scrollTop: 0 }, "300") })
-xOffset = 10, yOffset = 30, $("a.preview").hover(function(e) {
+$(window).scroll(function() { $(window).scrollTop() > 300 ? btn.addClass("show") : btn.removeClass("show") }), btn.on("click", function(e) { e.preventDefault(), $("html, body").animate({ scrollTop: 0 }, "300") }), xOffset = 10, yOffset = 30, $("a.preview").hover(function(e) {
     this.t = this.title, this.title = "";
     var t = this.querySelector("img.lazy").src,
         a = this.querySelector("span#hidden-the-loai").innerText,

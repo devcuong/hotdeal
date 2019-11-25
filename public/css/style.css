@@ -1483,3 +1483,14 @@ p.name {
 .page-item:last-child .page-link {
     border-radius: 0px !important;
 }
+
+.page-link {
+    color: #ff530d;
+}
+
+.page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #ff530d;
+    border-color: #ff530d;
+}

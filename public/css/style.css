@@ -477,16 +477,6 @@ div.title_home {
     padding-left: 20px
 }
 
-.xem-them {
-    float: left;
-    width: 100%;
-    font: 300 16px/43px Open Sans, Tahoma, Geneva, sans-serif;
-    color: #fff;
-    text-align: center;
-    background: #ff530d;
-    -webkit-transition: all .5s
-}
-
 .wrap-news {
     background-color: #fff;
     border: 1px solid rgba(255, 255, 255, .2)

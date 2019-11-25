@@ -73,60 +73,8 @@ for (a.append(b), $(".multi-column .row").append(a), a = $("<div>").addClass("co
 }
 a.append(b), $(".multi-column .row").append(a);
 var btn = $("#back-home-button");
-$(window).scroll(function() { $(window).scrollTop() > 300 ? btn.addClass("show") : btn.removeClass("show") }), btn.on("click", function(e) { e.preventDefault(), $("html, body").animate({ scrollTop: 0 }, "300") }), $(".xem-them").click(function() {
-    $(".loadingGif").show();
-    var e = $(".item-truyen").length;
-    $.ajax({
-        type: "post",
-        data: { skip: e },
-        dataType: "json",
-        url: "/load-them-truyen",
-        success: function(e) {
-            if (1 == e.status)
-                for (var t, a, n = e.listTruyen, i = 0; i < n.length; i++) {
-                    t = n[i], a = n[i].chap_moi_ra;
-                    var r = $("<div>").addClass("col-md-3 col-6"),
-                        d = $("<div>").addClass("item-truyen text-left"),
-                        l = $("<figure>").addClass("clearfix"),
-                        o = $("<div>").addClass("image"),
-                        s = $("<a>").addClass("preview");
-                    s.attr("title", t.ten_truyen), s.attr("href", "/truyen-tranh/" + t.slug_truyen);
-                    var c = $("<img>").addClass("lazy");
-                    c.attr("src", "//images.weserv.nl/?url=" + encodeURIComponent(t.hinh_truyen) + "&w=200"), c.data("original", t.hinh_truyen), c.attr("style", "display: inline ;");
-                    var p = $("<span>");
-                    p.attr("style", "display:none"), p.attr("id", "hidden-ten-truyen"), p.text(t.ten_truyen);
-                    var u, h = $("<span>");
-                    h.attr("style", "display:none"), h.attr("id", "hidden-the-loai"), h.text(t.the_loai), (u = $("<span>")).attr("style", "display:none"), u.attr("id", "hidden-luot-xem"), u.text(t.luot_xem), (u = $("<span>")).attr("style", "display:none"), u.attr("id", "hidden-tac-gia"), u.text(t.tac_gia);
-                    var m = $("<span>");
-                    m.attr("style", "display:none"), m.attr("id", "hidden-noi-dung"), m.text(t.noi_dung);
-                    var f = $("<div>").addClass("view clearfix"),
-                        v = $("<span>").addClass("pull-left"),
-                        g = $("<i>").addClass("fa fa-eye"),
-                        y = $("<i>").addClass("fa fa-comment"),
-                        b = $("<i>").addClass("fa fa-heart"),
-                        C = $("<span>").addClass("needs_to_format");
-                    C.text(n[i].luot_xem);
-                    var S = $("<span>").addClass("needs_to_format");
-                    S.text(n[i].luot_danh_gia);
-                    var x = $("<span>").addClass("needs_to_format");
-                    x.text(n[i].luot_theo_doi);
-                    var _ = $("<figcaption>"),
-                        w = $("<H3>"),
-                        L = $("<a>").addClass("jtip");
-                    L.text(n[i].ten_truyen), L.attr("href", "/truyen-tranh/" + n[i].slug_truyen);
-                    for (var k = $("<ul>"), q = 0; q < a.length; q++) {
-                        var I = $("<li>").addClass("chapter clearfix"),
-                            j = $("<a>").addClass("sts");
-                        j.attr("title", "Chapter " + a[a.length - (q + 1)].ten_chuong), j.attr("href", "/truyen-tranh/" + t.ten_truyen), j.text("Chapter " + a[a.length - (q + 1)].ten_chuong);
-                        var O = $("<i>").addClass("time needs_to_be_rendered");
-                        O.attr("datetime", a[a.length - (q + 1)].thoi_gian_tao), timeago.render(O, "vi"), I.append(j), I.append(O), k.append(I)
-                    }
-                    v.append(g), v.append(C), v.append(y), v.append(S), v.append(b), v.append(x), f.append(v), s.append(c), s.append(p), s.append(h), s.append(u), s.append(m), s.append(f), o.append(s), l.append(o), w.append(L), _.append(w), _.append(k), l.append(_), d.append(l), r.append(d), $(".truyen-item-home").append(r)
-                }
-            $(".loadingGif").hide()
-        }
-    })
-}), xOffset = 10, yOffset = 30, $("a.preview").hover(function(e) {
+$(window).scroll(function() { $(window).scrollTop() > 300 ? btn.addClass("show") : btn.removeClass("show") }), btn.on("click", function(e) { e.preventDefault(), $("html, body").animate({ scrollTop: 0 }, "300") })
+xOffset = 10, yOffset = 30, $("a.preview").hover(function(e) {
     this.t = this.title, this.title = "";
     var t = this.querySelector("img.lazy").src,
         a = this.querySelector("span#hidden-the-loai").innerText,

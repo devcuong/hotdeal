@@ -12,7 +12,7 @@ const utils = require("../utils/navRender.js");
 // trang chu
 router.get("/", (req, res) => {
         var perPage = 12;
-        var page = parseInt(req.query.id) || 1;
+        var page = parseInt(req.query.page) || 1;
         var skip = (perPage * page) - perPage;
         var q2 = Truyen.aggregate([{
                 $lookup: { from: "chapter", localField: "_id", foreignField: "ma_truyen", as: "chap_moi_ra" }

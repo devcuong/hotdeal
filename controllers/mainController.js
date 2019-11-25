@@ -24,6 +24,7 @@ router.get("/:page*?", (req, res) => {
             }
         ]).sort({ _id: -1 }).limit(perPage).skip((perPage * page) - perPage).exec(function(err2, truyens) {
             if (!err2) {
+                console.log(truyens);
                 Truyen.count().exec(function(err, count) {
                     res.render("home/noiDungTrangChu", {
                         layout: 'homeLayout.hbs',

@@ -13,6 +13,7 @@ const utils = require("../utils/navRender.js");
 router.get("/:page*?", (req, res) => {
         var perPage = 12;
         var page = parseInt(req.params.page) || 1;
+        var skip = (perPage * page) - perPage;
         var q2 = Truyen.aggregate([{
                 $lookup: { from: "chapter", localField: "_id", foreignField: "ma_truyen", as: "chap_moi_ra" }
             },
@@ -21,7 +22,7 @@ router.get("/:page*?", (req, res) => {
                     "chap_moi_ra": { "$slice": ["$chap_moi_ra", -3] }
                 }
             }
-        ]).sort({ _id: -1 }).limit(perPage).skip((perPage * page) - perPage).exec(function(err2, truyens) {
+        ]).sort({ _id: -1 }).limit(perPage).skip(skip).exec(function(err2, truyens) {
             if (!err2) {
                 Truyen.count().exec(function(err, count) {
                     res.render("home/noiDungTrangChu", {

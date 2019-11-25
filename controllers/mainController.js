@@ -30,7 +30,7 @@ router.get("/:page*?", (req, res) => {
                         lstTruyenCapNhat: truyens,
                         current: page,
                         pages: Math.ceil(count / perPage),
-                        navRender: utils.getNavRender(page, Math.ceil(count / perPage), "/"),
+                        navRender: utils.getNavRender(page, Math.ceil(count / perPage), "http://truyenra.com/"),
                         hostname: "http://truyenra.com"
                     });
                 });

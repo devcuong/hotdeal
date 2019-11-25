@@ -23,7 +23,7 @@ router.get("/:page*?", (req, res) => {
                     "chap_moi_ra": { "$slice": ["$chap_moi_ra", -3] }
                 }
             }
-        ]).sort({ _id: -1 }).limit(perPage).skip(skip).exec(function(err2, truyens) {
+        ]).sort({ _id: -1 }).skip(skip).limit(perPage).exec(function(err2, truyens) {
             if (!err2) {
                 Truyen.count().exec(function(err, count) {
                     res.render("home/noiDungTrangChu", {

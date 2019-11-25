@@ -1464,6 +1464,7 @@ p.name {
 
 .pagination {
     border-radius: 0px !important;
+    float: right;
 }
 
 .page-item:first-child .page-link {

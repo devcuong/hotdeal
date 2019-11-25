@@ -1471,3 +1471,7 @@ h3.title {
 p.name {
     white-space: pre-wrap;
 }
+
+.pagination {
+    border-radius: 0px !important;
+}

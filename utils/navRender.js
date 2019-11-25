@@ -22,7 +22,7 @@ function getNavRender(current, pages, route) {
             }
         }
         if (current != pages) {
-            nav += "<li class='page-item'><a class='page-link' href='" + pages + "'>CUỐI</a></li>";
+            nav += "<li class='page-item'><a class='page-link' href='?page=" + pages + "'>CUỐI</a></li>";
         } else {
             nav += "<li class='page-item disabled'><a class='page-link'>CUỐI</a></li>";
         }

@@ -13,7 +13,6 @@ const utils = require("../utils/navRender.js");
 router.get("/:page*?", (req, res) => {
         var perPage = 12;
         var page = req.params.page || 1;
-        console.log(page);
         var q2 = Truyen.aggregate([{
                 $lookup: { from: "chapter", localField: "_id", foreignField: "ma_truyen", as: "chap_moi_ra" }
             },
@@ -24,7 +23,6 @@ router.get("/:page*?", (req, res) => {
             }
         ]).sort({ _id: -1 }).limit(perPage).skip((perPage * page) - perPage).exec(function(err2, truyens) {
             if (!err2) {
-                console.log(truyens);
                 Truyen.count().exec(function(err, count) {
                     res.render("home/noiDungTrangChu", {
                         layout: 'homeLayout.hbs',

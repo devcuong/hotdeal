@@ -5,7 +5,7 @@ function getNavRender(current, pages, route) {
         if (current == 1) {
             nav += "<li class='page-item disabled'><a class='page-link'>ĐẦU</a></li>";
         } else {
-            nav += "<li class='page-item'><a class='page-link' href='" + route + "/1'>ĐẦU</a></li>";
+            nav += "<li class='page-item'><a class='page-link' href='" + route + "/?page=1'>ĐẦU</a></li>";
         }
         var i = (Number(current) > 5 ? Number(current) - 4 : 1);
         if (i != 1) {
@@ -15,7 +15,7 @@ function getNavRender(current, pages, route) {
             if (i == current) {
                 nav += "<li class='page-item active'><a class='page-link'>" + i + "</a></li>";
             } else {
-                nav += "<li class='page-item'><a class='page-link' href='" + route + "/" + i + "'>" + i + "</a></li>";
+                nav += "<li class='page-item'><a class='page-link' href='" + route + "/?page=" + i + "'>" + i + "</a></li>";
             }
             if (i == Number(current) + 4 && i < pages) {
                 nav += "<li class='page-item disabled'><a class='page-link'>...</a></li>";

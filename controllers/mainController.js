@@ -8,9 +8,11 @@ var crypto = require("crypto");
 const mongoose = require("mongoose");
 const TheLoai = mongoose.model("TheLoai");
 const Truyen = mongoose.model("Truyen");
-
+const utils = require("../utils/navRender.js");
 // trang chu
-router.get("/", (req, res) => {
+router.get("/:page*?", (req, res) => {
+        var perPage = 12;
+        var page = req.params.page || 1;
         var q2 = Truyen.aggregate([{
                 $lookup: { from: "chapter", localField: "_id", foreignField: "ma_truyen", as: "chap_moi_ra" }
             },
@@ -19,12 +21,16 @@ router.get("/", (req, res) => {
                     "chap_moi_ra": { "$slice": ["$chap_moi_ra", -3] }
                 }
             }
-        ]).limit(12).exec(function(err2, truyens) {
+        ]).sort({ _id: -1 }).limit(perPage).skip((perPage * page) - perPage).exec(function(err2, truyens) {
             if (!err2) {
                 res.render("home/noiDungTrangChu", {
                     layout: 'homeLayout.hbs',
                     lstTruyenDeCu: truyens,
-                    lstTruyenCapNhat: truyens
+                    lstTruyenCapNhat: truyens,
+                    current: page,
+                    pages: Math.ceil(count / perPage),
+                    navRender: utils.getNavRender(page, Math.ceil(count / perPage), "/the-loai/" + tl),
+                    hostname: "http://truyenra.com"
                 });
             } else {
                 console.log(err2);

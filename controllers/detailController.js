@@ -24,7 +24,8 @@ router.get("/:slugTruyen", (req, res) => {
                 layout: 'homeLayout.hbs',
                 noiDung: truyen[0],
                 pageTitle: truyen[0].ten_truyen + " [Tới Chapter " + truyen[0].so_chuong + "]",
-                pageDescription: "❶❶✅ Đọc truyện tranh " + truyen[0].ten_truyen + " Tiếng Việt bản dịch Full mới nhất, ảnh đẹp chất lượng cao, cập nhật nhanh và sớm nhất tại TruyenRa"
+                pageDescription: "❶❶✅ Đọc truyện tranh " + truyen[0].ten_truyen + " Tiếng Việt bản dịch Full mới nhất, ảnh đẹp chất lượng cao, cập nhật nhanh và sớm nhất tại TruyenRa",
+                canonicalTag: process.env.SERVER_NAME + req.originalUrl
             })
         }
     });
@@ -62,7 +63,8 @@ router.get("/:slugTruyen/:tenChap/:idChap", (req, res) => {
                                             chapTruyen: truyen[0],
                                             nameTruyen: truyen[0].truyen_chap[0],
                                             pageTitle: truyen[0].truyen_chap[0].ten_truyen + " chap " + truyen[0].ten_chuong,
-                                            pageDescription: "❶❶✅ Đọc truyện " + truyen[0].truyen_chap[0].ten_truyen + " Chap " + truyen[0].ten_chuong + " Tiếng Việt bản đẹp chất lượng cao, cập nhật nhanh và sớm nhất tại TruyenRa"
+                                            pageDescription: "❶❶✅ Đọc truyện " + truyen[0].truyen_chap[0].ten_truyen + " Chap " + truyen[0].ten_chuong + " Tiếng Việt bản đẹp chất lượng cao, cập nhật nhanh và sớm nhất tại TruyenRa",
+                                            canonicalTag: process.env.SERVER_NAME + req.originalUrl
                                         })
                                     }
                                 });

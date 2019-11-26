@@ -7,7 +7,8 @@ const Truyen = mongoose.model("Truyen");
 router.get("/", (req, res) => {
     res.render("home/noiDungTrangHistory", {
         layout: 'homeLayout.hbs',
-        titleTrang: "LỊCH SỬ ĐỌC TRUYỆN"
+        titleTrang: "LỊCH SỬ ĐỌC TRUYỆN",
+        canonicalTag: process.env.SERVER_NAME + req.originalUrl
     })
 });
 module.exports = router;

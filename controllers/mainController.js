@@ -9,7 +9,8 @@ const mongoose = require("mongoose");
 const TheLoai = mongoose.model("TheLoai");
 const Truyen = mongoose.model("Truyen");
 const utils = require("../utils/navRender.js");
-// trang chu
+require('dotenv').config()
+    // trang chu
 router.get("/", (req, res) => {
         var perPage = 12;
         var page = parseInt(req.query.page) || 1;
@@ -31,7 +32,8 @@ router.get("/", (req, res) => {
                         lstTruyenCapNhat: truyens,
                         navRender: utils.getNavRender(page, Math.ceil(count / perPage), "http://truyenra.com"),
                         pageTitle: "Đọc truyện tranh online - Truyện gì cũng có",
-                        pageDescription: "❶❶✅ Web đọc truyện tranh online lớn nhất được cập nhật liên tục mỗi ngày - Cùng tham gia đọc truyện và thảo luận với hơn ✅10 triệu lượt người dùng tại Truyện Ra"
+                        pageDescription: "❶❶✅ Web đọc truyện tranh online lớn nhất được cập nhật liên tục mỗi ngày - Cùng tham gia đọc truyện và thảo luận với hơn ✅10 triệu lượt người dùng tại Truyện Ra",
+                        canonicalTag: process.env.SERVER_NAME + req.originalUrl
                     });
                 });
             } else {

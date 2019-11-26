@@ -7,6 +7,7 @@ const Error = mongoose.model("Error");
 var ObjectId = require('mongoose').Types.ObjectId;
 const dateFormat = require('dateformat');
 const stringHandle = require("../utils/stringHandle.js");
+require('dotenv').config();
 // Lấy truyện theo thể loại
 router.get("/:theLoaiTruyen", (req, res) => {
     var theLoaiTruyen = req.params.theLoaiTruyen;
@@ -15,7 +16,8 @@ router.get("/:theLoaiTruyen", (req, res) => {
             res.render("home/noiDungTrangTimTruyen", {
                 layout: 'homeLayout.hbs',
                 lstTruyen: truyen,
-                titleTrang: "DANH SÁCH TRUYỆN"
+                titleTrang: "DANH SÁCH TRUYỆN",
+                canonicalTag: process.env.SERVER_NAME + req.originalUrl
             })
         }
     });
@@ -24,8 +26,8 @@ router.get("/:theLoaiTruyen", (req, res) => {
 // Lấy truyện theo keyword
 router.post("/tu-khoa/", (req, res) => {
     var tuKhoa = req.body.tuKhoa.trim();
-    Truyen.find( { 'slug_truyen' : { '$regex' : stringHandle.changeToSlug(tuKhoa), '$options' : 'i' } } , { ten_truyen: 1, slug_truyen: 1 }).limit(20).exec(function(err, truyen){
-        if(!err){
+    Truyen.find({ 'slug_truyen': { '$regex': stringHandle.changeToSlug(tuKhoa), '$options': 'i' } }, { ten_truyen: 1, slug_truyen: 1 }).limit(20).exec(function(err, truyen) {
+        if (!err) {
             res.send(JSON.stringify(truyen));
         }
     })
@@ -33,15 +35,16 @@ router.post("/tu-khoa/", (req, res) => {
 
 // Lấy truyện theo theo keywork
 router.post("/ten-truyen/", (req, res) => {
-   var tuKhoa = req.body.tuKhoa.trim();
-   Truyen.find( { 'slug_truyen' : { '$regex' : stringHandle.changeToSlug(tuKhoa), '$options' : 'i' }}).exec(function(err, truyen){
-     if (!err) {
-       res.render("home/noiDungTrangTimTruyen", {
-           layout: 'homeLayout.hbs',
-           lstTruyen: truyen,
-           titleTrang: "DANH SÁCH TRUYỆN"
-       })
-     }
-   });
+    var tuKhoa = req.body.tuKhoa.trim();
+    Truyen.find({ 'slug_truyen': { '$regex': stringHandle.changeToSlug(tuKhoa), '$options': 'i' } }).exec(function(err, truyen) {
+        if (!err) {
+            res.render("home/noiDungTrangTimTruyen", {
+                layout: 'homeLayout.hbs',
+                lstTruyen: truyen,
+                titleTrang: "DANH SÁCH TRUYỆN",
+                canonicalTag: process.env.SERVER_NAME + req.originalUrl
+            })
+        }
+    });
 })
 module.exports = router;

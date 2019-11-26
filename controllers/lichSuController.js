@@ -2,7 +2,7 @@ const express = require("express");
 var router = express.Router();
 const mongoose = require("mongoose");
 const Truyen = mongoose.model("Truyen");
-
+require('dotenv').config();
 // Lấy thông tin của truyện
 router.get("/", (req, res) => {
     res.render("home/noiDungTrangHistory", {

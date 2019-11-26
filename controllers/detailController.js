@@ -61,7 +61,7 @@ router.get("/:slugTruyen/:tenChap/:idChap", (req, res) => {
                                             layout: 'homeLayout.hbs',
                                             chapTruyen: truyen[0],
                                             nameTruyen: truyen[0].truyen_chap[0],
-                                            pageTitle: truyen[0].truyen_chap[0] + " chap " + truyen[0].ten_chuong
+                                            pageTitle: truyen[0].truyen_chap[0].ten_truyen + " chap " + truyen[0].ten_chuong
 
                                         })
                                     }

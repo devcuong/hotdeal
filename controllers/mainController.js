@@ -30,7 +30,7 @@ router.get("/", (req, res) => {
                         lstTruyenDeCu: truyens,
                         lstTruyenCapNhat: truyens,
                         navRender: utils.getNavRender(page, Math.ceil(count / perPage), "http://truyenra.com"),
-                        hostname: "http://truyenra.com"
+                        pageTitle: "Đọc truyện tranh online - Truyện gì cũng có - Truyện tranh full - truyện đầy đủ nhất"
                     });
                 });
             } else {

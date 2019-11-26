@@ -23,7 +23,7 @@ router.get("/:slugTruyen", (req, res) => {
             res.render("home/noiDungTrangDetail", {
                 layout: 'homeLayout.hbs',
                 noiDung: truyen[0],
-                pageTitle: truyen[0].ten_truyen + " [Tới Chapter " + truyen[0].so_chap + "]"
+                pageTitle: truyen[0].ten_truyen + " [Tới Chapter " + truyen[0].so_chuong + "]"
 
             })
         }

@@ -60,7 +60,9 @@ router.get("/:slugTruyen/:tenChap/:idChap", (req, res) => {
                                         res.render("home/noiDungTrangChapter", {
                                             layout: 'homeLayout.hbs',
                                             chapTruyen: truyen[0],
-                                            nameTruyen: truyen[0].truyen_chap[0]
+                                            nameTruyen: truyen[0].truyen_chap[0],
+                                            pageTitle: truyen[0].truyen_chap[0] + " chap " + truyen[0].ten_chuong
+
                                         })
                                     }
                                 });

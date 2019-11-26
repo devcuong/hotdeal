@@ -6,8 +6,8 @@ const Chapter = mongoose.model("Chapter");
 const Error = mongoose.model("Error");
 var ObjectId = require('mongoose').Types.ObjectId;
 const dateFormat = require('dateformat');
-
-// Lấy thông tin của truyện
+require('dotenv').config()
+    // Lấy thông tin của truyện
 router.get("/:slugTruyen", (req, res) => {
     var slugTruyen = req.params.slugTruyen;
     Truyen.aggregate([{

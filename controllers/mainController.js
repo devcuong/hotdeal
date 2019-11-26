@@ -30,7 +30,8 @@ router.get("/", (req, res) => {
                         lstTruyenDeCu: truyens,
                         lstTruyenCapNhat: truyens,
                         navRender: utils.getNavRender(page, Math.ceil(count / perPage), "http://truyenra.com"),
-                        pageTitle: "Đọc truyện tranh online - Truyện gì cũng có"
+                        pageTitle: "Đọc truyện tranh online - Truyện gì cũng có",
+                        pageDescription: "❶❶✅ Web đọc truyện tranh online lớn nhất được cập nhật liên tục mỗi ngày - Cùng tham gia đọc truyện và thảo luận với hơn ✅10 triệu lượt người dùng tại Truyện Ra"
                     });
                 });
             } else {

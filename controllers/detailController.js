@@ -63,7 +63,7 @@ router.get("/:slugTruyen/:tenChap/:idChap", (req, res) => {
                                             chapTruyen: truyen[0],
                                             nameTruyen: truyen[0].truyen_chap[0],
                                             pageTitle: truyen[0].truyen_chap[0].ten_truyen + " chap " + truyen[0].ten_chuong,
-                                            pageDescription: "❶❶✅ Đọc truyện " + truyen[0].truyen_chap[0].ten_truyen + " Chap " + truyen[0].ten_chuong + " Tiếng Việt bản đẹp chất lượng cao, cập nhật nhanh và sớm nhất tại TruyenRa",
+                                            pageDescription: "❶❶✅ Đọc truyện " + truyen[0].truyen_chap[0].ten_truyen + " Chap " + truyen[0].ten_chuong + " Tiếng Việt bản đẹp chất lượng cao, cập nhật nhanh và sớm nhất tại TruyenRa, truyện tranh full",
                                             canonicalTag: process.env.SERVER_NAME + req.originalUrl
                                         })
                                     }

@@ -8,7 +8,8 @@ var crypto = require("crypto");
 const mongoose = require("mongoose");
 const TheLoai = mongoose.model("TheLoai");
 const Truyen = mongoose.model("Truyen");
-const utils = require("../utils/navRender.js");
+const navRender = require("../utils/navRender.js");
+const schema = require("../utils/schema.js");
 require('dotenv').config()
     // trang chu
 router.get("/", (req, res) => {
@@ -30,7 +31,7 @@ router.get("/", (req, res) => {
                         layout: 'homeLayout.hbs',
                         lstTruyenDeCu: truyens,
                         lstTruyenCapNhat: truyens,
-                        navRender: utils.getNavRender(page, Math.ceil(count / perPage), "http://truyenra.com"),
+                        navRender: navRender.getNavRender(page, Math.ceil(count / perPage), "http://truyenra.com"),
                         pageTitle: "Đọc truyện tranh online - Truyện gì cũng có",
                         pageDescription: "❶❶✅ Web đọc truyện tranh online lớn nhất được cập nhật liên tục mỗi ngày - Cùng tham gia đọc truyện và thảo luận với hơn ✅10 triệu lượt người dùng tại Truyện Ra",
                         canonicalTag: process.env.SERVER_NAME + req.originalUrl

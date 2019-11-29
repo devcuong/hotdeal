@@ -1,8 +1,7 @@
-function getSchemaPage(name) {
-
-    return slug;
+function getSchemaListTruyen(lstTruyen) {
+    var schemaString = ""
 }
 
 module.exports = {
-    getSchemaPage
+    getSchemaListTruyen
 };

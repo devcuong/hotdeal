@@ -9,7 +9,6 @@ const mongoose = require("mongoose");
 const TheLoai = mongoose.model("TheLoai");
 const Truyen = mongoose.model("Truyen");
 const navRender = require("../utils/navRender.js");
-const schema = require("../utils/schema.js");
 require('dotenv').config()
     // trang chu
 router.get("/", (req, res) => {

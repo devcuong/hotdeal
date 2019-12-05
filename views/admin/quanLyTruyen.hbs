@@ -62,10 +62,9 @@
             url: '/admin/leech/update-chapter',
             success: function (response) {
                 if(response.status){
-                    $("[data-id="+dataIndex+"]").addClass("hidden");
-                    alert("Đã update");
+                    $("[data-id="+dataIndex+"]").addClass("btn-danger");
                 }else{
-                    alert("Không có chap mới");
+                    $("[data-id="+dataIndex+"]").addClass("btn-warning");
                 }
             }
         });

@@ -30,10 +30,10 @@ router.get("/", (req, res) => {
                     },
                     {
                         "$addFields": {
-                            "chap_moi_ra": { "$slice": ["$chap_moi_ra", -1] }
+                            "chap_moi_ra": { "$slice": ["$chap_moi_ra", -2] }
                         }
                     }
-                ]).sort({ luot_xem: -1 }).exec(function(err2, truyenDeCu) {
+                ]).sort({ luot_xem: -1 }).limit(perPage).exec(function(err2, truyenDeCu) {
                     Truyen.count().exec(function(err3, count) {
                         res.render("home/noiDungTrangChu", {
                             layout: 'homeLayout.hbs',

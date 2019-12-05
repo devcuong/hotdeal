@@ -15,7 +15,7 @@ router.get("/", (req, res) => {
         var perPage = 12;
         var page = parseInt(req.query.page) || 1;
         var skip = (perPage * page) - perPage;
-        var q2 = Truyen.aggregate([{
+        var q1 = Truyen.aggregate([{
                 $lookup: { from: "chapter", localField: "_id", foreignField: "ma_truyen", as: "chap_moi_ra" }
             },
             {
@@ -23,21 +23,31 @@ router.get("/", (req, res) => {
                     "chap_moi_ra": { "$slice": ["$chap_moi_ra", -3] }
                 }
             }
-        ]).sort({ luot_xem: -1 }).skip(skip).limit(perPage).exec(function(err2, truyens) {
-            if (!err2) {
-                Truyen.count().exec(function(err, count) {
-                    res.render("home/noiDungTrangChu", {
-                        layout: 'homeLayout.hbs',
-                        lstTruyenDeCu: truyens,
-                        lstTruyenCapNhat: truyens,
-                        navRender: navRender.getNavRender(page, Math.ceil(count / perPage), "http://truyenra.com"),
-                        pageTitle: "Đọc truyện tranh online - Truyện gì cũng có",
-                        pageDescription: "❶❶✅ Web đọc truyện tranh online lớn nhất được cập nhật liên tục mỗi ngày - Cùng tham gia đọc truyện và thảo luận với hơn ✅10 triệu lượt người dùng tại Truyện Ra",
-                        canonicalTag: process.env.SERVER_NAME + req.originalUrl
+        ]).sort({ _id: -1 }).skip(skip).limit(perPage).exec(function(err1, truyenMoiChapNhat) {
+            if (!err1) {
+                Truyen.aggregate([{
+                        $lookup: { from: "chapter", localField: "_id", foreignField: "ma_truyen", as: "chap_moi_ra" }
+                    },
+                    {
+                        "$addFields": {
+                            "chap_moi_ra": { "$slice": ["$chap_moi_ra", -1] }
+                        }
+                    }
+                ]).sort({ luot_xem: -1 }).exec(function(err2, truyenDeCu) {
+                    Truyen.count().exec(function(err3, count) {
+                        res.render("home/noiDungTrangChu", {
+                            layout: 'homeLayout.hbs',
+                            lstTruyenDeCu: truyenDeCu,
+                            lstTruyenCapNhat: truyenMoiChapNhat,
+                            navRender: navRender.getNavRender(page, Math.ceil(count / perPage), "http://truyenra.com"),
+                            pageTitle: "Đọc truyện tranh online - Truyện gì cũng có",
+                            pageDescription: "❶❶✅ Web đọc truyện tranh online lớn nhất được cập nhật liên tục mỗi ngày - Cùng tham gia đọc truyện và thảo luận với hơn ✅10 triệu lượt người dùng tại Truyện Ra",
+                            canonicalTag: process.env.SERVER_NAME + req.originalUrl
+                        });
                     });
                 });
             } else {
-                console.log(err2);
+                console.log(err1);
             }
         })
     })

@@ -81,7 +81,7 @@
         url: $(".url-truyen").val()
       },
       dataType: 'json',
-      url: 'http://176.223.139.239/admin/leech/',
+      url: '/admin/leech/',
       success: function (response) {
         var truyenObj = JSON.parse(response);
         $("#ten-truyen").val(truyenObj.ten_truyen);
@@ -123,7 +123,7 @@
         chapMoiNhat: $("#chap-moi-nhat").val()
       },
       dataType: 'json',
-      url: 'http://176.223.139.239/admin/leech/them-truyen',
+      url: '/admin/leech/them-truyen',
       success: function (response) {
         alert(response);
         $("#idTruyen").val(response);
@@ -145,7 +145,7 @@
                 url: trTable[i].cells[0].innerHTML
               },
               dataType: 'json',
-              url: 'http://176.223.139.239/admin/leech/them-chapter',
+              url: '/admin/leech/them-chapter',
               success: function (response) {
                 trTable[i].cells[0].innerHTML = "<b><font color='red'>" + trTable[i].cells[0].innerHTML + "</font></b>";
               }

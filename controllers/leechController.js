@@ -141,18 +141,7 @@ router.post("/update-chapter", cors(), (req, res) => {
                             },
                             function(error, response, body) {
                                 if (!error) {
-                                    var q = Truyen.findOne({ "_id": new ObjectId(req.body.idTruyen) });
-                                    q.exec(function(err, doc) {
-                                        if (!err) {
-                                            doc.so_chuong = Number(doc.so_chuong) + 1;
-                                            doc.ngay_cap_nhat = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
-                                            doc.save(function(errUpdate) {
-                                                if (errUpdate) {
-                                                    console.log(errUpdate);
-                                                }
-                                            })
-                                        }
-                                    });
+                                    console.log("ok");
                                 } else {
                                     console.log(error);
                                 }
@@ -160,6 +149,19 @@ router.post("/update-chapter", cors(), (req, res) => {
                         );
                         sleep(3 * 1000);
                     }
+                    var q = Truyen.findOne({ "_id": new ObjectId(req.body.idTruyen) });
+                    q.exec(function(err, doc) {
+                        if (!err) {
+                            doc.so_chuong = jsonChapUpdate.so_chuong;
+                            doc.chuong_moi_nhat = jsonChapUpdate.chuong_moi_nhat;
+                            doc.ngay_cap_nhat = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
+                            doc.save(function(errUpdate) {
+                                if (errUpdate) {
+                                    console.log(errUpdate);
+                                }
+                            })
+                        }
+                    });
                 }
                 res.send(objectReturn);
             }

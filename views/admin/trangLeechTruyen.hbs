@@ -35,6 +35,11 @@
         class="form-control" />
     </div>
   </div>
+   <div class="position-relative row form-group"><label for="soChap" class="col-sm-2 col-form-label">Chap mới nhất</label>
+    <div class="col-sm-10"><input name="chapMoiNhat" id="chap-moi-nhat" placeholder="Chap mới nhất" type="text"
+        class="form-control" />
+    </div>
+  </div>
   <div class="position-relative row form-group"><label for="noiDung" class="col-sm-2 col-form-label">Nội Dung</label>
     <div class="col-sm-10"><textarea name="noiDung" id="noi-dung" placeholder="Nội Dung" type="text"
         class="form-control"></textarea></div>
@@ -89,7 +94,8 @@
         $("#the-loai").val(arrTheLoai);
         $("#noi-dung").val(truyenObj.noi_dung);
         $("#hinh-truyen").val(truyenObj.hinh_truyen);
-        $("#so-chap").val(truyenObj.so_chap);
+        $("#so-chap").val(truyenObj.so_chuong);
+        $("#chap-moi-nhat").val(truyenObj.chuong_moi_nhat);
         for (var i = 0; i < truyenObj.danh_sach_chap.length; i++) {
           var addChapterButton = $("<button>").addClass("btn-info");
           addChapterButton.text("GET CHAPTER");

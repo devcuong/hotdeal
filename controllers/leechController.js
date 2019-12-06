@@ -71,6 +71,7 @@ router.post("/them-truyen", cors(), (req, res) => {
                 }
                 truyen.the_loai = arrTheLoaiAdd;
                 truyen.so_chuong = req.body.soChap;
+                truyen.chuong_moi_nhat = req.body.chapMoiNhat;
                 truyen.luot_xem = "0";
                 truyen.luot_danh_gia = "0";
                 truyen.xep_hang = "0";

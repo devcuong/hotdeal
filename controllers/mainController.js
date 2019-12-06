@@ -33,7 +33,8 @@ router.get("/", (req, res) => {
                             "chap_moi_ra": { "$slice": ["$chap_moi_ra", -3] }
                         }
                     }
-                ]).sort({ luot_xem: -1 }).limit(perPage).exec(function(err2, truyenDeCu) {
+                ]).sort({ ngay_cap_nhat: 1 }).limit(perPage).exec(function(err2, truyenDeCu) {
+                    console.log(truyenDeCu);
                     Truyen.count().exec(function(err3, count) {
                         res.render("home/noiDungTrangChu", {
                             layout: 'homeLayout.hbs',

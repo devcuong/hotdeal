@@ -67,6 +67,8 @@ function insertRecord(req, res) {
     truyen.tac_gia = req.body.tacGia;
     truyen.hinh_truyen = req.body.hinhTruyen;
     truyen.noi_dung = req.body.noiDung;
+    truyen.chuong_moi_nhat = req.body.chuongMoiNhat;
+    truyen.ngay_cap_nhat = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
     var arrTheLoai = new Array();
     arrTheLoai = req.body.theLoai.trim().split(",");
     truyen.the_loai = arrTheLoai;
@@ -114,13 +116,18 @@ function updateRecord(req, res) {
     if (req.body.noiDung) {
         foundTruyen.noi_dung = req.body.noiDung;
     }
-
+    if(req.body.chuongMoiNhat){
+        foundTruyen.chuong_moi_nhat = req.body.chuongMoiNhat;
+    }
+    if(req.body.nguonNetTruyen){
+        foundTruyen.nguon_net_truyen = req.body.nguonNetTruyen;
+    }
     if (req.body.theLoai) {
         var arrTheLoai = new Array();
         arrTheLoai = req.body.theLoai.trim().split(",");
         foundTruyen.the_loai = arrTheLoai;
     }
-
+    foundTruyen.ngay_cap_nhat = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
     Truyen.findByIdAndUpdate(new ObjectId(req.body.truyenId), foundTruyen, { new: true, strict: false, setDefaultsOnInsert: true }, function(err, doc) {
         if (!err) {
             res.redirect("/admin/truyen/");

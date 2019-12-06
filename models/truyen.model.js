@@ -45,7 +45,7 @@ var truyenSchema = new mongoose.Schema({
         type: Number
     },
 
-    update_time: {
+    chuong_moi_nhat: {
         type: String
     },
 
